@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.2.0'
 
-gem 'rails', '4.1.0'
+gem 'rails', '4.2.0'
 gem 'json', '~> 1.8.2'
 
 group :development do
@@ -40,7 +40,7 @@ gem 'amazon_flex_pay'
 gem 'rails_config'
 
 # Active Admin
-gem 'activeadmin', github: 'activeadmin'
+#gem 'activeadmin', github: 'activeadmin'
 
 # For Heroku
 gem 'rails_12factor'

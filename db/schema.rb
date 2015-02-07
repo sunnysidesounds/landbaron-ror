@@ -13,7 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20130107010733) do
 
-  create_table "orders", id: false, force: true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "orders", id: false, force: :cascade do |t|
     t.string   "token"
     t.string   "transaction_id"
     t.string   "address_one"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20130107010733) do
     t.integer  "payment_option_id"
   end
 
-  create_table "payment_options", force: true do |t|
+  create_table "payment_options", force: :cascade do |t|
     t.decimal  "amount"
     t.string   "amount_display"
     t.text     "description"
@@ -48,7 +51,7 @@ ActiveRecord::Schema.define(version: 20130107010733) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -33,7 +33,7 @@ end
 
 # jQuery
 gem 'jquery-rails'
-gem 'jquery-ui-rails', '~> 5.0'
+gem 'jquery-ui-rails'
 
 # Kickstarter's awesome Amazon Flexible Payments gem
 gem 'amazon_flex_pay'

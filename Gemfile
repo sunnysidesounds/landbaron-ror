@@ -25,6 +25,8 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'test-unit'
+  gem 'minitest', '~> 5.5.1'
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda'
 end

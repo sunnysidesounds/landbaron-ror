@@ -1,4 +1,4 @@
-Selfstarter::Application.routes.draw do
+LandBaron::Application.routes.draw do
   root :to => 'preorder#index'
   match '/preorder'               => 'preorder#index', :via => [:get,:post]
   get 'preorder/checkout'

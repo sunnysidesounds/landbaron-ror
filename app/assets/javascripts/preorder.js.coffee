@@ -1,4 +1,4 @@
-Selfstarter =
+LandBaron =
   firstTime: true
   validateEmail: ->
     # The regex we use for validating email
@@ -7,18 +7,18 @@ Selfstarter =
       $("#email").removeClass("highlight")
       $("#amazon_button").removeClass("disabled")
     else
-      $("#email").addClass("highlight") unless Selfstarter.firstTime
+      $("#email").addClass("highlight") unless LandBaron.firstTime
       $("#amazon_button").addClass("disabled") unless $("#amazon_button").hasClass("disabled")
   init: ->
     checkoutOffset = $('body').height() - $('.footer').outerHeight() #needs to be done upon init
 
     $("#email").bind "textchange", ->
-      Selfstarter.validateEmail()
+      LandBaron.validateEmail()
     $("#email").bind "hastext", ->
-      Selfstarter.validateEmail()
+      LandBaron.validateEmail()
     # The first time they type in their email, we don't want it to throw a validation error
     $("#email").change ->
-      Selfstarter.firstTime = false
+      LandBaron.firstTime = false
 
     # init placeholder image for video
     $("#video_image").on "click", ->
@@ -49,5 +49,5 @@ Selfstarter =
         onScroll()
         $('.checkout_controls_wrapper').addClass "checkout_ready"
 $ ->
-  Selfstarter.init()
+  LandBaron.init()
   $("#email").focus() if $('.payment_options').length == 0

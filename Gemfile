@@ -19,7 +19,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0'
+  gem 'sass-rails',   '~> 4.0.2'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -42,7 +42,9 @@ gem 'amazon_flex_pay'
 gem 'rails_config'
 
 # Active Admin
-#gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', github: 'activeadmin'
 
 # For Heroku
 gem 'rails_12factor'
+
+gem 'devise'

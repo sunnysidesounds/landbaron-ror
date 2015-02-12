@@ -8,8 +8,8 @@ development:
   encoding: unicode
   database: landbaron_development
   pool: 5
-  username: your_username_on_mac
-  password:
+  username: jasonalexander
+  password: imusic
 
 
 # Warning: The database defined as "test" will be erased and
@@ -21,8 +21,8 @@ test:
   database: landbaron_test
   pool: 5
   timeout: 5000
-  username: your_username_on_mac
-  password:
+  username: jasonalexander
+  password: imusic
 
 
 production:
@@ -30,7 +30,7 @@ production:
   encoding: unicode
   database: landbaron_production
   pool: 5
-  username: your_username_on_mac
-  password:
+  username: jasonalexander
+  password: imusic
 
 

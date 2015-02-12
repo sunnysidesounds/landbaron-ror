@@ -42,7 +42,7 @@ gem 'amazon_flex_pay'
 gem 'rails_config'
 
 # Active Admin
-#gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', github: 'activeadmin'
 
 # For Heroku
 gem 'rails_12factor'

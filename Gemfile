@@ -46,3 +46,5 @@ gem 'activeadmin', github: 'activeadmin'
 
 # For Heroku
 gem 'rails_12factor'
+
+gem 'devise'

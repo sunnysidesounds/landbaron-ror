@@ -38,4 +38,44 @@
     background-color: #A3B15A;
 }
 
+.header_links {
+    font-family: "Oswald";
+    margin-left: 50%;
+    text-align:right;
+    margin-right: 50px;
+}
 
+.header_links a{
+    color: #000;
+    font-family: "Oswald";
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.header_links a:hover{
+    text-decoration: none;
+}
+
+.header_links a:visited{
+    text-decoration: none;
+}
+
+.logo {
+    width: 25%;
+    float: left;
+    margin-left: 50px;
+}
+
+.logo a {
+    font-size: 40px;
+    font-weight: bold;
+    color: #000;
+    font-family: "Oswald";
+}
+.logo a:hover{
+    text-decoration: none;
+}
+
+.logo a:visited{
+    text-decoration: none;
+}

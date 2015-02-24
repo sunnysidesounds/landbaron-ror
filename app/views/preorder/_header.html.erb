@@ -1,5 +1,14 @@
 <div id="header">
-  <div class="wrapper clearfix">
-    <h1 id="lockitron_header"><a href="/"><%= Settings.product_name %></a></h1>
-  </div>
+        <div class="logo">
+            <a href="/"><%= Settings.product_name %></a>
+        </div>
+        <div class="header_links">
+            <% if current_user %>
+                Logged in as <%= current_user.username %>.
+                <%= link_to "Sign Out", signed_out_path %>
+            <% else %>
+                <%= link_to "Sign up", new_user_path %> or
+                <%= link_to "Sign In", sign_in_path %>
+            <% end %>
+        </div>
 </div>

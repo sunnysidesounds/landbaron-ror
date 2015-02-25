@@ -1,7 +1,9 @@
 LandBaron::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  root :to => 'preorder#index'
+  # root :to => 'preorder#index'
+  root :to => 'authentication#sign_in'
+
   match '/preorder'               => 'preorder#index', :via => [:get,:post]
   get 'preorder/checkout'
   match '/preorder/share/:uuid'   => 'preorder#share', :via => :get

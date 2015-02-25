@@ -80,14 +80,71 @@
     text-decoration: none;
 }
 
-.signup_container {
+.signup_login_container {
     margin: auto;
-    width: 25%;
+    width: 40%;
     box-shadow: 0 0 3px #c0c0c0;
+}
+
+
+.lbc_tabs {
+
+}
+
+.lbc_tabs a:hover {
+    text-decoration: none;
+}
+
+.lbc_tab {
+    display: table;
+    height: 25px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.create_account_tab {
+
+    float: left;
+    width: 50%;
+}
+
+.create_account_link {
+    color: #696969;
+}
+
+.signin_account_tab {
+    width: 50%;
+    border-left: 1px solid #d3d3d3;
+}
+
+.login_account_link {
+    color: #696969;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.form_container {
+    margin: auto;
+    width: 40%;
     padding: 30px;
 }
 
-.signup_container input {
+
+
+
+
+
+.form_container input {
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
@@ -100,7 +157,7 @@
     line-height: 1.42857;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 90%;
+    width: 100%;
 
 }
 

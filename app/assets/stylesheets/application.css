@@ -69,7 +69,7 @@
 .logo a {
     font-size: 40px;
     font-weight: bold;
-    color: #000;
+    color: #696969;
     font-family: "Oswald";
 }
 .logo a:hover{
@@ -86,7 +86,6 @@
     box-shadow: 0 0 3px #c0c0c0;
 }
 
-
 .lbc_tabs {
 
 }
@@ -98,15 +97,20 @@
 .lbc_tab {
     display: table;
     height: 25px;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     padding-top: 10px;
     text-align: center;
+    font-family: "Oswald";
 }
 
 .create_account_tab {
-
     float: left;
     width: 50%;
+}
+
+.create_account_tab_notselected {
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #e9e9e9;
 }
 
 .create_account_link {
@@ -118,33 +122,23 @@
     border-left: 1px solid #d3d3d3;
 }
 
+.signin_account_tab_notselected {
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #e9e9e9;
+}
+
 .login_account_link {
     color: #696969;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .form_container {
     margin: auto;
-    width: 40%;
+    width: 60%;
     padding: 30px;
 }
 
-
-
-
-
-
 .form_container input {
+    font-family: "Oswald";
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
@@ -158,11 +152,22 @@
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
     width: 100%;
-
 }
 
 .form_group{
     padding-top: 10px;
+}
+
+.submission_form {
+
+}
+
+.submission_form input {
+    background-color: #696969;
+    color: #fff;
+    margin-top: 20px;
+    text-shadow: none;
+
 }
 
 .error_message {

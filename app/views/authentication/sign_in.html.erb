@@ -2,7 +2,7 @@
 
     <div class="signup_login_container">
         <div class="lbc_tabs">
-            <div class="lbc_tab create_account_tab">
+            <div class="lbc_tab create_account_tab create_account_tab_notselected">
                 <%= link_to "Create Account", new_user_path, class: "create_account_link" %>
             </div>
             <div class="lbc_tab signin_account_tab">
@@ -17,8 +17,7 @@
                 <div class="form_group">
                     <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: 'Password' %>
                 </div>
-
-                <div class="form_group">
+                <div class="form_group submission_form">
                     <%= f.submit 'Log In' %>
                     <%= f.submit 'Clear Form', :type => 'reset' %>
                 </div>

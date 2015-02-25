@@ -9,6 +9,7 @@ class AuthenticationController < ApplicationController
   def signed_out
     session[:user_id] = nil
     flash[:notice] = "You have been signed out."
+    redirect_to :root
   end
 
   # This method is used to login a user
@@ -54,7 +55,7 @@ class AuthenticationController < ApplicationController
 
   #You can no longer do mass assignments in Rails 4. This method helps with this change
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :phone_number, :address, :username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :address, :state, :postal_code, :username, :email, :password, :password_confirmation)
   end
 
 end

@@ -133,7 +133,7 @@
 
 .form_container {
     margin: auto;
-    width: 80%;
+    width: 85%;
     padding: 30px;
 }
 
@@ -145,6 +145,23 @@
     border-radius: 5px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     color: #666;
+    display: block;
+    font-size: 16px;
+    height: 36px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+
+.form_container select {
+    font-family: "Oswald";
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #ADADAD;
     display: block;
     font-size: 16px;
     height: 36px;
@@ -170,6 +187,38 @@
 .last_name_form {
     float: right;
     padding-bottom: 10px;
+
+}
+
+.address_form {
+    float: left;
+    padding-bottom: 10px;
+    width: 35%;
+}
+
+.state_form {
+    float: left;
+    margin-left: 35px;
+    padding-bottom: 10px;
+    width: 35%;
+}
+
+.state_form select {
+    height: 50px;
+
+}
+
+.address_form input {
+
+}
+
+.postal_code_form {
+    float: left;
+    margin-left: 10px;
+    width: 20%;
+}
+
+.postal_code_form input {
 
 }
 

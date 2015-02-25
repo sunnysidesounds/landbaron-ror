@@ -133,7 +133,7 @@
 
 .form_container {
     margin: auto;
-    width: 60%;
+    width: 80%;
     padding: 30px;
 }
 
@@ -159,6 +159,17 @@
 }
 
 .submission_form {
+
+}
+
+.first_name_form {
+    float: left;
+    padding-bottom: 10px;
+}
+
+.last_name_form {
+    float: right;
+    padding-bottom: 10px;
 
 }
 

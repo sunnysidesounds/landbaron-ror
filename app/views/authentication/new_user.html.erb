@@ -12,11 +12,11 @@
 
         <div class="form_container">
             <%= form_for (User.new), :as => :user, :url => new_user_path, :method => :post do |f| %>
-            <div class="form_group">
+            <div class="form_group first_name_form">
                 <%= f.text_field :first_name, class: 'form-control', autofocus: true, placeholder: 'First Name' %>
                 <%= show_field_error(@user, :first_name) %>
             </div>
-            <div class="form_group">
+            <div class="form_group last_name_form">
                 <%= f.text_field :last_name, class: 'form-control', autofocus: true, placeholder: 'Last Name' %>
                 <%= show_field_error(@user, :last_name) %>
             </div>
@@ -24,7 +24,6 @@
                 <%= f.text_field :phone_number, class: 'form-control', autofocus: true, placeholder: 'Phone Number' %>
                 <%= show_field_error(@user, :phone_number) %>
             </div>
-
             <div class="form_group">
                 <%= f.text_field :address, class: 'form-control', autofocus: true, placeholder: 'Street Address' %>
             </div>

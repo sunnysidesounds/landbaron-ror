@@ -1,28 +1,40 @@
-<p>Sign Up</p>
-<%= form_for (User.new), :as => :user, :url => new_user_path, :method => :post do |f| %>
-    <p>
-        <%= f.label 'username:' %><br/>
-        <%= f.text_field :username %>
-        <%= show_field_error(@user, :username) %>
-    </p>
-    <p>
-        <%= f.label 'email:' %><br/>
-        <%= f.text_field :email %>
-        <%= show_field_error(@user, :email) %>
-    </p>
-    <p>
-        <%= f.label 'password:' %><br/>
-        <%= f.password_field :password %>
-        <%= show_field_error(@user, :password) %>
-    </p>
-    <p>
-        <%= f.label 'password confirmation:' %><br/>
-        <%= f.password_field :password_confirmation %>
-        <%= show_field_error(@user, :password_confirmation) %>
-    </p>
-    <p>
-        <%= f.submit 'Sign Up' %>
-        <%= f.submit 'Clear Form', :type => 'reset' %>
-    </p>
-<% end %>
+<div class="gray_background">
+    <div class="signup_container">
+        <p>Sign Up</p>
+        <%= form_for (User.new), :as => :user, :url => new_user_path, :method => :post do |f| %>
+            <div class="form_group">
+                <%= f.text_field :first_name, class: 'form-control', autofocus: true, placeholder: 'First Name' %>
+                <%= show_field_error(@user, :first_name) %>
+            </div>
+            <div class="form_group">
+                <%= f.text_field :last_name, class: 'form-control', autofocus: true, placeholder: 'Last Name' %>
+                <%= show_field_error(@user, :last_name) %>
+            </div>
+            <div class="form_group">
+                <%= f.text_field :phone_number, class: 'form-control', autofocus: true, placeholder: 'Phone Number' %>
+                <%= show_field_error(@user, :phone_number) %>
+            </div>
+            <div class="form_group">
+                <%= f.text_field :username, class: 'form-control', autofocus: true, placeholder: 'Username' %>
+                <%= show_field_error(@user, :username) %>
+            </div>
+            <div class="form_group">
+                <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: 'Email' %>
+                <%= show_field_error(@user, :email) %>
+            </div>
+            <div class="form_group">
+                <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: 'Password' %>
+                <%= show_field_error(@user, :password) %>
+            </div>
+            <div class="form_group">
+                <%= f.password_field :password_confirmation, class: 'form-control', autofocus: true, placeholder: 'Password Confirmation' %>
+                <%= show_field_error(@user, :password_confirmation) %>
+            </div>
+            <div class="form_group">
+                <%= f.submit 'Sign Up' %>
+                <%= f.submit 'Clear Form', :type => 'reset' %>
+            </div>
+        <% end %>
+    </div>
+</div>
 

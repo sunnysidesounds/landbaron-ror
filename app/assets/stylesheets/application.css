@@ -79,3 +79,53 @@
 .logo a:visited{
     text-decoration: none;
 }
+
+.signup_container {
+    margin: auto;
+    width: 25%;
+    box-shadow: 0 0 3px #c0c0c0;
+    padding: 30px;
+}
+
+.signup_container input {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #666;
+    display: block;
+    font-size: 16px;
+    height: 36px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 90%;
+
+}
+
+.form_group{
+    padding-top: 10px;
+}
+
+.error_message {
+    color: red;
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

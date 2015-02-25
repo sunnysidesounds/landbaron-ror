@@ -6,7 +6,7 @@ module ApplicationHelper
     if !model.errors[field].empty?
       s =
           <<-EOHTML
-           <div id="error_message">
+           <div class="error_message">
              #{model.errors[field][0]}
            </div>
       EOHTML

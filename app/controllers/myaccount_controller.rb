@@ -1,2 +1,2 @@
-class Myaccount < ApplicationController
+class MyaccountController < ApplicationController
 end

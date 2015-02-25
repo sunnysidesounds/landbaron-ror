@@ -54,7 +54,7 @@ class AuthenticationController < ApplicationController
 
   #You can no longer do mass assignments in Rails 4. This method helps with this change
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :phone_number, :username, :email, :password, :password_confirmation)
   end
 
 end

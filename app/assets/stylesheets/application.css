@@ -185,27 +185,36 @@
 }
 
 .last_name_form {
-    float: right;
+    float: left;
+    margin-left: 33px;
     padding-bottom: 10px;
-
+    width: 50%;
 }
 
 .address_form {
     float: left;
     padding-bottom: 10px;
-    width: 35%;
+    width: 50%;
 }
 
 .state_form {
     float: left;
-    margin-left: 35px;
+    margin-left: 33px;
     padding-bottom: 10px;
-    width: 35%;
+    width: 20%;
 }
 
 .state_form select {
     height: 50px;
 
+}
+
+.income_range_form {
+    width: 105%;
+}
+
+.income_range_form select {
+    height: 50px;
 }
 
 .address_form input {

@@ -33,12 +33,13 @@
             <div class="form_group postal_code_form">
                 <%= f.text_field :postal_code, class: 'form-control', autofocus: true, placeholder: 'Postal Code' %>
             </div>
-            <div class="form_group">
-                <%= f.text_field :phone_number, class: 'form-control', autofocus: true, placeholder: 'Phone Number' %>
-                <%= show_field_error(@user, :phone_number) %>
+            <div class="form_group income_range_form">
+                <%= f.select :income_range, options_for_select(income_range) %>
             </div>
-
-
+            <div class="form_group">
+                <%= f.text_field :username, class: 'form-control', autofocus: true, placeholder: 'Username' %>
+                <%= show_field_error(@user, :username) %>
+            </div>
             <div class="form_group">
                 <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: 'Email Address' %>
                 <%= show_field_error(@user, :email) %>

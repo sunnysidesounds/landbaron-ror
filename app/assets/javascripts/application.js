@@ -19,9 +19,11 @@
 //= require preorder
 //= require_tree .
 
-$(document).ready(function() {
+var $j = jQuery.noConflict();
 
-    $("#flash_notice").slideUp(500).delay(5000)
+$j(document).ready(function() {
+
+    //$j("#flash_notice").slideUp(500).delay(5000)
 
 
 

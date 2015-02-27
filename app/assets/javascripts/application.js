@@ -21,6 +21,7 @@
 
 $(document).ready(function() {
 
+    $("#flash_notice").slideUp(500).delay(5000)
 
 
 

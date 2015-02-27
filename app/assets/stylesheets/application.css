@@ -43,13 +43,14 @@
     margin-left: 50%;
     text-align:right;
     margin-right: 50px;
+    margin-top: 10px;
 }
 
 .header_links a{
-    color: #000;
+    color: #696969;
     font-family: "Oswald";
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .header_links a:hover{
@@ -60,10 +61,29 @@
     text-decoration: none;
 }
 
+.header_links_list {
+
+}
+
+.header_links_list_value {
+    display: inline;
+    padding-left: 15px;
+}
+
+.header_links_username {
+    font-size: 16px;
+}
+
+.header_links_username span {
+    font-weight: bold;
+}
+
+
 .logo {
     width: 25%;
     float: left;
     margin-left: 50px;
+    margin-top: 8px;
 }
 
 .logo a {
@@ -244,6 +264,8 @@
     font-size: 12px;
     padding-top: 5px;
 }
+
+
 
 
 

@@ -12,20 +12,20 @@ LandBaron::Application.routes.draw do
   match '/preorder/postfill'      => 'preorder#postfill', :via => [:get,:post]
 
   # Authentication
-  get "sign_in" => "authentication#sign_in"
-  post "sign_in" => "authentication#login"
-  get "signed_out" => "authentication#signed_out"
-  get "change_password" => "authentication#change_password"
-  get "forgot_password" => "authentication#forgot_password"
-  get "new_user" => "authentication#new_user"
-  post "new_user" => "authentication#register"
-  get "password_sent" => "authentication#password_sent"
+  get 'sign_in' => 'authentication#sign_in'
+  post 'sign_in' => 'authentication#login'
+  get 'signed_out' => 'authentication#signed_out'
+  get 'change_password' => 'authentication#change_password'
+  get 'forgot_password' => 'authentication#forgot_password'
+  get 'new_user' => 'authentication#new_user'
+  post 'new_user' => 'authentication#register'
+  get 'password_sent' => 'authentication#password_sent'
 
   # My Account
-  get "account" => "myaccount#account"
+  get 'account' => 'myaccount#account'
 
   #Landing Page
-  get "currentdeals" => "currentdeals#deals"
+  get 'currentdeals' => 'currentdeals#deals'
 
 
 end

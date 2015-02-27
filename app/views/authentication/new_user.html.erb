@@ -27,6 +27,9 @@
             <div class="form_group address_form">
                 <%= f.text_field :address, class: 'form-control', autofocus: true, placeholder: 'Street Address' %>
             </div>
+            <div class="form_group city_form">
+                <%= f.text_field :city, class: 'form-control', autofocus: true, placeholder: 'City' %>
+            </div>
             <div class="form_group state_form">
                 <%= f.select :state, options_for_select(us_states) %>
             </div>

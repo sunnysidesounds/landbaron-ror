@@ -216,16 +216,20 @@
 
 .address_form {
     float: left;
-    padding-bottom: 10px;
     width: 50%;
 }
 
 .state_form {
+    width: 40%;
+    float: left;
+    padding-bottom: 10px;
+}
+
+.city_form {
     float: left;
     margin-left: 33px;
-    padding-bottom: 10px;
-    width: 20%;
 }
+
 
 .state_form select {
     height: 50px;
@@ -247,7 +251,7 @@
 .postal_code_form {
     float: left;
     margin-left: 10px;
-    width: 20%;
+    width: 57%;
 }
 
 .postal_code_form input {

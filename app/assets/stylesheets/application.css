@@ -265,6 +265,20 @@
     padding-top: 5px;
 }
 
+.deals_list_item {
+    display: inline;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.deals_list {
+
+}
+
+.deals_container {
+    text-align: center;
+}
+
 
 
 

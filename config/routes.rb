@@ -20,16 +20,12 @@ LandBaron::Application.routes.draw do
   get "signed_out" => "authentication#signed_out"
   get "change_password" => "authentication#change_password"
   get "forgot_password" => "authentication#forgot_password"
-
-
-  #match 'new_user'      => 'authentication#new_user', :via => [:get,:post]
-
-
   get "new_user" => "authentication#new_user"
   post "new_user" => "authentication#register"
-
-
   get "password_sent" => "authentication#password_sent"
+
+  # My Account
+  get "account" => "myaccount#account"
 
 
 end

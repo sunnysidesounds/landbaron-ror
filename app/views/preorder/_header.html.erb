@@ -6,6 +6,7 @@
             <ul class="header_links_list">
             <% if current_user %>
                 <li class="header_links_list_value header_links_username">Username: <span><%= current_user.username %></span></li>
+                    <li class="header_links_list_value"><%= link_to "Account", account_path %></li>
                 <li class="header_links_list_value"><%= link_to "Sign Out", signed_out_path %></li>
             <% else %>
                     <li class="header_links_list_value"><%= link_to "Login", sign_in_path %></li>

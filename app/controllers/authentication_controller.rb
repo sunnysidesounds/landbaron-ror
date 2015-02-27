@@ -15,6 +15,9 @@ class AuthenticationController < ApplicationController
   # This method is used to login a user
   def login
     username_or_email = params[:user][:username]
+
+    logger.info("username / email : " + username_or_email)
+
     password = params[:user][:password]
 
     if username_or_email.rindex('@')
@@ -26,6 +29,7 @@ class AuthenticationController < ApplicationController
     end
 
     if user
+      session[:user_id] = user.id
       flash[:notice] = 'Welcome.'
       redirect_to :controller => 'preorder', :action => 'index'
     else

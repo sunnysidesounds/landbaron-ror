@@ -18,3 +18,12 @@
 //= require jquery.textchange
 //= require preorder
 //= require_tree .
+
+$(document).ready(function() {
+
+
+
+
+});
+
+

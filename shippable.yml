@@ -19,7 +19,7 @@ before_install:
   - apt-get update && apt-get install postgresql libpq-dev -y
 
 install:
-  - bundle install bunde--gemfile="Gemfile"
+  - bundle install --gemfile="Gemfile"
   - ruby -v
   - bundle exec rake install
 

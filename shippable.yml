@@ -18,7 +18,7 @@ before_install:
   - source ~/.bashrc && ~/.rvm/scripts/rvm && rvm use $SHIPPABLE_RUBY
 
 install:
-  - bundle install --gemfile="Gemfile"
+  - bundle install --quiet --gemfile="Gemfile"
   - ruby -v
 
 script:

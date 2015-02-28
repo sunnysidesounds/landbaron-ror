@@ -248,7 +248,7 @@ DEPENDENCIES
   jquery-ui-rails
   json (~> 1.8.2)
   minitest (~> 5.5.1)
-  pg
+  pg (= 0.17.0)
   pry-rails
   rails (= 4.2.0)
   rails_12factor

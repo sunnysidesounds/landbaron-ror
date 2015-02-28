@@ -19,11 +19,14 @@ before_install:
   - apt-get update && apt-get install postgresql libpq-dev -y
 
 install:
-  - bundle install --gemfile="Gemfile"
+  - bundle install bunde--gemfile="Gemfile"
   - ruby -v
+  - bundle exec rake install
 
 script:
-  - bundle exec rake
+  - bundle exec rake spec
+
+cache: true
 
 after_failure:
   - python slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN

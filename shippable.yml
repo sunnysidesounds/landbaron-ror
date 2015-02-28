@@ -3,7 +3,7 @@ language: ruby
 build_image: shippableimages/ubuntu1404_ruby
 
 rvm:
-  - 2.2.0
+  - 2.1.5
 
 env:
   - SLACK_ORG=landbaronclub PROJECT=landbaron

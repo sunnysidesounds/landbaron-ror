@@ -18,13 +18,17 @@ before_install:
   - source ~/.bashrc && ~/.rvm/scripts/rvm && rvm use $SHIPPABLE_RUBY
   - apt-get update && apt-get install postgresql libpq-dev -y
 
+
 install:
   - bundle install --gemfile="Gemfile"
   - ruby -v
-  - bundle exec rake install
 
-script:
-  - bundle exec rake spec
+before_script:
+  - mkdir -p shippable/testresults
+  - psql -c 'create database "landbaron_test";' -U postgres
+
+after_script:
+  - bundle exec rake spec 2>&1 | tee shippable/testresults/results.out
 
 cache: true
 

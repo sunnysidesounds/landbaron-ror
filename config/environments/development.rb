@@ -35,4 +35,7 @@ LandBaron::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # set eager load to false
+  config.eager_load = false
 end

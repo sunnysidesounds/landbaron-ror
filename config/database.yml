@@ -21,8 +21,8 @@ test:
   database: landbaron_test
   pool: 5
   timeout: 5000
-  username: <your_username>
-  password: <password>
+  username: postgres
+  password:
 
 
 production:

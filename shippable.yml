@@ -27,7 +27,7 @@ before_script:
   - mkdir -p shippable/testresults
 #  - psql -c 'create database "landbaron_test";' -U postgres
 
-after_script:
+script:
   - bundle exec rake spec 2>&1 | tee shippable/testresults/results.out
 
 cache: true

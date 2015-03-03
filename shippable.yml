@@ -29,10 +29,12 @@ install:
 before_script:
   - mkdir -p shippable/testresults
   - psql -c 'create database "landbaron_test";' -U postgres
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - RAILS_ENV=test bundle exec rake db:seed
 
 script:
 #  - bundle exec rake spec 2>&1 | tee shippable/testresults/results.out
-  - bundle exec rake spec
+  - RAILS_ENV=test bundle exec rake spec
 
 cache: true
 

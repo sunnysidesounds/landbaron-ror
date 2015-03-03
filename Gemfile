@@ -29,6 +29,7 @@ group :development, :test do
   gem 'minitest', '~> 5.5.1'
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda'
+  gem 'therubyracer'
 end
 
 # jQuery

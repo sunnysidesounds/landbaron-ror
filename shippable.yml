@@ -16,7 +16,10 @@ before_install:
   - rvm get stable
   - rvm install $SHIPPABLE_RUBY --verify-downloads 1
   - source ~/.bashrc && ~/.rvm/scripts/rvm && rvm use $SHIPPABLE_RUBY
-  - apt-get update && apt-get install postgresql libpq-dev -y
+  - shippable_retry sudo apt-get install -y postgresql-9.3 postgresql-contrib-9.3 postgresql-server-dev-9.3
+  - echo "host all all localhost trust" > /etc/postgresql/9.3/main/pg_hba.conf
+  - echo "local all all trust" >> /etc/postgresql/9.3/main/pg_hba.conf
+  - service postgresql start
 
 
 install:
@@ -25,7 +28,7 @@ install:
 
 before_script:
   - mkdir -p shippable/testresults
-#  - psql -c 'create database "landbaron_test";' -U postgres
+  - psql -c 'create database "landbaron_test";' -U postgres
 
 script:
 #  - bundle exec rake spec 2>&1 | tee shippable/testresults/results.out

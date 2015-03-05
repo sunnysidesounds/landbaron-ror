@@ -22,7 +22,7 @@ LandBaron::Application.routes.draw do
   get 'password_sent' => 'authentication#password_sent'
 
   # My Account
-  get 'account' => 'myaccount#account'
+  get 'account' => 'my_account#account'
 
   #Landing Page
   get 'currentdeals' => 'currentdeals#deals'

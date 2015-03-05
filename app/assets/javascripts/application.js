@@ -18,3 +18,15 @@
 //= require jquery.textchange
 //= require preorder
 //= require_tree .
+
+var $j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+    //$j("#flash_notice").slideUp(500).delay(5000)
+
+
+
+});
+
+

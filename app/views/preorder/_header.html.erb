@@ -1,5 +1,19 @@
 <div id="header">
-  <div class="wrapper clearfix">
-    <h1 id="lockitron_header"><a href="/"><%= Settings.product_name %></a></h1>
-  </div>
+        <div class="logo">
+            <a href="/"><%= Settings.product_name %></a>
+        </div>
+        <div class="header_links">
+            <ul class="header_links_list">
+            <% if current_user %>
+                <li class="header_links_list_value header_links_username">Username: <span><%= current_user.username %></span></li>
+                <li class="header_links_list_value"><%= link_to "Current Deals", currentdeals_path %></li>
+                <li class="header_links_list_value"><%= link_to "Deal Room", preorder_path %></li>
+                <li class="header_links_list_value"><%= link_to "Account", account_path %></li>
+                <li class="header_links_list_value"><%= link_to "Sign Out", signed_out_path %></li>
+            <% else %>
+                <li class="header_links_list_value"><%= link_to "Login", sign_in_path %></li>
+                <li class="header_links_list_value"><%= link_to "Sign up", new_user_path %></li>
+            <% end %>
+            </ul>
+        </div>
 </div>

@@ -12,7 +12,7 @@ project_goal: 100000
 # If you want to edit the FAQ, head over to app/views/preorder/homepage/_faqs.html.erb
 
 # This'll be both the page title (<title></title>) and the name in the header
-product_name: "LandBaron"
+product_name: "Land Baron Club"
 
 # This will be used in sentences like Hooray You've just reserved product_description
 product_description: "a set of widgets"
@@ -22,7 +22,7 @@ product_description: "a set of widgets"
 product_image_path: "my-product-image.png"
 
 # The message on the preorder page, Lockitron's is ""
-value_proposition: "Roll your own crowdfunding"
+value_proposition: "Unleash Your Inner Baron"
 
 # YouTube or Vimeo Video URL (The embed URL, without the query string options)
 # Replace /embed/ in your video url path with /v/ for video playback to work.
@@ -63,7 +63,7 @@ primary_stat: "backers"
 primary_stat_verb: 'backer'
 
 # The 2nd call to action button, towards the middle-ish of the page
-middle_reserve_text: "Reserve Now"
+middle_reserve_text: "Invest Now"
 
 # When the project should end
 expiration_date: <%= DateTime.now + 29 %>
@@ -76,8 +76,8 @@ progress_text: "Implemented"
 # On Lockitron, it's "First Batch Ships in March 2013"
 ships: "Ships...sometime"
 
-# On Lockitron, it's "Reserve Now"
-call_to_action: "Reserve Now"
+# On Lockitron, it's "Invest Now"
+call_to_action: "Invest Now"
 # On Lockitron, this is "Only $149 for a limited time"
 price_human: "It costs money!"
 

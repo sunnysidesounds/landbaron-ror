@@ -242,6 +242,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   amazon_flex_pay
+  bcrypt
   coffee-rails (~> 4.0.0)
   devise
   jquery-rails

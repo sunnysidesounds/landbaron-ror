@@ -9,6 +9,8 @@ LandBaron::Application.configure do
   # Log error messages when you accidentally call methods on nil.
   config.whiny_nils = true
 
+  config.eager_load = false
+
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
@@ -35,7 +37,4 @@ LandBaron::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
-  # set eager load to false
-  config.eager_load = false
 end

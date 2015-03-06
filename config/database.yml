@@ -8,7 +8,7 @@ development:
   encoding: unicode
   database: landbaron_development
   pool: 5
-  username: <your_username>
+  username: postgres
   password: <password>
 
 

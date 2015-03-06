@@ -49,3 +49,6 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'rails_12factor'
 
 gem 'devise'
+
+# Password encryption
+gem 'bcrypt', :require=>'bcrypt'

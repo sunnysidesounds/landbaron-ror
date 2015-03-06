@@ -13,6 +13,8 @@
  *= require main
  *= require jquery-ui
  */
+
+
 .hidden
 {
   display: none;
@@ -23,3 +25,376 @@
 .pull-right {
     float: right;
 }
+
+#flash_error {
+    padding: 12px;
+    background-color: #e9e9e9;
+    font-size: 14px;
+    color: red;
+    margin-left: 40px;
+}
+
+#flash_notice {
+    background-color: #e9e9e9;
+    font-size: 14px;
+    padding: 12px;
+    margin-left: 40px;
+}
+
+.header_links {
+    font-family: "Syncopate";
+    margin-left: 50%;
+    text-align:right;
+    margin-right: 50px;
+    margin-top: 10px;
+}
+
+.header_links a{
+    color: #696969;
+    font-family: "Syncopate";
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.header_links a:hover{
+    text-decoration: none;
+}
+
+.header_links a:visited{
+    text-decoration: none;
+}
+
+.header_links_list {
+
+}
+
+.header_links_list_value {
+    display: inline;
+    padding-left: 15px;
+}
+
+.header_links_username {
+    font-size: 16px;
+}
+
+.header_links_username span {
+    font-weight: bold;
+}
+
+
+.logo {
+    width: 25%;
+    float: left;
+    margin-left: 50px;
+    margin-top: 8px;
+}
+
+.logo a {
+    font-size: 40px;
+    font-weight: bold;
+    color: #696969;
+    font-family: "Syncopate";
+}
+.logo a:hover{
+    text-decoration: none;
+}
+
+.logo a:visited{
+    text-decoration: none;
+}
+
+.signup_login_container {
+    margin: auto;
+    width: 40%;
+    box-shadow: 0 0 3px #c0c0c0;
+}
+
+.lbc_tabs {
+
+}
+
+.lbc_tabs a:hover {
+    text-decoration: none;
+}
+
+.lbc_tab {
+    display: table;
+    height: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+    font-family: "Syncopate";
+}
+
+.create_account_tab {
+    float: left;
+    width: 50%;
+}
+
+.create_account_tab_notselected {
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #e9e9e9;
+}
+
+.create_account_link {
+    color: #696969;
+}
+
+.signin_account_tab {
+    width: 50%;
+    border-left: 1px solid #d3d3d3;
+}
+
+.signin_account_tab_notselected {
+    border-bottom: 1px solid #d3d3d3;
+    background-color: #e9e9e9;
+}
+
+.login_account_link {
+    color: #696969;
+}
+
+.form_container {
+    margin: auto;
+    width: 85%;
+    padding: 30px;
+}
+
+.form_container input {
+    font-family: "Syncopate";
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #666;
+    display: block;
+    font-size: 16px;
+    height: 36px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+
+.form_container select {
+    font-family: "Syncopate";
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #ADADAD;
+    display: block;
+    font-size: 16px;
+    height: 36px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+
+.form_group{
+    padding-top: 10px;
+}
+
+.submission_form {
+
+}
+
+.first_name_form {
+    float: left;
+    padding-bottom: 10px;
+}
+
+.last_name_form {
+    float: left;
+    margin-left: 33px;
+    padding-bottom: 10px;
+    width: 50%;
+}
+
+.address_form {
+    float: left;
+    width: 50%;
+}
+
+.state_form {
+    width: 40%;
+    float: left;
+    padding-bottom: 10px;
+}
+
+.city_form {
+    float: left;
+    margin-left: 33px;
+}
+
+
+.state_form select {
+    height: 50px;
+
+}
+
+.income_range_form {
+    width: 105%;
+}
+
+.income_range_form select {
+    height: 50px;
+}
+
+.address_form input {
+
+}
+
+.postal_code_form {
+    float: left;
+    margin-left: 10px;
+    width: 57%;
+}
+
+.postal_code_form input {
+
+}
+
+.submission_form input {
+    background-color: #696969;
+    color: #fff;
+    margin-top: 20px;
+    text-shadow: none;
+
+}
+
+.error_message {
+    color: red;
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.deals_list_item {
+    display: inline;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.deals_list {
+
+}
+
+.deals_container {
+    padding: 25px;
+    text-align: center;
+}
+
+.deal_item {
+    box-shadow: 0 0 4px #c0c0c0;
+    display: inline-block;
+    padding: 20px;
+    width: 25%;
+    vertical-align: top;
+    margin-left: 25px;
+}
+
+.deal_header {
+    background-color: #696969;
+    color: #fff;
+    font-size: 45px;
+}
+
+.deal_header .deal_title {
+    font-size: 17px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.deal_h2_header {
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom: 40px;
+    margin-bottom: 15px;
+}
+
+.deal_sub_container{
+
+}
+
+.deal_h3_sub {
+    font-size: 20px;
+    text-align: left;
+    color: #696969;
+    font-weight: bold;
+}
+
+.deal_description {
+    font-size: 14px;
+    line-height: 1.42857;
+    text-align: left;
+}
+
+.deal_bullet_points {
+    text-align: left;
+}
+
+.deal_bullet_points ul {
+    font-size: 14px;
+    line-height: 1.42857;
+    list-style: outside none disc;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.deal_bullet_points li {
+
+}
+
+.reserve_sub {
+    font-size: 20px;
+    margin: 30px auto 30px 8px;
+    padding: 11px 0;
+    width: 149px;
+}
+
+.blue_button_sub {
+    background-color: #696969;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    font-family: "Syncopate";
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+}
+
+.deal_status_container a {
+    display: inline-block;
+}
+
+.deal_status_container a:hover {
+    text-decoration: none;
+}
+
+
+
+
+.account_settings {
+    height: 500px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

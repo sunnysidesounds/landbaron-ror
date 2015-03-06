@@ -1,19 +1,19 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.1.5'
 
 gem 'rails', '4.2.0'
 gem 'json', '~> 1.8.2'
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'pg'
+  gem 'pg', '0.17.0'
   gem 'pry-rails'
 end
 
 group :production do
   gem 'thin'
-  gem 'pg'
+  gem 'pg', '0.17.0'
 end
 
 # Gems used only for assets and not required
@@ -29,6 +29,7 @@ group :development, :test do
   gem 'minitest', '~> 5.5.1'
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda'
+  gem 'therubyracer'
 end
 
 # jQuery

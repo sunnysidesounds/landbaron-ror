@@ -2,7 +2,6 @@
 // Please change around the settings as you need. These are all the defaults
 // These only affect the primitives -- inputs, divs, h1-h5, etc (not classes/IDs, with one exception)
 
-// If you have any questions, create a GitHub issue, or email me us -- hello@lockitron.com
 
 $body_background: #E6E6E6;
 
@@ -19,7 +18,6 @@ $link_color: #0008D6;
 $text_shadow: 0 1px 0px #fff;
 $font_size: 22px;
 
-// Lockitron uses ProximaNova Regular, but that costs money, so we're defaulting to Helveitca Neue instead.
 $primary_font:   "Helvetica Neue";
 $secondary_font: "Helvetica";
 $tertiary_font:  "Arial";
@@ -38,7 +36,7 @@ $button_hovered_color: 				 #0088d6;
 $button_active_background: 		 #FAFAFA;
 $button_active_border: 				 #C8C8C8;
 
-// This only affects .blue_button, which is the "Reserve Now" button you see on Lockitron's homepage
+// This only affects .blue_button, which is the "Reserve Now" button
 $button_text_shadow_color: 		  rgba(0,0,0,.37);
 $button_box_shadow_color: 		  rgba(255,255,255,.92);
 $button_box_shadow_inset_color: rgba(0,0,0,.22);

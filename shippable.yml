@@ -3,7 +3,7 @@ language: ruby
 build_image: shippableimages/ubuntu1404_ruby
 
 rvm:
-  - 2.2.0
+  - 2.1.5
 
 env:
   - SLACK_ORG=landbaronclub PROJECT=landbaron
@@ -16,13 +16,27 @@ before_install:
   - rvm get stable
   - rvm install $SHIPPABLE_RUBY --verify-downloads 1
   - source ~/.bashrc && ~/.rvm/scripts/rvm && rvm use $SHIPPABLE_RUBY
+  - shippable_retry sudo apt-get install -y postgresql-9.3 postgresql-contrib-9.3 postgresql-server-dev-9.3 libpq-dev
+  - echo "host all all localhost trust" > /etc/postgresql/9.3/main/pg_hba.conf
+  - echo "local all all trust" >> /etc/postgresql/9.3/main/pg_hba.conf
+  - service postgresql start
+
 
 install:
   - bundle install --gemfile="Gemfile"
   - ruby -v
 
+before_script:
+  - mkdir -p shippable/testresults
+  - psql -c 'create database "landbaron_test";' -U postgres
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - RAILS_ENV=test bundle exec rake db:seed
+
 script:
-  - bundle exec rake
+#  - bundle exec rake spec 2>&1 | tee shippable/testresults/results.out
+  - RAILS_ENV=test bundle exec rake spec
+
+cache: true
 
 after_failure:
   - python slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN

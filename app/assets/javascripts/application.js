@@ -17,7 +17,10 @@
 //= require jquery.details
 //= require jquery.textchange
 //= require preorder
-//= require_tree .
+//= require angular
+//= require angular-ui-router
+//= require ui-bootstrap-tpls-0.12.0
+
 
 var $j = jQuery.noConflict();
 

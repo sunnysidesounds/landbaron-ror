@@ -52,3 +52,4 @@ gem 'devise'
 
 # Password encryption
 gem 'bcrypt', :require=>'bcrypt'
+

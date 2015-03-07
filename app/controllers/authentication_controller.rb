@@ -31,7 +31,7 @@ class AuthenticationController < ApplicationController
     if user
       session[:user_id] = user.id
      # flash[:notice] = 'Welcome.'
-      redirect_to :controller => 'current_deals', :action => 'deals'
+      redirect_to :controller => 'deals', :action => 'deals'
     else
       flash.now[:error] = 'Unknown user. Please check your username and password.'
       render :action => "sign_in"
@@ -51,7 +51,7 @@ class AuthenticationController < ApplicationController
       @user.save
       session[:user_id] = @user.id
      # flash[:notice] = 'Welcome.'
-      redirect_to :controller => 'current_deals', :action => 'deals'
+      redirect_to :controller => 'deals', :action => 'deals'
     else
       render :action => "new_user"
     end

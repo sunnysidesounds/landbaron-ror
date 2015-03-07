@@ -25,7 +25,7 @@ LandBaron::Application.routes.draw do
   get 'account' => 'my_account#account'
 
   #Landing Page
-  get 'currentdeals' => 'current_deals#deals'
+  get 'deals' => 'deals#deals'
 
 
 end

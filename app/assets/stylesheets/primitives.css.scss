@@ -162,8 +162,7 @@ h5 {
   background: -ms-linear-gradient(top,  $gray_background_top_color 0%,$gray_background_middle_color 50%,$gray_background_bottom_color 100%); /* IE10+ */
   background: linear-gradient(to bottom,  $gray_background_top_color 0%,$gray_background_middle_color 50%,$gray_background_bottom_color 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#f6f6f6', endColorstr = '#fafafa', GradientType = 0);
-  border-bottom: 1px solid $gray_background_border_color;
-}
+  border-bottom: 1px solid #ddd;}
 
 .button:hover {
   text-decoration: none;

@@ -66,13 +66,39 @@
     text-decoration: none;
 }
 
-.header_links_list {
+.header_links_notsignin {
+    float: right;
+    font-family: "Oswald";
+    height: 80px;
+    width: 240px;;
+    margin-right: 175px;
+}
 
+.header_links_notsignin a{
+    color: #fff;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.header_links_notsignin a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+
+.header_links_notsignin a:visited{
+    text-decoration: none;
+    color: #fff;
+}
+
+.header_links_list {
+    margin-top: 26px;
 }
 
 .header_links_list_value {
     display: inline;
-    padding-left: 15px;
+    padding-left: 35px;
 }
 
 .header_links_username {
@@ -372,6 +398,15 @@
     display: block;
     font-family: "Oswald";
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+}
+
+.blue_button_sub_notsignin {
+    background-color: #e0af00;
+    border-radius: 8px;
+    color: white;
+    font-family: "Oswald";
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+    padding: 5px 10px;
 }
 
 .deal_status_container a {

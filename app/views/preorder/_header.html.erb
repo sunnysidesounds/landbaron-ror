@@ -2,8 +2,10 @@
         <div class="logo">
             <a href="/"></a>
         </div>
+
+        <% if current_user %>
         <div class="header_links">
-            <% if current_user %>
+
                 <div id="top-bar">
                     <a href="#" id="more">
                     <img class="user_avatar" width="52" height="52" src="/assets/dummy-investor.png">
@@ -24,24 +26,14 @@
                         <%= link_to "Sign Out", signed_out_path %>
                     </div>
                 </div>
-            <% else %>
-                <ul class="header_links_list">
-                <li class="header_links_list_value"><%= link_to "Login", sign_in_path %></li>
-                <li class="header_links_list_value"><%= link_to "Sign up", new_user_path %></li>
-                </ul>
-            <% end %>
-            <!--
-            <ul class="header_links_list">
-            <% if current_user %>
-                <li class="header_links_list_value header_links_username">Username: <span><%= current_user.username %></span></li>
-                <li class="header_links_list_value"><%= link_to "Current Deals", deals_path %></li>
-                <li class="header_links_list_value"><%= link_to "Deal Room", preorder_path %></li>
-                <li class="header_links_list_value"><%= link_to "Account", account_path %></li>
-                <li class="header_links_list_value"><%= link_to "Sign Out", signed_out_path %></li>
-            <% else %>
-                <li class="header_links_list_value"><%= link_to "Login", sign_in_path %></li>
-                <li class="header_links_list_value"><%= link_to "Sign up", new_user_path %></li>
-            <% end %>
-            </ul> -->
+
         </div>
+        <% else %>
+        <div class="header_links_notsignin">
+            <ul class="header_links_list">
+                <li class="header_links_list_value"><%= link_to "Login", sign_in_path, :class =>"blue_button_sub_notsignin" %></li>
+                <li class="header_links_list_value"><%= link_to "Sign up", new_user_path, :class =>"blue_button_sub_notsignin" %></li>
+            </ul>
+        </div>
+        <% end %>
 </div>

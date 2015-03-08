@@ -17,7 +17,7 @@
 //= require jquery.details
 //= require jquery.textchange
 //= require preorder
-//= require angular
+//= require angular.min
 //= require angular-ui-router
 //= require ui-bootstrap-tpls-0.12.0
 

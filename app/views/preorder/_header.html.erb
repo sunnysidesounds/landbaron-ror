@@ -3,8 +3,30 @@
             <a href="/"></a>
         </div>
         <div class="header_links">
+            <% if current_user %>
+                <div id="top-bar">
+                    <a href="#" id="more">
+                    <img class="user_avatar" width="52" height="52" src="/assets/dummy-investor.png">
+                    <div class="users_information">
+                        <div class="users_name"><%= current_user.first_name + " " + current_user.last_name %></div>
+                        <div class="username">@<%= current_user.username %></div>
+                    </div>
 
-
+                    <span id="arrow">
+                        <span id="arrdown">&#x25BC;</span>
+                        <!--<span id="arrup">&#x25B2;</span>-->
+                    </span>
+                    </a>
+                    <div class="dropdown">
+                        <a href="#">One</a>
+                        <a href="#">Two</a>
+                        <a href="#">Three</a>
+                    </div>
+                </div>
+            <% else %>
+                <li class="header_links_list_value"><%= link_to "Login", sign_in_path %></li>
+                <li class="header_links_list_value"><%= link_to "Sign up", new_user_path %></li>
+            <% end %>
             <!--
             <ul class="header_links_list">
             <% if current_user %>

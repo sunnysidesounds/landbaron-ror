@@ -15,7 +15,6 @@
  *= require bootstrap
  */
 
-
 .hidden
 {
   display: none;
@@ -23,7 +22,7 @@
 .pull-left {
     float: left;
 }
-.pull-right {
+.pull-right {             `
     float: right;
 }
 
@@ -39,6 +38,14 @@
     background-color: #e9e9e9;
     font-size: 14px;
     padding: 12px;
+}
+
+.header_browse {
+    border-left: 1px solid #666;
+   /* border-right: 1px solid #666; */
+    float: left;
+    height: 80px;
+    width: 300px;
 }
 
 .header_links {
@@ -68,9 +75,16 @@
 
 .header_links_notsignin {
     float: right;
-    font-family: "Oswald";
-    height: 80px;
-    width: 240px;;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 15px 25px;
+    text-transform: uppercase;
+    white-space: normal;
+    width: auto;
     margin-right: 175px;
 }
 
@@ -93,7 +107,7 @@
 }
 
 .header_links_list {
-    margin-top: 26px;
+    margin-top: 15px;
 }
 
 .header_links_list_value {
@@ -320,35 +334,35 @@
 .deals_container {
     padding: 25px;
     text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .deal_item {
     box-shadow: 0 0 4px #c0c0c0;
-    display: inline-block;
     padding: 20px;
-    width: 25%;
-    vertical-align: top;
-    margin-left: 25px;
+    margin-top: 25px;
+
 }
 
 .deal_header {
-    background-color: #696969;
+    background-color: #000;
     color: #fff;
     font-size: 45px;
 }
 
 .deal_header .deal_title {
-    font-size: 17px;
-    padding-bottom: 8px;
+    color: #e0af00;
+    font-size: 16px;
     padding-top: 8px;
 }
 
 .deal_h2_header {
     color: #fff;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: bold;
-    padding-bottom: 40px;
-    margin-bottom: 15px;
+    margin: 0;
+    padding-bottom: 10px;
 }
 
 .deal_sub_container{
@@ -392,12 +406,22 @@
 }
 
 .blue_button_sub {
-    background-color: #696969;
+    background-color: #e0af00;
     border-radius: 10px;
     color: white;
     display: block;
     font-family: "Oswald";
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+}
+
+.deal_status_container .blue_button_sub a:hover {
+    text-decoration: none;
+    color:#fff;
+}
+
+.deal_status_container .blue_button_sub a:focus {
+    text-decoration: none;
+    color:#fff;
 }
 
 .blue_button_sub_notsignin {
@@ -415,10 +439,8 @@
 
 .deal_status_container a:hover {
     text-decoration: none;
+    color: #fff;
 }
-
-
-
 
 .account_settings {
     height: 500px;
@@ -442,7 +464,7 @@
 }
 
 .available_investments_header h3, .upcoming_investments_header h3, .past_investments_header h3 {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
     margin: 0;
     color: #e0af00;
@@ -526,11 +548,54 @@
 
 }
 
+.banner_container {
+    box-shadow: 0 0 3px rgba(0,0,0,0.25);
+   /* margin: 50px 0 0 45px;*/
+    position: relative;
+    text-align: center;
+}
+
+.banner_container h2 {
+    background: #e0af00;
+    background-image: radial-gradient(transparent 30%, rgba(0, 0, 0, 0.2));
+    border: 0 solid rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    text-shadow: -1px -1px 1px rgba(0,0,0,0.2);
+}
 
 
-
-
-
+div.banner {
+    z-index: -1;
+}
+div.banner h2 {
+    border-radius: 0 0 5px 5px;
+    border-width: 0 1px 1px 1px;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    margin: -1px auto 0;
+    padding: 2px 28px;
+    width: 90%;;
+}
+div.banner h2:before, div.banner h2:after {
+    bottom: 4px;
+    box-shadow: 0 6px 5px rgba(0,0,0,0.4);
+    content: "";
+    height: 10px;
+    position: absolute;
+    width: 47%;
+    z-index: -1;
+}
+div.banner h2::before {
+    left: 3%;
+    transform: rotate(-3.5deg);
+}
+div.banner h2::after {
+    right: 3%;
+    transform: rotate(3.5deg);
+}
 
 
 

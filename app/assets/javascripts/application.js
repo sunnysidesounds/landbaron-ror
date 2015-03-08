@@ -37,9 +37,12 @@ $(document).ready(function() {
         $(this).next('.dropdown').toggle();
         return false;
     });
+
+      /*
     $('.dropdown a').click(function() {
+        $(this).unbind('click');
         return false;
-    });
+    }); */
 
 
 

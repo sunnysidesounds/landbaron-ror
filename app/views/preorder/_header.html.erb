@@ -18,14 +18,17 @@
                     </span>
                     </a>
                     <div class="dropdown">
-                        <a href="#">One</a>
-                        <a href="#">Two</a>
-                        <a href="#">Three</a>
+                        <a href="#">My Investments</a>
+                        <%= link_to "My Account", account_path %>
+                        <a href="#">Help</a>
+                        <%= link_to "Sign Out", signed_out_path %>
                     </div>
                 </div>
             <% else %>
+                <ul class="header_links_list">
                 <li class="header_links_list_value"><%= link_to "Login", sign_in_path %></li>
                 <li class="header_links_list_value"><%= link_to "Sign up", new_user_path %></li>
+                </ul>
             <% end %>
             <!--
             <ul class="header_links_list">

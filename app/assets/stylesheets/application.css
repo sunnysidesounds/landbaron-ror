@@ -656,6 +656,7 @@ div.banner h2::after {
 .reserve_long {
     width: 250px;
     margin-bottom: 8px;
+    font-size: 25px;
 }
 
 .investment_detail_button a:hover {
@@ -667,6 +668,18 @@ div.banner h2::after {
     text-decoration: none;
     color:#fff;
 }
+
+.confidential_container {
+    background-color: #e9e9e9;
+    border-radius: 2px;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 12px;
+    text-align: center;
+    margin-top: 20px
+}
+
+.fa-exclamation-triangle:before{content:"\f071"}
 
 
 

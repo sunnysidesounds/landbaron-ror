@@ -625,6 +625,50 @@ div.banner h2::after {
     padding-top: 5px;
 }
 
+.investment_detail_container {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 25px;
+    text-align: center;
+}
+
+.investment_detail_overview {
+    border: 1px solid red;
+    height: 280px;
+}
+
+.investment_detail_overview_middle {
+    height: 280px;
+    text-align:left;
+}
+
+.investment_detail_overview_container {
+    box-shadow: 0 0 4px #c0c0c0;
+    height: 325px;
+    padding: 20px;
+}
+
+.investment_header {
+    height: 125px;
+    margin-top: 25px;
+}
+
+.reserve_long {
+    width: 250px;
+    margin-bottom: 8px;
+}
+
+.investment_detail_button a:hover {
+    text-decoration: none;
+    color:#fff;
+}
+
+.investment_detail_button a:focus {
+    text-decoration: none;
+    color:#fff;
+}
+
+
 
 
 

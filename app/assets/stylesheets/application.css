@@ -372,7 +372,7 @@
 .deal_h3_sub {
     font-size: 20px;
     text-align: left;
-    color: #696969;
+    color: #7a001f;
     font-weight: bold;
 }
 
@@ -596,6 +596,38 @@ div.banner h2::after {
     right: 3%;
     transform: rotate(3.5deg);
 }
+
+.past_investment_deal{
+    background-color: #000;
+    width: 100%;
+    height: 80px;
+}
+
+.past_investment_grid {
+    text-align: left;
+}
+
+.past_investment_row {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.past_investment_deal h4 {
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+}
+
+.past_investment_mini_header {
+    color: #e0af00;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+
+
 
 
 

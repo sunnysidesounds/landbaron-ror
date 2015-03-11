@@ -625,11 +625,116 @@ div.banner h2::after {
     padding-top: 5px;
 }
 
+.investment_details_container{
+    border: 1px solid red;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 25px;
+
+}
+
+.investment_detail_header {
+    box-shadow: 0 0 4px #c0c0c0;
+    height: 325px;
+    padding: 20px;
+}
+
+.investment_header_column {
+    height:100%;
+}
+
+.company_logo {
+    text-align: center;
+    padding-top: 25px;
+}
+
+.invest_now {
+    padding-top:25px;
+    padding-bottom:25px;
+}
+
+.invest_now a:hover, .invest_now a:focus{
+    text-decoration: none;
+    color:#fff;
+}
+
+.invest_now_button {
+    background-color: #e0af00;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    font-family: "Oswald";
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+    font-size: 35px;
+    text-align:center;
+}
+
+.amount_invested {
+    padding-top: 50px;
+}
+
+.amount_invested .amount {
+    color: #7a001f;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1em;
+}
+
+.amount_invested .minimum {
+    color: #c0c0c0;
+    font-size: 14px;
+}
+
+
+
+/*
+
+
+.deal_status_container .blue_button_sub a:hover {
+    text-decoration: none;
+    color:#fff;
+}
+
+.deal_status_container .blue_button_sub a:focus {
+    text-decoration: none;
+    color:#fff;
+}
+*/
+
+
+
+
+.fund-info {
+
+}
+
+.fund-info h2{
+    color: #7a001f;
+}
+
+.fund-info p {
+
+}
+
+
+
+.grid_column {
+    border: 1px solid red;
+}
+
+
+/*
+
 .investment_detail_container {
     margin-left: 100px;
     margin-right: 100px;
     padding: 25px;
-    text-align: center;
+}
+
+
+
+.investment_details {
+    border: 1px solid red;
 }
 
 .investment_detail_overview {
@@ -642,22 +747,12 @@ div.banner h2::after {
     text-align:left;
 }
 
-.investment_detail_overview_container {
-    box-shadow: 0 0 4px #c0c0c0;
-    height: 325px;
-    padding: 20px;
-}
-
 .investment_header {
     height: 125px;
     margin-top: 25px;
 }
 
-.reserve_long {
-    width: 250px;
-    margin-bottom: 8px;
-    font-size: 25px;
-}
+
 
 .investment_detail_button a:hover {
     text-decoration: none;
@@ -667,7 +762,7 @@ div.banner h2::after {
 .investment_detail_button a:focus {
     text-decoration: none;
     color:#fff;
-}
+} */
 
 .confidential_container {
     background-color: #e9e9e9;

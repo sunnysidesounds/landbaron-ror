@@ -669,6 +669,20 @@ div.banner h2::after {
     text-align:center;
 }
 
+.watch_now_button {
+    background-color: #7a001f;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    font-family: "Oswald";
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+    font-size: 25px;
+    text-align:center;
+    width: 250px;
+    margin:auto;
+}
+
+
 .amount_invested {
     padding-top: 50px;
 }
@@ -685,25 +699,6 @@ div.banner h2::after {
     font-size: 14px;
 }
 
-
-
-/*
-
-
-.deal_status_container .blue_button_sub a:hover {
-    text-decoration: none;
-    color:#fff;
-}
-
-.deal_status_container .blue_button_sub a:focus {
-    text-decoration: none;
-    color:#fff;
-}
-*/
-
-
-
-
 .fund-info {
 
 }
@@ -716,11 +711,83 @@ div.banner h2::after {
 
 }
 
-
-
 .grid_column {
     border: 1px solid red;
 }
+
+.confidential_container {
+    background-color: #e9e9e9;
+    border-radius: 2px;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 12px;
+    text-align: center;
+    margin-top: 20px
+}
+
+.fa-exclamation-triangle:before{
+    content:"\f071"
+}
+
+.investment_detail_information .key_information_left {
+    box-shadow: 0 0 4px #c0c0c0;
+
+}
+
+.investment_detail_information .key_information_right {
+    box-shadow: 0 0 4px #c0c0c0;
+    height: 665px;
+}
+
+.watchers {
+    height: 125px;
+}
+
+.watchers h3, .investors_list h3, .principle_bios h3  {
+    color: #e0af00;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.key_information_description h2, .funder_terms h2, .answers_to_questions h2, .legal_documents h2 {
+    color: #e0af00;
+    padding-left:25px;
+    padding-top:25px;
+}
+
+.key_information_description p {
+    padding-left:25px;
+    padding-right:25px;
+    line-height: 25px;
+}
+
+.funder_terms{
+    box-shadow: 0 0 4px #c0c0c0;
+}
+
+.answers_to_questions {
+    box-shadow: 0 0 4px #c0c0c0;
+}
+
+.legal_documents {
+    box-shadow: 0 0 4px #c0c0c0;
+}
+
+.investors_list {
+    margin-top: 20px;
+    height: 250px;
+}
+
+.principle_bios {
+    margin-top: 20px;
+    height: 250px;
+}
+
+
+
+
+
 
 
 /*
@@ -764,17 +831,6 @@ div.banner h2::after {
     color:#fff;
 } */
 
-.confidential_container {
-    background-color: #e9e9e9;
-    border-radius: 2px;
-    color: #666;
-    margin-bottom: 20px;
-    padding: 12px;
-    text-align: center;
-    margin-top: 20px
-}
-
-.fa-exclamation-triangle:before{content:"\f071"}
 
 
 

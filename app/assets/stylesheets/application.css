@@ -27,7 +27,7 @@
 }
 
 #flash_error {
-    padding: 12px;
+    padding: 90px 12px 12px;
     background-color: #e9e9e9;
     font-size: 14px;
     color: red;
@@ -36,7 +36,7 @@
 #flash_notice {
     background-color: #e9e9e9;
     font-size: 14px;
-    padding: 12px;
+    padding: 90px 12px 12px;
 }
 
 .header_browse {

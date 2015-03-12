@@ -40,19 +40,21 @@
 }
 
 .header_browse {
-    border-left: 1px solid #666;
-   /* border-right: 1px solid #666; */
-    float: left;
-    height: 100px;
-    width: 300px;
+    float: right;
+    margin-right: 40px;
+}
+
+.search-header-form {
+    padding-top: 20px;
+    width: 250px;
 }
 
 .header_links {
     float: right;
     font-family: "Oswald";
-    height: 100px;
+    height: 80px;
     width: 240px;;
-    margin-right: 175px;
+    margin-right: 50px;
     border-left: 1px solid #666;
     border-right: 1px solid #666;
 }
@@ -470,19 +472,23 @@
 
 }
 
-
-
-
 #top-bar {
     text-align: right;
     background: black;
     color: white;
-    padding: 12px 5px 5px;
+    padding: 14px 5px 5px;
 }
 #top-bar a {
     color: white;
     text-decoration: none;
     outline:none
+}
+
+#top-bar a:hover {
+    text-decoration: none;
+}
+#top-bar a.active {
+    text-decoration: none;
 }
 
 #arrow {
@@ -493,12 +499,6 @@
     font-size: 15px;
 }
 
-#top-bar a:hover {
-    text-decoration: none;
-}
-#top-bar a.active {
-    text-decoration: none;
-}
 .dropdown {
     display: none;
     position: absolute;

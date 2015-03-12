@@ -4,33 +4,38 @@
         </div>
 
         <% if current_user %>
-        <div class="header_browse">
-
-        </div>
         <div class="header_links">
-
-                <div id="top-bar">
-                    <a href="#" id="more">
+            <div id="top-bar">
+                <a href="#" id="more">
                     <img class="user_avatar" width="52" height="52" src="/assets/dummy-investor.png">
                     <div class="users_information">
                         <div class="users_name"><%= current_user.first_name + " " + current_user.last_name %></div>
                         <div class="username">@<%= current_user.username %></div>
                     </div>
-
                     <span id="arrow">
                         <span id="arrdown">&#x25BC;</span>
                         <!--<span id="arrup">&#x25B2;</span>-->
                     </span>
-                    </a>
-                    <div class="dropdown">
-                        <a href="#">My Investments</a>
-                        <%= link_to "My Account", account_path %>
-                        <a href="#">Help</a>
-                        <%= link_to "Sign Out", signed_out_path %>
-                    </div>
+                </a>
+                <div class="dropdown">
+                    <a href="#">My Investments</a>
+                    <%= link_to "My Account", account_path %>
+                    <a href="#">Help</a>
+                    <%= link_to "Sign Out", signed_out_path %>
                 </div>
+            </div>
+        </div>
+        <div class="header_browse">
+
+            <div class="input-group search-header-form">
+                <input type="text" class="form-control" placeholder="Search" aria-describedby="">
+                <span class="input-group-addon" id="basic-addon2">
+                <i class="fa fa-search"></i></span>
+            </div>
+
 
         </div>
+
         <% else %>
         <div class="header_links_notsignin">
             <ul class="header_links_list">

@@ -71,7 +71,7 @@ $(document).ready(function() {
                 $('.header_links').fadeIn();
                 $('.header_browse').fadeIn();
                 $('#header').stop().animate({
-                    height:'100px'
+                    height:'80px'
                 },600);
             }
         }

@@ -43,14 +43,14 @@
     border-left: 1px solid #666;
    /* border-right: 1px solid #666; */
     float: left;
-    height: 80px;
+    height: 100px;
     width: 300px;
 }
 
 .header_links {
     float: right;
     font-family: "Oswald";
-    height: 80px;
+    height: 100px;
     width: 240px;;
     margin-right: 175px;
     border-left: 1px solid #666;

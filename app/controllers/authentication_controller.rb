@@ -2,7 +2,12 @@ class AuthenticationController < ApplicationController
 
   # Sign in
   def sign_in
-    @user = User.new
+    if session[:user_id].nil?
+      @user = User.new
+    else
+      redirect_to :controller => 'investment', :action => 'investment'
+
+    end
   end
 
   # This method is called to sign out a user by email or username
@@ -41,7 +46,11 @@ class AuthenticationController < ApplicationController
 
   # New user
   def new_user
-    @user = User.new
+    if session[:user_id].nil?
+      @user = User.new
+    else
+      redirect_to :controller => 'investment', :action => 'investment'
+    end
   end
 
   # This method is used to sign-up a user

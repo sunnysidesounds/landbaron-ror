@@ -23,10 +23,8 @@ LandBaron::Application.routes.draw do
 
   # My Account
   get 'account' => 'my_account#account'
-
   #Landing Page
   get 'investments' => 'investment#investment'
-
   get 'investment_detail' => 'investment#investment_detail'
 
 end

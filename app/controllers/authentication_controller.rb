@@ -59,7 +59,6 @@ class AuthenticationController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
-     # flash[:notice] = 'Welcome.'
       redirect_to :controller => 'investment', :action => 'investment'
     else
       render :action => "new_user"

@@ -190,6 +190,14 @@
     color: #696969;
 }
 
+.create_account_tab a:hover {
+    color: #696969;
+}
+
+.signin_account_tab a:hover {
+    color: #696969;
+}
+
 .signin_account_tab {
     width: 50%;
     border-left: 1px solid #d3d3d3;

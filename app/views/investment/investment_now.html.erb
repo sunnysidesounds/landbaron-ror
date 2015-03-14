@@ -11,13 +11,26 @@
     </div>
         <br />
         <div class="invest_container">
-            Record Id: <%=@invest_now %>
+            Investment information: <br />
+            <br />
+            <% @invest_now.each do |invest_now| %>
+                <%=invest_now %>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <a class="invest_now_form_page invest_now_button" href="/confirmation/<%=invest_now['id'] %>">Invest</a>
+
+        <% end %>
+
         </div>
         <br />
     <div class="invest_container">
-        <br />
-        <br />
-        <a class="invest_now_form_page invest_now_button" href="/confirmation/<%=@invest_now %>">Invest</a>
+
+
+
 
     </div>
 

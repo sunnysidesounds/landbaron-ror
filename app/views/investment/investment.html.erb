@@ -8,96 +8,36 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-
-                <!-- Deals Static Template -->
-                <div class="deal_item">
-                    <div class="deal_header">
-                        <div class="deal_title">Land Baron Club Theme Series</div>
-                        <h2 class="deal_h2_header">Future Of Work</h2>
-                    </div>
-                    <div class="deal_sub_container">
-                        <h3 class="deal_h3_sub">
-                            Theme Series: Future of Work I
-                        </h3>
-                        <div class="deal_description">
-                            Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
+            <!-- Available Investments -->
+            <% @available.each do |available| %>
+                <div class="col-md-4">
+                    <div class="deal_item">
+                        <div class="deal_header">
+                            <div class="deal_title"><%=available['name'] %></div>
+                            <h2 class="deal_h2_header"><img width="275" src="<%=available['logo_link'] %> "/></h2>
                         </div>
-                        <div class="deal_bullet_points">
-                            <ul>
-                                <li>Multi-Company Fund</li>
-                                <li>Future of work</li>
-                                <li>60 watching</li>
-                            </ul>
-                        </div>
-                        <div class="deal_status_container">
-                            <a class="blue_button_sub reserve_sub" href="#">Invest Now</a>
-                            <a class="blue_button_sub reserve_sub" href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-4">
-
-                <!-- Deals Static Template -->
-                <div class="deal_item">
-                    <div class="deal_header">
-                        <div class="deal_title">Land Baron Club Theme Series</div>
-                        <h2 class="deal_h2_header">Mobile</h2>
-                    </div>
-                    <div class="deal_sub_container">
-                        <h3 class="deal_h3_sub">
-                            Theme Series: Future of Work I
-                        </h3>
-                        <div class="deal_description">
-                            Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                        </div>
-                        <div class="deal_bullet_points">
-                            <ul>
-                                <li>Multi-Company Fund</li>
-                                <li>Future of work</li>
-                                <li>60 watching</li>
-                            </ul>
-                        </div>
-                        <div class="deal_status_container">
-                            <a class="blue_button_sub reserve_sub" href="#">Invest Now</a>
-                            <a class="blue_button_sub reserve_sub" href="#">View Details</a>
+                        <div class="deal_sub_container">
+                            <h3 class="deal_h3_sub">
+                                Key Information
+                            </h3>
+                            <div class="deal_description">
+                                <%=h truncate(available['key_information'], :length => 300) %>
+                            </div>
+                            <!--<div class="deal_bullet_points">
+                                <ul>
+                                    <li>Multi-Company Fund</li>
+                                    <li>Future of work</li>
+                                    <li>60 watching</li>
+                                </ul>
+                            </div> -->
+                            <div class="deal_status_container">
+                                <a class="blue_button_sub reserve_sub" href="#">Invest Now</a>
+                                <a class="blue_button_sub reserve_sub" href="#">View Details</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="col-md-4">
-
-                <!-- Deals Static Template -->
-                <div class="deal_item">
-                    <div class="deal_header">
-                        <div class="deal_title">Land Baron Club Theme Series</div>
-                        <h2 class="deal_h2_header">Mobile</h2>
-                    </div>
-                    <div class="deal_sub_container">
-                        <h3 class="deal_h3_sub">
-                            Theme Series: Future of Work I
-                        </h3>
-                        <div class="deal_description">
-                            Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                        </div>
-                        <div class="deal_bullet_points">
-                            <ul>
-                                <li>Multi-Company Fund</li>
-                                <li>Future of work</li>
-                                <li>60 watching</li>
-                            </ul>
-                        </div>
-                        <div class="deal_status_container">
-                            <a class="blue_button_sub reserve_sub" href="#">Invest Now</a>
-                            <a class="blue_button_sub reserve_sub" href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <% end %>
         </div>
 
         <br />
@@ -109,105 +49,39 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
-
-                <!-- Deals Upcoming Static Template -->
-                <div class="deal_item">
-                    <div class="deal_header">
-                        <div class="banner_container">
-                            <div class="banner"><h2>Preview Investment</h2></div>
+            <!-- Up and comming Investments (Coming Soon) -->
+            <% @coming_soon.each do |coming_soon| %>
+                <div class="col-md-4">
+                    <div class="deal_item">
+                        <div class="deal_header">
+                            <div class="banner_container">
+                                <div class="banner"><h2>Preview Investment</h2></div>
+                            </div>
+                            <div class="deal_title"><%=coming_soon['name'] %></div>
+                            <h2 class="deal_h2_header"><img width="275" src="<%=coming_soon['logo_link'] %> "/></h2>
                         </div>
-                        <div class="deal_title">Land Baron Club Theme Series</div>
-                        <h2 class="deal_h2_header">Residental</h2>
-                    </div>
-                    <div class="deal_sub_container">
-                        <h3 class="deal_h3_sub">
-                            Theme Series: Future of Work I
-                        </h3>
-                        <div class="deal_description">
-                            Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                        </div>
-                        <div class="deal_bullet_points">
-                            <ul>
-                                <li>Multi-Company Fund</li>
-                                <li>Future of work</li>
-                                <li>60 watching</li>
-                            </ul>
-                        </div>
-                        <div class="deal_status_container">
-                            <a class="blue_button_sub reserve_sub" href="#">Watch</a>
-                            <a class="blue_button_sub reserve_sub" href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-4">
-
-                <!-- Deals Upcoming Static Template -->
-                <div class="deal_item">
-                    <div class="deal_header">
-                        <div class="banner_container">
-                            <div class="banner"><h2>Preview Investment</h2></div>
-                        </div>
-                        <div class="deal_title">Land Baron Club Theme Series</div>
-                        <h2 class="deal_h2_header">Commerical</h2>
-                    </div>
-                    <div class="deal_sub_container">
-                        <h3 class="deal_h3_sub">
-                            Theme Series: Future of Work I
-                        </h3>
-                        <div class="deal_description">
-                            Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                        </div>
-                        <div class="deal_bullet_points">
-                            <ul>
-                                <li>Multi-Company Fund</li>
-                                <li>Future of work</li>
-                                <li>60 watching</li>
-                            </ul>
-                        </div>
-                        <div class="deal_status_container">
-                            <a class="blue_button_sub reserve_sub" href="#">Watch</a>
-                            <a class="blue_button_sub reserve_sub" href="#">View Details</a>
+                        <div class="deal_sub_container">
+                            <h3 class="deal_h3_sub">
+                                Key Information
+                            </h3>
+                            <div class="deal_description">
+                                <%=h truncate(coming_soon['key_information'], :length => 300) %>
+                            </div>
+                        <!--    <div class="deal_bullet_points">
+                                <ul>
+                                    <li>Multi-Company Fund</li>
+                                    <li>Future of work</li>
+                                    <li>60 watching</li>
+                                </ul>
+                            </div>  -->
+                            <div class="deal_status_container">
+                                <a class="blue_button_sub reserve_sub" href="#">Watch</a>
+                                <a class="blue_button_sub reserve_sub" href="#">View Details</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-            </div>
-            <div class="col-md-4">
-
-                <!-- Deals Upcoming Static Template -->
-                <div class="deal_item">
-                    <div class="deal_header">
-                        <div class="banner_container">
-                            <div class="banner"><h2>Preview Investment</h2></div>
-                        </div>
-                        <div class="deal_title">Land Baron Club Theme Series</div>
-                        <h2 class="deal_h2_header">Downtown</h2>
-                    </div>
-                    <div class="deal_sub_container">
-                        <h3 class="deal_h3_sub">
-                            Theme Series: Future of Work I
-                        </h3>
-                        <div class="deal_description">
-                            Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                        </div>
-                        <div class="deal_bullet_points">
-                            <ul>
-                                <li>Multi-Company Fund</li>
-                                <li>Future of work</li>
-                                <li>60 watching</li>
-                            </ul>
-                        </div>
-                        <div class="deal_status_container">
-                            <a class="blue_button_sub reserve_sub" href="#">Watch</a>
-                            <a class="blue_button_sub reserve_sub" href="#">View Details</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <% end %>
         </div>
 
         <br />
@@ -218,89 +92,28 @@
             </div>
         </div>
         <!-- Past Investment Item -->
+        <% @past.each do |past| %>
         <div class="row past_investment_row">
             <div class="col-md-3 past_investment_grid">
                 <div class="past_investment_deal">
+
                     <div class="past_investment_mini_header">
-                        Land Baron Club Theme Series
+                        <img width="100" src="<%=past['logo_link'] %> "/>
                     </div>
-                    <h4>Sight Machine</h4>
+                    <div class="deal_title_past"><%=past['name'] %></div>
+
                 </div>
 
             </div>
             <div class="col-md-9 past_investment_grid">
                 <div class="past_investment_description">
-                    Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
+                    <%=h truncate(past['key_information'], :length => 200) %>
                 </div>
             </div>
         </div>
-        <div class="row past_investment_row">
-            <div class="col-md-3 past_investment_grid">
-                <div class="past_investment_deal">
-                    <div class="past_investment_mini_header">
-                        Land Baron Club Theme Series
-                    </div>
-                    <h4>BloomThat</h4>
-                </div>
-
-            </div>
-            <div class="col-md-9 past_investment_grid">
-                <div class="past_investment_description">
-                    Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                </div>
-            </div>
-        </div>
-        <div class="row past_investment_row">
-            <div class="col-md-3 past_investment_grid">
-                <div class="past_investment_deal">
-                    <div class="past_investment_mini_header">
-                        Land Baron Club Theme Series
-                    </div>
-                    <h4>Sproutling</h4>
-                </div>
-
-            </div>
-            <div class="col-md-9 past_investment_grid">
-                <div class="past_investment_description">
-                    Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                </div>
-            </div>
-        </div>
-        <div class="row past_investment_row">
-            <div class="col-md-3 past_investment_grid">
-                <div class="past_investment_deal">
-                    <div class="past_investment_mini_header">
-                        Land Baron Club Theme Series
-                    </div>
-                    <h4>Move Loot</h4>
-                </div>
-
-            </div>
-            <div class="col-md-9 past_investment_grid">
-                <div class="past_investment_description">
-                    Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                </div>
-            </div>
-        </div>
-        <div class="row past_investment_row">
-            <div class="col-md-3 past_investment_grid">
-                <div class="past_investment_deal">
-                    <div class="past_investment_mini_header">
-                        Land Baron Club Theme Series
-                    </div>
-                    <h4>Sourcery</h4>
-                </div>
-
-            </div>
-            <div class="col-md-9 past_investment_grid">
-                <div class="past_investment_description">
-                    Themed fund targeting companies changing the way we think about employment (the "Future of Work"). Themes will include: recruiting/HR, utilizing un- and under-employment, de-centralized workforces, etc. Examples: Uber, Instacart, TalentBin
-                </div>
-            </div>
-        </div>
+        <% end %>
 
 
 
     </div>
-
 </div>

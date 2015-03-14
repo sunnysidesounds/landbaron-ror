@@ -1,4 +1,6 @@
 LandBaron::Application.routes.draw do
+  # map.resource :investments
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => 'authentication#sign_in'

@@ -16,16 +16,23 @@ class InvestmentController < ApplicationController
   def investment_detail
     if params[:id]
       @investments = Investment.new
-
-
       @details = @investments.get_investment_details(params[:id])
     end
 
+  end
 
 
-
+  def investment_now
+    if params[:id]
+      @invest_now = params[:id]
     end
+  end
 
+  def investment_confirmation
+    if params[:id]
+      @invest_now = params[:id]
+    end
+  end
 
 
 end

@@ -857,7 +857,22 @@ div.banner h2::after {
     height: 250px;
 }
 
+.invest_container {
+    box-shadow: 0 0 4px #c0c0c0;
+    height: 250px;
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+}
 
+.invest_now_form_page {
+    margin: auto;
+    width: 300px;
+}
+
+.invest_container h1 {
+    width: 400px;
+}
 
 
 

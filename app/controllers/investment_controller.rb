@@ -15,7 +15,10 @@ class InvestmentController < ApplicationController
 
   def investment_detail
     if params[:id]
-      @foobar = "MASTER FUCKER " + params[:id]
+      @investments = Investment.new
+
+
+      @details = @investments.get_investment_details(params[:id])
     end
 
 

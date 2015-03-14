@@ -648,11 +648,15 @@ div.banner h2::after {
 }
 
 .investment_details_container{
-    border: 1px solid red;
     margin-left: 100px;
     margin-right: 100px;
     padding: 25px;
 
+}
+
+.principle_investor_img{
+    margin-left: 60px;
+    padding: 3px;
 }
 
 .investment_detail_header {
@@ -663,6 +667,14 @@ div.banner h2::after {
 
 .investment_header_column {
     height:100%;
+}
+
+.progress_bar_img {
+
+}
+
+.progress_bar {
+    margin-top: -20px;
 }
 
 .company_logo {
@@ -714,6 +726,7 @@ div.banner h2::after {
     font-size: 28px;
     font-weight: 400;
     line-height: 1em;
+    padding-bottom: 5px
 }
 
 .amount_invested .minimum {
@@ -770,6 +783,10 @@ div.banner h2::after {
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
+}
+
+.investors_list .investor_img {
+    margin-left: 45px;
 }
 
 .key_information_description h2, .funder_terms h2, .answers_to_questions h2, .legal_documents h2 {

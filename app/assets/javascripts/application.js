@@ -24,7 +24,13 @@
 //= require angular-ui-router
 //= require ui-bootstrap-tpls-0.12.0
 
+/*$(window).load(function() {
+    $('.flexslider').flexslider(
+        {
 
+        }
+    );
+}); */
 
 $(document).ready(function() {
 

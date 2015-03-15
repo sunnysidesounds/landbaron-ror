@@ -262,6 +262,18 @@
     padding: 16px;
 }
 
+.button_super_large {
+    font: 25px/100% Arial,Helvetica,sans-serif;
+    padding: 25px;
+    width: 230px;
+}
+
+.button_large_and_long {
+    font: 25px/100% Arial,Helvetica,sans-serif;
+    padding: 10px;
+    width: 230px;
+}
+
 
 
 
@@ -748,7 +760,7 @@ div.banner h2::after {
 }
 
 .investment_header_column {
-    height:100%;
+
 }
 
 .progress_bar_img {
@@ -760,8 +772,7 @@ div.banner h2::after {
 }
 
 .company_logo {
-    text-align: center;
-    padding-top: 25px;
+    margin-top: 20px;
 }
 
 .invest_now {
@@ -804,11 +815,11 @@ div.banner h2::after {
 }
 
 .amount_invested .amount {
-    color: #7a001f;
-    font-size: 28px;
-    font-weight: 400;
+    color: #55676a;
+    font-size: 22px;
+    font-weight: lighter;
     line-height: 1em;
-    padding-bottom: 5px
+
 }
 
 .amount_invested .minimum {
@@ -817,7 +828,17 @@ div.banner h2::after {
 }
 
 .fund-info {
+    margin-left: 25px;
 
+
+}
+
+.fund-info h2 {
+    color: #55676a;
+    font-family: "Oswald";
+    font-size: 35px;
+    font-weight: bold;
+    text-align: left;
 }
 
 .slider_container {
@@ -825,11 +846,10 @@ div.banner h2::after {
     text-align: center;
 }
 
-.fund-info h2{
-    color: #7a001f;
-}
+
 
 .fund-info p {
+    font-weight: 300;
 
 }
 
@@ -861,15 +881,21 @@ div.banner h2::after {
     padding-bottom: 25px;
 }
 
-.watchers {
-    height: 125px;
+.investment_detail_information {
+    padding-top: 25px;
+}
+
+.watchers .watch_button_container {
+    padding-bottom: 20px;
+    text-align: center;
 }
 
 .watchers h3, .investors_list h3, .principle_bios h3  {
-    color: #e0af00;
+    color: #55676A;
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;
+    font-family: "Oswald";
 }
 
 .investors_list .investor_img {
@@ -877,9 +903,18 @@ div.banner h2::after {
 }
 
 .key_information_description h2, .funder_terms h2, .answers_to_questions h2, .legal_documents h2 {
-    color: #e0af00;
     padding-left:25px;
     padding-top:25px;
+
+    color: #55676a;
+    font-family: "Oswald";
+
+    font-weight: bold;
+
+}
+
+.key_information_content {
+    font-weight: 300;
 }
 
 .key_information_description p {

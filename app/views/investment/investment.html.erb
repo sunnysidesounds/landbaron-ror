@@ -99,17 +99,20 @@
                 <div class="past_investment_deal">
 
                     <div class="past_investment_mini_header">
-                        <img width="100" src="<%=past['logo_link'] %> "/>
+                        <img width="" src="<%=past['logo_link'] %> "/>
                     </div>
-                    <div class="deal_title_past"><%=past['name'] %></div>
+
 
                 </div>
 
             </div>
             <div class="col-md-9 past_investment_grid">
+                <div class="deal_title_past"><%=past['name'] %></div>
                 <div class="past_investment_description">
                     <%=h truncate(past['key_information'], :length => 200) %>
                 </div>
+                <a class="buttom_gold" href="#">View Details</a>
+
             </div>
         </div>
         <% end %>

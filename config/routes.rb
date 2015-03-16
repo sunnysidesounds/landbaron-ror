@@ -33,10 +33,10 @@ LandBaron::Application.routes.draw do
   match 'invest_now/:id'   => 'investment#investment_now', :via => :get
 
   # quote
-  post 'new_quote' => 'investment#create_quote'
+  post 'quote' => 'quote#create_quote'
 
   # confirmation
-  match 'confirmation/:id'   => 'investment#investment_confirmation', :via => :get
+  match 'confirmation'   => 'investment#investment_confirmation', :via => :get
 
 
 

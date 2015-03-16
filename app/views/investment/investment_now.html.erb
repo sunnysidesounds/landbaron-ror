@@ -1,7 +1,7 @@
 
 <div class="gray_background">
     <% @invest_now.each do |invest_now| %>
-    <%= form_for (Quote.new), :as => :quote, :url => new_quote_path, :method => :post do |f| %>
+    <%= form_for (Quote.new), :as => :quote, :url => quote_path, :method => :post do |f| %>
             <!-- Investment Amount -->
             <div class="invest_container">
                 <div class="row">

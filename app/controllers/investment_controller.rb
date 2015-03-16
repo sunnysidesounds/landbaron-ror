@@ -1,9 +1,6 @@
 class InvestmentController < ApplicationController
 
   def index
-
-
-
   end
 
   def investment
@@ -33,34 +30,10 @@ class InvestmentController < ApplicationController
   end
 
   def investment_confirmation
-    if params[:id]
-      investments = Investment.new
-      @confirmation = investments.get_investment_details(params[:id])
-    end
+   # if params[:id]
+    #  investments = Investment.new
+    #  @confirmation = investments.get_investment_details(params[:id])
+    #end
   end
-
-
-
-  def create_quote
-    @quote = Quote.new(quote_params)
-
-    # Stoppped here need to see what to pass
-    render :action => "new_quote"
-
-
-  #  if quote_params[:user_id] == current_user.id
-   #   flash.now[:error] = 'User match'
-   # end
-
-
-
-
-    end
-
-
-  def quote_params
-    params.require(:quote).permit(:reference_id, :user_id, :total_amount, :investor_profile_type, :status, :payment_methd)
-  end
-
 
 end

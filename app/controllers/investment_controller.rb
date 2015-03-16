@@ -7,16 +7,16 @@ class InvestmentController < ApplicationController
   end
 
   def investment
-    @investments = Investment.new
-    @available = @investments.get_landing_page_investments('available')
-    @coming_soon = @investments.get_landing_page_investments('coming_soon')
-    @past = @investments.get_landing_page_investments('past')
+    investments = Investment.new
+    @available = investments.get_landing_page_investments('available')
+    @coming_soon = investments.get_landing_page_investments('coming_soon')
+    @past = investments.get_landing_page_investments('past')
   end
 
   def investment_detail
     if params[:id]
-      @investments = Investment.new
-      @details = @investments.get_investment_details(params[:id])
+      investments = Investment.new
+      @details = investments.get_investment_details(params[:id])
     end
 
   end
@@ -24,8 +24,8 @@ class InvestmentController < ApplicationController
 
   def investment_now
     if params[:id]
-      @investments = Investment.new
-      @invest_now = @investments.get_investment_details(params[:id])
+      investments = Investment.new
+      @invest_now = investments.get_investment_details(params[:id])
       @user = current_user
       # TODO: If we start using reference_id
       @reference_id = "uid#{current_user.id}ln#{current_user.last_name}iid#{params[:id]}"
@@ -34,10 +34,12 @@ class InvestmentController < ApplicationController
 
   def investment_confirmation
     if params[:id]
-      @investments = Investment.new
-      @confirmation = @investments.get_investment_details(params[:id])
+      investments = Investment.new
+      @confirmation = investments.get_investment_details(params[:id])
     end
   end
+
+
 
   def create_quote
     @quote = Quote.new(quote_params)

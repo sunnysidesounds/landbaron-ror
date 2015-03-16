@@ -318,6 +318,17 @@
     width: 230px;
 }
 
+.invest_now_submit_button {
+    height: 250px;
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+}
+
+.invest_now_submit_button .submission_form{
+    text-align:right;
+}
+
 
 
 

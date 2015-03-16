@@ -164,6 +164,45 @@
 
 }
 
+.investment_amount {
+
+}
+
+.iq_form_a input {
+    width: 60%;
+}
+
+.invest_now_header {
+    padding-bottom:10px;
+}
+
+.gray_me_investment {
+    color: #c0c0c0;
+    font-size: 14px;
+}
+
+.gray_me_investment_two{
+    color: #c0c0c0;
+    font-size: 14px;
+    text-align: right;
+}
+
+.invest_now_header h2 {
+    color: #55676a;
+    font-family: "Oswald";
+    font-weight: bold;
+    padding-left: 25px;
+    padding-top: 25px;
+}
+
+.investment_amount_form {
+    border:1px solid red;
+}
+
+.question_investment {
+    text-align: right;
+}
+
 .lbc_tabs a:hover {
     text-decoration: none;
 }
@@ -197,6 +236,11 @@
 
 .create_account_tab a:hover {
     color: #696969;
+}
+
+.profile_type_radio_label {
+    color: #666;
+    font-weight: 300;
 }
 
 .signin_account_tab a:hover {

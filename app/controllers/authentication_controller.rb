@@ -2,7 +2,12 @@ class AuthenticationController < ApplicationController
 
   # Sign in
   def sign_in
-    @user = User.new
+    if session[:user_id].nil?
+      @user = User.new
+    else
+      redirect_to :controller => 'investment', :action => 'investment'
+
+    end
   end
 
   # This method is called to sign out a user by email or username
@@ -31,7 +36,7 @@ class AuthenticationController < ApplicationController
     if user
       session[:user_id] = user.id
      # flash[:notice] = 'Welcome.'
-      redirect_to :controller => 'current_deals', :action => 'deals'
+      redirect_to :controller => 'investment', :action => 'investment'
     else
       flash.now[:error] = 'Unknown user. Please check your username and password.'
       render :action => "sign_in"
@@ -41,7 +46,11 @@ class AuthenticationController < ApplicationController
 
   # New user
   def new_user
-    @user = User.new
+    if session[:user_id].nil?
+      @user = User.new
+    else
+      redirect_to :controller => 'investment', :action => 'investment'
+    end
   end
 
   # This method is used to sign-up a user
@@ -50,8 +59,7 @@ class AuthenticationController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
-     # flash[:notice] = 'Welcome.'
-      redirect_to :controller => 'current_deals', :action => 'deals'
+      redirect_to :controller => 'investment', :action => 'investment'
     else
       render :action => "new_user"
     end

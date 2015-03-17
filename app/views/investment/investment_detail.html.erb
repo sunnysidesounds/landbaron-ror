@@ -1,0 +1,181 @@
+<div class="gray_background">
+    <div class="investment_details_container">
+        <% @details.each do |details| %>
+        <div class="row investment_detail_header">
+            <div class="col-md-3 investment_header_column">
+                <div class="company_logo">
+                    <img class="company_logo_img" src="<%=details['logo_link'] %> ">
+                </div>
+            </div>
+            <div class="col-md-6 investment_header_column">
+                <div class="fund-info">
+                    <h2><%=details['name'] %></h2>
+                    <p><%=h truncate(details['key_information'], :length => 300) %></p>
+                    <div class="data ">
+                        <span class="datum">
+                            <i class="fa fa-fw fa-bank"></i>
+                            Future of work
+                        </span>
+                    <span class="datum">
+                        <i class="fa fa-fw fa-cube"></i>
+                         Multi Company Fund
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 investment_header_column">
+                <div class="row">
+                    <div class="col-md-12 invest_now">
+                        <a class="buttom_gold button_super_large" href="/invest_now/<%=details['id'] %>">Invest</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="progress_bar">
+                        <img class="progress_bar_img" height="25" width="245" src="/assets/progress_bar_placeholder.png" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="amount_invested">
+                            <div class="amount">
+                                <%=details['raise_amount'] %>
+                            </div>
+                            <div class="minimum">
+                                Invested of <%=details['investment_minimum'] %> minimum raise
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row investment_detail_information">
+            <div class="col-md-8">
+                <div class="key_information_right key_information_description">
+                    <div class="slider_container">
+
+
+                     <!--   <div class="flexslider">
+                            <ul class="slides">
+                                <li>
+                                    <img width="100" src="http://2nlizv2n463m4ezbxb1ci6m1.wpengine.netdna-cdn.com/wp-content/themes/woo/images/flex/flexslider_c.jpg" />
+                                </li>
+                                <li>
+                                    <img width="100" src="http://2nlizv2n463m4ezbxb1ci6m1.wpengine.netdna-cdn.com/wp-content/themes/woo/images/flex/flexslider_d.jpg" />
+                                </li>
+                                <li>
+                                    <img src="slide3.jpg" />
+                                </li>
+                            </ul>
+                        </div>   -->
+
+                    </div>
+                    <h2>Key Information</h2>
+                    <div class="key_information_content">
+                    <p><%=details['key_information'] %></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="key_information_left watchers">
+                    <h3>25 Watchers</h3>
+                    <div class="watch_button_container">
+                        <a class="buttom_gold button_large_and_long" href="#">Watch</a>
+                    </div>
+                </div>
+                <div class="key_information_left investors_list">
+                    <h3>Investor List</h3>
+                    <img class="investor_img" width="270" src="/assets/investor_list_placeholder.jpg" />
+                </div>
+                <div class="key_information_left principle_bios">
+                    <h3>Principal Bios</h3>
+
+                    <img class="principle_investor_img" width="75" src="/assets/dummy-investor.png"/> Randy Eastwood
+                      <br />
+                    <img class="principle_investor_img" width="75" src="/assets/dummy-investor.png"/> James Vastbinder
+
+
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row investment_detail_information">
+            <div class="col-md-12">
+                  <div class="funder_terms">
+                      <h2>Fund Terms</h2>
+                      <div class="funder_terms_conatiner">
+                        <h4><strong>Minimum Inventment: </strong> <%=details['investment_minimum'] %></h4>
+
+                            <h4><strong>Fee Structure: </strong></h4>
+                            <div class="key_information_content">
+                                <ul>
+                                    <li class="bullets_fees">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in,</li>
+                                    <li class="bullets_fees">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in,</li>
+                                    <li class="bullets_fees">Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,</li>
+                                    <li class="bullets_fees">cu. In enim justo, rhoncus ut,</li>
+                                </ul>
+                              </div>
+                            <h4><strong>Notes: </strong></h4>
+                                <div class="key_information_content">
+                                <p>
+                                    eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et a
+                                </p>
+                                </div>
+                      </div>
+                  </div>
+            </div>
+        </div>
+        <br />
+        <div class="row investment_detail_information">
+            <div class="col-md-12">
+                <div class="answers_to_questions">
+                    <h2>Answers To Questions</h2>
+                    <div class="qa_conatiner">
+                        <h4><strong>How is this Investment Fund managed?: </strong></h4>
+                        <div class="key_information_content">
+                        <p>eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend</p>
+                        </div>
+                            <br />
+                        <h4><strong>What type of Structure is used for this Investment Fund?: </strong></h4>
+                        <div class="key_information_content">
+                        <p>eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <!--<div class="row investment_detail_information">
+            <div class="col-md-12">
+                <div class="legal_documents">
+                    <h2>Legal Documents</h2>
+                </div>
+            </div>
+        </div> -->
+
+        <% end %>
+
+    </div>
+
+
+    <!--
+    <div class="investment_detail_container">
+        <div class="investment_detail_header">
+
+        </div>
+
+
+
+
+    </div>
+      --->
+
+</div>

@@ -1,4 +1,6 @@
 LandBaron::Application.routes.draw do
+  # map.resource :investments
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root :to => 'authentication#sign_in'
@@ -23,9 +25,22 @@ LandBaron::Application.routes.draw do
 
   # My Account
   get 'account' => 'my_account#account'
-
   #Landing Page
-  get 'currentdeals' => 'current_deals#deals'
+  get 'investments' => 'investment#investment'
+  #get 'investment_detail:id' => 'investment#investment_detail', :action=> 'investment_detail'
+  match 'investment_detail/:id'   => 'investment#investment_detail', :via => :get
+
+  match 'invest_now/:id'   => 'investment#investment_now', :via => :get
+
+  # quote
+  post 'quote' => 'quote#create_quote'
+
+  # confirmation
+  match 'confirmation'   => 'investment#investment_confirmation', :via => :get
+
 
 
 end
+
+
+

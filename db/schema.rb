@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223162412) do
+ActiveRecord::Schema.define(version: 20150316040459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,29 @@ ActiveRecord::Schema.define(version: 20150223162412) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "investments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo_link"
+    t.string   "investment_type"
+    t.string   "raise_amount"
+    t.string   "minimum_raise_amount"
+    t.string   "investment_duration"
+    t.string   "video_link"
+    t.string   "status"
+    t.string   "risk_rating"
+    t.text     "key_information"
+    t.integer  "photos_link_id"
+    t.integer  "principle_bio_id"
+    t.string   "investment_minimum"
+    t.string   "fee_structure"
+    t.string   "note"
+    t.integer  "spots_available"
+    t.integer  "qa_id"
+    t.integer  "legal_documents_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", id: false, force: :cascade do |t|
     t.string   "token"
     t.string   "transaction_id"
@@ -80,6 +103,17 @@ ActiveRecord::Schema.define(version: 20150223162412) do
     t.string   "shipping_desc"
     t.string   "delivery_desc"
     t.integer  "limit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string   "reference_id"
+    t.integer  "user_id"
+    t.string   "total_amount"
+    t.string   "investor_profile_type"
+    t.string   "status"
+    t.string   "payment_methd"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

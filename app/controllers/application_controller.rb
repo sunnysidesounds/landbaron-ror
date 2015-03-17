@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
-  before_filter :authenticate_user, :only => [:deals, :current_deals, :preorder]
+  before_filter :authenticate_user, :only => [:investment, :investment_detail, :preorder, :account]
 
 
 

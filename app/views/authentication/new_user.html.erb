@@ -6,7 +6,7 @@
                 <%= link_to "Create Account", new_user_path, class: "create_account_link" %>
             </div>
             <div class="lbc_tab signin_account_tab signin_account_tab_notselected">
-                <%= link_to "Login", sign_in_path, class: "login_account_link" %>
+                <%= link_to "Login", sign_in_path, :class => "login_account_link" %>
             </div>
         </div>
 
@@ -58,8 +58,8 @@
             <div class="form_group submission_form">
                 <%= f.hidden_field :principle_investor, :value => "false" %>
                 <%= f.hidden_field :verified, :value => "false" %>
-                <%= f.submit 'Sign Up' %>
-                <%= f.submit 'Clear Form', :type => 'reset' %>
+                <%= f.submit 'Sign Up', :class=>'buttom_gray' %>
+                <%= f.submit 'Clear Form', :type => 'reset', :class=>'buttom_gray' %>
             </div>
             <% end %>
         </div>

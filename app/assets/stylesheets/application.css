@@ -8,12 +8,13 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
+
  *= require reset
  *= require main
  *= require jquery-ui
+ *= require bootstrap
+ *= require_self
  */
-
 
 .hidden
 {
@@ -27,31 +28,41 @@
 }
 
 #flash_error {
-    padding: 12px;
+    padding: 90px 12px 12px;
     background-color: #e9e9e9;
     font-size: 14px;
     color: red;
-    margin-left: 40px;
 }
 
 #flash_notice {
     background-color: #e9e9e9;
     font-size: 14px;
-    padding: 12px;
-    margin-left: 40px;
+    padding: 90px 12px 12px;
+}
+
+.header_browse {
+    float: right;
+    margin-right: 40px;
+}
+
+.search-header-form {
+    padding-top: 20px;
+    width: 250px;
 }
 
 .header_links {
-    font-family: "Syncopate";
-    margin-left: 50%;
-    text-align:right;
+    float: right;
+    font-family: "Oswald";
+    height: 80px;
+    width: 240px;;
     margin-right: 50px;
-    margin-top: 10px;
+    border-left: 1px solid #666;
+    border-right: 1px solid #666;
 }
 
 .header_links a{
     color: #696969;
-    font-family: "Syncopate";
+    font-family: "Oswald";
     font-weight: bold;
     font-size: 16px;
 }
@@ -64,13 +75,46 @@
     text-decoration: none;
 }
 
-.header_links_list {
+.header_links_notsignin {
+    float: right;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 5px 25px;
+    text-transform: uppercase;
+    white-space: normal;
+    width: auto;
+    margin-right: 175px;
+}
 
+.header_links_notsignin a{
+    color: #fff;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.header_links_notsignin a:hover{
+    text-decoration: none;
+    color: #fff;
+}
+
+.header_links_notsignin a:visited{
+    text-decoration: none;
+    color: #fff;
+}
+
+.header_links_list {
+    margin-top: 15px;
 }
 
 .header_links_list_value {
     display: inline;
-    padding-left: 15px;
+    padding-left: 35px;
 }
 
 .header_links_username {
@@ -83,18 +127,25 @@
 
 
 .logo {
-    width: 25%;
+    background-attachment: scroll !important;
+    background-clip: border-box !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    background-image: url("/assets/logo.png") !important;
+    background-origin: padding-box !important;
+    background-position: 0 0 !important;
+    background-repeat: no-repeat !important;
+    background-size: 220px auto;
     float: left;
-    margin-left: 50px;
-    margin-top: 8px;
+    margin-left: 100px;
+    margin-top: 12px;
 }
 
 .logo a {
-    font-size: 40px;
-    font-weight: bold;
-    color: #696969;
-    font-family: "Syncopate";
+    float: left;
+    height: 55px;
+    width: 245px;
 }
+
 .logo a:hover{
     text-decoration: none;
 }
@@ -113,6 +164,45 @@
 
 }
 
+.investment_amount {
+
+}
+
+.iq_form_a input {
+    width: 60%;
+}
+
+.invest_now_header {
+    padding-bottom:10px;
+}
+
+.gray_me_investment {
+    color: #c0c0c0;
+    font-size: 14px;
+}
+
+.gray_me_investment_two{
+    color: #c0c0c0;
+    font-size: 14px;
+    text-align: right;
+}
+
+.invest_now_header h2 {
+    color: #55676a;
+    font-family: "Oswald";
+    font-weight: bold;
+    padding-left: 25px;
+    padding-top: 25px;
+}
+
+.investment_amount_form {
+    border:1px solid red;
+}
+
+.question_investment {
+    text-align: right;
+}
+
 .lbc_tabs a:hover {
     text-decoration: none;
 }
@@ -123,7 +213,7 @@
     padding-bottom: 10px;
     padding-top: 10px;
     text-align: center;
-    font-family: "Syncopate";
+    font-family: "Oswald";
 }
 
 .create_account_tab {
@@ -137,6 +227,23 @@
 }
 
 .create_account_link {
+    color: #6c7a7d;
+}
+
+.login_account_link {
+    color: #6c7a7d;
+}
+
+.create_account_tab a:hover {
+    color: #696969;
+}
+
+.profile_type_radio_label {
+    color: #666;
+    font-weight: 300;
+}
+
+.signin_account_tab a:hover {
     color: #696969;
 }
 
@@ -150,9 +257,7 @@
     background-color: #e9e9e9;
 }
 
-.login_account_link {
-    color: #696969;
-}
+
 
 .form_container {
     margin: auto;
@@ -160,8 +265,82 @@
     padding: 30px;
 }
 
+.buttom_gray{
+    border-radius: 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: inline-block;
+    font: 14px/100% Arial,Helvetica,sans-serif;
+    margin: 0 2px;
+    outline: medium none;
+    padding: 0.5em 2em 0.55em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    vertical-align: baseline;
+    background: -moz-linear-gradient(center top , #6c7a7d, #55676a) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #555;
+    color: #e9e9e9;
+}
+
+.buttom_gold{
+    border-radius: 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: inline-block;
+    font: 14px/100% Arial,Helvetica,sans-serif;
+    margin: 0 2px;
+    outline: medium none;
+    padding: 0.5em 2em 0.55em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    vertical-align: baseline;
+    background: -moz-linear-gradient(center top , #e0af00, #e0af00) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #e0af00;
+    color: #e9e9e9;
+}
+
+.button_large {
+    font: 18px/100% Arial,Helvetica,sans-serif;
+    padding: 16px;
+}
+
+.button_super_large {
+    font: 25px/100% Arial,Helvetica,sans-serif;
+    padding: 25px;
+    width: 230px;
+}
+
+.button_large_and_long {
+    font: 25px/100% Arial,Helvetica,sans-serif;
+    padding: 10px;
+    width: 230px;
+}
+
+.invest_now_submit_button {
+    height: 250px;
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+}
+
+.invest_now_submit_button .submission_form{
+    text-align:right;
+}
+
+
+
+
 .form_container input {
-    font-family: "Syncopate";
+
+
+    /*
+
+
+
+
+    font-family: "Oswald";
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
@@ -175,10 +354,11 @@
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
     width: 100%;
+    */
 }
 
 .form_container select {
-    font-family: "Syncopate";
+    font: 14px/100% Arial,Helvetica,sans-serif;
     background-color: #fff;
     background-image: none;
     border: 1px solid #ccc;
@@ -186,13 +366,28 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     color: #ADADAD;
     display: block;
-    font-size: 16px;
     height: 36px;
     line-height: 1.42857;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 100%;
+    width: 95%;
 }
+
+
+.form-control::-moz-placeholder {
+    color: #bdbdbd;
+    opacity: 1;
+}
+*::-moz-placeholder {
+    color: #bdbdbd;
+}
+
+.form-control:focus, .form_container select:focus {
+    border-color: #e0af00;
+    box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(224, 175, 0, 1);
+}
+
+
 
 .form_group{
     padding-top: 10px;
@@ -232,7 +427,6 @@
 
 
 .state_form select {
-    height: 50px;
 
 }
 
@@ -241,7 +435,6 @@
 }
 
 .income_range_form select {
-    height: 50px;
 }
 
 .address_form input {
@@ -259,10 +452,11 @@
 }
 
 .submission_form input {
-    background-color: #696969;
+ /*   background-color: #696969;
     color: #fff;
     margin-top: 20px;
     text-shadow: none;
+    */
 
 }
 
@@ -285,35 +479,65 @@
 .deals_container {
     padding: 25px;
     text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .deal_item {
     box-shadow: 0 0 4px #c0c0c0;
-    display: inline-block;
     padding: 20px;
-    width: 25%;
-    vertical-align: top;
-    margin-left: 25px;
+    margin-top: 25px;
+    background-color: #e6e6e6;
+
 }
 
 .deal_header {
-    background-color: #696969;
+   /* background-color: #55676a;*/
     color: #fff;
     font-size: 45px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+   /* border: 1px solid #555;
+    border-radius: 0.3em;*/
 }
 
 .deal_header .deal_title {
-    font-size: 17px;
+    color: #55676a;
+    font-size: 24px;
+    font-weight: bold;
     padding-bottom: 8px;
-    padding-top: 8px;
+    text-align: left;
+    font-family: "Oswald";
+}
+
+.deal_title_past{
+    color: #55676a;
+    font-family: "Oswald";
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 8px;
+    text-align: left;
+}
+
+.deal_title_past, .past_investment_description {
+    margin-left:20px;
 }
 
 .deal_h2_header {
     color: #fff;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: bold;
-    padding-bottom: 40px;
-    margin-bottom: 15px;
+    margin: 0;
+}
+
+.past_investment_grid .buttom_gold {
+    margin-left: 20px;
+    margin-top: 12px;
+}
+
+.past_investment_grid .buttom_gold:hover {
+    color: #fff;
+    text-decoration: none;
 }
 
 .deal_sub_container{
@@ -321,16 +545,18 @@
 }
 
 .deal_h3_sub {
-    font-size: 20px;
+    font-size: 18px;
     text-align: left;
-    color: #696969;
+    color: #55676a;
     font-weight: bold;
+    font-family: "Oswald";
 }
 
 .deal_description {
     font-size: 14px;
     line-height: 1.42857;
     text-align: left;
+    min-height: 200px;
 }
 
 .deal_bullet_points {
@@ -357,12 +583,31 @@
 }
 
 .blue_button_sub {
-    background-color: #696969;
+    background-color: #e0af00;
     border-radius: 10px;
     color: white;
     display: block;
-    font-family: "Syncopate";
+    font-family: "Oswald";
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+}
+
+.deal_status_container .blue_button_sub a:hover {
+    text-decoration: none;
+    color:#fff;
+}
+
+.deal_status_container .blue_button_sub a:focus {
+    text-decoration: none;
+    color:#fff;
+}
+
+.blue_button_sub_notsignin {
+    background-color: #e0af00;
+    border-radius: 8px;
+    color: white;
+    font-family: "Oswald";
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+    padding: 5px 10px;
 }
 
 .deal_status_container a {
@@ -371,10 +616,8 @@
 
 .deal_status_container a:hover {
     text-decoration: none;
+    color: #fff;
 }
-
-
-
 
 .account_settings {
     height: 500px;
@@ -382,11 +625,488 @@
 }
 
 
+.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+   /* border: 1px solid red;  */
+}
+
+.available_investments, .upcoming_investments, .past_investments {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.available_investments_header, .upcoming_investments_header, .past_investments_header {
+    text-align: left;
+
+}
+
+.available_investments_header h3, .upcoming_investments_header h3, .past_investments_header h3 {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+    color: #303F42;
+    font-family: "Oswald";
+
+}
+
+#top-bar {
+    text-align: right;
+    background: black;
+    color: white;
+    padding: 14px 5px 5px;
+}
+#top-bar a {
+    color: white;
+    text-decoration: none;
+    outline:none
+}
+
+#top-bar a:hover {
+    text-decoration: none;
+}
+#top-bar a.active {
+    text-decoration: none;
+}
+
+#arrow {
+    margin-right: 15px;
+}
+
+#arrdown {
+    font-size: 15px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    color: black;
+    margin-top: 45px;
+    z-index: 999;
+    background-color: #000;
+}
+.dropdown a {
+    display: block;
+    color: white !important;
+    text-decoration: none;
+    padding: 5px 7px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align:left;
+    letter-spacing: 1px;
+    font-size:12px;
+    height: 35px;
+
+}
+.dropdown a:hover {
+    background: #666;
+}
+
+.user_avatar {
+    float: left;
+}
+
+.users_name {
+    float: left;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 1px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.username {
+    float: left;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding-left: 10px;
+}
+
+.users_information {
+
+}
+
+.banner_container {
+    box-shadow: 0 0 3px rgba(0,0,0,0.25);
+   /* margin: 50px 0 0 45px;*/
+    position: relative;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.banner_container h2 {
+    background: #e0af00;
+    background-image: radial-gradient(transparent 30%, rgba(0, 0, 0, 0.2));
+    border: 0 solid rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
+    text-shadow: -1px -1px 1px rgba(0,0,0,0.2);
+}
+
+
+div.banner {
+    z-index: -1;
+}
+div.banner h2 {
+    border-radius: 0 0 5px 5px;
+    border-width: 0 1px 1px 1px;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    margin: -1px auto 0;
+    padding: 2px 28px;
+    width: 90%;;
+}
+div.banner h2:before, div.banner h2:after {
+    bottom: 4px;
+    box-shadow: 0 6px 5px rgba(0,0,0,0.4);
+    content: "";
+    height: 10px;
+    position: absolute;
+    width: 47%;
+    z-index: -1;
+}
+div.banner h2::before {
+    left: 3%;
+    transform: rotate(-3.5deg);
+}
+div.banner h2::after {
+    right: 3%;
+    transform: rotate(3.5deg);
+}
+
+.past_investment_deal{
+
+}
+
+.past_investment_grid {
+    text-align: left;
+}
+
+.past_investment_row {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+
+.past_investment_deal h4 {
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+}
+
+.past_investment_mini_header {
+}
+
+.investment_details_container{
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 25px;
+
+}
+
+.principle_investor_img{
+    margin-left: 60px;
+    padding: 3px;
+}
+
+.investment_detail_header {
+    box-shadow: 0 0 4px #c0c0c0;
+    height: 325px;
+    padding: 20px;
+}
+
+.investment_header_column {
+
+}
+
+.progress_bar_img {
+
+}
+
+.progress_bar {
+    margin-top: -20px;
+}
+
+.company_logo {
+    margin-top: 20px;
+}
+
+.invest_now {
+    padding-top:25px;
+    padding-bottom:25px;
+}
+
+.invest_now a:hover, .invest_now a:focus{
+    text-decoration: none;
+    color:#fff;
+}
+
+.invest_now_button {
+    background-color: #e0af00;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    font-family: "Oswald";
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+    font-size: 35px;
+    text-align:center;
+}
+
+.watch_now_button {
+    background-color: #7a001f;
+    border-radius: 10px;
+    color: white;
+    display: block;
+    font-family: "Oswald";
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+    font-size: 25px;
+    text-align:center;
+    width: 250px;
+    margin:auto;
+}
+
+
+.amount_invested {
+    padding-top: 50px;
+}
+
+.amount_invested .amount {
+    color: #55676a;
+    font-size: 22px;
+    font-weight: lighter;
+    line-height: 1em;
+
+}
+
+.amount_invested .minimum {
+    color: #c0c0c0;
+    font-size: 14px;
+}
+
+.fund-info {
+    margin-left: 25px;
+
+
+}
+
+.fund-info h2 {
+    color: #55676a;
+    font-family: "Oswald";
+    font-size: 35px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.slider_container {
+    padding-top: 35px;
+    text-align: center;
+}
+
+
+
+.fund-info p {
+    font-weight: 300;
+
+}
+
+.grid_column {
+    border: 1px solid red;
+}
+
+.confidential_container {
+    background-color: #e9e9e9;
+    border-radius: 2px;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 12px;
+    text-align: center;
+    margin-top: 20px
+}
+
+.fa-exclamation-triangle:before{
+    content:"\f071"
+}
+
+.investment_detail_information .key_information_left {
+    box-shadow: 0 0 4px #c0c0c0;
+
+}
+
+.investment_detail_information .key_information_right {
+    box-shadow: 0 0 4px #c0c0c0;
+    padding-bottom: 25px;
+}
+
+.investment_detail_information {
+    padding-top: 25px;
+}
+
+.watchers .watch_button_container {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.watchers h3, .investors_list h3, .principle_bios h3  {
+    color: #55676A;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: "Oswald";
+}
+
+.investors_list .investor_img {
+    margin-left: 45px;
+}
+
+.key_information_description h2, .funder_terms h2, .answers_to_questions h2, .legal_documents h2 {
+    padding-left:25px;
+    padding-top:25px;
+
+    color: #55676a;
+    font-family: "Oswald";
+
+    font-weight: bold;
+
+}
+
+.key_information_content {
+    font-weight: 300;
+}
+
+.key_information_description p {
+    padding-left:25px;
+    padding-right:25px;
+    line-height: 18px;
+}
+
+.funder_terms{
+    box-shadow: 0 0 4px #c0c0c0;
+    min-height: 300px;
+}
+
+.funder_terms_conatiner {
+    padding: 25px;
+    color: #666;
+}
+
+.bullets_fees {
+    font-size: 12px;
+    list-style: inside none disc;
+    padding-top: 14px;
+}
+
+.qa_conatiner {
+    font-size: 12px;
+    color: #666;
+    margin-left: 25px;
+}
+
+.qa_conatiner p {
+    font-size: 12px;
+}
+
+.funder_terms_conatiner p {
+    font-size: 12px;
+
+}
+
+.answers_to_questions {
+    box-shadow: 0 0 4px #c0c0c0;
+    min-height: 300px;
+}
+
+.legal_documents {
+    box-shadow: 0 0 4px #c0c0c0;
+    min-height: 300px;
+}
+
+.investors_list {
+    margin-top: 20px;
+    height: 250px;
+}
+
+.principle_bios {
+    margin-top: 20px;
+    height: 250px;
+}
+
+.invest_container {
+    box-shadow: 0 0 4px #c0c0c0;
+    height: 250px;
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+}
+
+.invest_now_form_page {
+    margin: auto;
+    width: 300px;
+}
+
+.invest_container h1 {
+    width: 400px;
+}
 
 
 
 
 
+/*
+
+
+
+   border-radius: 0.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: inline-block;
+    font: 14px/100% Arial,Helvetica,sans-serif;
+    margin: 0 2px;
+    outline: medium none;
+    padding: 0.5em 2em 0.55em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    vertical-align: baseline;
+
+
+
+.investment_detail_container {
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 25px;
+}
+
+
+
+.investment_details {
+    border: 1px solid red;
+}
+
+.investment_detail_overview {
+    border: 1px solid red;
+    height: 280px;
+}
+
+.investment_detail_overview_middle {
+    height: 280px;
+    text-align:left;
+}
+
+.investment_header {
+    height: 125px;
+    margin-top: 25px;
+}
+
+
+
+.investment_detail_button a:hover {
+    text-decoration: none;
+    color:#fff;
+}
+
+.investment_detail_button a:focus {
+    text-decoration: none;
+    color:#fff;
+} */
 
 
 

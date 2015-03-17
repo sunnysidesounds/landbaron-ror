@@ -14,16 +14,74 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery.details
 //= require jquery.textchange
+
+// Removed due to b.browser undefined
+// require jquery.details
+
 //= require preorder
-//= require_tree .
+//= require angular.min
+//= require angular-ui-router
+//= require ui-bootstrap-tpls-0.12.0
 
-var $j = jQuery.noConflict();
+/*$(window).load(function() {
+    $('.flexslider').flexslider(
+        {
 
-$j(document).ready(function() {
+        }
+    );
+}); */
+
+$(document).ready(function() {
 
     //$j("#flash_notice").slideUp(500).delay(5000)
+
+     // alert("test");
+
+    $('#more').click(function() {
+        $(this).toggleClass('active');
+        $(this).next('.dropdown').toggle();
+        return false;
+    });
+
+      /*
+    $('.dropdown a').click(function() {
+        $(this).unbind('click');
+        return false;
+    }); */
+
+
+
+    $(function(){
+        $('#header').data('size','big');
+    });
+
+    $(window).scroll(function(){
+        if($(document).scrollTop() > 0)
+        {
+            if($('#header').data('size') == 'big')
+            {
+                $('#header').data('size','small');
+                $('.header_links').hide();
+                $('.header_browse').hide();
+                $('#header').stop().animate({
+                    height:'60px'
+                },600);
+            }
+        }
+        else
+        {
+            if($('#header').data('size') == 'small')
+            {
+                $('#header').data('size','big');
+                $('.header_links').fadeIn();
+                $('.header_browse').fadeIn();
+                $('#header').stop().animate({
+                    height:'80px'
+                },600);
+            }
+        }
+    });
 
 
 

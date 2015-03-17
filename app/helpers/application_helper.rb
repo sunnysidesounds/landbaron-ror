@@ -3,6 +3,10 @@ module ApplicationHelper
   def show_field_error(model, field)
     s=""
 
+    logger.error("FUCKING")
+    logger.error(field)
+    logger.error(model)
+
     if !model.errors[field].empty?
       s =
           <<-EOHTML

@@ -7,20 +7,16 @@ class QuoteController < ApplicationController
 
   def create_quote
     @quote = Quote.new(quote_params)
-
     if @quote.valid?
+
+      # TODO Check for duplicate records.
       @quote.save
       redirect_to :controller => 'investment', :action => 'investment_confirmation'
     else
-      flash.now[:error] = 'All fields must be filled in!'
-      #redirect_to :back
-
-      redirect_to :controller => 'investment', :action => 'investment_confirmation'
-
-
-
-
-
+      # Specific Message
+      #flash[:error] = @quote.errors.full_messages.join("<br>").html_safe
+      flash[:error] = 'All fields are required to make a investment!'
+      redirect_to :controller => 'investment', :action => 'investment_now', :id => @quote.investment_id
     end
 
 

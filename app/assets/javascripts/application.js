@@ -34,10 +34,6 @@
 
 $(document).ready(function() {
 
-    //$j("#flash_notice").slideUp(500).delay(5000)
-
-     // alert("test");
-
     $('#more').click(function() {
         $(this).toggleClass('active');
         $(this).next('.dropdown').toggle();

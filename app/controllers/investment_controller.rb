@@ -32,7 +32,7 @@ class InvestmentController < ApplicationController
   def investment_confirmation
    # if params[:id]
     #  investments = Investment.new
-    #  @confirmation = investments.get_investment_details(params[:id])
+     # @confirmation = investments.get_investment_details(params[:id])
     #end
   end
 

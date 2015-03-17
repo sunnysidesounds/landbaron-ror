@@ -97,6 +97,7 @@
             <div class="invest_now_submit_button">
                 <div class="form_group submission_form">
                     <%= f.hidden_field :reference_id, :value => @reference_id %>
+                    <%= f.hidden_field :investment_id, :value => invest_now['id'] %>
                     <%= f.hidden_field :user_id, :value => @user.id %>
                     <%= f.hidden_field :status, :value => "PENDING" %>
                     <%= f.submit 'Invest', :class=>'buttom_gold button_super_large' %>

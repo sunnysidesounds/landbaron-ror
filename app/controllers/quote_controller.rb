@@ -7,12 +7,14 @@ class QuoteController < ApplicationController
 
   def create_quote
     @quote = Quote.new(quote_params)
+
+
+
+
     if @quote.valid?
-
-
       @quote.save
       redirect_to :controller => 'investment', :action => 'investment_confirmation'
-    else
+    #else
 
 
     end
@@ -22,7 +24,7 @@ class QuoteController < ApplicationController
 
 
   def quote_params
-    params.require(:quote).permit(:reference_id, :user_id, :total_amount, :investor_profile_type, :status, :payment_methd)
+    params.require(:quote).permit(:investment_id, :reference_id, :user_id, :total_amount, :investor_profile_type, :status, :payment_methd)
   end
 
 

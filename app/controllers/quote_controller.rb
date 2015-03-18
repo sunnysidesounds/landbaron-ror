@@ -9,17 +9,15 @@ class QuoteController < ApplicationController
     @quote = Quote.new(quote_params)
     if @quote.valid?
 
-      # TODO Check for duplicate records.
       @quote.save
       redirect_to :controller => 'investment', :action => 'investment_confirmation'
     else
       # Specific Message
-      #flash[:error] = @quote.errors.full_messages.join("<br>").html_safe
-      flash[:error] = 'All fields are required to make a investment!'
+      flash[:error] = @quote.errors.full_messages.join("<br>").html_safe
+
+      #TODO Need to handle empty fields and duplicate records error handle.
       redirect_to :controller => 'investment', :action => 'investment_now', :id => @quote.investment_id
     end
-
-
   end
 
 

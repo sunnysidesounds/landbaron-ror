@@ -387,6 +387,10 @@
     box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(224, 175, 0, 1);
 }
 
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+    border-color: #e0af00;
+}
+
 
 
 .form_group{

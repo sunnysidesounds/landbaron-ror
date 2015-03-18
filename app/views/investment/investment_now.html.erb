@@ -2,6 +2,7 @@
 <div class="gray_background">
     <% @invest_now.each do |invest_now| %>
     <%= form_for (Quote.new), :as => :quote, :url => quote_path, :method => :post do |f| %>
+
             <!-- Investment Amount -->
             <div class="invest_container">
                 <div class="row">
@@ -103,40 +104,6 @@
                     <%= f.submit 'Invest', :class=>'buttom_gold button_super_large' %>
                 </div>
             </div>
-
-
-
-
-
-
-            <br />
-            <br />
-            <br />        <br />
-            <br />
-            <br />        <br />
-            <br />
-            <br />        <br />
-            <br />
-            <br />        <br />
-            <br />
-            <br />        <br />
-            <br />
-            <br />        <br />
-            <br />
-            <br />        <br />
-            <br />
-            <br />        <br />
-            <br />
-            <br />
-            <%=invest_now %>
-            -------------------
-            <%=@user.id %>
-
-
-
-
-
-
     <% end %>
     <% end %>
 </div>

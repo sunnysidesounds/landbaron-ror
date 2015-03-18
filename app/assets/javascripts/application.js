@@ -40,12 +40,6 @@ $(document).ready(function() {
         return false;
     });
 
-      /*
-    $('.dropdown a').click(function() {
-        $(this).unbind('click');
-        return false;
-    }); */
-
 
 
     $(function(){

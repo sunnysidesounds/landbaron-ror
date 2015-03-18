@@ -12,6 +12,7 @@
  *= require reset
  *= require main
  *= require jquery-ui
+ *= require jquery.bxslider
  *= require bootstrap
  *= require_self
  */
@@ -904,8 +905,37 @@ div.banner h2::after {
 }
 
 .slider_container {
-    padding-top: 35px;
     text-align: center;
+    margin-top: 20px;
+}
+
+.slider_container .bx-wrapper{
+    padding: 20px 0 0;
+}
+
+.slider_container .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+    margin-left:20px;
+}
+
+.slider_container .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+    margin-right:20px;
+}
+
+.slider_container .bx-wrapper img {
+    margin: auto;
+}
+
+.slider_container .bx-wrapper .bx-viewport {
+    background:none;
+    box-shadow: none;
+}
+
+.slider_container .bx-wrapper .bx-prev {
+    margin-left: 20px;
+}
+
+.slider_container .bx-wrapper .bx-next {
+    margin-right: 20px;
 }
 
 

@@ -23,6 +23,7 @@
 //= require angular.min
 //= require angular-ui-router
 //= require ui-bootstrap-tpls-0.12.0
+//= require jquery.bxslider
 
 /*$(window).load(function() {
     $('.flexslider').flexslider(
@@ -70,6 +71,14 @@ $(document).ready(function() {
                     height:'80px'
                 },600);
             }
+        }
+    });
+
+    $('.bxslider').bxSlider({
+        auto: true,
+        autoControls: true,
+        onSliderLoad: function(){
+            $("#slider").css("visibility", "visible");
         }
     });
 

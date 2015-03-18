@@ -25,9 +25,6 @@ class InvestmentController < ApplicationController
       @invest_now = investments.get_investment_details(params[:id])
       @user = current_user
       @quote = Quote.new
-
-      # TODO: If we start using reference_id
-      @reference_id = "uid#{current_user.id}ln#{current_user.last_name}iid#{params[:id]}"
     end
   end
 

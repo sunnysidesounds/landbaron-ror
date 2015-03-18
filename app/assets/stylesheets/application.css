@@ -1053,6 +1053,25 @@ div.banner h2::after {
     width: 400px;
 }
 
+.confirmation_container h2 {
+    color: #55676a;
+    font-family: "Oswald";
+    font-weight: bold;
+    padding-top: 25px;
+    font-size: 50px;
+}
+
+.confirmation_container {
+    height: 400px;
+}
+
+.confirmation_box {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 40px;
+}
+
 
 
 

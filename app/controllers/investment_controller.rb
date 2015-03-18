@@ -32,10 +32,10 @@ class InvestmentController < ApplicationController
   end
 
   def investment_confirmation
-   # if params[:id]
-    #  investments = Investment.new
-     # @confirmation = investments.get_investment_details(params[:id])
-    #end
+    if params[:id]
+      investments = Investment.new
+      @confirmation = investments.get_investment_details(params[:id])
+    end
   end
 
 end

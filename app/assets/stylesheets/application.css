@@ -1071,7 +1071,7 @@ div.banner h2::after {
 
 .principle_bios {
     margin-top: 20px;
-    height: 250px;
+    padding-bottom: 20px;
 }
 
 .invest_container {

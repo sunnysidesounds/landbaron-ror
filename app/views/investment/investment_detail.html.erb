@@ -84,10 +84,13 @@
                 </div> -->
                 <div class="key_information_left principle_bios">
                     <h3>Principal</h3>
+                    <% @principles.each do |principles| %>
+                        <img class="principle_investor_img" width="75" src="<%=principles['img_url'] %>"/> <%=principles['full_name'] %>
+                         <br />
+                        <br />
+                    <% end %>
 
-                    <img class="principle_investor_img" width="75" src="/assets/dummy-investor.png"/> Randy Eastwood
-                      <br />
-                    <img class="principle_investor_img" width="75" src="/assets/dummy-investor.png"/> James Vastbinder
+
 
 
 

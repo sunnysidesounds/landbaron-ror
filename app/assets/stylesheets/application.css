@@ -307,6 +307,12 @@
     padding: 16px;
 }
 
+.button_large_slider {
+    font: 18px/100% Arial,Helvetica,sans-serif;
+    padding: 16px;
+    width: 200px;
+}
+
 .button_super_large {
     font: 25px/100% Arial,Helvetica,sans-serif;
     padding: 25px;
@@ -1102,6 +1108,12 @@ div.banner h2::after {
     font-size: 16px;
     font-weight: 300;
     padding-top: 40px;
+}
+
+#invest_now_header {
+    float: right;
+    margin-right: 120px;
+    margin-top: 3px;
 }
 
 

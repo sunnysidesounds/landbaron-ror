@@ -12,6 +12,7 @@
  *= require reset
  *= require main
  *= require jquery-ui
+ *= require jquery.bxslider
  *= require bootstrap
  *= require_self
  */
@@ -387,6 +388,10 @@
     box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(224, 175, 0, 1);
 }
 
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+    border-color: #e0af00;
+}
+
 
 
 .form_group{
@@ -676,12 +681,15 @@
 }
 
 .dropdown {
-    display: none;
-    position: absolute;
-    color: black;
-    margin-top: 45px;
-    z-index: 999;
     background-color: #000;
+    color: black;
+    display: none;
+    margin-left: -5px;
+    margin-right: 9px;
+    margin-top: 18px;
+    position: absolute;
+    width: 240px;
+    z-index: 999;
 }
 .dropdown a {
     display: block;
@@ -897,8 +905,37 @@ div.banner h2::after {
 }
 
 .slider_container {
-    padding-top: 35px;
     text-align: center;
+    margin-top: 20px;
+}
+
+.slider_container .bx-wrapper{
+    padding: 20px 0 0;
+}
+
+.slider_container .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+    margin-left:20px;
+}
+
+.slider_container .bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+    margin-right:20px;
+}
+
+.slider_container .bx-wrapper img {
+    margin: auto;
+}
+
+.slider_container .bx-wrapper .bx-viewport {
+    background:none;
+    box-shadow: none;
+}
+
+.slider_container .bx-wrapper .bx-prev {
+    margin-left: 20px;
+}
+
+.slider_container .bx-wrapper .bx-next {
+    margin-right: 20px;
 }
 
 
@@ -1046,73 +1083,24 @@ div.banner h2::after {
     width: 400px;
 }
 
-
-
-
-
-/*
-
-
-
-   border-radius: 0.5em;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    display: inline-block;
-    font: 14px/100% Arial,Helvetica,sans-serif;
-    margin: 0 2px;
-    outline: medium none;
-    padding: 0.5em 2em 0.55em;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-    vertical-align: baseline;
-
-
-
-.investment_detail_container {
-    margin-left: 100px;
-    margin-right: 100px;
-    padding: 25px;
+.confirmation_container h2 {
+    color: #55676a;
+    font-family: "Oswald";
+    font-weight: bold;
+    padding-top: 25px;
+    font-size: 50px;
 }
 
-
-
-.investment_details {
-    border: 1px solid red;
+.confirmation_container {
+    height: 400px;
 }
 
-.investment_detail_overview {
-    border: 1px solid red;
-    height: 280px;
+.confirmation_box {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding-top: 40px;
 }
-
-.investment_detail_overview_middle {
-    height: 280px;
-    text-align:left;
-}
-
-.investment_header {
-    height: 125px;
-    margin-top: 25px;
-}
-
-
-
-.investment_detail_button a:hover {
-    text-decoration: none;
-    color:#fff;
-}
-
-.investment_detail_button a:focus {
-    text-decoration: none;
-    color:#fff;
-} */
-
-
-
-
-
-
 
 
 

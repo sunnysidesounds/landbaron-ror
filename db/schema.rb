@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20150316040459) do
 
   create_table "quotes", force: :cascade do |t|
     t.string   "reference_id"
+    t.integer  "investment_id"
     t.integer  "user_id"
     t.string   "total_amount"
     t.string   "investor_profile_type"

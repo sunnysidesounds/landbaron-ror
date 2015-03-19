@@ -23,6 +23,7 @@
 //= require angular.min
 //= require angular-ui-router
 //= require ui-bootstrap-tpls-0.12.0
+//= require jquery.bxslider
 
 /*$(window).load(function() {
     $('.flexslider').flexslider(
@@ -34,21 +35,11 @@
 
 $(document).ready(function() {
 
-    //$j("#flash_notice").slideUp(500).delay(5000)
-
-     // alert("test");
-
     $('#more').click(function() {
         $(this).toggleClass('active');
         $(this).next('.dropdown').toggle();
         return false;
     });
-
-      /*
-    $('.dropdown a').click(function() {
-        $(this).unbind('click');
-        return false;
-    }); */
 
 
 
@@ -80,6 +71,14 @@ $(document).ready(function() {
                     height:'80px'
                 },600);
             }
+        }
+    });
+
+    $('.bxslider').bxSlider({
+        auto: true,
+        autoControls: true,
+        onSliderLoad: function(){
+            $("#slider").css("visibility", "visible");
         }
     });
 

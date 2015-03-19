@@ -926,8 +926,10 @@ div.banner h2::after {
 }
 
 .slider_container .bx-wrapper .bx-viewport {
-    background:none;
+    background: none repeat scroll 0 0 #e6e6e6;
     box-shadow: none;
+    margin-left:5px;
+    padding: 10px
 }
 
 .slider_container .bx-wrapper .bx-prev {

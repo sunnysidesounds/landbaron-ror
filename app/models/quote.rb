@@ -1,5 +1,5 @@
 class Quote < ActiveRecord::Base
-  before_create :generate_uuid, unless: :reference_id?
+  before_create :generate_uuid, :unless => :reference_id?
 private
   def generate_uuid
     self.reference_id = SecureRandom.uuid

@@ -13,6 +13,8 @@ class InvestmentController < ApplicationController
   def investment_detail
     if params[:id]
       investments = Investment.new
+      medium = Medium.new
+      @media = medium.get_investment_media(params[:id])
       @details = investments.get_investment_details(params[:id])
     end
 

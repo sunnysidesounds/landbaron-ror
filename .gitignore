@@ -18,8 +18,18 @@ config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
 
+.DS_Store
+spec/.DS_Store
+
+
 *.sublime-workspace
 .rvmrc
 
 # yes, I use an ide
+*.iml
 .idea/*
+# config/database.yml
+
+# directories to ignore
+tags
+bin

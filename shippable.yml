@@ -1,0 +1,45 @@
+language: ruby
+
+build_image: shippableimages/ubuntu1404_ruby
+
+rvm:
+  - 2.1.5
+
+env:
+  - SLACK_ORG=landbaronclub PROJECT=landbaron
+  - secure: t088HLHVsRPeVK4k42KPIxfrPwK/pmNR1N2YzyNQSGGfSHZ8ewYW2sMBSOXhDUQ4sqitN/MrMZmdnE75TBGMxFojLR3v6Xx5NxjFUglVDcYe/7/uyuNlo1JkVrq/aC8bmjgPupgY6q/qzZO/55FI3om15TMRFLscfhJAv4KJp71jJGxIGUORBZUxIr8pwIx14PFYsiZXuunHlKuHl61l4P0t64k7q1R5Vj9nMWTV2Kk2xKyxcR70Jkt6s0+vGDD0cKw4rf9s4M22rFCL7KD76Y7IV1gf3kYwvdO66/pT+BGaRlssDW9s/Kjb2e+9wTFXsXhSsTMQi/9jCA6cBzSqtw==
+  - CI_REPORTS=shippable/testresults COVERAGE_REPORTS=shippable/codecoverage
+
+before_install:
+  - gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+  - source ~/.rvm/scripts/rvm
+  - rvm get stable
+  - rvm install $SHIPPABLE_RUBY --verify-downloads 1
+  - source ~/.bashrc && ~/.rvm/scripts/rvm && rvm use $SHIPPABLE_RUBY
+  - shippable_retry sudo apt-get install -y postgresql-9.3 postgresql-contrib-9.3 postgresql-server-dev-9.3 libpq-dev
+  - echo "host all all localhost trust" > /etc/postgresql/9.3/main/pg_hba.conf
+  - echo "local all all trust" >> /etc/postgresql/9.3/main/pg_hba.conf
+  - service postgresql start
+
+
+install:
+  - bundle install --gemfile="Gemfile"
+  - ruby -v
+
+before_script:
+  - mkdir -p shippable/testresults
+  - psql -c 'create database "landbaron_test";' -U postgres
+  - RAILS_ENV=test bundle exec rake db:migrate
+  - RAILS_ENV=test bundle exec rake db:seed
+
+script:
+#  - bundle exec rake spec 2>&1 | tee shippable/testresults/results.out
+  - RAILS_ENV=test bundle exec rake spec
+
+cache: true
+
+after_failure:
+  - python slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN
+
+after_success:
+  - python slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN -s

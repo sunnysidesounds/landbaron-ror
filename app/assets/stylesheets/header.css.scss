@@ -1,4 +1,4 @@
-#lockitron_header
+#landbaron_header
 {
   border: none;
   a
@@ -10,10 +10,13 @@
 #header 
 {
   width: 100%;
-  padding: 26px 0;
-  -moz-box-shadow:    0px 1px 3px 0px #acacac;
-  -webkit-box-shadow: 0px 1px 3px 0px #acacac;
-  box-shadow:         0px 1px 3px 0px #acacac;
-  background: #fcfcfc;
-  position: relative;
+  padding-bottom: 25px;
+  padding-top: 0px;
+  -moz-box-shadow:    0px 1px 8px 0px #acacac;
+  -webkit-box-shadow: 0px 1px 8px 0px #acacac;
+  box-shadow:         0px 1px 8px 0px #acacac;
+  background: none repeat scroll 0 0 #000;
+  position: fixed;
+  height: 80px;
+  z-index:999;
 }

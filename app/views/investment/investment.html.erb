@@ -1,0 +1,121 @@
+<div class="gray_background">
+
+    <div class="deals_container">
+        <div class="row available_investments">
+            <div class="col-md-12 available_investments_header">
+                <h3>Available Investments</h3>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Available Investments -->
+            <% @available.each do |available| %>
+                <div class="col-md-4">
+                    <div class="deal_item">
+                        <div class="deal_header">
+                            <div class="deal_title"><%=available['name'] %></div>
+                            <h2 class="deal_h2_header"><img width="" src="<%=available['logo_link'] %> "/></h2>
+                        </div>
+                        <div class="deal_sub_container">
+                            <h3 class="deal_h3_sub">
+                                Key Information
+                            </h3>
+                            <div class="deal_description">
+                                <%=h truncate(available['key_information'], :length => 300) %>
+                            </div>
+                            <!--<div class="deal_bullet_points">
+                                <ul>
+                                    <li>Multi-Company Fund</li>
+                                    <li>Future of work</li>
+                                    <li>60 watching</li>
+                                </ul>
+                            </div> -->
+                            <div class="deal_status_container">
+                                <a class="buttom_gray button_large" href="/invest/<%=available['id'] %>">Invest Now</a>
+                                <a class="buttom_gold button_large" href="/investment_detail/<%=available['id'] %>">View Details</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+        <br />
+        <br />
+        <div class="row upcoming_investments" style="visibility: <%= Settings.upcoming_investments_visibility %>">
+            <div class="col-md-12 upcoming_investments_header">
+                <h3>Upcoming Investments</h3>
+            </div>
+        </div>
+        <div class="row" style="visibility: <%= Settings.upcoming_investments_visibility %>">
+            <!-- Up and comming Investments (Coming Soon) -->
+            <% @coming_soon.each do |coming_soon| %>
+                <div class="col-md-4">
+                    <div class="deal_item">
+                        <div class="deal_header">
+                            <!--<div class="banner_container">
+                                <div class="banner"><h2>Preview Investment</h2></div>
+                            </div> -->
+                            <div class="deal_title"><%=coming_soon['name'] %></div>
+                            <h2 class="deal_h2_header"><img width="" src="<%=coming_soon['logo_link'] %> "/></h2>
+                        </div>
+                        <div class="deal_sub_container">
+                            <h3 class="deal_h3_sub">
+                                Key Information
+                            </h3>
+                            <div class="deal_description">
+                                <%=h truncate(coming_soon['key_information'], :length => 300) %>
+                            </div>
+                        <!--    <div class="deal_bullet_points">
+                                <ul>
+                                    <li>Multi-Company Fund</li>
+                                    <li>Future of work</li>
+                                    <li>60 watching</li>
+                                </ul>
+                            </div>  -->
+                            <div class="deal_status_container">
+                                <a class="buttom_gray button_large" href="#">Watch</a>
+                                <a class="buttom_gold button_large" href="#">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+
+        <br />
+        <br />
+        <div class="row past_investments" style="visibility: <%= Settings.past_investment_visibility %>">
+            <div class="col-md-12 past_investments_header">
+                <h3>Past Investments</h3>
+            </div>
+        </div>
+        <!-- Past Investment Item -->
+        <% @past.each do |past| %>
+        <div class="row past_investment_row" style="visibility: <%= Settings.past_investment_visibility %>">
+            <div class="col-md-3 past_investment_grid">
+                <div class="past_investment_deal">
+
+                    <div class="past_investment_mini_header">
+                        <img width="" src="<%=past['logo_link'] %> "/>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="col-md-9 past_investment_grid">
+                <div class="deal_title_past"><%=past['name'] %></div>
+                <div class="past_investment_description">
+                    <%=h truncate(past['key_information'], :length => 200) %>
+                </div>
+                <a class="buttom_gold" href="#">View Details</a>
+
+            </div>
+        </div>
+        <% end %>
+
+
+
+    </div>
+</div>

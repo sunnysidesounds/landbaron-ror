@@ -1,12 +1,14 @@
 class PreorderController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => :ipn
 
+  # TODO, how do we move this to the application_controller
+  before_filter :authenticate_user, :only => [:index, :share, :checkout]
+
   def index
   end
 
   def checkout
   end
-
   def prefill
     @user = User.find_or_create_by(:email => params[:email])
 

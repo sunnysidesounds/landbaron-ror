@@ -6,7 +6,7 @@ if defined?(Bundler)
   Bundler.require(*Rails.groups(:assets => %w(development test)))
 end
 
-module Selfstarter
+module LandBaron
   
   class Application < Rails::Application
 
@@ -14,7 +14,7 @@ module Selfstarter
     config.time_zone = 'Pacific Time (US & Canada)'
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
-    config.active_record.whitelist_attributes = true
+    #config.active_record.whitelist_attributes = true
     # Enable the asset pipeline
     config.assets.enabled = true
     # Version of your assets, change this if you want to expire all your assets

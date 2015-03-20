@@ -1,0 +1,24 @@
+
+<div class="gray_background">
+    <% @confirmation.each do |confirmation| %>
+    <div class="invest_container confirmation_container">
+        <h2>Thank You</h2>
+        <div class="confirmation_box">
+            Thank you <strong><%= current_user.first_name %> <%= current_user.last_name %></strong>
+            for your investment in <strong><%= confirmation['name'] %></strong>.
+            <br />
+            <br />
+            An email confirmation has been sent to <strong><%= current_user.email %></strong>, for your personal records.
+            Your personal investment concierge will reach out to you to confirm your investment and coordinate the transfer
+            of funds to the Investment Escrow Account until the investment is fully funded.
+        </div>
+    </div>
+    <br />
+    <br />
+
+    <% end %>
+</div>
+
+
+
+

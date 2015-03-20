@@ -1,0 +1,111 @@
+
+<div class="gray_background">
+    <% @invest_now.each do |invest_now| %>
+    <%= form_for (Quote.new), :as => :quote, :url => quote_path, :method => :post do |f| %>
+
+            <!-- Investment Amount -->
+            <div class="invest_container">
+                <div class="row">
+                    <div class="col-md-12 invest_now_header">
+                        <h2>Enter Investment Amount</h2>
+                    </div>
+                </div>
+                <div class="row iq_form_b">
+                    <div class="col-md-4 question_investment">
+                        How much would you like to invest?
+                    </div>
+                    <div class="col-md-6 iq_form_a">
+                        <%= f.text_field :total_amount, :class => 'form-control investment_amount', :autofocus => true, :placeholder => '$' %>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 question_investment"></div>
+                    <div class="col-md-6 iq_form_a gray_me_investment">Investment Minimum: <%=invest_now['investment_minimum'] %> </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <!-- Investor Profile Type -->
+            <div class="invest_container">
+                <div class="row">
+                    <div class="col-md-12 invest_now_header">
+                        <h2>Select Investor Profile</h2>
+                    </div>
+                </div>
+                <div class="row iq_form_b">
+                    <div class="col-md-4 question_investment">
+                        Investor Type
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <%= f.radio_button :investor_profile_type, "myself", :id=>"first", :style=>"", :class => "profile_type_radio" %>&nbsp;
+                                <label for="first" class="profile_type_radio_label">Invest as Myself</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <%= f.radio_button :investor_profile_type, "entity", :id=>"second", :style=>"", :class => "profile_type_radio" %>&nbsp;
+                                <label for="second" class="profile_type_radio_label">Invest as Entity</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <%= f.radio_button :investor_profile_type, "ira", :id=>"third", :style=>"", :class => "profile_type_radio" %>&nbsp;
+                                <label for="third" class="profile_type_radio_label">Invest with an IRA</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 question_investment"></div>
+                    <div class="col-md-6 iq_form_a gray_me_investment_two"><a href="#">What type of investor am I?</a> </div>
+                </div>
+            </div>
+            <br />
+            <br />
+            <!-- Payment Method -->
+            <div class="invest_container">
+                <div class="row">
+                    <div class="col-md-12 invest_now_header">
+                        <h2>Select Payment Method</h2>
+                    </div>
+                </div>
+                <div class="row iq_form_b">
+                    <div class="col-md-4 question_investment">
+                        Payment Method
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <%= f.radio_button :payment_methd, "transfer", :id=>"fourth", :style=>"", :class => "profile_type_radio" %>&nbsp;
+                                <label for="fourth" class="profile_type_radio_label">I will pay by Wire Transfer</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <%= f.radio_button :payment_methd, "check", :id=>"fifth", :style=>"", :class => "profile_type_radio" %>&nbsp;
+                                <label for="fifth" class="profile_type_radio_label">I will pay by Check</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 question_investment"></div>
+                    <div class="col-md-6 iq_form_a gray_me_investment"></div>
+                </div>
+            </div>
+            <div class="invest_now_submit_button">
+                <div class="form_group submission_form">
+                    <%= f.hidden_field :reference_id, :value => @reference_id %>
+                    <%= f.hidden_field :investment_id, :value => invest_now['id'] %>
+                    <%= f.hidden_field :user_id, :value => @user.id %>
+                    <%= f.hidden_field :status, :value => "PENDING" %>
+                    <%= f.submit 'Invest', :class=>'buttom_gold button_super_large' %>
+                </div>
+            </div>
+    <% end %>
+    <% end %>
+</div>
+
+

@@ -1,5 +1,5 @@
 # Hi there!
-# These are the settings for Selfstarter.
+# These are the settings for LandBaron.
 # This is more tidy than changing the HTML if all you want to do is rename things and swap out images
 
 # You should totally change the HTML and CSS though
@@ -12,7 +12,7 @@ project_goal: 100000
 # If you want to edit the FAQ, head over to app/views/preorder/homepage/_faqs.html.erb
 
 # This'll be both the page title (<title></title>) and the name in the header
-product_name: "Selfstarter"
+product_name: "Land Baron Club"
 
 # This will be used in sentences like Hooray You've just reserved product_description
 product_description: "a set of widgets"
@@ -21,8 +21,8 @@ product_description: "a set of widgets"
 # It should be in app/assets/images
 product_image_path: "my-product-image.png"
 
-# The message on the preorder page, Lockitron's is ""
-value_proposition: "Roll your own crowdfunding"
+# The message on the preorder page
+value_proposition: "Unleash Your Inner Baron"
 
 # YouTube or Vimeo Video URL (The embed URL, without the query string options)
 # Replace /embed/ in your video url path with /v/ for video playback to work.
@@ -48,7 +48,7 @@ price: 	19.95
 # put code in seeds.rb, then run rake db:seed
 use_payment_options: false
 
-payment_description: "You really should change this text because people will see it on Amazon's order page!!!!!"
+payment_description: "Payment Description"
 
 # Amazon limits how much we can charge people with their Multi-Use tokens.
 # You probably should add some leeway to account for international shipping
@@ -57,29 +57,29 @@ charge_limit: 25.00
 
 # Stats settings
 
-# On Lockitron, it's "backers"
-primary_stat: "backers"
-# This'll show up in the tweet as, "I'm backer number ..."
-primary_stat_verb: 'backer'
+# For LandBaronClub, it's "investors"
+primary_stat: "investors"
+# This'll show up in the tweet as, "I'm investor number ..."
+primary_stat_verb: 'investor'
 
 # The 2nd call to action button, towards the middle-ish of the page
-middle_reserve_text: "Reserve Now"
+middle_reserve_text: "Invest Now"
 
 # When the project should end
 expiration_date: <%= DateTime.now + 29 %>
 
 # Text to show inside the progress bar, when the goal reaches/exceeds 100%
-progress_text: "Implemented"
+progress_text: "Funded"
 
 # Call to action section
 
-# On Lockitron, it's "First Batch Ships in March 2013"
-ships: "Ships...sometime"
+# LandBaron will create an LLC for a fund as soon as it is fully funded
+ships: "When fully funded."
 
-# On Lockitron, it's "Reserve Now"
-call_to_action: "Reserve Now"
-# On Lockitron, this is "Only $149 for a limited time"
-price_human: "It costs money!"
+# LandBaron call to action is to "Invest Now"
+call_to_action: "Invest Now"
+# Investment varies by fund
+price_human: "Increase your Returns!"
 
 # The paragraph below the price. You'd probably say something about how you're not going to charge them before it ships (so it's less risky).
 dont_give_them_a_reason_to_say_no: "You'll get this exact site. All you'll need to get started is a great product."
@@ -88,7 +88,7 @@ dont_give_them_a_reason_to_say_no: "You'll get this exact site. All you'll need 
 facebook_app_id: "1234567890"
 # Tweets are prefixed with "I'm #{Settings.primary_stat} number X for #{Settings.product_name}"
 # Maybe mention something about your product vision -- e.g. "to replace keys with my phone"
-tweet_text: "to crowdfund"
+tweet_text: ""
 
 # Google Analytics
 google_id: "1234567890"
@@ -97,3 +97,13 @@ google_id: "1234567890"
 # They're in app/assets/images/#{pointer_number}-background.png
 # So, the first key point, it's at app/assets/images/1-background.png
 # Alternatively, change it up in app/assets/stylesheets/homepage/key_points.css.scss
+
+
+# Landing Page (i.e Investments url)
+# Use CSS visibility values, (hiddent, visible)
+upcoming_investments_visibility: "visible"
+past_investment_visibility: "visible"
+
+
+# Email Stuff
+default_email_admin_send: "james@landbaronclub.com"

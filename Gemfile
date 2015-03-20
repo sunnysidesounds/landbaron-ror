@@ -6,6 +6,22 @@ gem 'rails', '~> 4.2.0'
 gem 'json', '~> 1.8.2'
 gem 'pg', '0.17.0'
 
+# jQuery
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+# Configuration File
+gem 'rails_config'
+
+# Active Admin
+gem 'activeadmin', github: 'activeadmin'
+
+# Password encryption
+gem 'bcrypt', :require=>'bcrypt'
+
+# Using RVM
+gem 'capistrano-rvm', github: 'capistrano/rvm'
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'pry-rails'
@@ -34,16 +50,5 @@ group :development, :test do
   gem 'therubyracer'
 end
 
-# jQuery
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
 
-# Configuration File
-gem 'rails_config'
-
-# Active Admin
-gem 'activeadmin', github: 'activeadmin'
-
-# Password encryption
-gem 'bcrypt', :require=>'bcrypt'
 

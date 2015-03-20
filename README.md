@@ -1,6 +1,5 @@
 # LandBaron
-LandBaron makes it easy to RealEstate dealrooms. To get started, fork this
-repository and change around ```config/settings.yml``` to suit your needs.
+Real Estate Investing ReImagined
 
 ## Getting Started
 

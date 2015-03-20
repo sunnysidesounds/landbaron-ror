@@ -30,4 +30,6 @@ spec/.DS_Store
 .idea/*
 # config/database.yml
 
+# directories to ignore
 tags
+bin

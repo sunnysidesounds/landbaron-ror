@@ -1079,6 +1079,7 @@ div.banner h2::after {
 .answers_to_questions {
     box-shadow: 0 0 4px #c0c0c0;
     min-height: 300px;
+    padding-bottom: 25px;
 }
 
 .legal_documents {

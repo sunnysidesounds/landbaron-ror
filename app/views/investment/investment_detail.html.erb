@@ -10,7 +10,7 @@
             <div class="col-md-6 investment_header_column">
                 <div class="fund-info">
                     <h2><%=details['name'] %></h2>
-                    <p><%=h truncate(details['key_information'], :length => 300) %></p>
+                    <p><%=h truncate(details['key_information'], :length => 300, :escape => false) %></p>
                     <div class="data ">
                         <span class="datum">
                             <i class="fa fa-fw fa-bank"></i>
@@ -68,7 +68,7 @@
 
                     <h2>Key Information</h2>
                     <div class="key_information_content">
-                    <p><%=details['key_information'] %></p>
+                    <p><%=details['key_information'].html_safe %></p>
                     </div>
                 </div>
             </div>

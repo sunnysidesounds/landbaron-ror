@@ -1116,6 +1116,10 @@ div.banner h2::after {
     margin-top: 3px;
 }
 
+.no_data {
+    text-align: center;
+}
+
 
 
 

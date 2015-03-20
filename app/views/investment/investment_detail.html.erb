@@ -56,6 +56,7 @@
         <div class="row investment_detail_information">
             <div class="col-md-8">
                 <div class="key_information_right key_information_description">
+                    <% if @media.count != 0 %>
                     <div class="slider_container" id="slider" style="visibility:hidden">
                         <ul class="bxslider">
                             <% @media.each do |media| %>
@@ -63,6 +64,8 @@
                             <% end %>
                         </ul>
                     </div>
+                    <% end %>
+
                     <h2>Key Information</h2>
                     <div class="key_information_content">
                     <p><%=details['key_information'] %></p>
@@ -84,11 +87,16 @@
                 </div> -->
                 <div class="key_information_left principle_bios">
                     <h3>Principal</h3>
+
+                    <% if @principles.count != 0 %>
                         <% @principles.each do |principles| %>
                             <img class="principle_investor_img" width="75" src="<%=principles['img_url'] %>"/> <%=principles['full_name'] %>
                             <br />
                             <br />
                         <% end %>
+                    <% else %>
+                         <div class="no_data">No Data</div>
+                    <% end %>
                 </div>
             </div>
         </div>

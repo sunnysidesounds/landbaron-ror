@@ -2,18 +2,20 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'rails', '4.2.0'
+gem 'rails', '~> 4.2.0'
 gem 'json', '~> 1.8.2'
+gem 'pg', '0.17.0'
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'pg', '0.17.0'
   gem 'pry-rails'
 end
 
 group :production do
-  gem 'thin'
-  gem 'pg', '0.17.0'
+  gem 'capistrano', '3.4.0'
+  gem 'capistrano-bundler', '1.1.4'
+  gem 'capistrano-rails', '1.1.2'
+  gem 'capistrano-passenger', '0.0.2'
 end
 
 # Gems used only for assets and not required
@@ -36,19 +38,11 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-# Kickstarter's awesome Amazon Flexible Payments gem
-gem 'amazon_flex_pay'
-
 # Configuration File
 gem 'rails_config'
 
 # Active Admin
 gem 'activeadmin', github: 'activeadmin'
-
-# For Heroku
-gem 'rails_12factor'
-
-gem 'devise'
 
 # Password encryption
 gem 'bcrypt', :require=>'bcrypt'

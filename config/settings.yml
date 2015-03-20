@@ -105,4 +105,5 @@ upcoming_investments_visibility: "visible"
 past_investment_visibility: "visible"
 
 
-
+# Email Stuff
+default_email_admin_send: "james@landbaronclub.com"

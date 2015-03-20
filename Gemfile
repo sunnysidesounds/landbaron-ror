@@ -22,6 +22,8 @@ gem 'bcrypt', :require=>'bcrypt'
 # Using RVM
 gem 'capistrano-rvm', github: 'capistrano/rvm'
 
+gem 'devise'
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'pry-rails'

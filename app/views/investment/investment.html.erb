@@ -1,7 +1,6 @@
 <div class="gray_background">
 
     <div class="deals_container">
-
         <div class="row available_investments">
             <div class="col-md-12 available_investments_header">
                 <h3>Available Investments</h3>
@@ -43,13 +42,12 @@
 
         <br />
         <br />
-
-        <div class="row upcoming_investments">
+        <div class="row upcoming_investments" style="visibility: <%= Settings.upcoming_investments_visibility %>">
             <div class="col-md-12 upcoming_investments_header">
                 <h3>Upcoming Investments</h3>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="visibility: <%= Settings.upcoming_investments_visibility %>">
             <!-- Up and comming Investments (Coming Soon) -->
             <% @coming_soon.each do |coming_soon| %>
                 <div class="col-md-4">
@@ -87,14 +85,14 @@
 
         <br />
         <br />
-        <div class="row past_investments">
+        <div class="row past_investments" style="visibility: <%= Settings.past_investment_visibility %>">
             <div class="col-md-12 past_investments_header">
                 <h3>Past Investments</h3>
             </div>
         </div>
         <!-- Past Investment Item -->
         <% @past.each do |past| %>
-        <div class="row past_investment_row">
+        <div class="row past_investment_row" style="visibility: <%= Settings.past_investment_visibility %>">
             <div class="col-md-3 past_investment_grid">
                 <div class="past_investment_deal">
 

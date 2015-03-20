@@ -97,3 +97,13 @@ google_id: "1234567890"
 # They're in app/assets/images/#{pointer_number}-background.png
 # So, the first key point, it's at app/assets/images/1-background.png
 # Alternatively, change it up in app/assets/stylesheets/homepage/key_points.css.scss
+
+
+# Landing Page (i.e Investments url)
+# Use CSS visibility values, (hiddent, visible)
+upcoming_investments_visibility: "visible"
+past_investment_visibility: "visible"
+
+
+# Email Stuff
+default_email_admin_send: "james@landbaronclub.com"

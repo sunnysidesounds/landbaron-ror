@@ -76,6 +76,28 @@
     text-decoration: none;
 }
 
+
+.investor_principal_sublist {
+    color: #55676a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.investor_principal_sublist:hover {
+    color: #55676a;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.investor_principal_sublist:visited{
+    color: #55676a;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
 .header_links_notsignin {
     float: right;
     border-radius: 5px;
@@ -1120,7 +1142,35 @@ div.banner h2::after {
     text-align: center;
 }
 
+.bio_f_name, .bio_stuff span {
+    display: inline;
+}
 
+.bio_f_name {
+    color: #55676a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bio_stuff {
+
+}
+
+.bio_stuff span {
+    color: #666;
+    font-size: 14px;
+}
+
+.bio_stuff p {
+    font-size: 13px;
+    font-weight: 300;
+    padding-top: 5px;
+}
+
+
+.tit {
+    border:1px solid red;
+}
 
 
 

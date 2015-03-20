@@ -75,6 +75,17 @@ $(document).ready(function() {
         }
     });
 
+
+    // Principle Mini Bios slide down to large bios.
+    $(".investor_principal_sublist").click(function(event) {
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("#principle_section").offset().top
+        }, 2000);
+    });
+
+
+
 });
 
 

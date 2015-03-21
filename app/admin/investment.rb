@@ -1,5 +1,8 @@
 ActiveAdmin.register Investment do
   config.sort_order = 'id_asc'
+  permit_params :name, :logo_link, :investment_type, :raise_amount,
+  :minimum_raise_amount, :investment_duration, :video_link, :status,
+  :risk_rating, :investment_minimum, :key_information, :note, :qa
 
   index do
     column :name do |investment|

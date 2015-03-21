@@ -14,6 +14,7 @@
  *= require jquery-ui
  *= require jquery.bxslider
  *= require bootstrap
+ *= require active_admin/editor/wysiwyg
  *= require_self
  */
 
@@ -853,6 +854,9 @@ div.banner h2::after {
 .investment_header_column {
 
 }
+
+
+
 
 .progress_bar_img {
 

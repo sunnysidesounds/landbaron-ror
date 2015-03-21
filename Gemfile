@@ -15,6 +15,7 @@ gem 'rails_config'
 
 # Active Admin
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_editor'
 
 # Password encryption
 gem 'bcrypt', :require=>'bcrypt'
@@ -23,6 +24,7 @@ gem 'bcrypt', :require=>'bcrypt'
 gem 'capistrano-rvm', github: 'capistrano/rvm'
 
 gem 'devise'
+
 
 group :development do
   gem 'web-console', '~> 2.0'

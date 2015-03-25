@@ -4,6 +4,7 @@ ActiveAdmin.register Investment do
   :minimum_raise_amount, :investment_duration, :video_link, :status,
   :risk_rating, :investment_minimum, :key_information, :note, :qa
 
+  # List view
   index do
     column :name do |investment|
       link_to investment.name, admin_investment_path(investment)
@@ -22,6 +23,8 @@ ActiveAdmin.register Investment do
     actions
   end
 
+
+  # Detail view / form
   form do |f|
     f.inputs do
       f.input :name

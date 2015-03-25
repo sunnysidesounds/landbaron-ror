@@ -251,10 +251,16 @@
 
 .create_account_link {
     color: #6c7a7d;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
 }
 
 .login_account_link {
     color: #6c7a7d;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
 }
 
 .create_account_tab a:hover {

@@ -1,15 +1,17 @@
 <div class="gray_background">
 
+    <!-- Tabs -->
     <div class="signup_login_container">
         <div class="lbc_tabs">
             <div class="lbc_tab create_account_tab">
-                <%= link_to "Create Account", new_user_path, :class => "create_account_link" %>
+                <%= link_to 'Create Account', new_user_path, :class => "create_account_link" %>
             </div>
             <div class="lbc_tab signin_account_tab signin_account_tab_notselected">
-                <%= link_to "Login", sign_in_path, :class => "login_account_link" %>
+                <%= link_to 'Login', sign_in_path, :class => 'login_account_link' %>
             </div>
         </div>
 
+        <!-- Registration Form -->
         <div class="form_container">
             <%= form_for (User.new), :as => :user, :url => new_user_path, :html => {:id => 'create_user'}, :method => :post do |f| %>
             <div class="form_group first_name_form">
@@ -37,7 +39,17 @@
                 <%= f.text_field :postal_code, :class => 'form-control', :autofocus => true, :placeholder => 'Postal Code' %>
             </div>
             <div class="form_group income_range_form">
-                <%= f.select :income_range, options_for_select(income_range) %>
+                 <h5>Your Income Range</h5>
+                <%= radio_button_tag(:income_range, 'Over $200,000') %>
+                <%= label_tag(:income_range_label_1, 'Over $200,000 in net income past 2 years') %>
+                 <br />
+                <%= radio_button_tag(:income_range, 'Over $300,000 w/spouse') %>
+                <%= label_tag(:income_range_label_2, 'Over $300,000 in income w/spouse the past 2 years') %>
+                <br />
+                <%= radio_button_tag(:income_range, 'Net work $1,000,000') %>
+                <%= label_tag(:income_range_label_3, 'Net worth of over $1,000,000') %>
+
+
             </div>
             <div class="form_group">
                 <%= f.text_field :username, :class => 'form-control', :autofocus => true, :placeholder => 'Username' %>
@@ -56,23 +68,13 @@
                 <%= show_field_error(@user, :password_confirmation) %>
             </div>
             <div class="form_group submission_form">
-                <%= f.hidden_field :principle_investor, :value => "false" %>
-                <%= f.hidden_field :verified, :value => "false" %>
+                <%= f.hidden_field :principle_investor, :value => 'false' %>
+                <%= f.hidden_field :verified, :value => 'false' %>
                 <%= f.submit 'Sign Up', :class=>'buttom_gold' %>
                 <%= f.submit 'Clear Form', :type => 'reset', :class=>'buttom_gold' %>
             </div>
             <% end %>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
 </div>
 

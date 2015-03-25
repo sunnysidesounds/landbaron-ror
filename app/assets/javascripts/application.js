@@ -42,6 +42,7 @@ $(document).ready(function() {
         $('#header').data('size','big');
     });
 
+    // Sticky header with slider
     $(window).scroll(function(){
         if($(document).scrollTop() > 0){
             if($('#header').data('size') == 'big'){
@@ -84,6 +85,15 @@ $(document).ready(function() {
         $('html, body').animate({
             scrollTop: $("#principle_section").offset().top
         }, 2000);
+    });
+
+    // Sign-In Form Validation
+    $("#new_user").validate({
+        debug: false, //if set to true form won't submit
+        rules: {
+        "user[username]": {required: true},
+        "user[password]": {required: true}
+        }
     });
 
 

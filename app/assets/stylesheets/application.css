@@ -493,11 +493,12 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 
 }
 
-.error_message {
+.error_message, .error {
     color: red;
     font-size: 12px;
     padding-top: 5px;
 }
+
 
 .deals_list_item {
     display: inline;

@@ -26,6 +26,7 @@
 //= require jquery.bxslider
 //= require jquery.validate
 //= require additional-methods
+//= require jquery.maskedinput
 
 
 $(document).ready(function() {
@@ -96,6 +97,31 @@ $(document).ready(function() {
         }
     });
 
+    // Registration Form Validation
+    $("#create_user").validate({
+        debug: false, //if set to true form won't submit
+        rules: {
+            "user[first_name]": {required: true},
+            "user[phone_number]": {required: true},
+            "user[username]": {required: true},
+            "user[address]": {required: true},
+            "user[city]": {required: true},
+            "user[state]": {required: true},
+            "user[postal_code]": {required: true, digits:true},
+            "user[email]": { required:true, email:true },
+            "user[password]": {required: true, minlength: 4},
+            "user[password_confirmation]": {
+                required: true, equalTo: "#user_password", minlength: 4
+            },
+            "user[last_name]": {required: true}
+        },
+        messages : {
+
+        }
+    });
+
+    // Format Phone Number
+    $("#user_phone_number").mask("(999) 999-9999");
 
 
 });

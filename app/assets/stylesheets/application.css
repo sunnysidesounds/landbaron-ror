@@ -408,11 +408,15 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     color: #ADADAD;
     display: block;
-    height: 36px;
     line-height: 1.42857;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 95%;
+    width: 86%;
+    height: 34px;
+}
+
+.form-control {
+    width: 85%;
 }
 
 
@@ -433,10 +437,13 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     border-color: #e0af00;
 }
 
+.form_container .state_form {
+  /*  display:inline;  */
+}
 
 
 .form_group{
-    padding-top: 10px;
+    padding-top: 12px;
 }
 
 .submission_form {
@@ -444,31 +451,26 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .first_name_form {
-    float: left;
-    padding-bottom: 10px;
+   /* display: inline-block; */
 }
 
 .last_name_form {
-    float: left;
-    margin-left: 33px;
-    padding-bottom: 10px;
-    width: 50%;
+   /* display: inline-block;
+    width: 50%;  */
 }
 
 .address_form {
-    float: left;
-    width: 50%;
+ /*   display: inline-block;  */
 }
 
 .state_form {
-    width: 40%;
-    float: left;
-    padding-bottom: 10px;
+  /*  width: 40%;
+    display: inline-block;
+    padding-bottom: 10px;   */
 }
 
 .city_form {
-    float: left;
-    margin-left: 33px;
+  /*  display: inline-block; */
 }
 
 
@@ -477,10 +479,23 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .income_range_form {
-    width: 105%;
+  /*  display: table;
+    float:left;   */
+    padding-bottom: 18px;
+    padding-top: 18px;
 }
 
-.income_range_form select {
+.income_range_form .error {
+    font-weight: bold;
+}
+
+.income_range_form h5 {
+    color: #6c7a7d;
+    margin-top: 0;
+}
+
+.income_range_form label {
+    font-weight: 300;
 }
 
 .address_form input {
@@ -488,9 +503,8 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .postal_code_form {
-    float: left;
-    margin-left: 10px;
-    width: 57%;
+  /*  display: inline-block;
+    width: 53%;  */
 }
 
 .postal_code_form input {

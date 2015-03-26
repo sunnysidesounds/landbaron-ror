@@ -478,10 +478,14 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .income_range_form {
-    display: table;
-    float:left;
+  /*  display: table;
+    float:left;   */
     padding-bottom: 18px;
     padding-top: 18px;
+}
+
+.income_range_form .error {
+
 }
 
 .income_range_form h5 {

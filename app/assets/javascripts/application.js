@@ -107,6 +107,7 @@ $(document).ready(function() {
             "user[address]": {required: true},
             "user[city]": {required: true},
             "user[state]": {required: true},
+            "user[income_range]": {required: true},
             "user[postal_code]": {required: true, digits:true},
             "user[email]": { required:true, email:true },
             "user[password]": {required: true, minlength: 4},

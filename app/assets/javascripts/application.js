@@ -118,6 +118,13 @@ $(document).ready(function() {
         },
         messages : {
 
+        },
+        errorPlacement: function(error, element) {
+            if (element.attr("type") == "radio") {
+                error.insertBefore(element);
+            } else {
+                error.insertAfter(element);
+            }
         }
     });
 

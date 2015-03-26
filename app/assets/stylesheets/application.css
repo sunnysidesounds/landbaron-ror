@@ -485,7 +485,7 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .income_range_form .error {
-
+    font-weight: bold;
 }
 
 .income_range_form h5 {

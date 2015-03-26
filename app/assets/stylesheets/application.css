@@ -411,7 +411,7 @@
     line-height: 1.42857;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 95%;
+    width: 86%;
 }
 
 .form-control {
@@ -436,10 +436,13 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     border-color: #e0af00;
 }
 
+.form_container .state_form {
+  /*  display:inline;  */
+}
 
 
 .form_group{
-    padding-top: 10px;
+    padding-top: 12px;
 }
 
 .submission_form {
@@ -447,26 +450,26 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .first_name_form {
-    display: inline-block;
+   /* display: inline-block; */
 }
 
 .last_name_form {
-    display: inline-block;
-    width: 50%;
+   /* display: inline-block;
+    width: 50%;  */
 }
 
 .address_form {
-    display: inline-block;
+ /*   display: inline-block;  */
 }
 
 .state_form {
-    width: 40%;
+  /*  width: 40%;
     display: inline-block;
-    padding-bottom: 10px;
+    padding-bottom: 10px;   */
 }
 
 .city_form {
-    display: inline-block;
+  /*  display: inline-block; */
 }
 
 
@@ -477,7 +480,8 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 .income_range_form {
     display: table;
     float:left;
-    padding-bottom:15px;
+    padding-bottom: 18px;
+    padding-top: 18px;
 }
 
 .income_range_form h5 {
@@ -494,8 +498,8 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .postal_code_form {
-    display: inline-block;
-    width: 53%;
+  /*  display: inline-block;
+    width: 53%;  */
 }
 
 .postal_code_form input {

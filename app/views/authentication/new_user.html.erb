@@ -40,16 +40,14 @@
             </div>
             <div class="form_group income_range_form">
                  <h5>Your Income Range</h5>
-                <%= radio_button_tag(:income_range, 'Over $200,000') %>
+                <%= f.radio_button(:income_range, 'Over $200,000') %>
                 <%= label_tag(:income_range_label_1, 'Over $200,000 in net income past 2 years') %>
                  <br />
-                <%= radio_button_tag(:income_range, 'Over $300,000 w/spouse') %>
+                <%= f.radio_button(:income_range, 'Over $300,000 w/spouse') %>
                 <%= label_tag(:income_range_label_2, 'Over $300,000 in income w/spouse the past 2 years') %>
                 <br />
-                <%= radio_button_tag(:income_range, 'Net work $1,000,000') %>
+                <%= f.radio_button(:income_range, 'Net work $1,000,000') %>
                 <%= label_tag(:income_range_label_3, 'Net worth of over $1,000,000') %>
-
-
             </div>
             <div class="form_group">
                 <%= f.text_field :username, :class => 'form-control', :autofocus => true, :placeholder => 'Username' %>

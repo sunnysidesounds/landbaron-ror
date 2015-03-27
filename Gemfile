@@ -21,10 +21,12 @@ gem 'active_admin_editor'
 gem 'bcrypt', :require=>'bcrypt'
 
 # Using RVM
-gem 'capistrano-rvm', github: 'capistrano/rvm'
+gem 'capistrano-rvm', :github => 'capistrano/rvm'
 
 gem 'devise'
 
+# Paperclip file upload => Getting latest version
+gem 'paperclip', '~> 4.2'
 
 group :development do
   gem 'web-console', '~> 2.0'

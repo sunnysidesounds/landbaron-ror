@@ -1,8 +1,10 @@
 ActiveAdmin.register Investment do
+
+
   config.sort_order = 'id_asc'
   permit_params :name, :logo_link, :investment_type, :raise_amount,
   :minimum_raise_amount, :investment_duration, :video_link, :status,
-  :risk_rating, :investment_minimum, :key_information, :note, :qa
+  :risk_rating, :investment_minimum, :key_information, :note, :qa, :logo
 
   # List view
   index do
@@ -11,7 +13,7 @@ ActiveAdmin.register Investment do
     end
 
     column "Logo" do |investment|
-      image_tag investment.logo_link, :class => 'logo_link_img'
+      image_tag investment.logo, :class => 'logo_link_img'
     end
 
     column :investment_type
@@ -23,12 +25,22 @@ ActiveAdmin.register Investment do
     actions
   end
 
+  show do |ad|
+    attributes_table do
+      row :name
+      row :logo do
+        image_tag(ad.logo.url(:thumb))
+      end
+      # Will display the image on show object page
+    end
+  end
+
 
   # Detail view / form
-  form do |f|
-    f.inputs do
+  form :html => { :enctype => 'multipart/form-data' } do |f|
+    f.inputs "Details" do
       f.input :name
-      f.input :logo_link
+      f.input :logo, :as => :file, :required => false
       f.input :investment_type
       f.input :raise_amount
       f.input :minimum_raise_amount
@@ -38,9 +50,6 @@ ActiveAdmin.register Investment do
       f.input :risk_rating
       f.input :investment_minimum
       f.input :key_information, :as => :html_editor
-      # f.input :photo_link_id
-      #f.input :principle_bio_id
-
       f.input :note, :as => :html_editor
       f.input :qa, :as => :html_editor
 

@@ -40,7 +40,7 @@ ActiveAdmin.register Investment do
   form :html => { :enctype => 'multipart/form-data' } do |f|
     f.inputs "Details" do
       f.input :name
-      f.input :logo, :as => :file, :required => false
+      f.input :logo, :as => :file, :required => false, :hint => image_tag(f.object.logo.url), :label => 'Logo Image'
       f.input :investment_type
       f.input :raise_amount
       f.input :minimum_raise_amount

@@ -182,6 +182,7 @@
     margin: auto;
     width: 40%;
     box-shadow: 0 0 3px #c0c0c0;
+    min-height: 300px;
 }
 
 .lbc_tabs {
@@ -252,10 +253,16 @@
 
 .create_account_link {
     color: #6c7a7d;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
 }
 
 .login_account_link {
     color: #6c7a7d;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
 }
 
 .create_account_tab a:hover {
@@ -302,7 +309,10 @@
     text-decoration: none;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     vertical-align: baseline;
-    background: -moz-linear-gradient(center top , #6c7a7d, #55676a) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    /*background: -moz-linear-gradient(center top , #6c7a7d, #55676a) repeat scroll 0 0 rgba(0, 0, 0, 0)); */
+    background: linear-gradient(to top, #6c7a7d, #55676a);
+    filter: contrast(1);
+    font-weight: bold;
     border: 1px solid #555;
     color: #e9e9e9;
 }
@@ -320,7 +330,10 @@
     text-decoration: none;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     vertical-align: baseline;
-    background: -moz-linear-gradient(center top , #e0af00, #e0af00) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    /*background: -moz-linear-gradient(center top , #e0af00, #e0af00) repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+    background: linear-gradient(to top, #e0af00, #e0af00);
+    filter: contrast(1);
+    font-weight: bold;
     border: 1px solid #e0af00;
     color: #e9e9e9;
 }
@@ -396,11 +409,15 @@
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
     color: #ADADAD;
     display: block;
-    height: 36px;
     line-height: 1.42857;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
-    width: 95%;
+    width: 86%;
+    height: 34px;
+}
+
+.form-control {
+    width: 85%;
 }
 
 
@@ -421,42 +438,40 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     border-color: #e0af00;
 }
 
+.form_container .state_form {
+  /*  display:inline;  */
+}
 
 
 .form_group{
-    padding-top: 10px;
+    padding-top: 12px;
 }
 
 .submission_form {
-
+    margin-top:15px;
 }
 
 .first_name_form {
-    float: left;
-    padding-bottom: 10px;
+   /* display: inline-block; */
 }
 
 .last_name_form {
-    float: left;
-    margin-left: 33px;
-    padding-bottom: 10px;
-    width: 50%;
+   /* display: inline-block;
+    width: 50%;  */
 }
 
 .address_form {
-    float: left;
-    width: 50%;
+ /*   display: inline-block;  */
 }
 
 .state_form {
-    width: 40%;
-    float: left;
-    padding-bottom: 10px;
+  /*  width: 40%;
+    display: inline-block;
+    padding-bottom: 10px;   */
 }
 
 .city_form {
-    float: left;
-    margin-left: 33px;
+  /*  display: inline-block; */
 }
 
 
@@ -465,10 +480,23 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .income_range_form {
-    width: 105%;
+  /*  display: table;
+    float:left;   */
+    padding-bottom: 18px;
+    padding-top: 18px;
 }
 
-.income_range_form select {
+.income_range_form .error {
+    font-weight: bold;
+}
+
+.income_range_form h5 {
+    color: #6c7a7d;
+    margin-top: 0;
+}
+
+.income_range_form label {
+    font-weight: 300;
 }
 
 .address_form input {
@@ -476,9 +504,8 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 }
 
 .postal_code_form {
-    float: left;
-    margin-left: 10px;
-    width: 57%;
+  /*  display: inline-block;
+    width: 53%;  */
 }
 
 .postal_code_form input {
@@ -494,11 +521,12 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
 
 }
 
-.error_message {
+.error_message, .error {
     color: red;
     font-size: 12px;
     padding-top: 5px;
 }
+
 
 .deals_list_item {
     display: inline;

@@ -28,9 +28,19 @@ ActiveAdmin.register Investment do
   show do |ad|
     attributes_table do
       row :name
+      row :status
       row :logo do
         image_tag(ad.logo.url(:thumb))
       end
+      row :investment_type
+      row :raise_amount
+      row :minimum_raise_amount
+      row :investment_duration
+      row :risk_rating
+      row :investment_minimum
+      row :key_information
+      row :note
+      row :qa
       # Will display the image on show object page
     end
   end
@@ -39,23 +49,29 @@ ActiveAdmin.register Investment do
   # Detail view / form
   form :html => { :enctype => 'multipart/form-data' } do |f|
     f.inputs "Details" do
-      f.input :name
-      f.input :logo, :as => :file, :required => false, :hint => image_tag(f.object.logo.url), :label => 'Logo Image'
-      f.input :investment_type
-      f.input :raise_amount
-      f.input :minimum_raise_amount
-      f.input :investment_duration
-      f.input :video_link
-      f.input :status
-      f.input :risk_rating
-      f.input :investment_minimum
-      f.input :key_information, :as => :html_editor
+      f.input :name, :required => true
+      f.input :status, :as => :select,
+              :collection => [['Available', 'available'],
+                              ['Coming Soon','coming_soon'],
+                              ['Past', 'past']],
+              :required => true,
+              :include_blank => false
+      f.input :logo, :as => :file,
+              :required => false,
+              :hint => image_tag(f.object.logo.url),
+              :label => 'Logo'
+      f.input :investment_type, :label => 'Investment Type'
+      f.input :raise_amount, :required => true
+      f.input :minimum_raise_amount, :label => 'Minimum Raise Amount'
+      f.input :investment_duration, :label => 'Investment Duration'
+      f.input :risk_rating, :label => 'Risk Rating'
+      f.input :investment_minimum, :label => 'Investment Minimum'
+      f.input :key_information, :as => :html_editor, :label => 'Key Information'
       f.input :note, :as => :html_editor
-      f.input :qa, :as => :html_editor
-
-      f.submit
+      f.input :qa, :as => :html_editor, :label => 'Question & Answer'
+      f.submit 'Update', :class => 'active_admin_button'
+      f.cancel_link('/admin/investments')
     end
-
   end
 
 

@@ -188,6 +188,47 @@ table.index_table th.sortable a {
   display: none;
 }
 
+#session_new #admin_user_submit_action input {
+  border-radius: 0.5em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: inline-block;
+  font: 14px/100% Arial,Helvetica,sans-serif;
+  margin: 0 2px 0 60px;
+  outline: medium none;
+  padding: 0.5em 2em 0.55em;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  vertical-align: baseline;
+  /*background: -moz-linear-gradient(center top , #e0af00, #e0af00) repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+  background: linear-gradient(to top, #e0af00, #e0af00);
+  filter: contrast(1);
+  font-weight: bold;
+  border: 1px solid #e0af00;
+  color: #e9e9e9;
+  background:#e0af00;
+}
+
+#admin_user_email_input, #admin_user_password_input, #admin_user_remember_me_input, #admin_user_submit_action {
+  background-color:#fff;
+}
+
+
+
+
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form input[type="number"]:focus,
+form input[type="url"]:focus,
+form input[type="tel"]:focus{
+  border-color: #e0af00;
+  box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(224, 175, 0, 1);
+}
+
+
+
 
 
 

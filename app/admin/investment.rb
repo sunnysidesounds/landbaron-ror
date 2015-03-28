@@ -69,7 +69,7 @@ ActiveAdmin.register Investment do
       f.input :key_information, :as => :html_editor, :label => 'Key Information'
       f.input :note, :as => :html_editor
       f.input :qa, :as => :html_editor, :label => 'Question & Answer'
-      f.submit 'Update', :class => 'active_admin_button'
+      f.submit 'Submit', :class => 'active_admin_button'
       f.cancel_link('/admin/investments')
     end
   end

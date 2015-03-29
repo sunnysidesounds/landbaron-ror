@@ -25,6 +25,7 @@ ActiveAdmin.register Investment do
     actions
   end
 
+  # Will display the image on show object page
   show do |ad|
     attributes_table do
       row :name
@@ -41,7 +42,7 @@ ActiveAdmin.register Investment do
       row :key_information
       row :note
       row :qa
-      # Will display the image on show object page
+
     end
   end
 

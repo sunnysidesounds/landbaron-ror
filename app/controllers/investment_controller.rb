@@ -16,7 +16,7 @@ class InvestmentController < ApplicationController
       medium = Medium.new
       principle_investors = PrincipleInvestor.new
       @media = medium.get_investment_media(params[:id])
-      @details = investments.get_investment_details(params[:id])
+      @details = investments.get_a_investment_detail(params[:id])
       @principles = principle_investors.get_principle_investor_bios(params[:id])
     end
 

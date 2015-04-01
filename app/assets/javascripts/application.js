@@ -131,6 +131,10 @@ $(document).ready(function() {
     // Format Phone Number
     $("#user_phone_number").mask("(999) 999-9999");
 
+    // Progress bar assets, core is in details template
+    $( "#progressbar").height(20);
+    $( "#progressbar").width(230);
+
 
 });
 

@@ -33,7 +33,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="progress_bar">
-                        <img class="progress_bar_img" height="25" width="245" src="/assets/progress_bar_placeholder.png" />
+                            <script>
+                                $(function() {
+                                    $( "#progressbar" ).progressbar({
+                                        value: <%=@details.spots_have %>
+                                    });
+                                });
+                            </script>
+
+                            <div id="progressbar"></div>
+
                         </div>
                     </div>
                 </div>

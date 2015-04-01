@@ -616,11 +616,25 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     font-family: "Oswald";
 }
 
+.deal_item_link {
+    color: inherit;
+}
+
+.deal_item_link:hover {
+    text-decoration: inherit;
+}
+
+.deal_item_link:focus {
+    text-decoration: inherit;
+
+}
+
 .deal_description {
     font-size: 14px;
     line-height: 1.42857;
     text-align: left;
-    min-height: 200px;
+    min-height: 180px;
+    overflow: hidden;
 }
 
 .deal_bullet_points {
@@ -653,6 +667,10 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     display: block;
     font-family: "Oswald";
     text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.37);
+}
+
+.deal_status_container {
+
 }
 
 .deal_status_container .blue_button_sub a:hover {

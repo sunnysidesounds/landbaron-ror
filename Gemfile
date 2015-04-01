@@ -28,6 +28,9 @@ gem 'devise'
 # Paperclip file upload => Getting latest version
 gem 'paperclip', '~> 4.2'
 
+# html parser
+gem 'truncate_html'
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'pry-rails'

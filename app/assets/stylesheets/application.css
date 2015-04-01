@@ -589,7 +589,9 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     color: #fff;
     font-size: 38px;
     font-weight: bold;
+    height: 200px;
     margin: 0;
+    overflow: hidden;
 }
 
 .past_investment_grid .buttom_gold {

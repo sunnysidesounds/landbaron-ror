@@ -5,9 +5,9 @@ class InvestmentController < ApplicationController
 
   def investment
     investments = Investment.new
-    @available = investments.get_landing_page_investments('available')
-    @coming_soon = investments.get_landing_page_investments('coming_soon')
-    @past = investments.get_landing_page_investments('past')
+    @available = investments.get_lp_investments('available')
+    @coming_soon = investments.get_lp_investments('coming_soon')
+    @past = investments.get_lp_investments('past')
   end
 
   def investment_detail

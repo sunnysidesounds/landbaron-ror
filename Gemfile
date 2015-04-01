@@ -15,14 +15,18 @@ gem 'rails_config'
 
 # Active Admin
 gem 'activeadmin', github: 'activeadmin'
+gem 'active_admin_editor'
 
 # Password encryption
 gem 'bcrypt', :require=>'bcrypt'
 
 # Using RVM
-gem 'capistrano-rvm', github: 'capistrano/rvm'
+gem 'capistrano-rvm', :github => 'capistrano/rvm'
 
 gem 'devise'
+
+# Paperclip file upload => Getting latest version
+gem 'paperclip', '~> 4.2'
 
 group :development do
   gem 'web-console', '~> 2.0'

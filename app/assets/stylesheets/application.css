@@ -594,6 +594,11 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     overflow: hidden;
 }
 
+.investment_detail_information .boxey-box {
+    box-shadow: 0 0 4px #c0c0c0;
+    background: none repeat scroll 0 0 #e6e6e6;
+}
+
 .deal_h2_header img {
     height: 100%;
     overflow: hidden;
@@ -902,6 +907,7 @@ div.banner h2::after {
 .investment_detail_header {
     box-shadow: 0 0 4px #c0c0c0;
     height: 325px;
+    background: none repeat scroll 0 0 #e6e6e6;
 }
 
 .investment_header_column {
@@ -979,9 +985,8 @@ div.banner h2::after {
 }
 
 .fund-info {
-margin-left:15px;
-
-
+    margin-left:15px;
+    text-align:justify;
 }
 
 .fund-info h2 {
@@ -1014,8 +1019,6 @@ margin-left:15px;
 }
 
 .slider_container .bx-wrapper .bx-viewport {
-    background: none repeat scroll 0 0 #e6e6e6;
-    box-shadow: none;
     margin-left:5px;
     padding: 10px
 }
@@ -1054,12 +1057,18 @@ margin-left:15px;
 }
 
 .investment_detail_information .key_information_left {
-    box-shadow: 0 0 4px #c0c0c0;
+   /* box-shadow: 0 0 4px #c0c0c0;  */
 
 }
 
+.left-box {
+    float: right;
+    width: 415px;
+}
+
+
 .investment_detail_information .key_information_right {
-    box-shadow: 0 0 4px #c0c0c0;
+   /* box-shadow: 0 0 4px #c0c0c0; */
     padding-bottom: 25px;
 }
 
@@ -1087,16 +1096,15 @@ margin-left:15px;
 .key_information_description h2, .funder_terms h2, .answers_to_questions h2, .legal_documents h2 {
     padding-left:25px;
     padding-top:25px;
-
     color: #55676a;
     font-family: "Oswald";
-
     font-weight: bold;
 
 }
 
 .key_information_content {
     font-weight: 300;
+    text-align:justify;
 }
 
 .key_information_description p {
@@ -1106,25 +1114,30 @@ margin-left:15px;
 }
 
 .funder_terms{
-    box-shadow: 0 0 4px #c0c0c0;
-    min-height: 300px;
+    min-height: 500px;
 }
 
 .funder_terms_conatiner {
     padding: 25px;
+    font-weight: 300;
+}
+
+.funder_terms_conatiner h4 {
     color: #666;
+}
+
+.funder_terms_q {
+    padding-top: 8px;
 }
 
 .bullets_fees {
-    font-size: 12px;
     list-style: inside none disc;
-    padding-top: 14px;
 }
 
 .qa_conatiner {
-    font-size: 12px;
-    color: #666;
+    font-weight: 300;
     margin-left: 25px;
+    padding-top: 10px;
 }
 
 .qa_conatiner p {
@@ -1132,14 +1145,21 @@ margin-left:15px;
 }
 
 .funder_terms_conatiner p {
-    font-size: 12px;
+
 
 }
 
 .answers_to_questions {
-    box-shadow: 0 0 4px #c0c0c0;
-    min-height: 300px;
+    min-height: 500px;
     padding-bottom: 25px;
+    text-align:justify;
+}
+
+.mini_invest {
+    padding-bottom:10px;
+}
+.mini_invest_2 {
+    padding-top:10px;
 }
 
 .legal_documents {
@@ -1163,6 +1183,7 @@ margin-left:15px;
     margin: auto;
     padding: 20px;
     width: 70%;
+    background:none repeat scroll 0 0 #e6e6e6;
 }
 
 .invest_now_form_page {
@@ -1214,7 +1235,7 @@ margin-left:15px;
 }
 
 .bio_stuff {
-
+    text-align:justify;
 }
 
 .bio_stuff span {

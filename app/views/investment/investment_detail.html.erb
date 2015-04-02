@@ -10,16 +10,8 @@
             <div class="col-md-6 investment_header_column">
                 <div class="fund-info">
                     <h2><%=@details.name %></h2>
-                    <p><%=h truncate(@details.key_information, :length => 300, :escape => false) %></p>
+                    <p><%=h truncate(@details.key_information, :length => 500, :escape => false) %></p>
                     <div class="data ">
-                        <span class="datum">
-                            <i class="fa fa-fw fa-bank"></i>
-                            Future of work
-                        </span>
-                    <span class="datum">
-                        <i class="fa fa-fw fa-cube"></i>
-                         Multi Company Fund
-                    </span>
                     </div>
                 </div>
             </div>
@@ -29,20 +21,21 @@
                         <a class="buttom_gold button_super_large" href="/invest/<%=@details.id %>">Invest</a>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="progress_bar">
                             <script>
-                                $(function() {
-                                    $( "#progressbar" ).progressbar({
-                                        value: <%=@details.spots_have %>
+                                var spots = 1;
+                                <% if @details.spots_have? %>
+                                    spots = <%=@details.spots_have %>;
+                                <% end %>
+                                    $(function() {
+                                        $( "#progressbar" ).progressbar({
+                                            value: spots
+                                        });
                                     });
-                                });
                             </script>
-
                             <div id="progressbar"></div>
-
                         </div>
                     </div>
                 </div>

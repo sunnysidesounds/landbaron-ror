@@ -594,6 +594,12 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     overflow: hidden;
 }
 
+.deal_h2_header img {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
 .past_investment_grid .buttom_gold {
     margin-left: 20px;
     margin-top: 12px;
@@ -882,9 +888,9 @@ div.banner h2::after {
 }
 
 .investment_details_container{
-    margin-left: 100px;
-    margin-right: 100px;
-    padding: 25px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
 
 }
 
@@ -896,15 +902,11 @@ div.banner h2::after {
 .investment_detail_header {
     box-shadow: 0 0 4px #c0c0c0;
     height: 325px;
-    padding: 20px;
 }
 
 .investment_header_column {
 
 }
-
-
-
 
 .progress_bar_img {
 
@@ -916,6 +918,12 @@ div.banner h2::after {
 
 .company_logo {
     margin-top: 20px;
+}
+
+.company_logo img {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
 }
 
 .invest_now {
@@ -971,7 +979,7 @@ div.banner h2::after {
 }
 
 .fund-info {
-    margin-left: 25px;
+margin-left:15px;
 
 
 }

@@ -25,5 +25,9 @@ class Investment < ActiveRecord::Base
     @inv = Investment.find(id)
   end
 
+  def get_all()
+    @inv = Investment.select('name, id')
+  end
+
 
 end

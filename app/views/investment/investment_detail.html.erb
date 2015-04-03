@@ -59,7 +59,7 @@
                     <div class="slider_container" id="slider" style="visibility:hidden">
                         <ul class="bxslider">
                             <% @media.each do |media| %>
-                            <li><img width="600" src="<%=media['path'] %>" /></li>
+                            <li><img width="600" src="<%=media.media_item %>" /></li>
                             <% end %>
                         </ul>
                     </div>

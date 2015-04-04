@@ -22,6 +22,9 @@ gem 'bcrypt', :require=>'bcrypt'
 # Using RVM
 gem 'capistrano-rvm', github: 'capistrano/rvm'
 
+# Seed Dump
+gem 'seed_dump'
+
 gem 'devise'
 
 group :development do

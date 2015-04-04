@@ -7,8 +7,8 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 set :stage, :production
-server '0.0.0.0', user: 'deploy', roles: %w{web app}
-
+ask:(:password, nil echo: false)
+server '192.241.207.43', user: 'deploy', port: 22, password: fetch(:password), roles: %w{web app db}
 
 # role-based syntax
 # ==================

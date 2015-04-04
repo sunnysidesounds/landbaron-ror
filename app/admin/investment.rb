@@ -19,6 +19,7 @@ ActiveAdmin.register Investment do
     column :investment_type
     column :raise_amount
     column :spots_available
+    column :spots_have
     column :status
 
 
@@ -51,6 +52,8 @@ ActiveAdmin.register Investment do
   form :html => { :enctype => 'multipart/form-data' } do |f|
     f.inputs "Details" do
       f.input :name, :required => true
+      f.input :spots_have, :label => 'Spots Have'
+      f.input :spots_available, :label => 'Spots Available'
       f.input :status, :as => :select,
               :collection => [['Available', 'available'],
                               ['Coming Soon','coming_soon'],
@@ -73,6 +76,24 @@ ActiveAdmin.register Investment do
       f.submit 'Submit', :class => 'active_admin_button'
       f.cancel_link('/admin/investments')
     end
+  end
+
+
+  # Redirect to list view
+  controller do
+
+    def update
+      update! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
+
+    def create
+      create! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
+
   end
 
 

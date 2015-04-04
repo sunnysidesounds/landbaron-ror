@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327054805) do
+ActiveRecord::Schema.define(version: 20150404054829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150327054805) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "spots_have"
   end
 
   create_table "media", force: :cascade do |t|
@@ -82,6 +83,10 @@ ActiveRecord::Schema.define(version: 20150327054805) do
     t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "media_item_file_name"
+    t.string   "media_item_content_type"
+    t.integer  "media_item_file_size"
+    t.datetime "media_item_updated_at"
   end
 
   create_table "orders", id: false, force: :cascade do |t|
@@ -128,6 +133,10 @@ ActiveRecord::Schema.define(version: 20150327054805) do
     t.string   "occupation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
   create_table "quotes", force: :cascade do |t|

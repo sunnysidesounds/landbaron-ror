@@ -20,7 +20,27 @@ ActiveAdmin.register PrincipleInvestor do
     actions
   end
 
+  form :html => { :enctype => 'multipart/form-data' } do |f|
+    investment = Investment.new
+    i = investment.get_all
 
+    f.inputs "Biod" do
+      f.input :full_name, :required => true
+      f.input :occupation, :required => true
+      f.input :investment_id, :as => :select,
+              :collection => i,
+              :required => true,
+              :include_blank => false
+      f.input :profile_pic, :as => :file,
+              :required => false,
+              :hint => image_tag(f.object.profile_pic.url),
+              :label => 'Profile Pic'
+
+      f.input :bio, :as => :html_editor, :label => 'Investors Bio'
+      f.submit 'Submit', :class => 'active_admin_button'
+      f.cancel_link('/admin/principle_investors')
+    end
+  end
 
 
 

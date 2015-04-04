@@ -1,6 +1,7 @@
 class PrincipleInvestor < ActiveRecord::Base
 
   has_attached_file :profile_pic, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/dummy-investor.png"
+  do_not_validate_attachment_file_type :profile_pic
 
 
   # Depecated method use get_principal_investors method

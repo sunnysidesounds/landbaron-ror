@@ -90,7 +90,7 @@
                     <h3>Principal</h3>
                     <% if @principles.count != 0 %>
                         <% @principles.each do |principles| %>
-                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="75" src="<%=principles['img_url'] %>"/> <%=principles['full_name'] %></a>
+                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="100" src="<%=principles.profile_pic.url %>"/> <%=principles.full_name %></a>
                             <br />
                             <br />
                         <% end %>

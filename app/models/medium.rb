@@ -1,6 +1,6 @@
 class Medium < ActiveRecord::Base
 
-  has_attached_file :media_item
+  has_attached_file :media_item, :styles => { :pdf_thumbnail => ["", :jpg] }
   do_not_validate_attachment_file_type :media_item
 
 

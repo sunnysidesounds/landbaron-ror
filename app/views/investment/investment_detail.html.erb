@@ -59,7 +59,10 @@
                     <div class="slider_container" id="slider" style="visibility:hidden">
                         <ul class="bxslider">
                             <% @media.each do |media| %>
-                            <li><img width="600" src="<%=media.media_item %>" /></li>
+
+                                <% if !(media.media_item_content_type =~ /^image/).nil? %>
+                                    <li><img width="600" src="<%=media.media_item %>" /></li>
+                                <% end %>
                             <% end %>
                         </ul>
                     </div>
@@ -169,7 +172,6 @@
                         <% end %>
                     </div>
                 </div>
-
             </div>
         </div>
         <br />
@@ -178,7 +180,17 @@
                 <div class="answers_to_questions">
                     <h2>Documents</h2>
                    <div class="qa_conatiner">
-                        No Data
+                       <ul class="documents_list">
+                           <% @media.each do |media| %>
+                               <% if (media.media_item_content_type =~ /^image/).nil? %>
+                                   <li class="documents_list_items">
+                                       <a href="<%=media.media_item %>" target="_blank">
+                                       <img width="150" src="<%=media.media_item.url(:pdf_thumbnail) %>" />
+                                       <%=media.media_item_file_name%></a>
+                                   </li>
+                               <% end %>
+                           <% end %>
+                       </ul>
                     </div>
                 </div>
             </div>

@@ -5,7 +5,6 @@ ActiveAdmin.register Medium , :as => 'Media' do
 
   # List view
   index do
-
     investment = Investment.new
     column :investment_id do |medium|
       link_to investment.get_a_investment_detail(medium.investment_id).name, admin_medium_path(medium)
@@ -21,6 +20,19 @@ ActiveAdmin.register Medium , :as => 'Media' do
   end
 
 
+  #Save view, not being used, due to redirect in controllers
+  show do |ad|
+    investment = Investment.new
+    attributes_table do
+      row :investment_id
+      row :media_item_file_name
+      row :media_item do
+        image_tag(ad.media_item.url(), :class =>"media_image_show")
+      end
+    end
+  end
+
+  #Edit update view
   form :html => { :enctype => 'multipart/form-data' } do |f|
     investment = Investment.new
     i = investment.get_all
@@ -40,15 +52,25 @@ ActiveAdmin.register Medium , :as => 'Media' do
 
       f.submit 'Submit', :class => 'active_admin_button'
       f.cancel_link('/admin/media')
-     end
+
+    end
   end
 
+  # Redirect to list view
+  controller do
 
+    def update
+      update! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
 
+    def create
+      create! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
 
-
-
-
-
+  end
 
 end

@@ -79,5 +79,23 @@ ActiveAdmin.register Investment do
   end
 
 
+  # Redirect to list view
+  controller do
+
+    def update
+      update! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
+
+    def create
+      create! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
+
+  end
+
+
 
 end

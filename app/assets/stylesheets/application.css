@@ -1268,4 +1268,17 @@ div.banner h2::after {
 }
 
 
+.documents_list_items {
+    padding: 20px;
+}
+
+.documents_list_items img {
+    margin-right: 40px;
+}
+
+.documents_list_items a:hover {
+    text-decoration: none;
+}
+
+
 

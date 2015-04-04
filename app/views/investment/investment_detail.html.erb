@@ -10,16 +10,16 @@
             <div class="col-md-6 investment_header_column">
                 <div class="fund-info">
                     <h2><%=details['name'] %></h2>
-                    <p><%=h truncate(details['key_information'], :length => 300, :escape => false) %></p>
+                    <p><%=h truncate(details['key_information'], :length => 695, :escape => false) %></p>
                     <div class="data ">
-                        <span class="datum">
-                            <i class="fa fa-fw fa-bank"></i>
-                            Future of work
-                        </span>
-                    <span class="datum">
-                        <i class="fa fa-fw fa-cube"></i>
-                         Multi Company Fund
-                    </span>
+                    <!--     <span class="datum"> -->
+                    <!--         <i class="fa fa&#45;fw fa&#45;bank"></i> -->
+                    <!--         Future of work -->
+                    <!--     </span> -->
+                    <!-- <span class="datum"> -->
+                    <!--     <i class="fa fa&#45;fw fa&#45;cube"></i> -->
+                    <!--      Multi Company Fund -->
+                    <!-- </span> -->
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="progress_bar">
-                        <img class="progress_bar_img" height="25" width="245" src="/assets/progress_bar_placeholder.png" />
+                        <!-- <img class="progress_bar_img" height="25" width="245" src="/assets/progress_bar_placeholder.png" /> -->
                         </div>
                     </div>
                 </div>
@@ -86,10 +86,10 @@
                     <img class="investor_img" width="270" src="/assets/investor_list_placeholder.jpg" />
                 </div> -->
                 <div class="key_information_left principle_bios">
-                    <h3>Principal</h3>
+                    <h3>Principals</h3>
                     <% if @principles.count != 0 %>
                         <% @principles.each do |principles| %>
-                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="75" src="<%=principles['img_url'] %>"/> <%=principles['full_name'] %></a>
+                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="95" src="<%=principles['img_url'] %>"/> <%=principles['full_name'] %></a>
                             <br />
                             <br />
                         <% end %>
@@ -105,7 +105,7 @@
                   <div class="funder_terms">
                       <h2>Fund Terms</h2>
                       <div class="funder_terms_conatiner">
-                        <h4><strong>Minimum Inventment: </strong> <%=details['investment_minimum'] %></h4>
+                        <h4><strong>Minimum Investment: </strong> <%=details['investment_minimum'] %></h4>
                             <h4><strong>Fee Structure: </strong></h4>
                             <div class="key_information_content">
                                 <% if details['note'].nil? %>

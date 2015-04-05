@@ -21,6 +21,9 @@ config/environments/*.local.yml
 .DS_Store
 spec/.DS_Store
 
+# Media file uploads
+public/system/
+
 
 *.sublime-workspace
 .rvmrc

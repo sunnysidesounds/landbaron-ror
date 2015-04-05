@@ -24,6 +24,9 @@
 //= require angular-ui-router
 //= require ui-bootstrap-tpls-0.12.0
 //= require jquery.bxslider
+//= require jquery.validate
+//= require additional-methods
+//= require jquery.maskedinput
 
 
 $(document).ready(function() {
@@ -40,6 +43,7 @@ $(document).ready(function() {
         $('#header').data('size','big');
     });
 
+    // Sticky header with slider
     $(window).scroll(function(){
         if($(document).scrollTop() > 0){
             if($('#header').data('size') == 'big'){
@@ -84,6 +88,52 @@ $(document).ready(function() {
         }, 2000);
     });
 
+    // Sign-In Form Validation
+    $("#new_user").validate({
+        debug: false, //if set to true form won't submit
+        rules: {
+        "user[username]": {required: true},
+        "user[password]": {required: true}
+        }
+    });
+
+    // Registration Form Validation
+    $("#create_user").validate({
+        debug: false, //if set to true form won't submit
+        rules: {
+            "user[first_name]": {required: true},
+            "user[phone_number]": {required: true},
+            "user[username]": {required: true},
+            "user[address]": {required: true},
+            "user[city]": {required: true},
+            "user[state]": {required: true},
+            "user[income_range]": {required: true},
+            "user[postal_code]": {required: true, digits:true},
+            "user[email]": { required:true, email:true },
+            "user[password]": {required: true, minlength: 4},
+            "user[password_confirmation]": {
+                required: true, equalTo: "#user_password", minlength: 4
+            },
+            "user[last_name]": {required: true}
+        },
+        messages : {
+
+        },
+        errorPlacement: function(error, element) {
+            if (element.attr("type") == "radio") {
+                error.insertBefore(element);
+            } else {
+                error.insertAfter(element);
+            }
+        }
+    });
+
+    // Format Phone Number
+    $("#user_phone_number").mask("(999) 999-9999");
+
+    // Progress bar assets, core is in details template
+    $( "#progressbar").height(20);
+    $( "#progressbar").width(230);
 
 
 });

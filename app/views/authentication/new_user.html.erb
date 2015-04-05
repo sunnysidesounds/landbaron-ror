@@ -1,78 +1,78 @@
 <div class="gray_background">
 
+    <!-- Tabs -->
     <div class="signup_login_container">
         <div class="lbc_tabs">
             <div class="lbc_tab create_account_tab">
-                <%= link_to "Create Account", new_user_path, class: "create_account_link" %>
+                <%= link_to 'Create Account', new_user_path, :class => "create_account_link" %>
             </div>
             <div class="lbc_tab signin_account_tab signin_account_tab_notselected">
-                <%= link_to "Login", sign_in_path, :class => "login_account_link" %>
+                <%= link_to 'Login', sign_in_path, :class => 'login_account_link' %>
             </div>
         </div>
 
+        <!-- Registration Form -->
         <div class="form_container">
-            <%= form_for (User.new), :as => :user, :url => new_user_path, :method => :post do |f| %>
+            <%= form_for (User.new), :as => :user, :url => new_user_path, :html => {:id => 'create_user'}, :method => :post do |f| %>
             <div class="form_group first_name_form">
-                <%= f.text_field :first_name, class: 'form-control', autofocus: true, placeholder: 'First Name' %>
+                <%= f.text_field :first_name, :class => 'form-control', :autofocus => true, :placeholder => 'First Name' %>
                 <%= show_field_error(@user, :first_name) %>
             </div>
             <div class="form_group last_name_form">
-                <%= f.text_field :last_name, class: 'form-control', autofocus: true, placeholder: 'Last Name' %>
+                <%= f.text_field :last_name, :class => 'form-control', :autofocus => true, :placeholder => 'Last Name' %>
                 <%= show_field_error(@user, :last_name) %>
             </div>
-            <div class="form_group">
-                <%= f.text_field :phone_number, class: 'form-control', autofocus: true, placeholder: 'Phone Number' %>
+            <div class="form_group phone_number">
+                <%= f.text_field :phone_number, :class => 'form-control', :autofocus => true, :placeholder => 'Phone Number' %>
                 <%= show_field_error(@user, :phone_number) %>
             </div>
             <div class="form_group address_form">
-                <%= f.text_field :address, class: 'form-control', autofocus: true, placeholder: 'Street Address' %>
+                <%= f.text_field :address, :class => 'form-control', :autofocus => true, :placeholder => 'Street Address' %>
             </div>
             <div class="form_group city_form">
-                <%= f.text_field :city, class: 'form-control', autofocus: true, placeholder: 'City' %>
+                <%= f.text_field :city, :class => 'form-control', :autofocus => true, :placeholder => 'City' %>
             </div>
             <div class="form_group state_form">
                 <%= f.select :state, options_for_select(us_states) %>
             </div>
             <div class="form_group postal_code_form">
-                <%= f.text_field :postal_code, class: 'form-control', autofocus: true, placeholder: 'Postal Code' %>
+                <%= f.text_field :postal_code, :class => 'form-control', :autofocus => true, :placeholder => 'Postal Code' %>
             </div>
             <div class="form_group income_range_form">
-                <%= f.select :income_range, options_for_select(income_range) %>
+                 <h5>Your Income Range</h5>
+                <%= f.radio_button(:income_range, 'Over $200,000') %>
+                <%= label_tag(:income_range_label_1, 'Over $200,000 in net income past 2 years') %>
+                 <br />
+                <%= f.radio_button(:income_range, 'Over $300,000 w/spouse') %>
+                <%= label_tag(:income_range_label_2, 'Over $300,000 in income w/spouse the past 2 years') %>
+                <br />
+                <%= f.radio_button(:income_range, 'Net work $1,000,000') %>
+                <%= label_tag(:income_range_label_3, 'Net worth of over $1,000,000') %>
             </div>
             <div class="form_group">
-                <%= f.text_field :username, class: 'form-control', autofocus: true, placeholder: 'Username' %>
+                <%= f.text_field :username, :class => 'form-control', :autofocus => true, :placeholder => 'Username' %>
                 <%= show_field_error(@user, :username) %>
             </div>
             <div class="form_group">
-                <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: 'Email Address' %>
+                <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'Email Address' %>
                 <%= show_field_error(@user, :email) %>
             </div>
             <div class="form_group">
-                <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: 'Password' %>
+                <%= f.password_field :password, :class => 'form-control', :autofocus => true, :placeholder => 'Password' %>
                 <%= show_field_error(@user, :password) %>
             </div>
             <div class="form_group">
-                <%= f.password_field :password_confirmation, class: 'form-control', autofocus: true, placeholder: 'Password Confirmation' %>
+                <%= f.password_field :password_confirmation, :class => 'form-control', :autofocus => true, :placeholder => 'Password Confirmation' %>
                 <%= show_field_error(@user, :password_confirmation) %>
             </div>
             <div class="form_group submission_form">
-                <%= f.hidden_field :principle_investor, :value => "false" %>
-                <%= f.hidden_field :verified, :value => "false" %>
-                <%= f.submit 'Sign Up', :class=>'buttom_gray' %>
-                <%= f.submit 'Clear Form', :type => 'reset', :class=>'buttom_gray' %>
+                <%= f.hidden_field :principle_investor, :value => 'false' %>
+                <%= f.hidden_field :verified, :value => 'false' %>
+                <%= f.submit 'Sign Up', :class=>'buttom_gold' %>
+                <%= f.submit 'Clear Form', :type => 'reset', :class=>'buttom_gold' %>
             </div>
             <% end %>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
 </div>
 

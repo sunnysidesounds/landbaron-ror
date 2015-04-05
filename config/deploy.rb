@@ -2,25 +2,17 @@
 lock '3.4.0'
 
 set :application, 'landbaron'
+set :scm, :git
 set :repo_url, 'git@github.com:landbaronclub/landbaron.git'
 
-# Default branch is :master
-# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-
-# Default deploy_to directory is /var/www/my_app_name
+# Deploy to directory
 set :deploy_to, '/home/deploy/landbaron'
 
-# Default value for :scm is :git
-# set :scm, :git
-
-# Default value for :format is :pretty
-# set :format, :pretty
+set :pty, true
+set :format, :pretty
 
 # Default value for :log_level is :debug
 # set :log_level, :debug
-
-# Default value for :pty is false
-# set :pty, true
 
 # Default value for :linked_files is []
 set :linked_files, %w{config/database.yml}

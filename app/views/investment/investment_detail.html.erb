@@ -9,7 +9,7 @@
             <div class="col-md-6 investment_header_column">
                 <div class="fund-info">
                     <h2><%=@details.name %></h2>
-                    <p><%=h truncate(@details.key_information, :length => 500, :escape => false) %></p>
+                    <p><%=h truncate(@details.key_information, :length => 695, :escape => false) %></p>
                     <div class="data ">
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                     <img class="investor_img" width="270" src="/assets/investor_list_placeholder.jpg" />
                 </div> -->
                 <div class="key_information_left principle_bios">
-                    <h3>Principal</h3>
+                    <h3>Principals</h3>
                     <% if @principles.count != 0 %>
                         <% @principles.each do |principles| %>
                             <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="100" src="<%=principles.profile_pic.url %>"/> <%=principles.full_name %></a>

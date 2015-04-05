@@ -80,20 +80,20 @@
 
 .investor_principal_sublist {
     color: #55676a;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .investor_principal_sublist:hover {
     color: #55676a;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
 }
 
 .investor_principal_sublist:visited{
     color: #55676a;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
 }

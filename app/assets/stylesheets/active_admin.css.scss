@@ -38,6 +38,28 @@
   background: none repeat scroll 0 0 #6c7a7d;
 }
 
+#edit_user .active_admin_button, #new_user .active_admin_button {
+  border-radius: 0.5em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: inline-block;
+  font: 14px/100% Arial,Helvetica,sans-serif;
+  margin: 0 2px 0 60px;
+  outline: medium none;
+  padding: 0.5em 2em 0.55em;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  vertical-align: baseline;
+  /*background: -moz-linear-gradient(center top , #e0af00, #e0af00) repeat scroll 0 0 rgba(0, 0, 0, 0);*/
+  background: linear-gradient(to top, #e0af00, #e0af00);
+  filter: contrast(1);
+  font-weight: bold;
+  border: 1px solid #e0af00;
+  color: #e9e9e9;
+  background:#e0af00;
+}
+
 #edit_investment .active_admin_button, #new_investment .active_admin_button, , #active_admin_content .buttons input, , #active_admin_content .buttons a  {
   border-radius: 0.5em;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -106,7 +128,7 @@
 
 
 
-#edit_medium input, #new_medium input {
+#edit_medium input, #new_medium input, #edit_user input, #new_user input {
   background-color: #fff;
   background-image: none;
   border: 1px solid #e0af00;
@@ -184,7 +206,7 @@
 }
 
 
-#edit_investment .cancel, #new_investment .cancel {
+#edit_investment .cancel, #new_investment .cancel, #edit_user .cancel {
   border-radius: 0.5em;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -207,7 +229,7 @@
 }
 
 
-#edit_medium .cancel, #new_medium .cancel {
+#edit_medium .cancel, #new_medium .cancel, #new_user .cancel {
   border-radius: 0.5em;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -254,7 +276,10 @@
 
 
 
-
+#edit_user .cancel a, #new_user .cancel a {
+  color:#fff;
+  text-decoration: none;
+}
 
 
 

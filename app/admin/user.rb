@@ -1,18 +1,66 @@
 ActiveAdmin.register User do
 
+  config.sort_order = 'id_asc'
+  permit_params :username, :email, :first_name, :last_name, :phone_number,
+      :address, :city, :state, :postal_code, :password
 
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
+  # List view
+  index do
+    column :username
+    column :name do |user|
+      link_to user.email, admin_user_path(user)
+    end
+
+    column :first_name
+    column :last_name
+    column :phone_number
+
+
+    actions
+  end
+
+
+  # Detail view / form
+  form :html => { :enctype => 'multipart/form-data' } do |f|
+    f.inputs "User Details" do
+      f.input :username, :required => true
+      f.input :email, :required => true
+
+      f.input :password
+      #f.input :password_confirmation
+
+
+      f.input :first_name, :required => true
+      f.input :last_name, :required => true
+      f.input :phone_number, :required => true
+      f.input :address, :required => true
+      f.input :city, :required => true
+      f.input :state, :required => true
+      f.input :postal_code, :required => true
+
+      f.submit 'Submit', :class => 'active_admin_button'
+      f.cancel_link('/admin/users')
+    end
+  end
+
+
+
+  # Redirect to list view
+  controller do
+
+    def update
+      update! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
+
+    def create
+      create! do |format|
+        format.html { redirect_to collection_path } if resource.valid?
+      end
+    end
+
+  end
 
 
 end

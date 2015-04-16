@@ -1147,7 +1147,8 @@ div.banner h2::after {
 }
 
 .qa_conatiner p {
-    font-size: 12px;
+    font-size: 14px;
+    margin-right: 50px;
 }
 
 .funder_terms_conatiner p {

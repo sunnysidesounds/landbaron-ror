@@ -19,6 +19,22 @@ ActiveAdmin.register User do
     actions
   end
 
+  # Will display the image on show object page
+  show do |ad|
+    attributes_table do
+      row :username
+      row :email
+      row :first_name
+      row :last_name
+      row :phone_number
+      row :address
+      row :city
+      row :state
+      row :postal_code
+
+    end
+  end
+
 
   # Detail view / form
   form :html => { :enctype => 'multipart/form-data' } do |f|
@@ -26,7 +42,7 @@ ActiveAdmin.register User do
       f.input :username, :required => true
       f.input :email, :required => true
 
-      f.input :password
+      #f.input :password
       #f.input :password_confirmation
 
 

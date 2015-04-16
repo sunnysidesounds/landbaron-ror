@@ -16,6 +16,7 @@ class InvestmentController < ApplicationController
       medium = Medium.new
       principle_investors = PrincipleInvestor.new
       @media = medium.get_all_investment_media(params[:id])
+      @document_count = medium.get_document_count_by_id(params[:id])
       @details = investments.get_a_investment_detail(params[:id])
       @principles = principle_investors.get_principal_investors(params[:id])
     end

@@ -900,7 +900,7 @@ div.banner h2::after {
 }
 
 .principle_investor_img{
-    margin-left: 60px;
+    margin-left: 30px;
     padding: 3px;
 }
 
@@ -1064,6 +1064,12 @@ div.banner h2::after {
 .left-box {
     float: right;
     width: 415px;
+}
+
+@-moz-document url-prefix() {
+    .left-box {
+        width: 375px;
+    }
 }
 
 

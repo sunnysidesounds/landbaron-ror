@@ -22,5 +22,9 @@ class Medium < ActiveRecord::Base
    @inv =  Medium.select('investment_id, id')
   end
 
+  def get_document_count_by_id(id)
+    @inv = Medium.where(:investment_id => id, :media_item_content_type => 'application/pdf').count
+  end
+
 
 end

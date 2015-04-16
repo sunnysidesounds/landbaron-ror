@@ -55,7 +55,7 @@ $(document).ready(function() {
                 }
                 $('.header_browse').hide();
                 $('#header').stop().animate({
-                    height:'70px'
+                    height:'60px'
                 },600);
             }
         } else {

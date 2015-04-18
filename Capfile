@@ -3,7 +3,6 @@ require 'capistrano/setup'
 
 # Include default deployment tasks
 require 'capistrano/deploy'
-require 'capistrano/bundler'
 require 'capistrano/rails'
 
 # Using RVM
@@ -13,3 +12,10 @@ set :rvm_ruby_version, '2.1.5-p273'
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
+
+# Load recipes for deployment
+require "capistrano/bundler"
+require "capistrano/rails/assets"
+require "capistrano/rails/migrations"
+require "capistrano/puma"
+

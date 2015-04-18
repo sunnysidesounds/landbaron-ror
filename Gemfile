@@ -34,7 +34,7 @@ gem 'paperclip', '~> 4.2'
 # html parser
 gem 'truncate_html'
 
-group :development do
+grou :development do
   gem 'web-console', '~> 2.0'
   gem 'pry-rails'
 end
@@ -43,7 +43,6 @@ group :production do
   gem 'capistrano', '3.4.0'
   gem 'capistrano-bundler', '1.1.4'
   gem 'capistrano-rails', '1.1.2'
-  gem 'capistrano-passenger', '0.0.2'
 end
 
 # Gems used only for assets and not required

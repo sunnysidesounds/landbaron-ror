@@ -24,6 +24,14 @@ GIT
       capistrano (~> 3.0)
       sshkit (~> 1.2)
 
+GIT
+  remote: git://github.com/seuros/capistrano-puma.git
+  revision: c98011ebab871468e52beb8cc20bef0403ee1d5f
+  specs:
+    capistrano3-puma (0.9.0)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -86,8 +94,6 @@ GEM
       activesupport (>= 3.0.0)
     arel (6.0.0)
     bcrypt (3.1.10)
-    binding_of_caller (0.7.2)
-      debug_inspector (>= 0.0.1)
     bourbon (3.2.4)
       sass (~> 3.2)
       thor
@@ -99,8 +105,6 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-passenger (0.0.2)
-      capistrano (~> 3.0)
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -108,7 +112,6 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
-    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -117,7 +120,6 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     colorize (0.7.5)
-    debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -158,7 +160,6 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
@@ -178,12 +179,8 @@ GEM
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     power_assert (0.2.2)
-    pry (0.9.12.3)
-      coderay (~> 1.0)
-      method_source (~> 0.8)
-      slop (~> 3.4)
-    pry-rails (0.3.2)
-      pry (>= 0.9.10)
+    puma (2.11.2)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -249,7 +246,6 @@ GEM
     shoulda-context (1.1.6)
     shoulda-matchers (2.4.0)
       activesupport (>= 3.0.0)
-    slop (3.4.7)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -279,11 +275,6 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.3)
       rack (>= 1.0)
-    web-console (2.0.0)
-      activemodel (~> 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (~> 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
 
 PLATFORMS
   ruby
@@ -294,9 +285,9 @@ DEPENDENCIES
   bcrypt
   capistrano (= 3.4.0)
   capistrano-bundler (= 1.1.4)
-  capistrano-passenger (= 0.0.2)
   capistrano-rails (= 1.1.2)
   capistrano-rvm!
+  capistrano3-puma!
   coffee-rails (~> 4.0.0)
   devise
   jquery-rails
@@ -305,7 +296,6 @@ DEPENDENCIES
   minitest (~> 5.5.1)
   paperclip (~> 4.2)
   pg (= 0.17.0)
-  pry-rails
   rails (~> 4.2.0)
   rails_config
   rspec-rails (~> 2.0)
@@ -316,4 +306,3 @@ DEPENDENCIES
   therubyracer
   truncate_html
   uglifier (>= 1.0.3)
-  web-console (~> 2.0)

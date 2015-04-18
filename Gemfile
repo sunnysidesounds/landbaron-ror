@@ -34,15 +34,18 @@ gem 'paperclip', '~> 4.2'
 # html parser
 gem 'truncate_html'
 
-grou :development do
-  gem 'web-console', '~> 2.0'
-  gem 'pry-rails'
+group :development do
+    gem 'capistrano', '3.4.0'
+    gem 'capistrano-bundler', '1.1.4'
+    gem 'capistrano-rails', '1.1.2'
+    gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
 group :production do
-  gem 'capistrano', '3.4.0'
-  gem 'capistrano-bundler', '1.1.4'
-  gem 'capistrano-rails', '1.1.2'
+  # gem 'capistrano', '3.4.0'
+  # gem 'capistrano-bundler', '1.1.4'
+  # gem 'capistrano-rails', '1.1.2'
+  # gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
 # Gems used only for assets and not required

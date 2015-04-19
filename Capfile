@@ -10,7 +10,7 @@ require 'capistrano/rails'
 set :ssh_options, {:forward_agent => true}
 
 # Using RVM
-#require 'capistrano/rvm'
+require 'capistrano/rvm'
 set :rvm_type, :user
 set :rvm_ruby_version, '2.1.5-p273'
 

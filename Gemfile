@@ -10,6 +10,10 @@ gem 'pg', '0.17.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+# Bootstrap
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 # Configuration File
 gem 'rails_config'
 
@@ -43,7 +47,7 @@ group :production do
   gem 'capistrano', '3.4.0'
   gem 'capistrano-bundler', '1.1.4'
   gem 'capistrano-rails', '1.1.2'
-  gem 'capistrano-passenger', '0.0.2'
+  gem 'capistrano3-puma'
 end
 
 # Gems used only for assets and not required

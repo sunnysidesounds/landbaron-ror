@@ -6,6 +6,9 @@ require 'capistrano/deploy'
 require 'capistrano/bundler'
 require 'capistrano/rails'
 
+# forward SSH keys
+set :ssh_options, {:forward_agent => true}
+
 # Using RVM
 #require 'capistrano/rvm'
 set :rvm_type, :user

@@ -8,7 +8,7 @@ class QuoteController < ApplicationController
     if @quote.valid?
       @quote.save
       # Send Email
-      ConfirmationMailer.confirmation_email(current_user).deliver
+      ConfirmationMailer.confirmation_email(current_user).deliver_now
 
       redirect_to :controller => 'investment', :action => 'investment_confirmation', :id => @quote.investment_id
     else

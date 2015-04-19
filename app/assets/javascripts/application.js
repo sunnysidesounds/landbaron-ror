@@ -27,7 +27,6 @@
 //= require additional-methods
 //= require jquery.maskedinput
 //= require bootstrap
-//= require bootstrap-sprockets
 //= require ui-bootstrap-tpls-0.12.0
 //= require_tree .
 

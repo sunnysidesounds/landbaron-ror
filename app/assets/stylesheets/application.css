@@ -13,10 +13,12 @@
  *= require main
  *= require jquery-ui
  *= require jquery.bxslider
- *= require bootstrap
  *= require active_admin/editor/wysiwyg
+ *= require bootstrap
  *= require_self
+ *= require_tree .
  */
+
 
 .hidden
 {

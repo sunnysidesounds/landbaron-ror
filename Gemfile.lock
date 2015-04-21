@@ -24,6 +24,14 @@ GIT
       capistrano (~> 3.0)
       sshkit (~> 1.2)
 
+GIT
+  remote: git://github.com/seuros/capistrano-puma.git
+  revision: c98011ebab871468e52beb8cc20bef0403ee1d5f
+  specs:
+    capistrano3-puma (0.9.0)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -105,6 +113,8 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-passenger (0.0.2)
+      capistrano (~> 3.0)
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -308,6 +318,7 @@ DEPENDENCIES
   capistrano-rails (= 1.1.2)
   capistrano-rvm!
   capistrano3-puma
+  capistrano3-puma!
   coffee-rails (~> 4.0.0)
   devise
   jquery-rails

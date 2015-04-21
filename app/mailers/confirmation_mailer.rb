@@ -1,8 +1,13 @@
 class ConfirmationMailer < ApplicationMailer
-    default :from => Settings.default_email_admin_send
+    default :from => Settings.from_email
 
-    def confirmation_email(current_user)
+    def confirmation_email(current_user, quote_user)
         @user = current_user
-        mail(:to => current_user.email , :subject => 'Land Baron Club Investment Confirmation')
+        @quote = quote_user
+
+        investments = Investment.new
+        @investment = investments.get_a_investment_detail(@quote.investment_id)
+
+        mail(:to => current_user.email , :subject => Settings.confirmation_email_subject)
     end
 end

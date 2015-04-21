@@ -10,10 +10,6 @@ gem 'pg', '0.17.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-# Bootstrap
-gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
-
 # Configuration File
 gem 'rails_config'
 
@@ -39,8 +35,10 @@ gem 'paperclip', '~> 4.2'
 gem 'truncate_html'
 
 group :development do
-  gem 'web-console', '~> 2.0'
-  gem 'pry-rails'
+    gem 'capistrano', '3.4.0'
+    gem 'capistrano-bundler', '1.1.4'
+    gem 'capistrano-rails', '1.1.2'
+    gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 end
 
 group :production do

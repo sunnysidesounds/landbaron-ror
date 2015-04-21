@@ -59,6 +59,12 @@ class AuthenticationController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
+
+      # Send email
+      AccountCreationMailer.account_creation_email(current_user).deliver_now
+
+      AdminMailer.admin_email(current_user, nil).deliver_now
+
       redirect_to :controller => 'investment', :action => 'investment'
     else
       render :action => "new_user"

@@ -806,7 +806,7 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     letter-spacing: 1px;
     padding-left: 10px;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .username {

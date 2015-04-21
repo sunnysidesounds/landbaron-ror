@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<div id="email_container_outer" style="height:63px;background-color:#000;">
+    <div id="email_container_inner" style="">
+        <!-- TODO Change this to be more dynamic -->
+        <img src="http://ww2.landbaronclub.com:3000/assets/logo-beta.png" alt="Land Baron Club" style="padding:5px; width:245px; height:55px;" />
+    </div>
+</div>
+<p>
+    Thank you <strong><%= @user.first_name %> <%= @user.last_name %></strong> for signing up with Land Baron Club, if you have any questions, please email us at <a href="mailto:admins@landbaronclub.com" >admins@landbaronclub.com</a>.
+</p>
+</body>
+</html>

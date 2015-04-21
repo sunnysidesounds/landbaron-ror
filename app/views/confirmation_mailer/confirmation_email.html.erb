@@ -4,9 +4,20 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-     <h1>Thank You <strong><%= @user.first_name %> <%= @user.last_name %></strong></h1>
+  <div id="email_container_outer" style="height:63px;background-color:#000;">
+      <div id="email_container_inner" style="">
+         <!-- TODO Change this to be more dynamic -->
+          <img src="http://ww2.landbaronclub.com:3000/assets/logo-beta.png" alt="Land Baron Club" style="padding:5px; width:245px; height:55px;" />
+      </div>
+  </div>
         <p>
-            This email confirms your investment.
+            Thank you <strong><%= @user.first_name %> <%= @user.last_name %></strong> for your investment in <strong><%= @investment.name %></strong>. You will be contacted by a member of our team as soon as possible to complete your investment transaction.
+            If there is a particular time that is best for us to call, please email us at <a href="mailto:admins@landbaronclub.com" >admins@landbaronclub.com</a> and share your availability.
+            <br />
+            <br />
+            Reference ID: <strong><%= @quote.reference_id %></strong>
+            <br />
+            Investment Amount: <strong><%= @quote.total_amount %></strong>
         </p>
   </body>
 </html>

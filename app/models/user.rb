@@ -48,5 +48,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_user(uid)
+    @inv = User.find_by_id(uid)
+  end
+
 
   end

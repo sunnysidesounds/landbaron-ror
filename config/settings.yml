@@ -110,6 +110,6 @@ from_email: "noreply@landbaronclub.com"
 confirmation_email_subject: "Land Baron Club Investment Confirmation"
 account_creation_email_subject: "Land Baron Club New Account Creation"
 admin_email_subject: "Land Baron Club Activity "
-admin_group_email: "jasonralexander@gmail.com"
+admin_group_email: "admins@landbaronclub.com"
 
 # admins@landbaronclub.com

@@ -8,8 +8,13 @@ development:
   encoding: unicode
   database: landbaron_development
   pool: 5
+<<<<<<< HEAD:config/database.yml
   username: deploy
   password: n0s0up4u!.
+=======
+  username: <username>
+  password: <password>
+>>>>>>> develop:config/example-database.yml
 
 
 # Warning: The database defined as "test" will be erased and
@@ -21,8 +26,13 @@ test:
   database: landbaron_test
   pool: 5
   timeout: 5000
+<<<<<<< HEAD:config/database.yml
   username: deploy
   password: n0s0up4u!.
+=======
+  username: <username>
+  password: <password>
+>>>>>>> develop:config/example-database.yml
 
 
 production:
@@ -30,7 +40,12 @@ production:
   encoding: unicode
   database: landbaron_production
   pool: 5
+<<<<<<< HEAD:config/database.yml
   username: deploy
   password: n0s0up4u!.
+=======
+  username: <username>
+  password: <password>
+>>>>>>> develop:config/example-database.yml
 
 

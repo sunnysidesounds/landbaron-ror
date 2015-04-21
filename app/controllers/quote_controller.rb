@@ -10,6 +10,7 @@ class QuoteController < ApplicationController
 
       # Send Email
       ConfirmationMailer.confirmation_email(current_user, @quote).deliver_now
+      AdminMailer.admin_email(current_user, @quote).deliver_now
 
       redirect_to :controller => 'investment', :action => 'investment_confirmation', :id => @quote.investment_id
     else

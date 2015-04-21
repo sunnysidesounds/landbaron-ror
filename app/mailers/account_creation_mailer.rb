@@ -4,7 +4,7 @@ class AccountCreationMailer < ApplicationMailer
 
   def account_creation_email(current_user)
     @user = current_user
-    mail(:to => current_user.email , :subject => Settings.confirmation_email_subject)
+    mail(:to => current_user.email , :subject => Settings.account_creation_email_subject)
   end
 
 

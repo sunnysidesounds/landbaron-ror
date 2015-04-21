@@ -14,7 +14,7 @@
         <p>
             This is a notification to let you know that
             <strong><%= @user.first_name %></strong> <strong><%= @user.last_name %></strong> has
-            created a account today at <strong><%= Time.now.strftime("%m/%d/%Y") %></strong>
+            created a account today at <strong><%= Time.now.strftime("%I:%M %P - %m/%d/%Y") %></strong>
         </p>
         <h5>USER DETAILS</h5>
         <table border="0">
@@ -26,7 +26,7 @@
      <% else %>
     <p>
         This is a notification to let you know that <strong><%= @user.username %></strong> has pledged
-        <strong><%= @quote.total_amount %></strong> today at <strong><%= Time.now.strftime("%m/%d/%Y") %></strong>.
+        <strong><%= @quote.total_amount %></strong> today at <strong><%= Time.now.strftime("%I:%M %P - %m/%d/%Y") %></strong>.
         They can be contacted for follow-up at <strong><%= @user.phone_number %></strong> or <strong><%= @user.email %></strong>
     </p>
     <br/>

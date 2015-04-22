@@ -61,8 +61,6 @@ LandBaron::Application.configure do
       :port                     => 587,
        :user_name                => ENV['GMAIL_USER'],
        :password                 => ENV['GMAIL_PASS'],
-      #:user_name                => 'investor@landbaronclub.com',
-      #:password                 => 'lbc2015!',
       :authentication           => 'plain',
       :enable_starttls_auto     => true
   }

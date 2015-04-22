@@ -22,13 +22,11 @@
 //= require preorder
 //= require angular.min
 //= require angular-ui-router
+//= require ui-bootstrap-tpls-0.12.0
 //= require jquery.bxslider
 //= require jquery.validate
 //= require additional-methods
 //= require jquery.maskedinput
-//= require bootstrap
-//= require ui-bootstrap-tpls-0.12.0
-//= require_tree .
 
 
 $(document).ready(function() {

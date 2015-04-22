@@ -21,8 +21,10 @@ LandBaron::Application.configure do
   config.action_mailer.smtp_settings = {
       :address                  => 'smtp.gmail.com',
       :port                     => 587,
-      :user_name                => ENV['GMAIL_USER'],
-      :password                 => ENV['GMAIL_PASS'],
+     # :user_name                => ENV['GMAIL_USER'],
+     # :password                 => ENV['GMAIL_PASS'],
+      :user_name                => 'investor@landbaronclub.com',
+      :password                 => 'lbc2015z0e',
       :authentication           => 'plain',
       :enable_starttls_auto     => true
   }

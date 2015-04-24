@@ -14,6 +14,7 @@ ActiveAdmin.register User do
     column :first_name
     column :last_name
     column :phone_number
+    column :created_at
 
 
     actions
@@ -31,6 +32,7 @@ ActiveAdmin.register User do
       row :city
       row :state
       row :postal_code
+      row :created_at
 
     end
   end

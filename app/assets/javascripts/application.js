@@ -27,6 +27,8 @@
 //= require jquery.validate
 //= require additional-methods
 //= require jquery.maskedinput
+//= require jquery.formatCurrency
+
 
 
 $(document).ready(function() {
@@ -130,6 +132,13 @@ $(document).ready(function() {
 
     // Format Phone Number
     $("#user_phone_number").mask("(999) 999-9999");
+
+    // Investment Now Currency Field.
+    $('#quote_total_amount').blur(function()
+    {
+        $('#quote_total_amount').formatCurrency();
+    });
+
 
     // Progress bar assets, core is in details template
     $( "#progressbar").height(20);

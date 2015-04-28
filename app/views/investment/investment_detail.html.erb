@@ -23,11 +23,22 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="progress_bar">
+
                             <script>
                                 var spots = 1;
                                 <% if @details.spots_have? %>
                                     spots = <%=@details.spots_have %>;
                                 <% end %>
+
+                                    //
+                                    console.log("Raised Amount: " + "<%= @details.raise_amount %>");
+                                    console.log("Minimum Amount: " + "<%= @details.investment_minimum %>");
+                                <% @stats.each do |stats| %>
+                                    console.log("Total Count: " + "<%= stats['total_count'] %>");
+                                    console.log("Total Amount Raised: " + "<%= stats['total_amount'] %>");
+                                <% end %>
+                                    console.log("Total Remaining Amount: " + "N/A");
+
                                     $(function() {
                                         $( "#progressbar" ).progressbar({
                                             value: spots

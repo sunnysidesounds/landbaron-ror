@@ -66,9 +66,9 @@
                                 <div class="backer_title">investors</div>
                             </div>
                             <div class="pledged">
-                                <div class="pedge_number"><%= stats['total_amount'] %></div>
-                                <div class="pedge_title">pedged of</div>
-                                <div class="pedge_title_mini"><strong><%=@details.raise_amount %></strong> goal</div>
+                                <div class="pedge_number"><%= stats['total_amount'].split(".")[0] %></div>
+                                <div class="pedge_title">pledged</div>
+                                <div class="pedge_title_mini">of <strong><%=@details.raise_amount %></strong> goal</div>
                             </div>
                             <!-- <div class="amount">
                                 <%=@details.raise_amount %>

@@ -32,12 +32,17 @@
                                 <% end %>
                                 var minimumRaiseAmount = <%= @details.minimum_raise_amount.gsub(/\D/,'').to_f %>;
                                 console.log("Minimum Raise Amount: " + minimumRaiseAmount);
-                                if(minimumRaiseAmount == 0 || minimumRaiseAmount == null || minimumRaiseAmount == undefined) {
-                                    percentageRemaining = 1;
-                                } else if(totalInvestedAmount == 0 || totalInvestedAmount == null || totalInvestedAmount == undefined){
-                                    percentageRemaining = 1;
+
+                                if(totalInvestedAmount >= minimumRaiseAmount){
+                                    percentageRemaining = 100;
                                 } else {
-                                    percentageRemaining = (1- ((totalInvestedAmount / minimumRaiseAmount) *100)) * 100;
+                                    if(minimumRaiseAmount == 0 || minimumRaiseAmount == null || minimumRaiseAmount == undefined) {
+                                        percentageRemaining = 1;
+                                    } else if(totalInvestedAmount == 0 || totalInvestedAmount == null || totalInvestedAmount == undefined){
+                                        percentageRemaining = 1;
+                                    } else {
+                                        percentageRemaining = (1- ((totalInvestedAmount / minimumRaiseAmount) *100)) * 100;
+                                    }
                                 }
                                 console.log("Percentage Remaining: " + percentageRemaining);
                                 $(function() {

@@ -3,7 +3,7 @@ ActiveAdmin.register Quote do
 
   config.sort_order = 'id_asc'
   permit_params :reference_id, :investment_id, :user_id,
-                :investor_profile_type, :status, :payment_methd
+                :investor_profile_type, :status, :payment_methd, :total_amount
 
 
   # List view
@@ -22,6 +22,7 @@ ActiveAdmin.register Quote do
       link_to i.name, admin_investment_path(quote.investment_id)
     end
     column :investor_profile_type
+    column :total_amount
     column :status
     actions
   end
@@ -44,12 +45,14 @@ ActiveAdmin.register Quote do
       row 'Investment' do
         link_to inv.name, admin_investment_path(quote.investment_id)
       end
+
       row :total_amount
       row :investor_profile_type
 
       row 'Payment Method' do
         :payment_methd
       end
+
 
 
       row :status

@@ -25,24 +25,27 @@
                         <div class="progress_bar">
 
                             <script>
-                                var spots = 1;
-                                <% if @details.spots_have? %>
-                                    spots = <%=@details.spots_have %>;
-                                <% end %>
-
-                                    //
-                                    console.log("Raised Amount: " + "<%= @details.raise_amount %>");
-                                    console.log("Minimum Amount: " + "<%= @details.investment_minimum %>");
+                                var percentageRemaining;
                                 <% @stats.each do |stats| %>
-                                    console.log("Total Count: " + "<%= stats['total_count'] %>");
-                                    console.log("Total Amount Raised: " + "<%= stats['total_amount'] %>");
+                                    var totalInvestedAmount = <%= stats['total_amount'].split(".")[0].gsub(/\D/,'').to_f %>;
+                                    console.log("Total Investment Amount: " + totalInvestedAmount);
                                 <% end %>
-                                    console.log("Total Remaining Amount: " + "N/A");
-
-                                    $(function() {
-                                        $( "#progressbar" ).progressbar({
-                                            value: spots
-                                        });
+                                var minimumRaiseAmount = <%= @details.minimum_raise_amount.gsub(/\D/,'').to_f %>;
+                                console.log("Minimum Raise Amount: " + minimumRaiseAmount);
+                                if(minimumRaiseAmount == 0 || minimumRaiseAmount == null || minimumRaiseAmount == undefined) {
+                                    percentageRemaining = 1;
+                                } else if(totalInvestedAmount == 0 || totalInvestedAmount == null || totalInvestedAmount == undefined){
+                                    percentageRemaining = 1;
+                                } else {
+                                    percentageRemaining = (1- ((totalInvestedAmount / minimumRaiseAmount) *100)) * 100;
+                                }
+                                console.log("Percentage Remaining: " + percentageRemaining);
+                                $(function() {
+                                    $( "#progressbar" ).progressbar({
+                                        value: percentageRemaining
+                                    }).children('.ui-progressbar-value')
+                                            .html(percentageRemaining.toPrecision(3) + '%')
+                                            .css("display", "block");
                                     });
                             </script>
                             <div id="progressbar"></div>
@@ -51,14 +54,25 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
+                        <% @stats.each do |stats| %>
                         <div class="amount_invested">
-                            <div class="amount">
+                            <div class="backers">
+                                <div class="backer_number"><%= stats['total_count'] %></div>
+                                <div class="backer_title">investors</div>
+                            </div>
+                            <div class="pledged">
+                                <div class="pedge_number"><%= stats['total_amount'] %></div>
+                                <div class="pedge_title">pedged of</div>
+                                <div class="pedge_title_mini"><strong><%=@details.raise_amount %></strong> goal</div>
+                            </div>
+                            <!-- <div class="amount">
                                 <%=@details.raise_amount %>
                             </div>
                             <div class="minimum">
                                 Invested of <%=@details.investment_minimum %> minimum raise
-                            </div>
+                            </div>   -->
                         </div>
+                        <% end %>
                     </div>
                 </div>
             </div>

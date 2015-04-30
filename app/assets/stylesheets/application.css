@@ -968,7 +968,8 @@ div.banner h2::after {
 
 
 .amount_invested {
-    padding-top: 50px;
+    padding-top: 15px;
+    width: 230px;
 }
 
 .amount_invested .amount {
@@ -978,6 +979,56 @@ div.banner h2::after {
     line-height: 1em;
 
 }
+.amount_invested .pledged{
+    color: #55676a;
+    font-size: 22px;
+    font-weight: lighter;
+    line-height: 1em;
+    margin-top: 25px;
+}
+
+.amount_invested .pedge_title{
+    font-size: 13px;
+    font-weight: 300;
+    display:inline-block;
+}
+
+.amount_invested .pedge_title_mini{
+    font-size: 13px;
+    font-weight: 300;
+    display:inline-block;
+}
+
+.amount_invested .pedge_number{
+    font-size: 40px;
+    font-weight:400;
+    display:inline-block;
+
+}
+
+.amount_invested .backers{
+    color: #55676a;
+    font-size: 22px;
+    font-weight: lighter;
+    line-height: 1em;
+}
+
+.amount_invested .backer_title{
+    font-size: 13px;
+    display:inline-block;
+    font-weight: 300;
+}
+
+.amount_invested .backer_number{
+    font-size: 40px;
+    font-weight:400;
+    line-height: 30px;
+    display:inline-block;
+
+}
+
+
+
 
 .amount_invested .minimum {
     color: #c0c0c0;
@@ -1294,6 +1345,14 @@ div.banner h2::after {
     margin-left: -45px;
     margin-top: 49px;
     font-weight: 300;
+}
+
+.ui-progressbar-value {
+    font-family: arial;
+    font-size: 11px;
+    padding-top: 2px;
+    text-align: center;
+    color: #55676a;
 }
 
 

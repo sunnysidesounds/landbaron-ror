@@ -23,15 +23,14 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="progress_bar">
-
                             <script>
                                 var percentageRemaining;
                                 <% @stats.each do |stats| %>
                                     var totalInvestedAmount = <%= stats['total_amount'].split(".")[0].gsub(/\D/,'').to_f %>;
-                                    console.log("Total Investment Amount: " + totalInvestedAmount);
+                                    console.log("totalInvestedAmount = " + totalInvestedAmount);
                                 <% end %>
                                 var minimumRaiseAmount = <%= @details.minimum_raise_amount.gsub(/\D/,'').to_f %>;
-                                console.log("Minimum Raise Amount: " + minimumRaiseAmount);
+                                console.log("minimumRaiseAmount = " + minimumRaiseAmount);
 
                                 if(totalInvestedAmount >= minimumRaiseAmount){
                                     percentageRemaining = 100;
@@ -41,10 +40,13 @@
                                     } else if(totalInvestedAmount == 0 || totalInvestedAmount == null || totalInvestedAmount == undefined){
                                         percentageRemaining = 1;
                                     } else {
-                                        percentageRemaining = (1- ((totalInvestedAmount / minimumRaiseAmount) *100)) * 100;
+                                        percentageRemaining = (totalInvestedAmount / minimumRaiseAmount) * 100;
+                                        if(percentageRemaining < 1){
+                                            percentageRemaining = 1;
+                                        }
                                     }
                                 }
-                                console.log("Percentage Remaining: " + percentageRemaining);
+                                console.log("percentageRemaining: " + percentageRemaining);
                                 $(function() {
                                     $( "#progressbar" ).progressbar({
                                         value: percentageRemaining
@@ -61,21 +63,19 @@
                     <div class="col-md-12">
                         <% @stats.each do |stats| %>
                         <div class="amount_invested">
-                            <div class="backers">
-                                <div class="backer_number"><%= stats['total_count'] %></div>
-                                <div class="backer_title">investors</div>
-                            </div>
                             <div class="pledged">
                                 <div class="pedge_number"><%= stats['total_amount'].split(".")[0] %></div>
                                 <div class="pedge_title">pledged</div>
                                 <div class="pedge_title_mini">of <strong><%=@details.raise_amount %></strong> goal</div>
                             </div>
-                            <!-- <div class="amount">
-                                <%=@details.raise_amount %>
+                            <div class="backers">
+                                <div class="backer_number"><%= stats['total_count'] %></div>
+                                <div class="backer_title">investors</div>
                             </div>
-                            <div class="minimum">
-                                Invested of <%=@details.investment_minimum %> minimum raise
-                            </div>   -->
+                            <div class="backers">
+                                <div class="backer_title">ends</div>
+                                <div class="backer_title"><strong><%=@details.investment_duration %></strong></div>
+                            </div>
                         </div>
                         <% end %>
                     </div>

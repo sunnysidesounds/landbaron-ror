@@ -968,7 +968,7 @@ div.banner h2::after {
 
 
 .amount_invested {
-    padding-top: 15px;
+    margin-top: -5px;
     width: 230px;
 }
 
@@ -996,7 +996,7 @@ div.banner h2::after {
 .amount_invested .pedge_title_mini{
     font-size: 13px;
     font-weight: 300;
-    display:inline-block;
+    text-align:center;
 }
 
 .amount_invested .pedge_number{
@@ -1006,11 +1006,17 @@ div.banner h2::after {
 
 }
 
-.amount_invested .backers{
+.amount_invested .backers {
+    background: linear-gradient(to top, #ccc, #ccc) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px solid #c0c0c0;
+    border-radius: 0.5em;
     color: #55676a;
     font-size: 22px;
     font-weight: lighter;
-    line-height: 1em;
+    margin: 8px auto auto;
+    text-align: center;
+    height:35px;
+    width: 175px;
 }
 
 .amount_invested .backer_title{
@@ -1020,15 +1026,12 @@ div.banner h2::after {
 }
 
 .amount_invested .backer_number{
-    font-size: 40px;
+    font-size: 25px;
     font-weight:400;
     line-height: 30px;
     display:inline-block;
 
 }
-
-
-
 
 .amount_invested .minimum {
     color: #c0c0c0;

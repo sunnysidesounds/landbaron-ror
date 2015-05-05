@@ -985,6 +985,7 @@ div.banner h2::after {
     font-weight: lighter;
     line-height: 1em;
     margin-top: 25px;
+    padding-bottom: 20px;
 }
 
 .amount_invested .pedge_title{
@@ -1009,18 +1010,29 @@ div.banner h2::after {
 .amount_invested .backers {
     background: linear-gradient(to top, #ccc, #ccc) repeat scroll 0 0 rgba(0, 0, 0, 0);
     border: 1px solid #c0c0c0;
-    border-radius: 0.5em;
+    border-radius: 0.3em;
     color: #55676a;
     font-size: 22px;
     font-weight: lighter;
     margin: 8px auto auto;
     text-align: center;
     height:35px;
-    width: 175px;
+    width: 150px;
+    padding: 2px 5px;
+}
+
+.amount_invested .b_count{
+    width:90px;
+    display:inline;
+}
+
+.amount_invested .c_count{
+    display:inline;
+    margin-left:5px;
 }
 
 .amount_invested .backer_title{
-    font-size: 13px;
+    font-size: 12px;
     display:inline-block;
     font-weight: 300;
 }

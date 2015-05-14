@@ -33,7 +33,11 @@
                 </div>
             </div>
             <div id="invest_now_header" style="visibility: hidden">
-                <a class="buttom_gold button_large_slider" href="/invest/<%= params[:id] %>">Invest</a>
+                <% investment = Investment.new %>
+                <% @details = investment.get_a_investment_detail(params[:id]) %>
+                <% if @details.status != 'funded' %>
+                    <a class="buttom_gold button_large_slider" href="/invest/<%= params[:id] %>">Invest</a>
+                <% end %>
             </div>
         <% else %>
             <div class="header_links_notsignin">

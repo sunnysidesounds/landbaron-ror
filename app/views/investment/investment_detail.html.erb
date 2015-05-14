@@ -16,9 +16,16 @@
             </div>
             <div class="col-md-3 investment_header_column">
                 <div class="row">
-                    <div class="col-md-12 invest_now">
-                        <a class="buttom_gold button_super_large" href="/invest/<%=@details.id %>">Invest</a>
-                    </div>
+                    <% if @details.status == 'funded' %>
+                        <div class="col-md-12 invest_now">
+                            <a class="buttom_gray button_super_large" href="javascript: void(0)">Funded</a>
+                        </div>
+                    <% else %>
+                        <div class="col-md-12 invest_now">
+                            <a class="buttom_gold button_super_large" href="/invest/<%=@details.id %>">Invest</a>
+                        </div>
+                    <% end %>
+
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -30,9 +37,10 @@
                                     console.log("totalInvestedAmount = " + totalInvestedAmount);
                                 <% end %>
                                 var minimumRaiseAmount = <%= @details.minimum_raise_amount.gsub(/\D/,'').to_f %>;
-                                console.log("minimumRaiseAmount = " + minimumRaiseAmount);
-
-                                if(totalInvestedAmount >= minimumRaiseAmount){
+                                var inventmentStatus = "<%= @details.status %>";
+                                if(totalInvestedAmount >= minimumRaiseAmount) {
+                                    percentageRemaining = 100;
+                                } else if(inventmentStatus == "funded"){
                                     percentageRemaining = 100;
                                 } else {
                                     if(minimumRaiseAmount == 0 || minimumRaiseAmount == null || minimumRaiseAmount == undefined) {

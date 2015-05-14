@@ -34,9 +34,12 @@
             </div>
             <div id="invest_now_header" style="visibility: hidden">
                 <% investment = Investment.new %>
-                <% @details = investment.get_a_investment_detail(params[:id]) %>
-                <% if @details.status != 'funded' %>
-                    <a class="buttom_gold button_large_slider" href="/invest/<%= params[:id] %>">Invest</a>
+                <% if params[:id] != nil %>
+                    <% @details = investment.get_a_investment_detail(params[:id]) %>
+                    <% if @details.status != 'funded' %>
+                        <a class="buttom_gold button_large_slider" href="/invest/<%= params[:id] %>">Invest</a>
+                    <% end %>
+
                 <% end %>
             </div>
         <% else %>

@@ -8,6 +8,7 @@ class InvestmentController < ApplicationController
     @available = investments.get_lp_investments('available')
     @coming_soon = investments.get_lp_investments('coming_soon')
     @past = investments.get_lp_investments('past')
+    @funded = investments.get_lp_investments('funded')
   end
 
   def investment_detail

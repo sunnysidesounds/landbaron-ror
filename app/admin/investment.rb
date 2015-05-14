@@ -57,7 +57,8 @@ ActiveAdmin.register Investment do
       f.input :status, :as => :select,
               :collection => [['Available', 'available'],
                               ['Coming Soon','coming_soon'],
-                              ['Past', 'past']],
+                              ['Past', 'past'],
+                              ['Funded', 'funded']],
               :required => true,
               :include_blank => false
       f.input :logo, :as => :file,

@@ -84,19 +84,19 @@
 
         <br />
         <br />
-        <div class="row past_investments" style="visibility: <%= Settings.past_investment_visibility %>">
+        <div class="row past_investments" style="visibility: <%= Settings.funded_investment_visibility %>">
             <div class="col-md-12 past_investments_header">
-                <h3>Past Investments</h3>
+                <h3>Funded Investments</h3>
             </div>
         </div>
         <!-- Past Investment Item -->
-        <% @past.each do |past| %>
-        <div class="row past_investment_row" style="visibility: <%= Settings.past_investment_visibility %>">
+        <% @funded.each do |funded| %>
+        <div class="row past_investment_row" style="visibility: <%= Settings.funded_investment_visibility %>">
             <div class="col-md-3 past_investment_grid">
-                <a class="deal_item_link" href="/investment_detail/<%=past.id %>">
+                <a class="deal_item_link" href="/investment_detail/<%=funded.id %>">
                     <div class="past_investment_deal">
                         <div class="past_investment_mini_header">
-                            <%= image_tag past.logo.url, :width => '200' %>
+                            <%= image_tag funded.logo.url, :width => '200' %>
                         </div>
 
                     </div>
@@ -104,11 +104,11 @@
 
             </div>
             <div class="col-md-9 past_investment_grid">
-                <div class="deal_title_past"><%=past.name %></div>
+                <div class="deal_title_past"><%=funded.name %></div>
                 <div class="past_investment_description">
-                    <%=h truncate(past.key_information, :length => 200) %>
+                    <%=h truncate_html(funded.key_information, :length => 200) %>
                 </div>
-                <a class="buttom_gold" href="#">View Details</a>
+                <a class="buttom_gold" href="/investment_detail/<%=funded.id %>">View Details</a>
 
             </div>
         </div>

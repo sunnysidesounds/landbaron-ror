@@ -36,6 +36,9 @@ LandBaron::Application.routes.draw do
   match 'confirmation/:id'   => 'investment#investment_confirmation', :via => :get
 
 
+  # votes
+  post 'vote' => 'vote#create_vote'
+
 
 end
 

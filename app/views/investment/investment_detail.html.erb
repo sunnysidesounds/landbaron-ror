@@ -34,7 +34,6 @@
                                 var percentageRemaining;
                                 <% @stats.each do |stats| %>
                                     var totalInvestedAmount = <%= stats['total_amount'].split(".")[0].gsub(/\D/,'').to_f %>;
-                                    console.log("totalInvestedAmount = " + totalInvestedAmount);
                                 <% end %>
                                 var minimumRaiseAmount = <%= @details.minimum_raise_amount.gsub(/\D/,'').to_f %>;
                                 var inventmentStatus = "<%= @details.status %>";
@@ -54,7 +53,6 @@
                                         }
                                     }
                                 }
-                                console.log("percentageRemaining: " + percentageRemaining);
                                 $(function() {
                                     $( "#progressbar" ).progressbar({
                                         value: percentageRemaining
@@ -89,15 +87,17 @@
                     </div>
 
                     <!-- voting markup -->
-                    <div class="voting_wrapper" id="<%=@details.id %>">
+                    <div class="voting_wrapper">
                         <div class="voting_btn voting_question">
                         Do you like this investment?
                         </div>
                         <div class="voting_btn">
-                            <div class="up_button">&nbsp;</div><span class="up_votes">0</span>
+                            <div class="up_button">&nbsp;</div>
+                            <span class="up_votes">0</span>
                         </div>
                         <div class="voting_btn">
-                            <div class="down_button">&nbsp;</div><span class="down_votes">0</span>
+                            <div class="down_button">&nbsp;</div>
+                            <span class="down_votes">0</span>
                         </div>
                     </div>
                     <!-- voting markup end -->

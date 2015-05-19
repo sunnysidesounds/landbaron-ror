@@ -14,6 +14,18 @@ class Vote < ActiveRecord::Base
     @vote = Vote.where(:investment_id => iid, :user_id => uid)
   end
 
+  def get_vote_count_by_investment(id)
+
+
+   # SELECT
+   # (SELECT COUNT(value) FROM votes WHERE VALUE = true) AS true,
+   # (SELECT COUNT(value) FROM votes WHERE VALUE = false) AS false
+   # FROM votes
+   # WHERE investment_id = 5 LIMIT 1;
+
+
+  end
+
 
 
 

@@ -88,7 +88,7 @@
 
                     <!-- voting markup -->
                     <% @vote.each do |vote| %>
-                        <div class="voting_wrapper">
+                        <div class="voting_wrapper" id="<%=@details.id %>-<%=current_user.id %>">
                             <div class="voting_btn voting_question">
                                 Do you like this investment?
                             </div>
@@ -114,7 +114,6 @@
                                 </span>
                             </div>
                         </div>
-
                     <% end %>
                     <!-- voting markup end -->
 

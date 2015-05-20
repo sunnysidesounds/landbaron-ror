@@ -145,6 +145,39 @@ $(document).ready(function() {
     $( "#progressbar").width(230);
 
 
+    $(".voting_wrapper .voting_btn").click(function (e) {
+        var clicked_button = $(this).children().attr('class');
+        var raw   = $(this).parent().attr("id").split("-");
+        var iid = raw[0];
+        var uid = raw[1];
+        var val = false;
+        if(clicked_button == "up_button"){
+            val = true;
+        }
+
+        $.ajax({
+            type    : 'POST',
+            url     : "/vote",
+            data    : { vote : { investment_id : iid, user_id : uid, value : val } },
+            success : function(data) {
+                alert(data);
+            }
+        });
+
+
+
+        console.log(
+            "VOTE ACTION: user_id: " + uid +
+                ", investment_id: " + iid +
+                ", value: " + val
+
+        );
+
+
+
+    });
+
+
 
 
 });

@@ -22,6 +22,10 @@ class InvestmentController < ApplicationController
       @details = investments.get_a_investment_detail(params[:id])
       @principles = principle_investors.get_principal_investors(params[:id])
       @stats = quote.get_progress_stats(params[:id])
+      votes = Vote.new
+      @vote = votes.get_vote_count_by_investment(params[:id])
+
+
     end
 
   end

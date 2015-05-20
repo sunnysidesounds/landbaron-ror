@@ -87,19 +87,35 @@
                     </div>
 
                     <!-- voting markup -->
-                    <div class="voting_wrapper">
-                        <div class="voting_btn voting_question">
-                        Do you like this investment?
+                    <% @vote.each do |vote| %>
+                        <div class="voting_wrapper">
+                            <div class="voting_btn voting_question">
+                                Do you like this investment?
+                            </div>
+                            <div class="voting_btn">
+                                <div class="up_button">&nbsp;</div>
+                                <span class="up_votes">
+                                    <% if vote['t'].nil? %>
+                                            0
+                                    <% else %>
+                                        <%= vote['t'] %>
+                                    <% end %>
+
+                                </span>
+                            </div>
+                            <div class="voting_btn">
+                                <div class="down_button">&nbsp;</div>
+                                <span class="down_votes">
+                                   <% if vote['f'].nil? %>
+                                        0
+                                    <% else %>
+                                        <%= vote['f'] %>
+                                    <% end %>
+                                </span>
+                            </div>
                         </div>
-                        <div class="voting_btn">
-                            <div class="up_button">&nbsp;</div>
-                            <span class="up_votes">0</span>
-                        </div>
-                        <div class="voting_btn">
-                            <div class="down_button">&nbsp;</div>
-                            <span class="down_votes">0</span>
-                        </div>
-                    </div>
+
+                    <% end %>
                     <!-- voting markup end -->
 
                 </div>

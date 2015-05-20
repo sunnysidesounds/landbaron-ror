@@ -15,14 +15,10 @@ class Vote < ActiveRecord::Base
   end
 
   def get_vote_count_by_investment(id)
-
-
-   # SELECT
-   # (SELECT COUNT(value) FROM votes WHERE VALUE = true) AS true,
-   # (SELECT COUNT(value) FROM votes WHERE VALUE = false) AS false
-   # FROM votes
-   # WHERE investment_id = 5 LIMIT 1;
-
+    sql ='SELECT
+    sum(CASE WHEN VALUE  = TRUE THEN 1 ELSE 0 END) AS t,
+    sum(CASE WHEN VALUE  = FALSE THEN 1 ELSE 0 END) AS f FROM votes WHERE investment_id = ' + id
+    @list = ActiveRecord::Base.connection.execute(sql)
 
   end
 

@@ -8,47 +8,30 @@ class VoteController < ApplicationController
 
     vte = Vote.new
     @exist = vte.get_vote_by_user(vote_params[:user_id], vote_params[:investment_id])
+    record = @exist[0]
 
     logger.debug '--------------------------------------'
-    logger.debug vote_params[:user_id]
+    logger.debug vote_params[:value]
     logger.debug @exist.inspect
-    logger.debug @exist.count
+   # logger.debug record.value
+    logger.debug '--------------------------------------'
 
 
      if @exist.count == 0
-       logger.debug 'no user, no investment, no value -- INSERT VOTE'
        @vote = Vote.create( vote_params )
-        render :json => {:status => 'success', :data => @vote}
-
-
+        render :json => {:status => 'success', :data => @vote, :message => 'Thank you for voting'}
 
      else
-
-       render :json => {:status => 'error', :data => 'error something '}
-
-       logger.debug "is not present"
-
+       if record.value.to_i == vote_params[:value].to_i
+         render :json => {:status => 'error', :data => '', :message => 'You have already voted for this investment'}
+       else
+         vote = Vote.find_by(:investment_id => record.investment_id, :user_id => record.user_id)
+         vote.value = vote_params[:value]
+         vote.save
+         render :json => {:status => 'success', :data => '', :message => 'Updating your vote'}
+       end
 
      end
-
-
-
-    # Check is user has voted
-
-    # If no user, no investment, no value
-      # Insert vote
-
-    # If with user, investment and same value
-      # Do nothing, maybe response with a message
-
-    # If with user, investment and difference value
-      # Update the record
-
-
-
-
-
-
 
   end
 

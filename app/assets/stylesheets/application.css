@@ -1414,6 +1414,11 @@ div.banner h2::after {
     padding-right: 10px;
 }
 
+.voting_message {
+    font-size:10px;
+    text-align:center;
+}
+
 
 
 

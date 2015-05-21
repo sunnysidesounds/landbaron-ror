@@ -160,7 +160,13 @@ $(document).ready(function() {
             url     : "/vote",
             data    : { vote : { investment_id : iid, user_id : uid, value : val } },
             success : function(data) {
-                console.log("Success in posting");
+                console.debug("RESPONSE: ", data);
+
+
+                $( ".voting_wrapper .voting_message" ).html(data.message);
+
+
+                console.debug(data.message);
             }
         });
 

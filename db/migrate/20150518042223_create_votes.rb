@@ -3,7 +3,7 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.integer :investment_id
       t.integer :user_id
-      t.boolean :value
+      t.integer :value
       t.timestamps
     end
   end
@@ -14,3 +14,6 @@ class CreateVotes < ActiveRecord::Migration
   end
 
 end
+
+
+

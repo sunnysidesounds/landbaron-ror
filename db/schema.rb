@@ -183,7 +183,7 @@ ActiveRecord::Schema.define(version: 20150518042223) do
   create_table "votes", force: :cascade do |t|
     t.integer  "investment_id"
     t.integer  "user_id"
-    t.boolean  "value"
+    t.integer  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

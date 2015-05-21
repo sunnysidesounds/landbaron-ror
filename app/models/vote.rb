@@ -16,8 +16,8 @@ class Vote < ActiveRecord::Base
 
   def get_vote_count_by_investment(id)
     sql ='SELECT
-    sum(CASE WHEN VALUE  = TRUE THEN 1 ELSE 0 END) AS t,
-    sum(CASE WHEN VALUE  = FALSE THEN 1 ELSE 0 END) AS f FROM votes WHERE investment_id = ' + id
+    sum(CASE WHEN VALUE  = 1 THEN 1 ELSE 0 END) AS t,
+    sum(CASE WHEN VALUE  = 0 THEN 1 ELSE 0 END) AS f FROM votes WHERE investment_id = ' + id
     @list = ActiveRecord::Base.connection.execute(sql)
 
   end

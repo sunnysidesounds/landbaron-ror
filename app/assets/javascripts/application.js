@@ -150,9 +150,9 @@ $(document).ready(function() {
         var raw   = $(this).parent().attr("id").split("-");
         var iid = raw[0];
         var uid = raw[1];
-        var val = false;
+        var val = 0;
         if(clicked_button == "up_button"){
-            val = true;
+            val = 1;
         }
 
         $.ajax({
@@ -164,8 +164,6 @@ $(document).ready(function() {
             }
         });
 
-
-
         console.log(
             "VOTE ACTION: user_id: " + uid +
                 ", investment_id: " + iid +
@@ -173,12 +171,7 @@ $(document).ready(function() {
 
         );
 
-
-
     });
-
-
-
 
 });
 

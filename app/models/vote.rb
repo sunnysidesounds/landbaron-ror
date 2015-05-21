@@ -14,6 +14,11 @@ class Vote < ActiveRecord::Base
     @vote = Vote.where(:investment_id => iid, :user_id => uid)
   end
 
+  def get_vote_by_user_exist(uid, iid, val)
+    @vote = Vote.where(:investment_id => iid, :user_id => uid, :value => val).any?
+  end
+
+
   def get_vote_count_by_investment(id)
     sql ='SELECT
     sum(CASE WHEN VALUE  = 1 THEN 1 ELSE 0 END) AS t,

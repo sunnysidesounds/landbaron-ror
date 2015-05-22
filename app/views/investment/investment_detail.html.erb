@@ -128,7 +128,7 @@
                     <h3>Principal Investors</h3>
                     <% if @principles.count != 0 %>
                         <% @principles.each do |principles| %>
-                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="100" src="<%=principles['img_url'] %>"/> <%=principles.full_name %></a>
+                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="100" src="<%=principles.profile_pic %>"/> <%=principles.full_name %></a>
                             <br />
                             <br />
                         <% end %>
@@ -177,7 +177,7 @@
                                 <% @principles.each do |principles| %>
                                     <div class="row" id="<%=principles['id'] %>_principle">
                                         <div class="col-md-3">
-                                            <img class="principle_investor_img" width="220" src="<%=principles['img_url'] %>"/>
+                                            <img class="principle_investor_img" width="220" src="<%=principles.profile_pic %>"/>
                                         </div>
                                         <div class="col-md-5 bio_stuff">
                                             <div class="bio_f_name"><%=principles['full_name'] %></div>

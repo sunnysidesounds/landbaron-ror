@@ -1,5 +1,8 @@
 class Investment < ActiveRecord::Base
 
+  has_many :principle_investors, :dependent => :destroy
+
+
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/logo-placeholder.gif"
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 

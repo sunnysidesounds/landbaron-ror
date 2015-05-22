@@ -141,8 +141,8 @@ $(document).ready(function() {
 
 
     // Progress bar assets, core is in details template
-    $( "#progressbar").height(20);
-    $( "#progressbar").width(230);
+    $( "#progressbar").height(20).width(230);
+   // $( "#progressbar")
 
 
     $(".voting_wrapper .voting_btn").click(function (e) {
@@ -161,12 +161,8 @@ $(document).ready(function() {
             data    : { vote : { investment_id : iid, user_id : uid, value : val } },
             success : function(data) {
                 console.debug("RESPONSE: ", data);
-
-
-                $( ".voting_wrapper .voting_message" ).html(data.message);
-
-
-                console.debug(data.message);
+                $( ".voting_wrapper .up_votes" ).html(data.data.t);
+                $( ".voting_wrapper .down_votes" ).html(data.data.f);
             }
         });
 

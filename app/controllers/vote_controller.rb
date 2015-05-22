@@ -28,7 +28,17 @@ class VoteController < ApplicationController
          vote = Vote.find_by(:investment_id => record.investment_id, :user_id => record.user_id)
          vote.value = vote_params[:value]
          vote.save
-         render :json => {:status => 'success', :data => '', :message => 'Updating your vote'}
+
+
+         counts = vte.get_vote_count_by_investment(vote.investment_id.to_s)
+
+
+         logger.debug '--------------------------------------'
+         logger.debug counts[0]
+         logger.debug '--------------------------------------'
+
+
+         render :json => {:status => 'success', :data => counts[0], :message => 'Updating your vote'}
        end
 
      end

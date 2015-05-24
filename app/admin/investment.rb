@@ -4,7 +4,7 @@ ActiveAdmin.register Investment do
   config.sort_order = 'id_asc'
   permit_params :name, :logo_link, :investment_type, :raise_amount,
   :minimum_raise_amount, :investment_duration, :video_link, :status,
-  :risk_rating, :investment_minimum, :key_information, :note, :qa, :logo
+  :risk_rating, :investment_minimum, :key_information, :note, :qa, :logo, :vote_enabled
 
   # List view
   index do
@@ -18,10 +18,8 @@ ActiveAdmin.register Investment do
 
     column :investment_type
     column :raise_amount
-    column :spots_available
-    column :spots_have
+    column :vote_enabled
     column :status
-
 
     actions
   end
@@ -54,6 +52,11 @@ ActiveAdmin.register Investment do
       f.input :name, :required => true
       f.input :spots_have, :label => 'Spots Have'
       f.input :spots_available, :label => 'Spots Available'
+      f.input :vote_enabled, :as => :select,
+              :collection => [['On', '1'],
+                              ['Off','0']],
+              :required => true,
+              :include_blank => false
       f.input :status, :as => :select,
               :collection => [['Available', 'available'],
                               ['Coming Soon','coming_soon'],

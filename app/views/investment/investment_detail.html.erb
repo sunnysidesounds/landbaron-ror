@@ -75,12 +75,15 @@
                                 <div class="pedge_title_mini">of <strong><%=@details.raise_amount %></strong> goal</div>
                             </div>
                             <div class="backers b_count">
+                                <i class="glyphicon glyphicon-user"></i>
+
                                 <div class="backer_number"><%= stats['total_count'] %></div>
                                 <div class="backer_title">investors</div>
                             </div>
                             <div class="backers c_count">
-                                <div class="backer_title">ends</div>
-                                <div class="backer_title"><strong><%=@details.investment_duration %></strong></div>
+                                <i class="glyphicon glyphicon-calendar"></i>
+                               <!-- <div class="backer_ends">ends</div>-->
+                                <div class="backer_title backer_title_alt"><strong><%=@details.investment_duration %></strong></div>
                             </div>
                         </div>
                         <% end %>
@@ -93,7 +96,10 @@
                                 Do you like this investment?
                             </div>
                             <div class="voting_btn">
-                                <div class="up_button">&nbsp;</div>
+                                <div class="up_button">&nbsp;
+                                    <i class="lbc-icon glyphicon glyphicon-thumbs-up"></i>
+                                </div>
+
                                 <span class="up_votes">
                                     <% if vote['t'].nil? %>
                                             0
@@ -103,7 +109,10 @@
                                 </span>
                             </div>
                             <div class="voting_btn">
-                                <div class="down_button">&nbsp;</div>
+                                <div class="down_button">&nbsp;
+                                    <i class="lbc-icon glyphicon glyphicon-thumbs-down"></i>
+                                </div>
+
                                 <span class="down_votes">
                                    <% if vote['f'].nil? %>
                                         0

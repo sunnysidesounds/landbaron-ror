@@ -985,7 +985,7 @@ div.banner h2::after {
     font-weight: lighter;
     line-height: 1em;
     margin-top: 25px;
-    padding-bottom: 20px;
+    padding-bottom: 8px;
 }
 
 .amount_invested .pedge_title{
@@ -997,7 +997,6 @@ div.banner h2::after {
 .amount_invested .pedge_title_mini{
     font-size: 13px;
     font-weight: 300;
-    text-align:center;
 }
 
 .amount_invested .pedge_number{
@@ -1012,35 +1011,47 @@ div.banner h2::after {
     border: 1px solid #c0c0c0;
     border-radius: 0.3em;
     color: #55676a;
-    font-size: 22px;
+   /* font-size: 22px; */
     font-weight: lighter;
-    margin: 8px auto auto;
+  /*  margin: 8px auto auto; */
     text-align: center;
-    height:35px;
-    width: 150px;
+    height:45px;
+    width: 113px;
     padding: 2px 5px;
 }
 
 .amount_invested .b_count{
-    width:90px;
-    display:inline;
+    float:left;
+   /* width:90px;
+    display:inline;*/
+}
+
+.backer_title_alt {
+    margin-top:15px;
+
 }
 
 .amount_invested .c_count{
-    display:inline;
-    margin-left:5px;
+    float:right;
+  /*  display:inline;
+    margin-left:5px;*/
 }
 
 .amount_invested .backer_title{
-    font-size: 12px;
+    font-size: 11px;
     display:inline-block;
     font-weight: 300;
+}
+
+.amount_invested .backer_ends {
+    font-size: 14px;
+    display:inline-block;
 }
 
 .amount_invested .backer_number{
     font-size: 25px;
     font-weight:400;
-    line-height: 30px;
+  /*  line-height: 30px; */
     display:inline-block;
 
 }
@@ -1376,27 +1387,28 @@ div.banner h2::after {
     display:inline-block;
     margin-left: 20px;
     margin-top: 15px;
+    color:#55676a;
 }
 .voting_wrapper .down_button {
-    background: url(thumbs.png) no-repeat;
+ /*   background: url(thumbs.png) no-repeat;*/
     float: left;
-    height: 14px;
-    width: 16px;
+    /*height: 14px;
+    width: 16px; */
     cursor:pointer;
     margin-top: 3px;
 }
 .voting_wrapper .down_button:hover {
-    background: url(thumbs.png) no-repeat 0px -16px;
+   /* background: url(thumbs.png) no-repeat 0px -16px;*/
 }
 .voting_wrapper .up_button {
-    background: url(thumbs.png) no-repeat -16px 0px;
+  /*  background: url(thumbs.png) no-repeat -16px 0px;*/
     float: left;
-    height: 14px;
-    width: 16px;
+  /*  height: 14px;
+    width: 16px; */
     cursor:pointer;
 }
 .voting_wrapper .up_button:hover{
-    background: url(thumbs.png) no-repeat -16px -16px;
+   /* background: url(thumbs.png) no-repeat -16px -16px;*/
 }
 .voting_btn{
     float:left;
@@ -1409,14 +1421,18 @@ div.banner h2::after {
 }
 
 .voting_question {
-    font-size:10px;
+    font-size:12px;
     margin-top: 2px;
-    padding-right: 10px;
 }
 
 .voting_message {
     font-size:10px;
     text-align:center;
+}
+
+.up_button .glyphicon, .down_button .glyphicon {
+    font-size:15px;
+
 }
 
 

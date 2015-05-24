@@ -145,6 +145,9 @@ $(document).ready(function() {
    // $( "#progressbar")
 
 
+
+
+
     $(".voting_wrapper .voting_btn").click(function (e) {
         var clicked_button = $(this).children().attr('class');
         var raw   = $(this).parent().attr("id").split("-");

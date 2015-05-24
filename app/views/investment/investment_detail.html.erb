@@ -89,42 +89,44 @@
                         <% end %>
                     </div>
 
-                    <!-- voting markup -->
-                    <% @vote.each do |vote| %>
-                        <div class="voting_wrapper" id="<%=@details.id %>-<%=current_user.id %>">
-                            <div class="voting_btn voting_question">
-                                Do you like this investment?
-                            </div>
-                            <div class="voting_btn">
-                                <div class="up_button">&nbsp;
-                                    <i class="lbc-icon glyphicon glyphicon-thumbs-up"></i>
+                    <% if @details.vote_enabled == 1 %>
+                        <!-- voting markup -->
+                        <% @vote.each do |vote| %>
+                            <div class="voting_wrapper" id="<%=@details.id %>-<%=current_user.id %>">
+                                <div class="voting_btn voting_question">
+                                    Do you like this investment?
                                 </div>
+                                <div class="voting_btn">
+                                    <div class="up_button">&nbsp;
+                                        <i class="lbc-icon glyphicon glyphicon-thumbs-up"></i>
+                                    </div>
 
-                                <span class="up_votes">
-                                    <% if vote['t'].nil? %>
+                                    <span class="up_votes">
+                                        <% if vote['t'].nil? %>
+                                                0
+                                        <% else %>
+                                            <%= vote['t'] %>
+                                        <% end %>
+                                    </span>
+                                </div>
+                                <div class="voting_btn">
+                                    <div class="down_button">&nbsp;
+                                        <i class="lbc-icon glyphicon glyphicon-thumbs-down"></i>
+                                    </div>
+
+                                    <span class="down_votes">
+                                       <% if vote['f'].nil? %>
                                             0
-                                    <% else %>
-                                        <%= vote['t'] %>
-                                    <% end %>
-                                </span>
-                            </div>
-                            <div class="voting_btn">
-                                <div class="down_button">&nbsp;
-                                    <i class="lbc-icon glyphicon glyphicon-thumbs-down"></i>
+                                        <% else %>
+                                            <%= vote['f'] %>
+                                        <% end %>
+                                    </span>
                                 </div>
-
-                                <span class="down_votes">
-                                   <% if vote['f'].nil? %>
-                                        0
-                                    <% else %>
-                                        <%= vote['f'] %>
-                                    <% end %>
-                                </span>
+                                <div class="voting_message"></div>
                             </div>
-                            <div class="voting_message"></div>
-                        </div>
+                        <% end %>
+                        <!-- voting markup end -->
                     <% end %>
-                    <!-- voting markup end -->
 
                 </div>
             </div>

@@ -104,7 +104,7 @@
   background:#e0af00;
 }
 
-#edit_principle_investor .active_admin_button, #edit_principle_investor .active_admin_button, #edit_quote .active_admin_button {
+#edit_principle_investor .active_admin_button, #edit_principle_investor .active_admin_button, #edit_quote .active_admin_button, #edit_vote .active_admin_button {
   border-radius: 0.5em;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -229,7 +229,7 @@
 }
 
 
-#edit_medium .cancel, #new_medium .cancel, #new_user .cancel {
+#edit_medium .cancel, #new_medium .cancel, #new_user .cancel, #edit_vote .cancel {
   border-radius: 0.5em;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -283,12 +283,15 @@
 
 
 
-#edit_investment .cancel a, #new_investment .cancel a, #edit_medium .cancel a, #new_medium .cancel a, #edit_principle_investor .cancel a{
+#edit_investment .cancel a, #new_investment .cancel a,
+#edit_medium .cancel a, #new_medium .cancel a,
+#edit_principle_investor .cancel a,
+#edit_vote .cancel a{
   color:#fff;
   text-decoration: none;
 }
 
-#edit_quote .cancel a, #new_quote .cancel a {
+#edit_quote .cancel a, #new_quote .cancel a, #edit_vote .cancel a {
   color:#fff;
   text-decoration: none;
 }
@@ -298,7 +301,7 @@ form#edit_medium input#medium_media_item {
 
 }
 
-#edit_investment input, #new_investment input, #edit_quote input{
+#edit_investment input, #new_investment input, #edit_quote input, #edit_vote input{
   background-color: #fff;
   background-image: none;
   border: 1px solid #e0af00;
@@ -396,6 +399,14 @@ input[disabled] {
   background-color: #e6e6e6;
   border: 0px solid #F4F4F4 !important;
 }
+
+
+#edit_vote input[disabled="disabled"],
+input[disabled] {
+  background-color: #e6e6e6;
+  border: 0px solid #F4F4F4 !important;
+}
+
 
 
 form input[type="text"]:focus,

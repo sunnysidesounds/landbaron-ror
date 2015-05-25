@@ -24,7 +24,7 @@ ActiveAdmin.register PrincipleInvestor do
     investment = Investment.new
     i = investment.get_all
 
-    f.inputs "Biod" do
+    f.inputs "Bio" do
       f.input :full_name, :required => true
       f.input :occupation, :required => true
       f.input :investment_id, :as => :select,

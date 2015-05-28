@@ -1,5 +1,16 @@
 <div class="gray_background">
     <div class="investment_details_container">
+
+        <div class="row back_button_container">
+            <div class="col-md-12">
+                <a class="back_con back_button" href="/investments">Back To Investments</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                &nbsp;
+            </div>
+        </div>
         <div class="row investment_detail_header">
             <div class="col-md-3 investment_header_column">
                 <div class="company_logo">
@@ -20,12 +31,49 @@
                         <div class="col-md-12 invest_now">
                             <a class="buttom_gray button_super_large" href="javascript: void(0)">Funded</a>
                         </div>
+                    <% elsif @details.vote_enabled == 1 && @details.status == 'test_the_waters' %>
+                        <div class="col-md-12 vote_for_test">
+                            <!-- voting markup -->
+                            <% @vote.each do |vote| %>
+                                <div class="voting_wrapper" id="<%=@details.id %>-<%=current_user.id %>">
+                                    <div class="voting_btn voting_question">
+                                        Do you like this investment?
+                                    </div>
+                                    <div class="voting_btn">
+                                        <div class="up_button">&nbsp;
+                                            <i class="lbc-icon glyphicon glyphicon-thumbs-up"></i>
+                                        </div>
+
+                                    <span class="up_votes">
+                                        <% if vote['t'].nil? %>
+                                                0
+                                        <% else %>
+                                            <%= vote['t'] %>
+                                        <% end %>
+                                    </span>
+                                    </div>
+                                    <div class="voting_btn">
+                                        <div class="down_button">&nbsp;
+                                            <i class="lbc-icon glyphicon glyphicon-thumbs-down"></i>
+                                        </div>
+                                    <span class="down_votes">
+                                       <% if vote['f'].nil? %>
+                                            0
+                                        <% else %>
+                                            <%= vote['f'] %>
+                                        <% end %>
+                                    </span>
+                                    </div>
+                                    <div class="voting_message"></div>
+                                </div>
+                            <% end %>
+                            <!-- voting markup end -->
+                        </div>
                     <% else %>
                         <div class="col-md-12 invest_now">
                             <a class="buttom_gold button_super_large" href="/invest/<%=@details.id %>">Invest</a>
                         </div>
                     <% end %>
-
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -88,8 +136,7 @@
                         </div>
                         <% end %>
                     </div>
-
-                    <% if @details.vote_enabled == 1 %>
+                    <% if @details.vote_enabled == 1 && @details.status != 'test_the_waters' %>
                         <!-- voting markup -->
                         <% @vote.each do |vote| %>
                             <div class="voting_wrapper" id="<%=@details.id %>-<%=current_user.id %>">
@@ -113,7 +160,6 @@
                                     <div class="down_button">&nbsp;
                                         <i class="lbc-icon glyphicon glyphicon-thumbs-down"></i>
                                     </div>
-
                                     <span class="down_votes">
                                        <% if vote['f'].nil? %>
                                             0

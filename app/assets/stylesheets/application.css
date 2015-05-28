@@ -937,11 +937,32 @@ div.banner h2::after {
     padding-bottom:25px;
 }
 
+.vote_for_test {
+    padding-top:25px;
+    padding-bottom:25px;
+}
+
+.vote_for_test .voting_wrapper {
+    margin-left:0px;
+    margin-bottom:10px;
+}
+
+.vote_for_test .voting_wrapper .voting_question{
+    font-size: 10px;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.vote_for_test .voting_wrapper .up_button .glyphicon, .down_button .glyphicon {
+    font-size:30px;
+}
+.vote_for_test .voting_wrapper .down_button .glyphicon, .down_button .glyphicon {
+    font-size:30px;
+}
 .invest_now a:hover, .invest_now a:focus{
     text-decoration: none;
     color:#fff;
 }
-
 .invest_now_button {
     background-color: #e0af00;
     border-radius: 10px;
@@ -952,7 +973,6 @@ div.banner h2::after {
     font-size: 35px;
     text-align:center;
 }
-
 .watch_now_button {
     background-color: #7a001f;
     border-radius: 10px;
@@ -965,6 +985,35 @@ div.banner h2::after {
     width: 250px;
     margin:auto;
 }
+
+.back_button {
+   /* background: rgba(0, 0, 0, 0) linear-gradient(-90deg, white, #e7e7e7) repeat scroll 0 0; */
+    border-color: lightgrey #c7c7c7 #c2c2c2;
+    border-image: none;
+    border-radius: 200px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(255, 255, 255, 0.8) inset;
+    color: #5e6469;
+    display: inline-block;
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 10px;
+    /*font-weight: bold;*/
+    line-height: 12px;
+    margin: 0;
+    padding:7px 17px 5px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 white;
+}
+
+.back_button_container {
+
+}
+
+.back_con {
+    float:left;
+}
+
 
 
 .amount_invested {
@@ -985,7 +1034,7 @@ div.banner h2::after {
     font-weight: lighter;
     line-height: 1em;
     margin-top: 25px;
-    padding-bottom: 8px;
+    padding-bottom: 15px;
 }
 
 .amount_invested .pedge_title{

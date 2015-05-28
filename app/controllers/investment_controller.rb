@@ -9,9 +9,13 @@ class InvestmentController < ApplicationController
     @coming_soon = investments.get_lp_investments('coming_soon')
     @past = investments.get_lp_investments('past')
     @funded = investments.get_lp_investments('funded')
+    @testing = investments.get_lp_investments('test_the_waters')
+
+
   end
 
   def investment_detail
+    # TODO: We should probably figure out a better way. Getting warning of too many instance variables.
     if params[:id]
       investments = Investment.new
       quote = Quote.new
@@ -24,8 +28,6 @@ class InvestmentController < ApplicationController
       @stats = quote.get_progress_stats(params[:id])
       votes = Vote.new
       @vote = votes.get_vote_count_by_investment(params[:id])
-
-
     end
 
   end

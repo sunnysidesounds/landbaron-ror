@@ -722,17 +722,17 @@ input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focu
    /* border: 1px solid red;  */
 }
 
-.available_investments, .upcoming_investments, .past_investments {
+.available_investments, .upcoming_investments, .past_investments, .test_waters_investments {
     border-bottom: 1px solid #ddd;
     padding-bottom: 5px;
 }
 
-.available_investments_header, .upcoming_investments_header, .past_investments_header {
+.available_investments_header, .upcoming_investments_header, .past_investments_header, .test_waters_investments_header {
     text-align: left;
 
 }
 
-.available_investments_header h3, .upcoming_investments_header h3, .past_investments_header h3 {
+.available_investments_header h3, .upcoming_investments_header h3, .past_investments_header h3, .test_waters_investments_header h3 {
     font-size: 26px;
     font-weight: bold;
     margin: 0;

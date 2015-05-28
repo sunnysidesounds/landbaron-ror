@@ -32,7 +32,6 @@ ActiveAdmin.register Vote do
     u = user_info.get_user(vote.user_id)
     inv = investment.get_a_investment_detail(vote.investment_id)
 
-
     attributes_table do
       row :id
       row :user_id do

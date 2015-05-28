@@ -8,6 +8,7 @@ ActiveAdmin.register Investment do
 
   # List view
   index do
+    column :id
     column :name do |investment|
       link_to investment.name, admin_investment_path(investment)
     end
@@ -58,10 +59,13 @@ ActiveAdmin.register Investment do
               :required => true,
               :include_blank => false
       f.input :status, :as => :select,
-              :collection => [['Available', 'available'],
-                              ['Coming Soon','coming_soon'],
-                              ['Past', 'past'],
-                              ['Funded', 'funded']],
+              :collection => [
+                    ['Available', 'available'],
+                    ['Coming Soon','coming_soon'],
+                    ['Past', 'past'],
+                    ['Funded', 'funded'],
+                    ['Testing The Waters', 'test_the_waters']
+                  ],
               :required => true,
               :include_blank => false
       f.input :logo, :as => :file,

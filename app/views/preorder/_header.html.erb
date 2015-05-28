@@ -36,7 +36,7 @@
                 <% investment = Investment.new %>
                 <% if params[:id] != nil %>
                     <% @details = investment.get_a_investment_detail(params[:id]) %>
-                    <% if @details.status != 'funded' %>
+                    <% if @details.status != 'funded' && @details.status != 'test_the_waters' %>
                         <a class="buttom_gold button_large_slider" href="/invest/<%= params[:id] %>">Invest</a>
                     <% end %>
 

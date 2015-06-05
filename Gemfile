@@ -31,6 +31,9 @@ gem 'devise'
 # Paperclip file upload => Getting latest version
 gem 'paperclip', '~> 4.2'
 
+# Marketo API
+gem 'mrkt'
+
 # html parser
 gem 'truncate_html'
 

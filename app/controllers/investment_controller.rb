@@ -4,6 +4,13 @@ class InvestmentController < ApplicationController
   end
 
   def investment
+
+    # Testing
+    logger.info 'HERE STOP:'
+   # logger.info set_mrkt_lead("apitest@landbaronclub.com", "DEVELOPER", "DEVELOPER", "LBC", "123-456-7890")
+    logger.info get_mrkt_lead(['marc@salesforce.com'])
+
+
     investments = Investment.new
     @available = investments.get_lp_investments('available')
     @coming_soon = investments.get_lp_investments('coming_soon')

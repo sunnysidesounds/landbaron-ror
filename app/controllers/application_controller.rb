@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include MarketoApiHelper
+
   protect_from_forgery
   helper_method :current_user
   before_filter :authenticate_user, :only => [:investment, :investment_detail, :preorder, :account]

@@ -113,3 +113,9 @@ confirmation_email_subject: "Land Baron Club Investment Confirmation"
 account_creation_email_subject: "Land Baron Club New Account Creation"
 admin_email_subject: "Land Baron Club Activity "
 admin_group_email: "admins@landbaronclub.com"
+
+
+# Marketo API Information
+mrkt_host: "955-tgu-875.mktorest.com"
+mrkt_client_id: "13e4b840-d2dd-45d8-9926-2eb48006c94a"
+mrk_client_secret: "zeVWPzkTIa9qC4tggVjK6dTuU4Obas39"

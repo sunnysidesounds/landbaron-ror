@@ -1,5 +1,5 @@
 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-    <%= link_to investment_detail_path(investment), class: 'deal_item_link' do %>
+    <%= link_to investment_path(investment), class: 'deal_item_link' do %>
         <div class="deal_item">
             <div class="deal_header">
                 <div class="deal_title"><%=investment.name %></div>
@@ -18,7 +18,8 @@
                     <%if investment.status == 'available'%>
                         <a class="buttom_gold button_large" href="/invest/<%=investment.id %>">Invest Now</a>
                     <%end%>
-                    <a class="buttom_gold button_large" href="/investment_detail/<%=investment.id %>">View Details</a>
+                    <!-- <a class="buttom_gold button_large" href="/investment_detail/<%=investment.id %>">View Details</a> -->
+                    <%= link_to "View Details", investment_path(investment), class: "button_large buttom_gold"%>
                 </div>
             </div>
         </div>

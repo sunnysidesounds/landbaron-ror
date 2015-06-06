@@ -14,6 +14,8 @@ LandBaron::Application.routes.draw do
       root 'devise/sessions#new', as: :unauthenticated_root
     end
   end
+
+  resources :investments
   
   # root :to => "devise/sessions#new"
 
@@ -39,7 +41,7 @@ LandBaron::Application.routes.draw do
   get 'account' => 'my_account#account'
   #Landing Page
   get 'investments' => 'investments#investment'
-  match 'investment_detail/:id'   => 'investments#investment_detail', :via => :get, as: 'investment_detail'
+  # match 'investment_detail/:id'   => 'investments#investment_detail', :via => :get, as: 'investment_detail'
   match 'invest/:id'   => 'investments#investment_now', :via => :get, as: 'new_invest'
 
   # quote

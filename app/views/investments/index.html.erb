@@ -1,0 +1,79 @@
+<div class="gray_background">
+    <div class="deals_container">
+        <!-- AVAILABLE INVESTMENTS SECTION -->
+        <% if @available.size > 0 %>
+            <div class="row available_investments">
+                <div class="col-md-12 available_investments_header">
+                    <h3>Available Investments</h3>
+                </div>
+            </div>
+            <div class="row">
+                <% @available.each do |investment| %>
+                    <%= render investment %>
+                <% end %>
+            </div>
+        <% end %>
+        <br />
+        <br />
+        <!-- TESTING THE WATERS INVESTMENTS SECTION -->
+        <% if @testing.size > 0 %>
+            <div class="row test_waters_investments" style="visibility: <%= Settings.testing_the_waters_investmen_visibility %>">
+                <div class="col-md-12 test_waters_investments_header">
+                    <h3>Testing The Waters Investments</h3>
+                </div>
+            </div>
+            <div class="row" style="visibility: <%= Settings.testing_the_waters_investmen_visibility %>">
+                <% @testing.each do |investment| %>
+                    <%= render investment %>
+                <% end %>
+            </div>
+        <% end %>
+        <br />
+        <br />
+        <!-- UP COMING INVESTMENTS SECTION -->
+        <% if @coming_soon.size > 0 %>
+            <div class="row upcoming_investments" style="visibility: <%= Settings.upcoming_investments_visibility %>">
+                <div class="col-md-12 upcoming_investments_header">
+                    <h3>Upcoming Investments</h3>
+                </div>
+            </div>
+            <div class="row" style="visibility: <%= Settings.upcoming_investments_visibility %>">
+                <% @coming_soon.each do |investment| %>
+                    <%= render investment %>
+                <% end %>
+            </div>
+        <% end %>
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- FUNDED INVESTMENTS SECTION -->
+        <% if @funded.size > 0 %>
+            <div class="row past_investments" style="visibility: <%= Settings.funded_investment_visibility %>">
+                <div class="col-md-12 past_investments_header">
+                    <h3>Funded Investments</h3>
+                </div>
+            </div>
+            <% @funded.each do |investment| %>
+                <div class="row past_investment_row" style="visibility: <%= Settings.funded_investment_visibility %>">
+                    <div class="col-md-3 past_investment_grid">
+                        <%= link_to investment_detail_path(investment), class: 'deal_item_link' do %>
+                            <div class="past_investment_deal">
+                                <div class="past_investment_mini_header">
+                                    <%= image_tag investment.logo.url, :width => '200' %>
+                                </div>
+                            </div>
+                        <%end%>
+                    </div>
+                    <div class="col-md-9 past_investment_grid">
+                        <div class="deal_title_past"><%=investment.name %></div>
+                        <div class="past_investment_description">
+                            <%=h truncate_html(investment.key_information, :length => 200) %>
+                        </div>
+                        <a class="buttom_gold" href="/investment_detail/<%=investment.id %>">View Details</a>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>

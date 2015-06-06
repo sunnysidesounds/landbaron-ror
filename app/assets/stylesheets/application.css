@@ -154,7 +154,7 @@
     background-attachment: scroll !important;
     background-clip: border-box !important;
     background-color: rgba(0, 0, 0, 0) !important;
-    background-image: url("/assets/logo-beta.png") !important;
+    background-image: url("/assets/logo-new.jpg") !important;
     background-origin: padding-box !important;
     background-position: 0 0 !important;
     background-repeat: no-repeat !important;
@@ -162,6 +162,7 @@
     float: left;
     margin-left: 100px;
     margin-top: 12px;
+    width: 60%;
 }
 
 .logo a {
@@ -352,7 +353,10 @@
 .button_super_large {
     font: 25px/100% Arial,Helvetica,sans-serif;
     padding: 25px;
-    width: 230px;
+    width: 100%;
+}
+#progressbar{
+    width: 100% !important;
 }
 
 .button_large_and_long {
@@ -906,7 +910,7 @@ div.banner h2::after {
 
 .investment_detail_header {
     box-shadow: 0 0 4px #c0c0c0;
-    height: 325px;
+    /*height: 325px;*/
     background: none repeat scroll 0 0 #e6e6e6;
 }
 
@@ -1188,8 +1192,8 @@ div.banner h2::after {
 }
 
 .left-box {
-    float: right;
-    width: 415px;
+   /* float: right;
+    width: 415px;*/
 }
 
 @-moz-document url-prefix() {
@@ -1483,6 +1487,16 @@ div.banner h2::after {
     font-size:15px;
 
 }
+
+@media screen and (max-width: 557px){
+    .deal_status_container a {
+        margin-bottom: 10px;
+    }
+}
+
+    #invest_now_header {
+        display: none;
+    }
 
 
 

@@ -10,6 +10,13 @@ class Quote < ActiveRecord::Base
     @list = ActiveRecord::Base.connection.execute(sql)
   end
 
+  def new_get_progress_stats(inventment_id)
+    # Q
+    sum = 0
+    Quote.where(investment_id: 5).map(&:total_amount).each { |q| sum += q.gsub('$', '').gsub(',','').to_i}
+    sum
+  end
+
   def generate_uuid
     self.reference_id = SecureRandom.uuid
   end

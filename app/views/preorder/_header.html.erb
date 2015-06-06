@@ -1,9 +1,9 @@
 <div id="header">
         <div class="logo">
-            <a href="http://www.landbaronclub.com"></a>
+            <%=link_to "", unauthenticated_root_path%>
         </div>
         <!--<div class="version_number">beta</div>-->
-        <% if current_user %>
+        <% if user_signed_in? %>
             <div class="header_links">
                 <div id="top-bar">
                     <a href="#" id="more">
@@ -21,7 +21,7 @@
                        <!-- <a href="#">My Investments</a>
                         <%= link_to "My Account", account_path %>
                         <a href="#">Help</a> -->
-                        <%= link_to "Sign Out", signed_out_path %>
+                        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
                     </div>
                 </div>
             </div>
@@ -45,8 +45,8 @@
         <% else %>
             <div class="header_links_notsignin">
                 <ul class="header_links_list">
-                    <li class="header_links_list_value"><%= link_to "Login", sign_in_path, :class =>'buttom_gray' %></li>
-                    <li class="header_links_list_value"><%= link_to "Sign up", new_user_path, :class =>'buttom_gray' %></li>
+                    <li class="header_links_list_value"><%= link_to "Login", new_user_session_path, :class =>'buttom_gray' %></li>
+                    <li class="header_links_list_value"><%= link_to "Sign up", new_user_registration_path, :class =>'buttom_gray' %></li>
                 </ul>
             </div>
         <% end %>

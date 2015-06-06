@@ -28,6 +28,9 @@ gem 'seed_dump'
 
 gem 'devise'
 
+#annotate Models with database attributes
+gem 'annotate', '~> 2.6.6'
+
 # Paperclip file upload => Getting latest version
 gem 'paperclip', '~> 4.2'
 

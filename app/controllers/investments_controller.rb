@@ -1,17 +1,11 @@
-class InvestmentController < ApplicationController
+class InvestmentsController < ApplicationController
 
   def index
-  end
-
-  def investment
-    investments = Investment.new
-    @available = investments.get_lp_investments('available')
-    @coming_soon = investments.get_lp_investments('coming_soon')
-    @past = investments.get_lp_investments('past')
-    @funded = investments.get_lp_investments('funded')
-    @testing = investments.get_lp_investments('test_the_waters')
-
-
+    @available = Investment.get_lp_investments('available')
+    @coming_soon = Investment.get_lp_investments('coming_soon')
+    @past = Investment.get_lp_investments('past')
+    @funded = Investment.get_lp_investments('funded')
+    @testing = Investment.get_lp_investments('test_the_waters')
   end
 
   def investment_detail

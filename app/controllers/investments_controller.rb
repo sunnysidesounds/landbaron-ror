@@ -8,22 +8,18 @@ class InvestmentsController < ApplicationController
     @testing = Investment.get_lp_investments('test_the_waters')
   end
 
-  def investment_detail
+def show
     # TODO: We should probably figure out a better way. Getting warning of too many instance variables.
-    if params[:id]
-      investments = Investment.new
-      quote = Quote.new
-      medium = Medium.new
-      principle_investors = PrincipleInvestor.new
-      @media = medium.get_all_investment_media(params[:id])
-      @document_count = medium.get_document_count_by_id(params[:id])
-      @details = investments.get_a_investment_detail(params[:id])
-      @principles = principle_investors.get_principal_investors(params[:id])
-      @stats = quote.get_progress_stats(params[:id])
-      votes = Vote.new
-      @vote = votes.get_vote_count_by_investment(params[:id])
-    end
-
+      @investment = Investment.find(params[:id])
+      # quote = Quote.new
+      # medium = Medium.new
+      # principle_investors = PrincipleInvestor.new
+      # @media = medium.get_all_investment_media(params[:id])
+      # @document_count = Investment.medium.where(:media_item_content_type => 'application/pdf').count
+      # @details = investments.get_a_investment_detail(params[:id])
+      # @principles = principle_investors.get_principal_investors(params[:id])
+      @stats = Quote.new.get_progress_stats(@investment.id)
+      @vote = Vote.new.get_vote_count_by_investment(@investment.id)
   end
 
 

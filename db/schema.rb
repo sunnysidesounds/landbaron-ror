@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604182339) do
+ActiveRecord::Schema.define(version: 20150608192621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20150604182339) do
     t.string   "name"
     t.string   "logo_link"
     t.string   "investment_type"
-    t.string   "raise_amount"
-    t.string   "minimum_raise_amount"
+    t.decimal  "raise_amount"
+    t.decimal  "minimum_raise_amount"
     t.string   "investment_duration"
     t.string   "video_link"
     t.string   "status"
@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 20150604182339) do
     t.string   "reference_id"
     t.integer  "investment_id"
     t.integer  "user_id"
-    t.string   "total_amount"
+    t.decimal  "total_amount"
     t.string   "investor_profile_type"
     t.string   "status"
     t.string   "payment_methd"

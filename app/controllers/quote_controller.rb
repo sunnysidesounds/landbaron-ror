@@ -12,12 +12,12 @@ class QuoteController < ApplicationController
       ConfirmationMailer.confirmation_email(current_user, @quote).deliver_now
       AdminMailer.admin_email(current_user, @quote).deliver_now
 
-      redirect_to :controller => 'investment', :action => 'investment_confirmation', :id => @quote.investment_id
+      redirect_to :controller => 'investments', :action => 'investment_confirmation', :id => @quote.investment_id
     else
       # Specific Message
       flash[:error] = @quote.errors.full_messages.join("<br>").html_safe
       #TODO Need to handle empty fields and duplicate records error handle.
-      redirect_to :controller => 'investment', :action => 'investment_now', :id => @quote.investment_id
+      redirect_to :controller => 'investments', :action => 'investment_now', :id => @quote.investment_id
     end
   end
 

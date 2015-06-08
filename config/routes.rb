@@ -15,7 +15,11 @@ LandBaron::Application.routes.draw do
     end
   end
 
-  resources :investments
+  resources :investments do
+    member do
+      get :invest, as: :new_invest
+    end
+  end
   
   # root :to => "devise/sessions#new"
 
@@ -42,7 +46,7 @@ LandBaron::Application.routes.draw do
   #Landing Page
   get 'investments' => 'investments#investment'
   # match 'investment_detail/:id'   => 'investments#investment_detail', :via => :get, as: 'investment_detail'
-  match 'invest/:id'   => 'investments#investment_now', :via => :get, as: 'new_invest'
+  # match 'invest/:id'   => 'investments#investment_now', :via => :get, as: 'new_invest'
 
   # quote
   post 'quote' => 'quote#create_quote'

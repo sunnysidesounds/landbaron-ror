@@ -71,7 +71,8 @@
                         </div>
                     <% else %>
                         <div class="col-md-12 invest_now">
-                            <a class="buttom_gold button_super_large" href="/invest/<%=@investment.id %>">Invest</a>
+                            <!-- <a class="buttom_gold button_super_large" href="/invest/<%=@investment.id %>">Invest</a> -->
+                            <%= link_to "Invest", new_invest_investment_path(@investment), class: "buttom_gold button_super_large"%>
                         </div>
                     <% end %>
                 </div>
@@ -80,10 +81,8 @@
                         <div class="progress_bar">
                             <script>
                                 var percentageRemaining;
-                                <% @stats.each do |stats| %>
-                                    var totalInvestedAmount = <%= stats['total_amount'].split(".")[0].gsub(/\D/,'').to_f %>;
-                                <% end %>
-                                var minimumRaiseAmount = <%= @investment.minimum_raise_amount.gsub(/\D/,'').to_f %>;
+                                var totalInvestedAmount = <%= @progress_amount.to_f %>;
+                                var minimumRaiseAmount = <%= @investment.minimum_raise_amount.to_f %>;
                                 var inventmentStatus = "<%= @investment.status %>";
                                 if(totalInvestedAmount >= minimumRaiseAmount) {
                                     percentageRemaining = 100;
@@ -115,17 +114,16 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <% @stats.each do |stats| %>
                         <div class="amount_invested">
                             <div class="pledged">
-                                <div class="pedge_number"><%= stats['total_amount'].split(".")[0] %></div>
+                                <div class="pedge_number"><%= @progress_amount %></div>
                                 <div class="pedge_title">pledged</div>
                                 <div class="pedge_title_mini">of <strong><%=@investment.raise_amount %></strong> goal</div>
                             </div>
                             <div class="backers b_count">
                                 <i class="glyphicon glyphicon-user"></i>
 
-                                <div class="backer_number"><%= stats['total_count'] %></div>
+                                <div class="backer_number"><%= @investment.quotes.count %></div>
                                 <div class="backer_title">investors</div>
                             </div>
                             <div class="backers c_count">
@@ -134,7 +132,6 @@
                                 <div class="backer_title backer_title_alt"><strong><%=@investment.investment_duration %></strong></div>
                             </div>
                         </div>
-                        <% end %>
                     </div>
                     <% if @investment.vote_enabled == 1 && @investment.status != 'test_the_waters' %>
                         <!-- voting markup -->

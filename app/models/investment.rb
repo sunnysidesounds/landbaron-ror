@@ -55,6 +55,10 @@ class Investment < ActiveRecord::Base
     @inv = Investment.where(:status => stat_key).limit(limit)
   end
 
+  def get_progress_stats
+    self.quotes.sum(:total_amount)
+  end
+
   # Deprecated method, use get_a_investment_detail instead
   # def get_investment_details(id)
   #   sql = "SELECT * FROM investments WHERE id='"+id+"' ORDER BY id"

@@ -16,7 +16,8 @@
                 </div>
                 <div class="deal_status_container">
                     <%if investment.status == 'available'%>
-                        <a class="buttom_gold button_large" href="/invest/<%=investment.id %>">Invest Now</a>
+                        <!-- <a class="buttom_gold button_large" href="/invest/<%=investment.id %>">Invest Now</a> -->
+                        <%= link_to "Invest Now", new_invest_investment_path(investment), class: 'buttom_gold button_large'%>
                     <%end%>
                     <!-- <a class="buttom_gold button_large" href="/investment_detail/<%=investment.id %>">View Details</a> -->
                     <%= link_to "View Details", investment_path(investment), class: "button_large buttom_gold"%>

@@ -71,7 +71,8 @@
                         </div>
                     <% else %>
                         <div class="col-md-12 invest_now">
-                            <a class="buttom_gold button_super_large" href="/invest/<%=@details.id %>">Invest</a>
+                            <!-- <a class="buttom_gold button_super_large" href="/invest/<%=@details.id %>">Invest</a> -->
+                            <%= link_to "Invest", new_invest_investment_path(investment), class: "buttom_gold button_super_large"%>
                         </div>
                     <% end %>
                 </div>

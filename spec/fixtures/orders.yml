@@ -12,7 +12,7 @@
 #  country           :string
 #  status            :string
 #  number            :string
-#  uuid              :string
+#  uuid              :string           primary key
 #  user_id           :string
 #  price             :decimal(, )
 #  shipping          :decimal(, )

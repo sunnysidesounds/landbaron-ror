@@ -18,7 +18,7 @@ class InvestmentsController < ApplicationController
 
   def invest
     @investment = Investment.find(params[:id])#.get_investment_details(params[:id])
-    @quote = Quote.new
+    @quote = @investment.quotes.new
   end
 
   def investment_confirmation

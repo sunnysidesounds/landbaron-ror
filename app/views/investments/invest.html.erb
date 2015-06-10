@@ -1,6 +1,6 @@
 
 <div class="gray_background">
-    <%= form_for (Quote.new), :as => :quote, :url => quote_path, :method => :post do |f| %>
+    <%= form_for @quote do |f| %>
 
             <!-- Investment Amount -->
             <div class="invest_container">

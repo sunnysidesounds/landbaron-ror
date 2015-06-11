@@ -3,7 +3,7 @@
 
         <div class="row back_button_container">
             <div class="col-md-12">
-                <%= link_to "Back To Investments", investments_path%>
+                <%= link_to "Back To Investments", investments_path, class: "back_con back_butto"%>
             </div>
         </div>
         <div class="row">
@@ -116,7 +116,7 @@
                     <div class="col-md-12">
                         <div class="amount_invested">
                             <div class="pledged">
-                                <div class="pedge_number"><%= @progress_amount %></div>
+                                <div class="pedge_number">$<%= @progress_amount.to_i %></div>
                                 <div class="pedge_title">pledged</div>
                                 <div class="pedge_title_mini">of <strong><%=@investment.raise_amount %></strong> goal</div>
                             </div>

@@ -27,4 +27,18 @@ class AdminUser < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, 
          :recoverable, :rememberable, :trackable, :validatable
+
+  attr_accessor :login_attr
+
+
+
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login_attr = conditions.delete(:login_attr)
+      where(conditions.to_h).where(["email = :value", { :value => login_attr.downcase }]).first
+    else
+      where(conditions.to_h).first
+    end
+  end
+
 end

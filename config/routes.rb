@@ -7,11 +7,11 @@ LandBaron::Application.routes.draw do
   
   devise_scope :user do
     authenticated :user do
-      root 'investments#index', as: :authenticated_root
+      root :to => redirect('/investments'), as: :authenticated_root
     end
 
     unauthenticated do
-      root 'devise/sessions#new', as: :unauthenticated_root
+      root :to => redirect('/users/sign_in'), as: :unauthenticated_root
     end
   end
 

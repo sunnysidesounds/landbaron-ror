@@ -48,22 +48,6 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
     active_admin_editor (1.1.0)
       activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
-      activeadmin (>= 0.4.0)
       ejs
       rails (>= 3.0.0)
     activejob (4.2.0)
@@ -308,3 +292,6 @@ DEPENDENCIES
   therubyracer
   truncate_html
   uglifier (>= 1.0.3)
+
+BUNDLED WITH
+   1.10.3

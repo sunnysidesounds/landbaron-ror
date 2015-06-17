@@ -6,7 +6,7 @@
 #  reference_id          :string
 #  investment_id         :integer
 #  user_id               :integer
-#  total_amount          :string
+#  total_amount          :decimal(, )
 #  investor_profile_type :string
 #  status                :string
 #  payment_methd         :string

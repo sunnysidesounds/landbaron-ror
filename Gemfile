@@ -28,6 +28,9 @@ gem 'seed_dump'
 
 gem 'devise'
 
+#annotate Models with database attributes
+gem 'annotate', '~> 2.6.6'
+
 # Paperclip file upload => Getting latest version
 gem 'paperclip', '~> 4.2'
 
@@ -39,6 +42,7 @@ group :development do
     gem 'capistrano-bundler', '1.1.4'
     gem 'capistrano-rails', '1.1.2'
     gem 'capistrano3-puma'
+    gem 'quiet_assets'
 end
 
 # Gems used only for assets and not required

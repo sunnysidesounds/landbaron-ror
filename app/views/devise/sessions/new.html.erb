@@ -1,0 +1,28 @@
+<div class="gray_background">
+
+    <div class="signup_login_container">
+        <div class="lbc_tabs">
+            <div class="lbc_tab create_account_tab create_account_tab_notselected">
+                <%= link_to "Create Account", new_user_registration_path, :class => 'create_account_link' %>
+            </div>
+            <div class="lbc_tab signin_account_tab">
+                <%= link_to "Login", new_user_session_path, :class => 'login_account_link' %>
+            </div>
+        </div>
+        <div class="form_container">
+            <%= devise_error_messages! %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="form_group">
+                    <%= f.text_field :login_attr, :class => 'form-control', :autofocus => true, :placeholder => 'Username or Email' %>
+                </div>
+                <div class="form_group">
+                    <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :autofocus => true, :placeholder => 'Password' %>
+                </div>
+                <div class="form_group submission_form">
+                    <%= f.submit 'Log In', :class=> 'buttom_gold' %>
+                    <%= f.submit 'Clear Form', :type => 'reset', :class=>'buttom_gold' %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

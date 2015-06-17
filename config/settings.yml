@@ -104,6 +104,7 @@ google_id: "1234567890"
 upcoming_investments_visibility: "visible"
 # past_investment_visibility: "visible"
 funded_investment_visibility: "visible"
+testing_the_waters_investmen_visibility: "visible"
 
 
 # Email Stuff

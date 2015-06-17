@@ -1,14 +1,31 @@
+# == Schema Information
+#
+# Table name: media
+#
+#  id                      :integer          not null, primary key
+#  investment_id           :integer
+#  path                    :string
+#  created_at              :datetime
+#  updated_at              :datetime
+#  media_item_file_name    :string
+#  media_item_content_type :string
+#  media_item_file_size    :integer
+#  media_item_updated_at   :datetime
+#
+
 class Medium < ActiveRecord::Base
+
+  belongs_to :investment
 
   has_attached_file :media_item, :styles => { :pdf_thumbnail => ["", :jpg] }
   do_not_validate_attachment_file_type :media_item
 
 
   # This method is deprecated, use get_all_investment_media
-  def get_investment_media(id)
-    sql = "SELECT * FROM media WHERE investment_id='"+id+"'"
-    @list = ActiveRecord::Base.connection.execute(sql)
-  end
+  # def get_investment_media(id)
+  #   sql = "SELECT * FROM media WHERE investment_id='"+id+"'"
+  #   @list = ActiveRecord::Base.connection.execute(sql)
+  # end
 
   def get_all_investment_media(id)
     @inv = Medium.where(:investment_id => id)

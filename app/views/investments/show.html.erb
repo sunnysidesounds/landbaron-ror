@@ -3,7 +3,7 @@
 
         <div class="row back_button_container">
             <div class="col-md-12">
-                <a class="back_con back_button" href="/investments">Back To Investments</a>
+                <%= link_to "Back To Investments", investments_path, class: "back_con back_butto"%>
             </div>
         </div>
         <div class="row">
@@ -14,28 +14,28 @@
         <div class="row investment_detail_header">
             <div class="col-md-3 investment_header_column">
                 <div class="company_logo">
-                    <%= image_tag @details.logo.url, :width => '400' %>
+                    <%= image_tag @investment.logo.url, :width => '400' %>
                 </div>
             </div>
             <div class="col-md-6 investment_header_column">
                 <div class="fund-info">
-                    <h2><%=@details.name %></h2>
-                    <p><%=h truncate(@details.key_information, :length => 695, :escape => false) %></p>
+                    <h2><%=@investment.name %></h2>
+                    <p><%=h truncate(@investment.key_information, :length => 695, :escape => false) %></p>
                     <div class="data ">
                     </div>
                 </div>
             </div>
             <div class="col-md-3 investment_header_column">
                 <div class="row">
-                    <% if @details.status == 'funded' %>
+                    <% if @investment.status == 'funded' %>
                         <div class="col-md-12 invest_now">
                             <a class="buttom_gray button_super_large" href="javascript: void(0)">Funded</a>
                         </div>
-                    <% elsif @details.vote_enabled == 1 && @details.status == 'test_the_waters' %>
+                    <% elsif @investment.vote_enabled == 1 && @investment.status == 'test_the_waters' %>
                         <div class="col-md-12 vote_for_test">
                             <!-- voting markup -->
                             <% @vote.each do |vote| %>
-                                <div class="voting_wrapper" id="<%=@details.id %>-<%=current_user.id %>">
+                                <div class="voting_wrapper" id="<%=@investment.id %>-<%=current_user.id %>">
                                     <div class="voting_btn voting_question">
                                         Do you like this investment?
                                     </div>
@@ -71,7 +71,8 @@
                         </div>
                     <% else %>
                         <div class="col-md-12 invest_now">
-                            <a class="buttom_gold button_super_large" href="/invest/<%=@details.id %>">Invest</a>
+                            <!-- <a class="buttom_gold button_super_large" href="/invest/<%=@investment.id %>">Invest</a> -->
+                            <%= link_to "Invest", new_invest_investment_path(@investment), class: "buttom_gold button_super_large"%>
                         </div>
                     <% end %>
                 </div>
@@ -80,11 +81,9 @@
                         <div class="progress_bar">
                             <script>
                                 var percentageRemaining;
-                                <% @stats.each do |stats| %>
-                                    var totalInvestedAmount = <%= stats['total_amount'].split(".")[0].gsub(/\D/,'').to_f %>;
-                                <% end %>
-                                var minimumRaiseAmount = <%= @details.minimum_raise_amount.gsub(/\D/,'').to_f %>;
-                                var inventmentStatus = "<%= @details.status %>";
+                                var totalInvestedAmount = <%= @progress_amount.to_f %>;
+                                var minimumRaiseAmount = <%= @investment.minimum_raise_amount.to_f %>;
+                                var inventmentStatus = "<%= @investment.status %>";
                                 if(totalInvestedAmount >= minimumRaiseAmount) {
                                     percentageRemaining = 100;
                                 } else if(inventmentStatus == "funded"){
@@ -115,31 +114,29 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <% @stats.each do |stats| %>
                         <div class="amount_invested">
                             <div class="pledged">
-                                <div class="pedge_number"><%= stats['total_amount'].split(".")[0] %></div>
+                                <div class="pedge_number">$<%= @progress_amount.to_i %></div>
                                 <div class="pedge_title">pledged</div>
-                                <div class="pedge_title_mini">of <strong><%=@details.raise_amount %></strong> goal</div>
+                                <div class="pedge_title_mini">of <strong><%=@investment.raise_amount %></strong> goal</div>
                             </div>
                             <div class="backers b_count">
                                 <i class="glyphicon glyphicon-user"></i>
 
-                                <div class="backer_number"><%= stats['total_count'] %></div>
+                                <div class="backer_number"><%= @investment.quotes.count %></div>
                                 <div class="backer_title">investors</div>
                             </div>
                             <div class="backers c_count">
                                 <i class="glyphicon glyphicon-calendar"></i>
                                <!-- <div class="backer_ends">ends</div>-->
-                                <div class="backer_title backer_title_alt"><strong><%=@details.investment_duration %></strong></div>
+                                <div class="backer_title backer_title_alt"><strong><%=@investment.investment_duration %></strong></div>
                             </div>
                         </div>
-                        <% end %>
                     </div>
-                    <% if @details.vote_enabled == 1 && @details.status != 'test_the_waters' %>
+                    <% if @investment.vote_enabled == 1 && @investment.status != 'test_the_waters' %>
                         <!-- voting markup -->
                         <% @vote.each do |vote| %>
-                            <div class="voting_wrapper" id="<%=@details.id %>-<%=current_user.id %>">
+                            <div class="voting_wrapper" id="<%=@investment.id %>-<%=current_user.id %>">
                                 <div class="voting_btn voting_question">
                                     Do you like this investment?
                                 </div>
@@ -180,13 +177,13 @@
         <div class="row investment_detail_information">
             <div class="col-md-8 boxey-box">
                 <div class="key_information_right key_information_description">
-                    <% if @media.count != 0 %>
+                    <% if @investment.media.any? %>
                     <div class="slider_container" id="slider" style="visibility:hidden">
                         <ul class="bxslider">
-                            <% @media.each do |media| %>
+                            <% @investment.media.each do |medium| %>
 
-                                <% if !(media.media_item_content_type =~ /^image/).nil? %>
-                                    <li><img width="600" src="<%=media.media_item %>" /></li>
+                                <% if !(medium.media_item_content_type =~ /^image/).nil? %>
+                                    <li><img width="600" src="<%=medium.media_item %>" /></li>
                                 <% end %>
                             <% end %>
                         </ul>
@@ -194,7 +191,7 @@
                     <% end %>
                     <h2>Key Information</h2>
                     <div class="key_information_content">
-                    <p><%=@details.key_information.html_safe %></p>
+                    <p><%=@investment.key_information.html_safe %></p>
                     </div>
                 </div>
             </div>
@@ -213,9 +210,9 @@
                 </div> -->
                 <div class="key_information_left principle_bios">
                     <h3>Principal Investors</h3>
-                    <% if @principles.count != 0 %>
-                        <% @principles.each do |principles| %>
-                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="100" src="<%=principles.profile_pic %>"/> <%=principles.full_name %></a>
+                    <% if @investment.principle_investors.any? %>
+                        <% @investment.principle_investors.each do |principal| %>
+                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="100" src="<%=principal.profile_pic %>"/> <%=principal.full_name %></a>
                             <br />
                             <br />
                         <% end %>
@@ -231,22 +228,22 @@
                   <div class="funder_terms">
                       <h2>Fund Terms</h2>
                       <div class="funder_terms_conatiner">
-                        <h4 class="mini_invest"><strong>Minimum Inventment: </strong> <%=@details.investment_minimum %></h4>
+                        <h4 class="mini_invest"><strong>Minimum Inventment: </strong> <%=@investment.investment_minimum %></h4>
                             <h4><strong>Fee Structure: </strong></h4>
                             <div class="key_information_content">
-                                <% if @details.note.nil? %>
+                                <% if @investment.note.nil? %>
                                     No Date
                                 <% else %>
-                                    <%=@details.fee_structure.try(:html_safe)%>
+                                    <%=@investment.fee_structure.try(:html_safe)%>
                                 <% end %>
                               </div>
                           <h4 class="mini_invest_2"><strong>Notes: </strong></h4>
                                 <div class="key_information_content">
                                 <p>
-                                <% if @details.note.nil? %>
+                                <% if @investment.note.nil? %>
                                     No Data
                                 <% else %>
-                                    <%=@details.note.try(:html_safe)%>
+                                    <%=@investment.note.try(:html_safe)%>
                                 <% end %>
                                 </p>
                             </div>
@@ -260,18 +257,18 @@
                     <div class="funder_terms">
                         <h2>Principal Investors</h2>
                         <div class="funder_terms_conatiner">
-                            <% if @principles.count != 0 %>
-                                <% @principles.each do |principles| %>
-                                    <div class="row" id="<%=principles['id'] %>_principle">
+                            <% if @investment.principle_investors.any? %>
+                                <% @investment.principle_investors.each do |principal| %>
+                                    <div class="row" id="<%=principal.id %>_principle">
                                         <div class="col-md-3">
-                                            <img class="principle_investor_img" width="220" src="<%=principles.profile_pic %>"/>
+                                            <img class="principle_investor_img" width="220" src="<%=principal.profile_pic %>"/>
                                         </div>
                                         <div class="col-md-5 bio_stuff">
-                                            <div class="bio_f_name"><%=principles['full_name'] %></div>
+                                            <div class="bio_f_name"><%=principal.full_name %></div>
                                             <span>
-                                                - <%=principles['occupation'] %>
+                                                - <%=principal.occupation %>
                                             </span>
-                                            <p><%=principles['bio'] %></p>
+                                            <p><%=principal.bio %></p>
                                         </div>
                                     </div>
                                     <br />
@@ -290,10 +287,10 @@
                 <div class="answers_to_questions">
                     <h2>Answers To Questions</h2>
                     <div class="qa_conatiner">
-                        <% if @details.qa.nil? %>
+                        <% if @investment.qa.nil? %>
                             No Data
                         <% else %>
-                            <%=@details.qa.try(:html_safe)%>
+                            <%=@investment.qa.try(:html_safe)%>
                         <% end %>
                     </div>
                 </div>
@@ -306,13 +303,13 @@
                     <h2>Documents</h2>
                     <div class="qa_conatiner">
                        <ul class="documents_list">
-                           <% if @document_count != 0 %>
-                               <% @media.each do |media| %>
-                                   <% if (media.media_item_content_type =~ /^image/).nil? %>
+                           <% if @investment.media.any? %>
+                               <% @investment.media.each do |medium| %>
+                                   <% if (medium.media_item_content_type =~ /^image/).nil? %>
                                        <li class="documents_list_items">
-                                           <a href="<%=media.media_item %>" target="_blank">
-                                           <img width="150" src="<%=media.media_item.url(:pdf_thumbnail) %>" />
-                                           <%=media.media_item_file_name%></a>
+                                           <a href="<%=medium.media_item %>" target="_blank">
+                                           <img width="150" src="<%=medium.media_item.url(:pdf_thumbnail) %>" />
+                                           <%=medium.media_item_file_name%></a>
                                        </li>
                                    <% end %>
                                <% end %>

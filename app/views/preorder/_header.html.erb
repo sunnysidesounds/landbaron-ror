@@ -1,9 +1,9 @@
 <div id="header">
         <div class="logo">
-            <a href="http://www.landbaronclub.com"></a>
+            <%=link_to "", unauthenticated_root_path%>
         </div>
         <!--<div class="version_number">beta</div>-->
-        <% if current_user %>
+        <% if user_signed_in? %>
             <div class="header_links">
                 <div id="top-bar">
                     <a href="#" id="more">
@@ -18,10 +18,10 @@
                         </span>
                     </a>
                     <div class="dropdown">
-                       <!-- <a href="#">My Investments</a>
-                        <%= link_to "My Account", account_path %>
-                        <a href="#">Help</a> -->
-                        <%= link_to "Sign Out", signed_out_path %>
+                       
+                        <%= link_to "My Account", edit_user_registration_path %>
+                        <!-- <a href="#">Help</a> -->
+                        <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,8 @@
                 <% if params[:id] != nil %>
                     <% @details = investment.get_a_investment_detail(params[:id]) %>
                     <% if @details.status != 'funded' && @details.status != 'test_the_waters' %>
-                        <a class="buttom_gold button_large_slider" href="/invest/<%= params[:id] %>">Invest</a>
+                        <!-- <a class="buttom_gold button_large_slider" href="/invest/<%= params[:id] %>">Invest</a> -->
+                        <%= link_to "Invest", new_invest_investment_path(params[:id], class: "buttom_gold button_large_slider")%>
                     <% end %>
 
                 <% end %>
@@ -45,8 +46,8 @@
         <% else %>
             <div class="header_links_notsignin">
                 <ul class="header_links_list">
-                    <li class="header_links_list_value"><%= link_to "Login", sign_in_path, :class =>'buttom_gray' %></li>
-                    <li class="header_links_list_value"><%= link_to "Sign up", new_user_path, :class =>'buttom_gray' %></li>
+                    <li class="header_links_list_value"><%= link_to "Login", new_user_session_path, :class =>'buttom_gray' %></li>
+                    <li class="header_links_list_value"><%= link_to "Sign up", new_user_registration_path, :class =>'buttom_gray' %></li>
                 </ul>
             </div>
         <% end %>

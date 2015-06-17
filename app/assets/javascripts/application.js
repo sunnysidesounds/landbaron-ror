@@ -20,9 +20,6 @@
 // require jquery.details
 
 //= require preorder
-//= require angular.min
-//= require angular-ui-router
-//= require ui-bootstrap-tpls-0.12.0
 //= require jquery.bxslider
 //= require jquery.validate
 //= require additional-methods

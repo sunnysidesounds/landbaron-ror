@@ -1,0 +1,28 @@
+<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    <%= link_to investment_path(investment), class: 'deal_item_link' do %>
+        <div class="deal_item">
+            <div class="deal_header">
+                <div class="deal_title"><%=investment.name %></div>
+                <div class="deal_h2_header">
+                    <%= image_tag investment.logo.url, :width => '400' %>
+                </div>
+            </div>
+            <div class="deal_sub_container">
+                <h3 class="deal_h3_sub">
+                    Key Information
+                </h3>
+                <div class="deal_description">
+                    <%=h truncate_html(investment.key_information, :length => 300) %>
+                </div>
+                <div class="deal_status_container">
+                    <%if investment.status == 'available'%>
+                        <!-- <a class="buttom_gold button_large" href="/invest/<%=investment.id %>">Invest Now</a> -->
+                        <%= link_to "Invest Now", new_invest_investment_path(investment), class: 'buttom_gold button_large'%>
+                    <%end%>
+                    <!-- <a class="buttom_gold button_large" href="/investment_detail/<%=investment.id %>">View Details</a> -->
+                    <%= link_to "View Details", investment_path(investment), class: "button_large buttom_gold"%>
+                </div>
+            </div>
+        </div>
+    <%end%>
+</div>

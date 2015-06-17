@@ -6,10 +6,11 @@
 
     <%= stylesheet_link_tag    "application" %>
 
-<link rel='stylesheet' id='tt-easy-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Oswald%3A700%7CSyncopate%3A700&#038;subset=latin%2Call&#038;ver=4.1.1' type='text/css' media='all' />
-<link rel='stylesheet' id='altitude-google-fonts-css'  href='//fonts.googleapis.com/css?family=Ek+Mukta%3A200%2C800&#038;ver=1.0.0' type='text/css' media='all' />
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-      <%= javascript_include_tag "application" %>
+    <link rel='stylesheet' id='tt-easy-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Oswald%3A700%7CSyncopate%3A700&#038;subset=latin%2Call&#038;ver=4.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='altitude-google-fonts-css'  href='//fonts.googleapis.com/css?family=Ek+Mukta%3A200%2C800&#038;ver=1.0.0' type='text/css' media='all' />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <%= javascript_include_tag "application" %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
   <!--[if lt IE 9 ]><body class="lt-ie9"><![endif]-->
   <!--[if (gt IE 9)|!(IE)]><!--> <body><!--<![endif]-->
@@ -17,12 +18,12 @@
 
 
 
-  <% flash.each do |name, msg| %>
+  <div class="">
+    <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-
-
-
+    <% end %>
+  </div>
+  
     <%= yield %>
     <%= render 'preorder/footer' %>
   </body>

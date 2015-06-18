@@ -6,8 +6,8 @@
 #  name                 :string
 #  logo_link            :string
 #  investment_type      :string
-#  raise_amount         :string
-#  minimum_raise_amount :string
+#  raise_amount         :decimal(, )
+#  minimum_raise_amount :decimal(, )
 #  investment_duration  :string
 #  video_link           :string
 #  status               :string

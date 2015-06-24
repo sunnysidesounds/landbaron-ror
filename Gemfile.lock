@@ -66,6 +66,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.5.0)
+      activerecord (>= 3.2, < 5)
     annotate (2.6.10)
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
@@ -266,6 +268,7 @@ PLATFORMS
 DEPENDENCIES
   active_admin_editor
   activeadmin!
+  acts-as-taggable-on (~> 3.4)
   annotate (~> 2.6.6)
   bcrypt
   capistrano (= 3.4.0)
@@ -292,3 +295,6 @@ DEPENDENCIES
   therubyracer
   truncate_html
   uglifier (>= 1.0.3)
+
+BUNDLED WITH
+   1.10.3

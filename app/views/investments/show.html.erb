@@ -33,6 +33,12 @@
                         </div>
                     <% elsif @investment.vote_enabled == 1 && @investment.status == 'test_the_waters' %>
                         <div class="col-md-12 vote_for_test">
+                            <%if @investment.tag_list.any?%>
+                                <div class="container">
+                                    <i>tagged with:</i> <b><%= @investment.tag_list.join(", ") %></b>
+                                </div>
+                            <%end%>
+
                             <!-- voting markup -->
                             <% @vote.each do |vote| %>
                                 <div class="voting_wrapper" id="<%=@investment.id %>-<%=current_user.id %>">

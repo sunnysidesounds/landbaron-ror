@@ -23,6 +23,9 @@ gem 'bcrypt', :require=>'bcrypt'
 # Using RVM
 gem 'capistrano-rvm', :github => 'capistrano/rvm'
 
+#tagging gem
+gem 'acts-as-taggable-on', '~> 3.4'
+
 # Seed Dump
 gem 'seed_dump'
 

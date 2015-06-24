@@ -27,17 +27,17 @@
             </div>
             <div class="col-md-3 investment_header_column">
                 <div class="row">
+                    <%if @investment.tag_list.any?%>
+                        <div class="container">
+                            <i>tagged with:</i> <b><%= @investment.tag_list.join(", ") %></b>
+                        </div>
+                    <%end%>
                     <% if @investment.status == 'funded' %>
                         <div class="col-md-12 invest_now">
                             <a class="buttom_gray button_super_large" href="javascript: void(0)">Funded</a>
                         </div>
                     <% elsif @investment.vote_enabled == 1 && @investment.status == 'test_the_waters' %>
                         <div class="col-md-12 vote_for_test">
-                            <%if @investment.tag_list.any?%>
-                                <div class="container">
-                                    <i>tagged with:</i> <b><%= @investment.tag_list.join(", ") %></b>
-                                </div>
-                            <%end%>
 
                             <!-- voting markup -->
                             <% @vote.each do |vote| %>

@@ -1,7 +1,6 @@
 
 <div class="gray_background">
-    <% @invest_now.each do |invest_now| %>
-    <%= form_for (Quote.new), :as => :quote, :url => quote_path, :method => :post do |f| %>
+    <%= form_for @quote do |f| %>
 
             <!-- Investment Amount -->
             <div class="invest_container">
@@ -20,7 +19,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 question_investment"></div>
-                    <div class="col-md-6 iq_form_a gray_me_investment">Investment Minimum: <%=invest_now['investment_minimum'] %> </div>
+                    <div class="col-md-6 iq_form_a gray_me_investment">Investment Minimum: <%=@investment.investment_minimum %> </div>
                 </div>
             </div>
             <br />
@@ -98,13 +97,12 @@
             <div class="invest_now_submit_button">
                 <div class="form_group submission_form">
                     <%= f.hidden_field :reference_id, :value => @reference_id %>
-                    <%= f.hidden_field :investment_id, :value => invest_now['id'] %>
-                    <%= f.hidden_field :user_id, :value => @user.id %>
+                    <%= f.hidden_field :investment_id, :value => @investment.id %>
+                    <%= f.hidden_field :user_id, :value => current_user.id %>
                     <%= f.hidden_field :status, :value => "PENDING" %>
                     <%= f.submit 'Invest', :class=>'buttom_gold button_super_large' %>
                 </div>
             </div>
-    <% end %>
     <% end %>
 </div>
 

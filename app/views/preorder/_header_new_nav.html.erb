@@ -1,0 +1,74 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <%=link_to unauthenticated_root_path do %>
+          <%image_tag("/assets/logo-new.jpg", alt: 'Brand')%>
+        <%end%>
+    </div>
+    <!--<div class="version_number">beta</div>-->
+    <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1" aria-expanded="false">
+      <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                <img class="user_avatar" width="45" height="45" src="/assets/dummy-investor.png">&nbsp;&nbsp; <%= current_user.first_name + " " + current_user.last_name %> <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li> <%= link_to "My Account", edit_user_registration_path %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+            <%if false%>
+              <div class="header_links">
+                  <div id="top-bar">
+                      <a href="#" id="more">
+                          <img class="user_avatar" width="52" height="52" src="/assets/dummy-investor.png">
+                          <div class="users_information">
+                              <div class="users_name"><%= current_user.first_name + " " + current_user.last_name %></div>
+                              <div class="username">@<%= current_user.username %></div>
+                          </div>
+                          <span id="arrow">
+                              <span id="arrdown">&#x25BC;</span>
+                              <!--<span id="arrup">&#x25B2;</span>-->
+                          </span>
+                      </a>
+                      <div class="dropdown">
+                         
+                          <%= link_to "My Account", edit_user_registration_path %>
+                          <!-- <a href="#">Help</a> -->
+                          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                      </div>
+                  </div>
+              </div>
+              <div class="header_browse">
+                  <div class="input-group search-header-form" style="visibility: hidden">
+                      <input type="text" class="form-control" placeholder="Search" aria-describedby="">
+                      <span class="input-group-addon" id="basic-addon2">
+                      <i class="fa fa-search"></i></span>
+                  </div>
+              </div>
+              <div id="invest_now_header" style="visibility: hidden">
+                  <% investment = Investment.new %>
+                  <% if params[:id] != nil %>
+                      <% @details = investment.get_a_investment_detail(params[:id]) %>
+                      <% if @details.status != 'funded' && @details.status != 'test_the_waters' %>
+                          <!-- <a class="buttom_gold button_large_slider" href="/invest/<%= params[:id] %>">Invest</a> -->
+                          <%= link_to "Invest", new_invest_investment_path(params[:id], class: "buttom_gold button_large_slider")%>
+                      <% end %>
+
+                  <% end %>
+              </div>
+             <%end%>
+          <% else %>
+              <div class="header_links_notsignin">
+                  <ul class="header_links_list">
+                      <li class="header_links_list_value"><%= link_to "Login", new_user_session_path, :class =>'buttom_gray' %></li>
+                      <li class="header_links_list_value"><%= link_to "Sign up", new_user_registration_path, :class =>'buttom_gray' %></li>
+                  </ul>
+              </div>
+          <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

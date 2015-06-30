@@ -1506,6 +1506,124 @@ div.banner h2::after {
     }
 
 
+/* Sign-Up Form / Registration */
+
+.signup_container {
+    border: 1px solid red;
+    margin: auto;
+    width: 70%;
+    padding:5px;
+}
+
+
+/* Registration Top Header */
+.signup_header {
+    margin-bottom: 5px;
+}
+
+.signup_container .signup_header h2 {
+    font-size: 40px;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 1px;
+}
+
+.signup_container .signup_header .signup_header_mini {
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    color: #696969;
+}
+
+
+/* Registration 3 Step Process */
+.signup_3steps {
+    padding:2px;
+    margin-bottom:10px;
+}
+
+.signup_3steps_row {
+    margin: auto;
+    width: 65%;
+}
+
+.signup_3steps_cell {
+    text-align:center;
+}
+
+.signup_3steps .glyphicon-ok {
+    font-size: 20px;
+    top: 3px;
+}
+
+.signup_3steps .signup_3steps_text {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.signup_3steps_describe {
+    font-size:13px;
+    font-weight: 300;
+    text-align: center;
+    color: #696969;
+}
+
+/* Registration Signup Seperator */
+
+.signup_seperator {
+    border-bottom: 3px solid #696969;
+    height: 10px;
+    margin: auto auto 10px;
+    width: 65%;
+}
+
+
+
+/* Registration Form Body */
+.signup_container .form_container {
+    width: 65%;
+    padding:0;
+}
+.signup_container .form_container form {
+    margin-top:0;
+}
+
+.signup_container .form_container_row {
+    margin-left: 0;
+    margin-right: 0;
+}
+.signup_container .form_container_cell {
+}
+
+.signup_container .form_container_inner_row {
+}
+
+.signup_container .form_container_inner_row label {
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.signup_container .form_container_inner_row_cell {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.signup_container .form_container .glyphicon-ok {
+    font-size:10px;
+    padding-right: 5px;
+}
+
+.signup_container .col-md-12.form_container_inner_row_cell ul li.form_list {
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.form_container_inner_state {
+    height: 97px;
+}
+
+
 
 
 

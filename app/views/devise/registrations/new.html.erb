@@ -1,6 +1,141 @@
 <div class="gray_background">
 
-    <!-- Tabs -->
+
+    <div class="signup_container">
+        <div class="signup_header">
+            <h2>Join the Club</h2>
+            <div class="signup_header_mini">Signing up is free, fast & simple - no commitments or long-term contracts</div>
+        </div>
+        <div class="signup_3steps">
+            <div class="row signup_3steps_row">
+                <div class="col-md-4 signup_3steps_cell">
+                    <div class="signup_3steps_step">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span class="signup_3steps_text">STEP ONE</span>
+                    </div>
+                    <div class="signup_3steps_describe">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie congue arcu sed pulcina
+                    </div>
+                </div>
+                <div class="col-md-4 signup_3steps_cell">
+                    <div class="signup_3steps_step">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span class="signup_3steps_text">STEP TWO</span>
+                    </div>
+                    <div class="signup_3steps_describe">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie congue arcu sed pulcina
+                    </div>
+                </div>
+                <div class="col-md-4 signup_3steps_cell">
+                    <div class="signup_3steps_step">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span class="signup_3steps_text">STEP THREE</span>
+                    </div>
+                    <div class="signup_3steps_describe">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie congue arcu sed pulcina
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="signup_seperator">&nbsp;</div>
+        <div class="form_container">
+            <%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {:id => 'create_user'}) do |f| %>
+            <div class="row form_container_row">
+                <div class="col-md-6 form_container_cell">
+
+                    <div class="row form_container_inner_row">
+                        <div class="col-md-12 form_container_inner_row_cell">
+                            <label for="user_email">YOUR EMAIL</label>
+                            <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'name@example.com' %>
+                            <%= show_field_error(@user, :email) %>
+                        </div>
+                    </div>
+                    <div class="row form_container_inner_row">
+                        <div class="col-md-12 form_container_inner_row_cell">
+                            <label for="user_email">CREATE PASSWORD</label>
+                            <%= f.password_field :password, :class => 'form-control', :autofocus => true, :placeholder => 'Password' %>
+                            <%= show_field_error(@user, :password) %>
+                        </div>
+                    </div>
+                    <div class="row form_container_inner_row">
+                        <div class="col-md-12 form_container_inner_row_cell form_container_inner_state ">
+                            <label for="user_email">COUNTRY</label>
+                            <!-- TODO: Change to country, need to add to db. -->
+                            <%= f.select :state, options_for_select(us_states) %>
+                        </div>
+                    </div>
+                    <div class="row form_container_inner_row">
+                        <div class="col-md-12 form_container_inner_row_cell">
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+                <div class="col-md-6 form_container_cell">
+                    <div class="row form_container_inner_row">
+                        <div class="col-md-12 form_container_inner_row_cell">
+                            <label for="user_email">CONFIRM EMAIL</label>
+                            <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'name@example.com' %>
+                            <%= show_field_error(@user, :email) %>
+                        </div>
+                    </div>
+                    <div class="row form_container_inner_row">
+                        <div class="col-md-12 form_container_inner_row_cell">
+                            <label for="user_email">CONFIRM PASSWORD</label>
+                            <%= f.password_field :password_confirmation, :class => 'form-control', :autofocus => true, :placeholder => 'Password Confirmation' %>
+                            <%= show_field_error(@user, :password_confirmation) %>
+                        </div>
+                    </div>
+                    <div class="row form_container_inner_row">
+                        <div class="col-md-12 form_container_inner_row_cell">
+                            <label for="user_email">PASSWORD STRENGTH</label>
+                            <!-- TODO: Change to country, need to add to db. -->
+                            <ul>
+                                <li class="form_list"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>More than 6 characters</li>
+                                <li class="form_list"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Contain upper (A-Z) and lower case (a-z)</li>
+                                <li class="form_list"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Contain a numeral (0-9)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row form_container_inner_row">
+                        <div class="col-md-12 form_container_inner_row_cell">
+                            <label for="user_email">COUNTRY RESTRICTIONS</label>
+                            <!-- TODO: Change to country, need to add to db. -->
+                            <ul>
+                                <li class="form_list">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie congue arcu sed pulcinar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <% end %>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <!--
+
     <div class="signup_login_container">
         <div class="lbc_tabs">
             <div class="lbc_tab create_account_tab">
@@ -11,7 +146,6 @@
             </div>
         </div>
 
-        <!-- Registration Form -->
         <div class="form_container">
             <%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {:id => 'create_user'}) do |f| %>
             <div class="form_group first_name_form">
@@ -74,6 +208,8 @@
             <% end %>
         </div>
     </div>
+
+    -->
 </div>
 
 

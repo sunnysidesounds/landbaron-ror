@@ -1,80 +1,357 @@
-<div class="gray_background">
-    <div class="deals_container">
-        <!-- AVAILABLE INVESTMENTS SECTION -->
-        <% if @available.size > 0 %>
-            <div class="row available_investments">
-                <div class="col-md-12 available_investments_header">
-                    <h3>Available Investments</h3>
-                </div>
-            </div>
-            <div class="row">
-                <% @available.each do |investment| %>
-                    <%= render investment %>
-                <% end %>
-            </div>
-        <% end %>
-        <br />
-        <br />
-        <!-- TESTING THE WATERS INVESTMENTS SECTION -->
-        <% if @testing.size > 0 %>
-            <div class="row test_waters_investments" style="visibility: <%= Settings.testing_the_waters_investmen_visibility %>">
-                <div class="col-md-12 test_waters_investments_header">
-                    <h3>Testing The Waters Investments</h3>
-                </div>
-            </div>
-            <div class="row" style="visibility: <%= Settings.testing_the_waters_investmen_visibility %>">
-                <% @testing.each do |investment| %>
-                    <%= render investment %>
-                <% end %>
-            </div>
-        <% end %>
-        <br />
-        <br />
-        <!-- UP COMING INVESTMENTS SECTION -->
-        <% if @coming_soon.size > 0 %>
-            <div class="row upcoming_investments" style="visibility: <%= Settings.upcoming_investments_visibility %>">
-                <div class="col-md-12 upcoming_investments_header">
-                    <h3>Upcoming Investments</h3>
-                </div>
-            </div>
-            <div class="row" style="visibility: <%= Settings.upcoming_investments_visibility %>">
-                <% @coming_soon.each do |investment| %>
-                    <%= render investment %>
-                <% end %>
-            </div>
-        <% end %>
-        <br />
-        <br />
-        <br />
-        <br />
-        <!-- FUNDED INVESTMENTS SECTION -->
-        <% if @funded.size > 0 %>
-            <div class="row past_investments" style="visibility: <%= Settings.funded_investment_visibility %>">
-                <div class="col-md-12 past_investments_header">
-                    <h3>Funded Investments</h3>
-                </div>
-            </div>
-            <% @funded.each do |investment| %>
-                <div class="row past_investment_row" style="visibility: <%= Settings.funded_investment_visibility %>">
-                    <div class="col-md-3 past_investment_grid">
-                        <%= link_to investment_path(investment), class: 'deal_item_link' do %>
-                            <div class="past_investment_deal">
-                                <div class="past_investment_mini_header">
-                                    <%= image_tag investment.logo.url, :width => '200' %>
-                                </div>
-                            </div>
-                        <%end%>
-                    </div>
-                    <div class="col-md-9 past_investment_grid">
-                        <div class="deal_title_past"><%=investment.name %></div>
-                        <div class="past_investment_description">
-                            <%=h truncate_html(investment.key_information, :length => 200) %>
-                        </div>
-                        <!-- <a class="buttom_gold" href="/investment_detail/<%=investment.id %>">View Details</a> -->
-                        <%= link_to "View Details", investment_path(investment), class: 'buttom_gold'%>
-                    </div>
-                </div>
-            <% end %>
-        <% end %>
-    </div>
-</div>
+<section class="offer-plan">
+	<div class="container">
+		<div class="col-md-12"><h2 class="color-white section-heading margin-none">Available Investment</h2> </div>
+			<%- @available.each do |investment|%>
+				<div class="col-md-4 col-sm-12- col-xs-12 category-offer ">
+					<%= image_tag investment.logo.url, :width => '400' %>
+					<div class="bg-white title-desc">
+						<h3 ><b><%= investment.name%></b></h3>
+						<p class="location-offer"><i class="fa fa-map-marker"></i> Location St.</p>
+						<p class="desc">
+							<%=h truncate_html(investment.key_information, :length => 100) %>
+						</p>
+						<div class="status-bar">
+							<p style="width: <%= investment.investment_percent_progress %>;" class="status-report"></p>
+							
+						</div>
+					   <div class="offer-invest">
+						<div class="col-md-4 col-sm-4 col-xs-4 no-padding text-left ">
+							<h4 class="color-yellow "><%= investment.investment_percent_progress%></h4>
+							Funds
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-center ">
+							<h4 class="color-yellow">16</h4>
+							Investor
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-4 text-right no-padding ">
+							<h4 class="color-yellow">90d</h4>
+							Time Left
+						</div>
+							</div>
+						<div class="hover-set">
+							<h5 class="text-right"><i class="fa fa-star-o"></i></h5>
+							<h1 class="text-center plusicon"><i class="fa fa-plus-circle"></i></h1>
+						</div>
+					</div>	
+				</div>
+			<%end%>
+
+		<div class="col-md-6 ">
+			<button class="pull-right bg-yellow color-white">
+				MORE OPPORTUNITIES <i class="fa fa-long-arrow-right"></i>
+			</button>
+		</div>
+		 <div class="col-md-6 ">
+			<button class="pull-left bg-yellow color-white">
+				REVIEW WATCHLIST  <i class="fa fa-star-o"></i></i>
+			</button>
+		</div>
+	</div>
+	
+</section>
+
+ <section class="offer-plan trending">
+	<div class="container">
+		<div class="col-md-12"><h2 class="color-white section-heading margin-none">Trending Investment</h2> </div>
+		<div class="col-md-3 col-sm-12- col-xs-12 category-offer ">
+			<%= image_tag "file.jpeg" %>
+			<div class="bg-white title-desc">
+			<h3 ><b>Property Name of Title</b></h3>
+			<p class="location-offer"><i class="fa fa-map-marker"></i> Location St.</p>
+			<p class="desc">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+			</p>
+			<div class="status-bar">
+				<p style="width: 30%;" class="status-report"></p>
+				
+			</div>
+			 <div class="offer-invest">
+			<div class="col-md-4 col-sm-4 col-xs-4  no-padding text-left ">
+				<h4 class="color-yellow ">80%</h4>
+				Funds
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4 text-center ">
+				<h4 class="color-yellow">16</h4>
+				Investor
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4 text-right no-padding ">
+				<h4 class="color-yellow">90d</h4>
+				Time Left
+			</div>
+				</div>
+			<div class="hover-set">
+				<h5 class="text-right"><i class="fa fa-star-o"></i></h5>
+				<h1 class="text-center plusicon"><i class="fa fa-plus-circle"></i></h1>
+		</div>
+			</div>
+			
+			
+		</div>
+		 
+	</div>
+   <div class='container'>
+	<div class="col-md-12 text-center margin-top-10">
+			<button class=" bg-transparent border-set color-white">
+			Load More <i class="fa fa-chevron-down"></i></i>
+			</button>
+		</div>
+   </div>
+   
+   
+</section>
+
+<section class="test-water">
+	<div class="container">
+		<div class="col-md-6">
+			 <h2 class="color-white section-heading margin-none">Test the Water</h2> 
+		</div>
+		<div class="col-md-6">
+			<span>Check out the rate just one of the upcoming properties </span>
+		</div>
+		 
+			<div class="col-md-4 col-sm-12- col-xs-12 category-offer ">
+				<button class="bg-yellow insea"><i class="fa fa-anchor"></i> IN THE SEA</button>
+				 <a href="#" data-toggle="tooltip" class="toottip-text" title=" Lorem Ipsum is simply dummy">
+				 <div class="tooltip-wrapper">
+			<%= image_tag "blac-offer.jpg"%>
+			<div class="bg-white title-desc">
+			<h3 ><b>Property Name of Title</b></h3>
+			<p class="location-offer"><i class="fa fa-map-marker"></i> Location St.</p>
+		   
+			<div class="status-bar-scroll">
+				<p><b>What is your level of interest in this property </b></p>
+			   <div class="slider-bar"></div>
+				
+			</div>
+			 <div class="status-bar-scroll">
+				 <p><b>How likely you are invest in it ?</b></p>
+			   <div class="slider-bar"></div>
+				
+			</div>
+			 <div class="offer-invest">
+			<div class="col-md-6 col-sm-6 col-xs-6  text-center ">
+				<h4 class="color-yellow ">20</h4>
+				Spots
+			</div>
+			 <div class="col-md-6 col-sm-6 col-xs-6  text-center ">
+				<h4 class="color-yellow ">80K</h4>
+				Available
+			</div>
+			</div>
+				</div>
+			
+			</div>
+			<div class="shap-canvas">
+				
+			</div>
+					 </a>
+			</div>
+			 <div class="col-md-4 col-sm-12- col-xs-12 category-offer ">
+				<button class="bg-yellow insea"><i class="fa fa-anchor"></i> IN THE SEA</button>
+				 <a href="#" data-toggle="tooltip" class="toottip-text" title=" Lorem Ipsum is simply dummy">
+				 <div class="tooltip-wrapper">
+			<%= image_tag "blac-offer.jpg"%>
+			<div class="bg-white title-desc">
+			<h3 ><b>Property Name of Title</b></h3>
+			<p class="location-offer"><i class="fa fa-map-marker"></i> Location St.</p>
+		   
+			<div class="status-bar-scroll">
+				<p><b>What is your level of interest in this property </b></p>
+			   <div class="slider-bar"></div>
+				
+			</div>
+			 <div class="status-bar-scroll">
+				 <p><b>How likely you are invest in it ?</b></p>
+			   <div class="slider-bar"></div>
+				
+			</div>
+			 <div class="offer-invest">
+			<div class="col-md-6 col-sm-6 col-xs-6  text-center ">
+				<h4 class="color-yellow ">20</h4>
+				Spots
+			</div>
+			 <div class="col-md-6 col-sm-6 col-xs-6  text-center ">
+				<h4 class="color-yellow ">80K</h4>
+				Available
+			</div>
+			</div>
+				</div>
+			
+			</div>
+			<div class="shap-canvas">
+				
+			</div>
+					 </a>
+			</div>
+			<div class="col-md-4 col-sm-12- col-xs-12 category-offer ">
+				<button class="bg-yellow insea"><i class="fa fa-anchor"></i> IN THE SEA</button>
+				 <a href="#" data-toggle="tooltip" class="toottip-text" title=" Lorem Ipsum is simply dummy">
+				 <div class="tooltip-wrapper">
+			<%= image_tag "blac-offer.jpg"%>
+			<div class="bg-white title-desc">
+			<h3 ><b>Property Name of Title</b></h3>
+			<p class="location-offer"><i class="fa fa-map-marker"></i> Location St.</p>
+		   
+			<div class="status-bar-scroll">
+				<p><b>What is your level of interest in this property </b></p>
+			   <div class="slider-bar"></div>
+				
+			</div>
+			 <div class="status-bar-scroll">
+				 <p><b>How likely you are invest in it ?</b></p>
+			   <div class="slider-bar"></div>
+				
+			</div>
+			 <div class="offer-invest">
+			<div class="col-md-6 col-sm-6 col-xs-6  text-center ">
+				<h4 class="color-yellow ">20</h4>
+				Spots
+			</div>
+			 <div class="col-md-6 col-sm-6 col-xs-6  text-center ">
+				<h4 class="color-yellow ">80K</h4>
+				Available
+			</div>
+			</div>
+				</div>
+			
+			</div>
+			<div class="shap-canvas">
+				
+			</div>
+					 </a>
+			</div>
+				  
+		</div>
+		
+ 
+		
+			
+		
+	</div>
+</section>
+
+
+ <section class="offer-plan trending funded">
+	<div class="container">
+		<div class="col-md-12"><h2 class="color-white section-heading margin-none">Recently Funded</h2> </div>
+	<div class="col-md-3 col-sm-12- col-xs-12 category-offer ">
+			<button class="bg-purple insea"><i class="fa fa-check-circle"></i> Funded</button>
+			<%= image_tag "blac-offer.jpg"%>
+			<div class="bg-white title-desc">
+			<h3 ><b>Property Name of Title</b></h3>
+			<p class="location-offer bg-dark"><i class="fa fa-map-marker"></i> Location St.</p>
+			<p class="desc">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+			</p>
+			
+			 <div class="offer-invest">
+			<div class="col-md-6 col-sm-6 col-xs-6 no-padding text-center ">
+				<h4 class="color-purple">80%</h4>
+				Funds
+			</div>
+			
+			<div class="col-md-6 col-sm-6 col-xs-6 text-center no-padding ">
+				<h4 class="color-purple">90d</h4>
+				Time Left
+			</div>
+				</div>
+			<div class="hover-set">
+				<h5 class="text-right"><i class="fa fa-star-o"></i></h5>
+				<h1 class="text-center plusicon"><i class="fa fa-plus-circle"></i></h1>
+		</div>
+			</div>
+			
+			
+		</div>
+		  <div class="col-md-3 col-sm-12- col-xs-12 category-offer ">
+			<button class="bg-purple insea"><i class="fa fa-check-circle"></i> Funded</button>
+			<%= image_tag"file.jpeg"%>
+			<div class="bg-white title-desc">
+			<h3 ><b>Property Name of Title</b></h3>
+			<p class="location-offer bg-dark"><i class="fa fa-map-marker"></i> Location St.</p>
+			<p class="desc">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+			</p>
+			
+			 <div class="offer-invest">
+			<div class="col-md-6 col-sm-6 col-xs-6 no-padding text-center ">
+				<h4 class="color-purple">80%</h4>
+				Funds
+			</div>
+			
+			<div class="col-md-6 col-xs-6 col-sm-6 text-center no-padding ">
+				<h4 class="color-purple">90d</h4>
+				Time Left
+			</div>
+				</div>
+			<div class="hover-set">
+				<h5 class="text-right"><i class="fa fa-star-o"></i></h5>
+				<h1 class="text-center plusicon"><i class="fa fa-plus-circle"></i></h1>
+		</div>
+			</div>
+			
+			
+		</div>
+		 <div class="col-md-3 col-sm-12- col-xs-12 category-offer ">
+			<button class="bg-purple insea"><i class="fa fa-check-circle"></i> Funded</button>
+			<%= image_tag "file.jpeg"%>
+			<div class="bg-white title-desc">
+			<h3 ><b>Property Name of Title</b></h3>
+			<p class="location-offer bg-dark"><i class="fa fa-map-marker"></i> Location St.</p>
+			<p class="desc">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+			</p>
+			
+			 <div class="offer-invest">
+			<div class="col-md-6 col-sm-6 col-xs-6 no-padding text-center ">
+				<h4 class="color-purple">80%</h4>
+				Funds
+			</div>
+			
+			<div class="col-md-6 col-xs-6 col-sm-6 text-center no-padding ">
+				<h4 class="color-purple">90d</h4>
+				Time Left
+			</div>
+				</div>
+			<div class="hover-set">
+				<h5 class="text-right"><i class="fa fa-star-o"></i></h5>
+				<h1 class="text-center plusicon"><i class="fa fa-plus-circle"></i></h1>
+		</div>
+			</div>
+			
+			
+		</div>
+			<div class="col-md-3 col-sm-12- col-xs-12 category-offer ">
+			<button class="bg-purple insea"><i class="fa fa-check-circle"></i> Funded</button>
+			<%= image_tag "blac-offer.jpg"%>
+			<div class="bg-white title-desc">
+			<h3 ><b>Property Name of Title</b></h3>
+			<p class="location-offer bg-dark"><i class="fa fa-map-marker"></i> Location St.</p>
+			<p class="desc">
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+			</p>
+			
+			 <div class="offer-invest">
+			<div class="col-md-6 col-sm-6 col-xs-6 no-padding text-center ">
+				<h4 class="color-purple">80%</h4>
+				Funds
+			</div>
+			
+			<div class="col-md-6 col-xs-6 col-sm-6 text-center no-padding ">
+				<h4 class="color-purple">90d</h4>
+				Time Left
+			</div>
+				</div>
+			<div class="hover-set">
+				<h5 class="text-right"><i class="fa fa-star-o"></i></h5>
+				<h1 class="text-center plusicon"><i class="fa fa-plus-circle"></i></h1>
+		</div>
+			</div>	
+		</div>
+	   <div class="col-md-12 text-center">
+			<button class=" bg-transparent border-set color-white">
+			Load More <i class="fa fa-chevron-down"></i></i>
+			</button>
+		</div>
+	</div>
+</section>

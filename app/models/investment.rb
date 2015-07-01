@@ -60,6 +60,14 @@ class Investment < ActiveRecord::Base
     self.quotes.sum(:total_amount)
   end
 
+  def investment_percent_progress
+    if self.get_progress_stats >= self.minimum_raise_amount 
+      "100%"
+    else
+      ((self.get_progress_stats/self.minimum_raise_amount)*100).to_s + "%"
+    end
+  end
+
   # Deprecated method, use get_a_investment_detail instead
   # def get_investment_details(id)
   #   sql = "SELECT * FROM investments WHERE id='"+id+"' ORDER BY id"

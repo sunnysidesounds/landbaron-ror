@@ -1,0 +1,1098 @@
+body{
+    font-family: 'Ek Mukta', sans-serif!important;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: 'Ek Mukta', sans-serif!important;
+}
+.bg-dark{
+    background: #212626!important;
+    color: white;
+
+}
+.border-left{
+    border-left: 1px solid #797675;
+}
+.border-right{
+    border-right: 1px solid #797675;
+}
+.padding-top-10 {
+    padding-top: 10px;
+}
+
+.padding-bottom-10px{
+    padding-bottom: 10px;
+}
+.bg-transparent{
+    background: transparent;
+}
+.border-none{
+    border: none!important;
+}
+.awseome-search{
+    position: absolute;
+    top: 13px;
+    left: 10px;
+}
+.color-white{
+    color: white;
+}
+.bg-yellow{
+    background: rgb(253, 184, 34);
+}
+.offer-plan .col-md-6 button{
+    color: rgb(255, 255, 255);
+    background: rgb(253, 184, 34);
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+.offer-plan  .section-heading{
+    padding: 20px 0px;
+}
+.username p{
+    line-height: 42px;
+    margin-bottom: 0px;
+}
+.username  select{
+   background: rgb(33, 38, 38);
+color: white;
+border: none;
+width: 100%;
+float: none;
+/* line-height: 40px; */
+height: 62px;
+font-size: 18px;
+background-image: image-url('arrow_down.png');
+background-position-y: 11px;
+background-position: right;
+background-repeat: no-repeat;
+background-size: 20px 20px;
+
+}
+.search input{
+   background-image: image-url('search.png');
+background-position-y: 11px;
+background-position: 5px center;
+background-repeat: no-repeat;
+background-size: 20px 20px;
+float: left;
+/* margin-top: 10px; */
+padding: 6px 30px;
+width: 100%;
+height: 62px;
+font-family: inherit;
+border: none;
+font-weight: normal;
+}
+.search  .fa{
+   font-size: 18px;
+   line-height: 27px;
+}
+.header{
+    min-height: 62px;
+}
+.explore h4{line-height: 40px;  font-size: 18px;}
+.offer-plan{
+
+    background-image:image-url('dotedblk.jpeg');
+    padding: 30px 0px;
+    background-size: cover;
+}
+.offer-plan.trending{
+    background-image: image-url('black.jpg');
+    padding: 30px 0px;
+    background-size: cover;
+}
+.location-offer{
+    background: #fdb822;
+    color: white;
+    margin: 8px -15px;
+    padding: 5px 17px
+}
+.offer-plan .category-offer{
+
+    padding: 0px 20px;
+    min-height: 511px;
+}
+.offer-plan .category-offer img{
+    max-height: 190px;
+    width: 100%;
+    min-height: 190px;
+    border: 1px solid white;
+}
+.test-water .category-offer img{
+    max-height: 261px;
+    min-height: 261px;
+    border: 1px solid white;
+}
+img{
+    max-width: 100%;
+    width: 100%;
+}
+.bg-white{
+    background: white;
+    padding: 10px 15px;
+
+}
+.offer-plan .category-offer.first{
+    padding-left: 0px;
+}
+.offer-plan .category-offer .bg-white h4{
+    padding: 0px;
+    margin: 0px;
+}
+.offer-plan .category-offer .bg-white{
+    padding: 15px 10px;
+}
+.status-bar{
+    width: 100%;
+    height: 15px;
+    background: #d6d4d4;
+    border-radius: 10px;
+}
+.status-bar .status-report{
+    background: rgb(253, 184, 34);
+
+    height: 15px;
+    border-radius: 10px;
+}
+.color-yellow{
+    color: rgb(253, 184, 34)!important;
+}
+.offer-invest{
+    background: white;
+    overflow: hidden;
+    padding: 10px 0px;
+}
+.category-offer .desc{
+    padding: 15px 0px;
+    margin: 0px;
+}
+.category-offer h3{
+    margin: 0px;
+    padding: 15px 0px;
+}
+.margin-none{
+    margin: 0px;
+}
+.hover-set{
+    display: none;
+}
+.category-offer:hover .hover-set{
+    display: block;
+    position: absolute;
+    top: 0px;
+    height: 201px;
+    background: rgba(255, 255, 255, 0.09);
+    left: 20px;
+    width: 89.9%;
+    padding: 10px 15px;
+
+}
+.category-offer.first:hover .hover-set{
+    display: block;
+    position: absolute;
+    top: 0px;
+
+    height: 201px;
+    background: rgba(255, 255, 255, 0.09);
+    left: 0px;
+    width: 94.9%;
+    padding: 10px 15px;
+
+}
+.category-offer{
+    position: relative;
+}
+.plusicon{
+    line-height:135px;
+    color: white;
+    font-size: 22px;
+}
+.plusicon .fa{
+    font-size: 55px;
+}
+.trending .category-offer{
+    padding: 0px 10px;
+}
+.no-padding{
+    padding: 0px;
+}
+.trending .category-offer:hover .hover-set{
+    left: 11px;
+    width: 92.9%;
+}
+.trending .plusicon{
+    line-height: 80px;
+}
+.border-set{
+    border: 2px solid #ccc;
+}
+.trending button{
+    padding: 10px 20px;
+    font-size: 20px;
+    border: 2px solid #fff;
+}
+.test-water{
+    background-image:image-url('banner-blur_v2.jpg');
+    padding: 30px 0px;
+    background-size: cover;
+
+}
+.test-water .col-md-6 h2,span{
+    color: white;
+}
+.test-water .col-md-6{
+    min-height: 100px;
+    padding: 15px 0px;
+}
+.test-water .col-md-6 span{
+    line-height: 85px;
+}
+.toottip-text{
+    text-decoration: none!important;
+    color: initial!important;
+
+}
+.test-water .location-offer{
+    margin: 8px -25px;
+}
+#ex1Slider .slider-selection {
+    background: #BABABA;
+}
+.shap-canvas{
+    display: inline-block;
+    border-left: 175px solid transparent;
+    border-right: 175px solid transparent;
+    border-top: 90px solid white;
+}
+.insea{
+    position: absolute;
+    left: 4px;
+    top: -10px;
+    color: white;
+    padding: 7px;
+    border: 1px solid transparent;
+}
+.offer-plan.funded{
+    background-image: image-url('Yellow-Background-35.jpg');
+}
+.offer-plan.funded 
+.offer-plan.funded .location-offer.bg-black{
+    background: #333;
+}
+.color-purple{
+    color: purple;
+}
+.bg-purple{
+    background: purple;
+}
+.bg-purple.insea{
+    border: 1px solid transparent;
+    padding: 5px;
+}
+footer{
+    background: #212626;
+    color: white;
+    padding: 30px 0px;
+}
+footer ul{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+footer ul li{
+    display: block;
+    float: left;
+    padding: 3px 0px;
+    width: 100%;
+}
+footer ul li a{
+    text-decoration: none;
+    font-weight: normal;
+    color: white;
+    font-size: 13px;
+}
+footer ul li a:hover{
+    color: rgb(253, 184, 34);
+    text-decoration: none;
+}
+.width-half{
+    width: 50%;
+    float: left;
+}
+footer .logoimg{
+    margin-top: 73px;
+    width: 100%;
+}
+.investement-first{
+    background-image: image-url('Office_Img.jpg');
+    background-size: cover;
+
+    height: 200px;
+    background-position: right center;
+}
+.tabs-wrapper{
+    margin-top: -42px;
+    padding-bottom: 30px;
+}
+.bs-example li a{
+    background: rgb(253, 184, 34);
+    color: white;
+    font-weight: bold;
+}
+.tab-content{
+    padding: 20px 0px;
+}
+.tab-content table{
+
+}
+.tab-content table th{
+    border-bottom: 2px solid rgb(253, 184, 34);
+    padding: 10px;
+}
+.tab-content table td{
+    border-bottom: 1px solid #333;
+    padding: 10px;
+
+}
+.border-bold{
+    border-bottom: 5px solid rgb(253, 184, 34);
+
+    padding: 8px 0px;
+}
+.tablist ul{
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 5px solid rgb(253, 184, 34);
+padding: 15px 0px;
+}
+.tablist.document .add-detail{
+   padding: 15px ; 
+}
+.tablist ul li{
+    padding: 10px 0px;
+    border-bottom: 1px solid #333;
+    display: block;
+}
+.tablist ul li:last-child{
+    border-bottom: none;
+}
+button{
+    padding: 6px 10px;
+    background:  rgb(253, 184, 34);
+    color: white;
+    border: 1px solid transparent;
+}
+.dashboeardproperty{
+    padding: 0px 15px;
+}
+.propertyoffer{
+    padding: 20px 0px;
+}
+.propertyoffer li{
+    padding: 6px 0px;
+    /* border-bottom: 1px solid #333; */
+    display: block;
+    float: left;
+    width: 100%;
+    font-weight: bold;
+    font-size: 25px;
+}
+.dashboeardproperty button{
+    font-size: 27px;
+    width: 100%;
+}
+.investement-first.property{
+
+}
+.dashboeardproperty .offer-invest{
+   background: transparent;
+color: white;
+float: left;
+width: 100%;
+}
+.investement-first.property{
+    background-image: image-url('black.jpg');
+    height: auto;
+    padding: 30px 0px 100px 0px;;
+}
+.nav-tabs>li>a:hover{
+    color: #333;
+}
+.thumb-pager{
+    width: 16%;
+    /* height: 118px; */
+    border: 1px solid #ccc;
+    overflow: hidden;
+    float: left;
+    margin: 9px 3px 9px 0px;
+}
+.location{
+    border-bottom: 1px solid;
+    padding: 10px 0px;
+}
+#sectionA span{
+    color: #999;
+}
+#sectionA .desc{
+    padding: 20px 0px;
+}
+.buttonpropertys{
+    padding: 20px 0px
+}
+.buttonpropertys button{
+    width: 100%;
+    margin: 10px 0px;
+font-size: 20px;
+}
+.font-bold{
+    font-weight: bold;
+}
+.font-normal{
+    font-weight: normal;
+}
+.add-detail li span{
+    color: black;
+}
+.add-detail li span.font-bold{
+ width: 50%;
+color: black!important;
+float: left;
+}
+.add-detail li span.font-normal{
+ width: 50%; 
+ color: black!important;
+}
+.buttonpropertys button.bg-transparent{
+    border: 2px solid rgb(253, 184, 34);
+    color: rgb(253, 184, 34);
+}
+.darkbtn{
+    background: #333;
+    color: white;
+    padding: 12px 20px;
+    border: 1px solid transparent;
+    font-size: 18px;
+    margin: 10px 0px;
+    
+}
+.width-full{
+    width: 100%;
+}
+.title-head{
+    margin: 0px;
+    line-height: 140px;
+}
+.investimgset img{
+    max-height: 175px;
+}
+.investtext{
+    min-height: 175px;
+}
+.bg-gray{
+    background: #eee;
+}
+.investoffer li{
+    display: block;
+}
+.investoffer{
+    padding: 0px;
+}
+.font-increase{
+    font-size: 45px;
+}
+.setpadding{
+    padding: 15px 15px;
+    overflow: hidden;
+}
+section h2{
+    padding: 20px 0px;
+}
+.hover-set-watch{
+    display: block;
+    position: absolute;
+    top: 0px;
+    height: 190px;
+    background:rgba(255, 255, 255, 0.09);
+    left: 20px;
+    width: 86.2%;
+    padding: 10px 15px;
+}
+.investcoom h2{
+    font-size: 42px;
+}
+.community{
+    padding: 30px 0px;
+}
+.color-dark{
+    color: #333!important;
+}
+.commtext p{
+    padding: 6px 12px;
+    border-bottom: 2px solid rgb(253, 184, 34);
+}
+.commtext{
+
+
+}
+
+
+/* responsive css starts */
+
+@media screen and (min-width : 320px) and (max-width:768px){}
+
+@media all and (min-width : 414px) and (max-width: 414px){
+
+    .shap-canvas{
+        display: inline-block;
+        border-left: 192px solid transparent!important;
+        border-right: 192px solid transparent!important;
+        border-top: 75px solid white;
+    }
+}
+@media all and (min-width : 375px) and (max-width: 375px){
+
+    .shap-canvas{
+        display: inline-block;
+        border-left: 175px solid transparent!important;
+        border-right: 175px solid transparent!important;
+        border-top: 55px solid white;
+    }
+}
+
+
+@media screen and (min-width : 481px) and (max-width:768px) and (orientation: landscape) {
+
+    header .border-right{
+
+        border: 1px solid;
+        margin: 10px 0px;
+    }
+    header .username{
+        border: 1px solid;
+        margin: 10px 0px;
+        text-align: center;
+    }
+    header{
+        padding: 20px 0px;
+    }
+    h2{
+        text-align: center;
+    }
+    .offer-plan .category-offer{
+        padding: 0px 10px;
+        min-height: 520px;
+        width: 50%;
+        float: left;
+        margin: 20px 0px;
+    }
+}
+@media screen and (min-width : 485px) and (max-width:568px) and (orientation: landscape) {
+    .offer-plan .col-md-6 button{
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .shap-canvas{
+        display: inline-block;
+        border-left: 120px solid transparent;
+        border-right: 120px solid transparent;
+        border-top: 90px solid white;
+    }
+    .test-water .category-offer{
+        width: 50%;
+        float: left;
+    }
+    .test-water .col-md-6 span{
+        line-height: 2;
+        text-align: center;
+    }
+}
+@media screen and (min-width : 320px) and (max-width:480px) and (orientation: landscape) {
+    header .border-right{
+
+        border: 1px solid;
+        margin: 10px 0px;
+    }
+    header .username{
+        border: 1px solid;
+        margin: 10px 0px;
+        text-align: center;
+    }
+    header{
+        padding: 20px 0px;
+    }
+    h2{
+        text-align: center;
+    }
+    .offer-plan .category-offer{
+        margin: 20px 0px;
+        min-height: initial;
+    }
+    .offer-plan .category-offer{
+        padding: 0px 20px;
+    }
+    .category-offer:hover .hover-set{
+        left: 20px!important;
+        width: 91%!important;
+    }
+    .offer-plan .col-md-6 button{
+        font-size: 17px;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .test-water .col-md-6{
+        text-align: center;
+
+    }
+    .test-water .col-md-6 span{
+        line-height: 2;
+    }
+    .shap-canvas {
+        display: inline-block;
+        border-left: 225px solid transparent;
+        border-right: 225px solid transparent;
+    }
+    .test-water .category-offer{
+        margin: 20px 0px;
+        padding: 0px;
+    }
+    .bs-example.col-md-12{
+        padding: 0px;
+    }
+}
+@media screen and (min-width : 320px) and (max-width:480px) and (orientation: portrait) {
+
+    header .border-right{
+
+        border: 1px solid;
+        margin: 12px 0px;
+    }
+    header .username{
+        border: 1px solid;
+        margin: 10px 0px;
+        text-align: center;
+    }
+    header{
+        padding: 20px 0px;
+    }
+    h2{
+        text-align: center;
+    }
+    .offer-plan .category-offer{
+        margin: 20px 0px;
+        min-height: initial;
+    }
+    .offer-plan .category-offer{
+        padding: 0px;
+    }
+    .category-offer:hover .hover-set{
+        left: 0px!important;
+        width: 100%!important;
+    }
+    .offer-plan .col-md-6 button{
+        font-size: 17px;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .test-water .col-md-6{
+        text-align: center;
+
+    }
+    .test-water .col-md-6 span{
+        line-height: 2;
+    }
+    .shap-canvas{
+        display: inline-block;
+        border-left: 145px solid transparent;
+        border-right: 145px solid transparent;
+        border-top: 52px solid white;
+    }
+    .test-water .category-offer{
+        margin: 20px 0px;
+        padding: 0px;
+    }
+    .title-invest{
+        font-size: 20px;
+        text-align: center;
+        margin: 15px 0px;
+    }
+    .nav-tabs>li{
+        width: 100%;
+    }
+    .slider{
+        width: 100%;
+        padding-right: 0px!important;
+        padding-left: 0px;
+    }
+    .slider-wrapper .star-up{
+        width: 100%;
+    }
+    .dashboeardproperty{
+        padding: 20px 0px;
+    }
+    .propertyoffer .hr{
+        width: 73%!important;
+    }
+    .textoffer{
+        width: 27%!important;
+    }
+    .img-div{
+        margin: 15px 0px;
+    }
+    .explore h4{
+        line-height: 20px;
+        font-size: inherit;
+    }
+    .search input{
+        height: auto;
+        font-size: inherit;
+    }
+    .username select{
+         height: auto;
+         font-size: inherit;
+    }
+    .search .fa{
+        line-height: 20px;
+        font-size: inherit;
+    }
+    #sectionA .desc{
+        text-align: justify;
+    }
+    #sectionB p{
+      text-align: justify;  
+    }
+    #sectiond p{
+      text-align: justify;  
+    }
+    .bs-example.col-md-12{
+        padding: 0px;
+    }
+    .resolution-padding{
+        padding: 0px;
+    }
+}
+
+@media screen and (min-width : 414px) and (max-width:768px)and (orientation: landscape){
+    .title-invest{
+        font-size: 30px;
+        text-align: center;
+        margin: 15px 0px;
+    }
+   .slider{
+        width: 100%;
+        padding-right: 0px!important;
+        padding-left: 0px;
+    }
+    .slider-wrapper .star-up{
+        width: 100%;
+    }
+    .dashboeardproperty{
+        padding: 20px 0px;
+    }
+    .img-div{
+        margin: 15px 0px;
+    }
+      .explore h4{
+        line-height: 20px;
+        font-size: inherit;
+    }
+    .search input{
+        height: auto;
+        font-size: inherit;
+    }
+    .username select{
+         height: auto;
+         font-size: inherit;
+    }
+    .search .fa{
+        line-height: 20px;
+        font-size: inherit;
+    }
+   
+}
+@media screen and (min-width : 667px) and (max-width:768px) and (orientation: landscape) {
+    header .logo,.search,.explore,.username{
+        width: 50%;
+        float: left;
+        min-height: 55px;
+    }
+      .explore h4{
+        line-height: 22px;
+        font-size: 18px;
+    }
+    .search input{
+     height: 43px;
+font-size: 18px;
+    }
+    .username select{
+        height: 43px;
+font-size: 18px;
+    }
+    .search .fa{
+       font-size: 18px;
+line-height: 34px;
+    }
+    .offer-plan .col-md-6 button{
+        font-size: 17px;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .test-water .category-offer{
+        margin: 20px 0px;
+        float: left;
+        width: 50%;
+    }
+    .shap-canvas {
+        display: inline-block;
+        border-left: 144px solid transparent;
+        border-right: 144px solid transparent;
+        border-top: 90px solid white;
+    }
+}
+
+@media screen and (min-width : 768px) and (max-width:1024px) and (orientation: portrait){
+    .offer-plan .category-offer{
+        width: 50%;
+        margin: 20px 0px;
+    }
+    .test-water .category-offer{
+        margin: 20px 0px;
+        float: left;
+        width: 50%;
+    }
+    .offer-plan .col-md-6 button{
+        font-size: 17px;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .shap-canvas {
+display: inline-block;
+border-left: 165px solid transparent;
+border-right: 165px solid transparent;
+border-top: 90px solid white;
+}
+.slider{
+   padding-right: 0px!important
+}
+.logo{
+    padding: 12px 15px;
+}
+}
+@media screen and (min-width : 768px) and (max-width:1024px) and (orientation: landscape){
+      .shap-canvas {
+display: inline-block;
+border-left: 142px solid transparent;
+border-right: 142px solid transparent;
+border-top: 90px solid white;
+}
+.username select{
+   padding: 0px 5px;
+
+}
+
+}
+
+@media 
+only screen and (max-width: 414px),
+(min-device-width: 320px) and (max-device-width: 414px)  {
+
+    /* Force table to not be like tables anymore */
+    .resptable table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .resptable thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .resptable tr { border: 1px solid #ccc; }
+
+    .resptable td { 
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%!important; 
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .resptable td:before { 
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 15px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+
+    /*
+    Label the data
+    */
+    .resptable td:nth-of-type(1):before { content: "Date"; }
+    .resptable td:nth-of-type(2):before { content: "Type"; }
+    .resptable td:nth-of-type(3):before { content: "Description"; }
+    .resptable td:nth-of-type(4):before { content: "Amount"; }
+    
+    
+   /* Force table to not be like tables anymore */
+    .summarytbl table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .summarytbl thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .summarytbl tr { border: 1px solid #ccc; }
+
+    .summarytbl td { 
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%!important; 
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+
+    .summarytbl td:before { 
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 15px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }
+
+    /*
+    Label the data
+    */
+    .summarytbl td:nth-of-type(1):before { content: "Name"; }
+    .summarytbl td:nth-of-type(2):before { content: "Investment"; }
+    .summarytbl td:nth-of-type(3):before { content: "Return to Date"; }
+    .summarytbl td:nth-of-type(4):before { content: "Status"; }
+    
+    .summtblst td:nth-of-type(1):before { content: "Name"; }
+    .summtblst td:nth-of-type(2):before { content: "Investment"; }
+    .summtblst td:nth-of-type(3):before { content: "Return to Date"; }
+    .summtblst td:nth-of-type(4):before { content: "Status"; }
+
+}
+
+.slider-wrapper{
+    position: relative;
+}
+.slider-wrapper .star-up{
+    position: absolute;
+    top: 0px;
+    background: rgba(255, 255, 255, 0.09);
+    height: 100%;
+    width: 100%;
+}
+.slider-wrapper .star-up h5{
+    font-size: 45px;
+}
+.title-invest{
+    padding: 10px 0px 30px;
+}
+.slider{
+    padding-right: 80px;
+}
+.textoffer{
+    float: left;
+font-weight: normal;
+width: 23%;
+}
+.propertyoffer .hr {
+  float: left;
+width: 77%;
+padding: 0px 5px;
+margin-top: -5px;
+}
+   .propertyoffer .hr hr{
+   border: 1px solid rgb(253, 184, 34);
+}
+.offer-price{
+    font-size: 45px!important;
+}
+.investbar .border-left{
+    border-left: 1px solid rgb(253, 184, 34);
+}
+.investbar .border-right{
+    border-right: 1px solid rgb(253, 184, 34);
+}
+.investbar .border-left h4{
+    
+}
+.nav>li>a{
+    padding: 10px 20px;
+}
+table{
+    min-width: 100%;
+}
+.status-bar-scroll{
+    margin: 10px 0px;
+}
+.ui-widget-content{
+    background: #ccc!important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    background: #FDB822!important;
+    border: 1px solid #FDB822!important;
+}
+.test-water .offer-invest .col-md-6{
+ min-height: inherit;   
+}
+.test-water .offer-invest .col-md-6 h4{
+    font-size: 30px;
+font-weight: bold;
+margin: 0px;
+
+}
+.doc li a{
+    font-weight: normal;
+    background: transparent;
+    color: #FDB822;
+}
+.nav-tabs>li>a{
+    border-radius: 0px;
+}
+.img-div{
+    margin: 10px 0px;
+}
+#mainnav{
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin: 0px -15px;
+    background: rgba(33, 38, 38, 0.992157);
+    padding: 0px;
+    z-index: 200;
+}
+#mainnav a li{
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+#mainnav a{
+    text-decoration: none;
+    color: inherit;
+    border-bottom: 1px solid #ccc;
+}
+#mainnav a:hover{
+    color: rgb(253, 184, 34);
+}

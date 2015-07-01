@@ -15,6 +15,10 @@ class InvestmentsController < ApplicationController
     @vote = Vote.new.get_vote_count_by_investment(@investment.id)
   end
 
+  def user_investments
+    
+  end
+
 
   def invest
     @investment = Investment.find(params[:id])#.get_investment_details(params[:id])

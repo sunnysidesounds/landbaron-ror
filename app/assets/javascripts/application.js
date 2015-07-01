@@ -25,6 +25,7 @@
 //= require additional-methods
 //= require jquery.maskedinput
 //= require jquery.formatCurrency
+//= require jquery.multipage
 
 
 
@@ -174,6 +175,14 @@ $(document).ready(function() {
         );
 
     });
+
+
+
+    // Multi-Page Form Wrapper
+    $("#create_user").multipage({ submitButton: 'create_user_button' })
+
+
+
 
 });
 

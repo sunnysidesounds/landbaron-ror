@@ -134,7 +134,104 @@
                     </div>
                 </div>
                 <div class="signup_seperator">&nbsp;</div>
-                    <!-- INSERT FORM STUFF -->
+
+                <div class="form_container signup_page_2">
+                    <div class="row form_container_row">
+                        <div class="col-md-6 form_container_cell">
+                            <!-- CHANGE ME -->
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">QUESTION ONE</label>
+
+                                    <!-- TODO : Need to change email? -->
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
+                                    <%= show_field_error(@user, :email) %>
+                                </div>
+                            </div>
+                            <!-- CHANGE ME -->
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">BUDGET RANGE</label>
+                                    <!-- TODO : Need to change email? -->
+                                    <%= f.text_field :email, :value => '', :id => 'budget_range_amount', :style => 'border:0; color:#f6931f; font-weight:bold;', :disabled => true, :autofocus => true %>
+                                    <div id="budget-range-slider"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form_container_cell">
+                            <!-- CHANGE ME -->
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">QUESTION TWO</label>
+
+                                    <!-- TODO : Need to change email? -->
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
+                                    <%= show_field_error(@user, :email) %>
+                                </div>
+                            </div>
+                            <!-- CHANGE ME -->
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">RISK TOLERANCE</label>
+                                    <!-- TODO : Need to change email? -->
+                                    <%= f.text_field :email, :value => '', :id => 'risk_tolerance_amount', :style => 'border:0; color:#f6931f; font-weight:bold;', :disabled => true, :autofocus => true %>
+                                    <div id="risk-tolerance-slider"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form_container_row">
+                        <div class="col-md-12 form_container_cell">
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">QUESTION TWO</label>
+                                    <div class="row signup_categories">
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                    </div>
+                                    <div class="row signup_categories">
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                    </div>
+                                    <div class="row signup_categories">
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="signup_seperator">&nbsp;</div>
                 <div class="signup_navigation_button"></div>
                 <div class="signup_footer">Footer</div>

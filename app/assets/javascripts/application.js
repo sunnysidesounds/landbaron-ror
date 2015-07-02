@@ -179,7 +179,42 @@ $(document).ready(function() {
 
 
     // Multi-Page Form Wrapper
-    $("#create_user").multipage({ submitButton: 'create_user_button' })
+    $("#create_user").multipage({ submitButton: 'create_user_button' });
+    renderRangeSlider("#budget-range-slider", "#budget_range_amount");
+    renderRangeSlider("#risk-tolerance-slider", "#risk_tolerance_amount");
+
+
+
+
+    function renderRangeSlider(slider_selector, input_selector) {
+        $(slider_selector).slider({
+            range: true,
+            min: 0,
+            max: 500,
+            values: [ 75, 300 ],
+            slide: function( event, ui ) {
+                $( input_selector ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            },
+            change: function(event, ui) {
+                // when the user change the slider
+            },
+            stop: function(event, ui) {
+
+
+              //  var sliderInput = $(".form_container_inner_row").find("#amount");
+              //  sliderInput.val("$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ]);
+                console.log("Budget Range : $" + ui.values[ 0 ] + " - $" + ui.values[ 1 ]);
+
+            }
+        });
+        $(input_selector ).val( "$" + $( slider_selector ).slider( "values", 0 ) +
+            " - $" + $( slider_selector ).slider( "values", 1 ) );
+    }
+
+
+
+
+
 
 
 

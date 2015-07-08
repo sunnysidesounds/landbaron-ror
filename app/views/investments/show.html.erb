@@ -95,9 +95,10 @@
                      <div class="col-md-12 col-sm-12">
                         <h2 class="text-left border-bold">Investment Detail</h2>
                         <ul class="add-detail">
-                            <li><span class="font-bold">Min. Investment</span> <span class="font-normal">$10,000</span></li>
-                            <li><span class="font-bold">Min. Investment</span> <span class="font-normal">$10,000</span></li>
-                            <li class="border-none"><span class="font-bold">Min. Investment</span> <span class="font-normal">$10,000</span></li>
+                            <li><span class="font-bold">Min. Investment</span> <span class="font-normal"><%=number_to_currency @investment.investment_minimum%></span></li>
+                            <li><span class="font-bold">Fund Limit</span> <span class="font-normal"><%=number_to_currency @investment.raise_amount%></span></li>
+                            <li class="border-none"><span class="font-bold">Investment Rate</span> <span class="font-normal">calculating..</span></li>
+                            <li class="border-none"><span class="font-bold">Funding Period</span> <span class="font-normal"></span><%=number_to_currency @investment.investment_duration%></li>
                         </ul>
                     </div>
                     <div class="col-md-12 col-sm-12">

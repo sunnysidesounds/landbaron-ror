@@ -51,7 +51,7 @@
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: image-url('bx_loader.gif') center center no-repeat #fff;
+	background: url('/assets/bx_loader.gif') center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -101,7 +101,7 @@
 
 .bx-wrapper .bx-prev {
 	left:5px;
-	background: image-url('controls.png') no-repeat 0 -32px;
+	background: url('/assets/controls.png') no-repeat 0 -32px;
 	-o-transition:none;
 	-webkit-transition:none;
 	-moz-transition:none;
@@ -110,7 +110,7 @@
 
 .bx-wrapper .bx-next {
 	right:5px;
-	background: image-url('controls.png') no-repeat -43px -32px;
+	background: url('/assets/controls.png') no-repeat -43px -32px;
 	-o-transition:none;
 	-webkit-transition:none;
 	-moz-transition:none;

@@ -6,12 +6,17 @@
         <div class="col-md-8 slider color-white">
             <div class="slider-wrapper">
              <ul class="bxslider">
+                <%no_image_shown = true%>
                 <% @investment.media.each do |medium| %>
 
                     <% if !(medium.media_item_content_type =~ /^image/).nil? %>
+                        <%no_image_shown = false%>
                         <li><img src="<%=medium.media_item %>" /></li>
                     <% end %>
                 <% end %>
+                <%if no_image_shown%>
+                    <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20found&w=350&h=150" /></li>
+                <%end%>
             </ul>
             <div class="col-md-12 star-up">
                 <h5 class="text-right"><i class="fa fa-star-o"></i></h5>

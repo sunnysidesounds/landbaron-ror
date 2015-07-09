@@ -20,7 +20,7 @@
 
         <div id="bx-pager">
             <%- @investment.media.each_with_index do |medium, index| %>
-                <% if (medium.media_item_content_type =~ /^image/).nil? %>
+                <% if !(medium.media_item_content_type =~ /^image/).nil? %>
                     <a data-slide-index="<%= index%>" class=" thumb-pager" href=""><img src="<%=medium.media_item.url(:thumb) %>"></a>
                 <% end %>
             <% end %>

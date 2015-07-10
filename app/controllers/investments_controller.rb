@@ -1,4 +1,5 @@
 class InvestmentsController < ApplicationController
+  # before_filter :authenticate_user
 
   def index
     @available = Investment.get_lp_investments('available')
@@ -16,7 +17,9 @@ class InvestmentsController < ApplicationController
   end
 
   def user_investments
+    @quotes = current_user.quotes
     
+    # @documents = Medium.where(investment_id: current_user.investments.all.map(&:id))    
   end
 
 

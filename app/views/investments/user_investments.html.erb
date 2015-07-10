@@ -28,36 +28,20 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>11/11/11</td>
-									<td>Invested</td>
-									<td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
-									<td>$10,000</td>
-								</tr>
-								<tr>
-									<td>11/11/11</td>
-									<td>Invested</td>
-									<td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
-									<td>$10,000</td>
-								</tr>
-								<tr>
-									<td>11/11/11</td>
-									<td>Invested</td>
-									<td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
-									<td>$10,000</td>
-								</tr>
-								<tr>
-									<td>11/11/11</td>
-									<td>Invested</td>
-									<td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
-									<td>$10,000</td>
-								</tr>
-								<tr>
-									<td>11/11/11</td>
-									<td>Invested</td>
-									<td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
-									<td>$10,000</td>
-								</tr>
+                <%if @quotes.any? %>
+                  <%@quotes.each do |quote|%>
+    								<tr>
+    									<td><%= quote.created_at.strftime('%d/%m/%Y') %></td>
+    									<td><%= quote.status %></td>
+    									<td class="color-yellow"><%= link_to quote.investment.try(:name), investment_path(quote.investment) %>&nbsp;<i class="fa fa-arrow-circle-right"></i></td>
+    									<td><%= number_to_currency(quote.total_amount, precision: 1)%></td>
+    								</tr>
+                  <%end%>
+                <% else %>
+                  <tr>
+                    <td colspan="4" class="text-center"> No investments made yet.</td>
+                  </tr>
+                <%end%>
 							</tbody>
 
 						</table>

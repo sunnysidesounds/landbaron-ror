@@ -28,8 +28,8 @@ class Quote < ActiveRecord::Base
   after_create :send_emails
 
   def send_emails
-    ConfirmationMailer.confirmation_email(self.user, self).deliver_now
-    AdminMailer.admin_email(self.user, self).deliver_now
+    ConfirmationMailer.confirmation_email(self.user, self).deliver_now unless Rails.env.development?
+    AdminMailer.admin_email(self.user, self).deliver_now unless Rails.env.development?
   end
 
 

@@ -1652,12 +1652,31 @@ div.banner h2::after {
 
 .signup_container .signup_submission {
     text-align:center;
+    margin-top:30px;
 }
 
 .signup_container .signup_agreement{
     color: #696969;
     font-size: 12px;
     font-weight: 300;
+    text-align: center;
+}
+
+.sign_up_page2_footer {
+    color: #696969;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.sign_up_page3_footer {
+    color: #696969;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 25px;
+    margin-bottom:25px;
     text-align: center;
 }
 

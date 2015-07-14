@@ -126,6 +126,7 @@
 
                 </div>
             </fieldset>
+            <!-- PAGE 2 OF FORM -->
             <fieldset style="display:none;">
                 <div class="signup_header">
                     <h2>What are you looking for?</h2>
@@ -134,7 +135,6 @@
                     </div>
                 </div>
                 <div class="signup_seperator">&nbsp;</div>
-
                 <div class="form_container signup_page_2">
                     <div class="row form_container_row">
                         <div class="col-md-6 form_container_cell">
@@ -234,8 +234,13 @@
                 </div>
                 <div class="signup_seperator">&nbsp;</div>
                 <div class="signup_navigation_button"></div>
-                <div class="signup_footer">Footer</div>
+                <div class="signup_footer">
+                    <div class="sign_up_page2_footer">
+                          Almost there, one more step to go...
+                    </div>
+                </div>
             </fieldset>
+            <!-- PAGE 3 OF FORM -->
             <fieldset style="display:none;">
                 <div class="signup_header">
                     <h2>Tell us a bit about yourself.</h2>
@@ -244,10 +249,60 @@
                     </div>
                 </div>
                 <div class="signup_seperator">&nbsp;</div>
+                <div class="form_container">
+                    <div class="row form_container_row">
+                        <div class="col-md-6 form_container_cell">
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">QUESTION ONE</label>
+
+                                    <!-- TODO : Need to change email? -->
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
+                                    <%= show_field_error(@user, :email) %>
+                                </div>
+                            </div>
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">QUESTION ONE</label>
+
+                                    <!-- TODO : Need to change email? -->
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
+                                    <%= show_field_error(@user, :email) %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form_container_cell">
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">QUESTION ONE</label>
+
+                                    <!-- TODO : Need to change email? -->
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
+                                    <%= show_field_error(@user, :email) %>
+                                </div>
+                            </div>
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <label for="user_email">QUESTION ONE</label>
+
+                                    <!-- TODO : Need to change email? -->
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
+                                    <%= show_field_error(@user, :email) %>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <!-- INSERT FORM STUFF -->
                 <div class="signup_seperator">&nbsp;</div>
                 <div class="signup_submission">
-                    <%= f.submit 'Sign Up', :id => 'create_user_button', :class=>'buttom_gold button_large_and_long_signup' %>
+                    <%= f.submit 'Finish Up', :id => 'create_user_button', :class=>'buttom_gold button_large_and_long_signup' %>
+                </div>
+                <div class="signup_footer">
+                    <div class="sign_up_page3_footer">
+                        That's it! Complete your account and see your personalized dahsboard.
+                    </div>
                 </div>
             </fieldset>
         </div>

@@ -1,200 +1,293 @@
 <section class="investement-first">
-	<div class="container">
-		<div class="col-md-12">
-			<h1 class="color-white title-head">My Investment</h1>
-		</div>
-	</div>
+  <div class="container">
+    <div class="col-md-12">
+      <h1 class="color-white title-head">My Investment</h1>
+    </div>
+  </div>
 </section>
 <section class="tabs-wrapper">
-	<div class="container">
-		<div class="bs-example col-md-12">
-			<ul class="nav nav-tabs" id="myTab">
-				<li class="active"><a href="#summary">Summary</a></li>
-				<li><a href="#history">History</a></li>
+  <div class="container">
+    <div class="bs-example col-md-12">
+      <ul class="nav nav-tabs" id="myTab">
+        <li class="active"><a href="#summary">Summary</a></li>
+        <li><a href="#history">History</a></li>
 
-			</ul>
-			<div class="tab-content col-md-12">
-				<div id="history" class="tab-pane fade in col-md-12 resptable">
-					<div class="col-md-8 resolution-padding">
-						<h2 class="margin-none">My Activity</h2>
-						<table class="text-left">
-							<thead>
-								<tr>
-									<th>Date</th>
-									<th>Type</th>
-									<th>Description</th>
-									<th>Amount</th>
-
-								</tr>
-							</thead>
-							<tbody>
-                <%if @quotes.any? %>
-                  <%@quotes.each do |quote|%>
-    								<tr>
-    									<td><%= quote.created_at.strftime('%d/%m/%Y') %></td>
-    									<td><%= quote.status %></td>
-    									<td class="color-yellow"><%= link_to quote.investment.try(:name), investment_path(quote.investment) %>&nbsp;<i class="fa fa-arrow-circle-right"></i></td>
-    									<td><%= number_to_currency(quote.total_amount, precision: 1)%></td>
-    								</tr>
-                  <%end%>
-                <% else %>
-                  <tr>
-                    <td colspan="4" class="text-center"> No investments made yet.</td>
-                  </tr>
-                <%end%>
-							</tbody>
-
-						</table>
-
-					</div>
-					<div class="col-md-4 col-sm-12 col-xs-12 tablist resolution-padding">
-						<h2 class="text-left border-bold">My Documents</h2>
-						<ul class="add-detail">
-              <li>No Documents found</li>
-							<!-- <li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li>
-							<li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li>
-							<li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li> -->
-						</ul>
-
-					</div>
-				</div>
-				<div id="summary" class="tab-pane fade in active col-md-12 resptable">
-					<div id="sectionA" class="tab-pane fade in active ">
-           
-            <div class="col-md-4 col-sm-12 col-xs-12">
-                <h2></h2>
-               <div id="canvas-holder">
-			<canvas id="chart-area" width="500" height="500"/>
-		</div>
-                	<script>
-
-		var doughnutData = [
-				{
-					value: 300,
-					color:"rgb(253, 184, 34)",
-					highlight: "rgb(236, 172, 32)",
-					label: "Active"
-				},
-				{
-					value: 100,
-					color: "rgb(255, 217, 134)",
-					highlight: "rgb(238, 201, 122)",
-					label: "Available"
-				},
-				{
-					value: 50,
-					color: "#ccc",
-					highlight: "#999",
-					label: "Pending"
-				}
-
-			];
-
-			window.onload = function(){
-				var ctx = document.getElementById("chart-area").getContext("2d");
-				window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
-			};
-
-
-
-	</script>
-        <h3 class="text-center"><b>Total</b></h3>
-        <h2 class="text-center color-yellow font-increase margin-none"><b>$60,000</b></h2>
-        <div class="col-md-12 text-center no-padding">
-        <button class="darkbtn width-full">ADD FUNDING <i class="fa fa-plus-square color-yellow"></i></button>
-        </div>
-            </div>
-            
-       
-        <div class="col-md-8 col-sm-12 col-xs-12 tablist summarytbl ">
-            <h2>Active Investment</h2>
-                    <table class="text-left col-md-12 no-padding">
-                <thead>
+      </ul>
+      <div class="tab-content col-md-12">
+        <div id="history" class="tab-pane fade in col-md-12 resptable">
+          <div class="col-md-8 resolution-padding">
+            <h2 class="margin-none">My Activity</h2>
+            <table class="text-left">
+              <thead>
                 <tr>
-                    <th>Name </th>
-                    <th>Investment</th>
-                    <th>Return to Date</th>
-                    <th>Status</th>
-                    
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+
                 </tr>
-                 </thead>
-                <tbody>
-                    <tr class="bg-gray">
-                        <td><i class="fa fa-plus-square color-yellow"></i> Property Name or Title</td>
-                        <td>$10,000</td>
-                        <td >$4,000</td>
-                        <td>Current</td>
-                    </tr>
-                    <tr class="bg-dark color-white">
-                        <td class="border-none"><i class="fa fa-minus-square color-yellow"></i> Property Name or Title</td>
-                        <td class="border-none">$10,000</td>
-                        <td class="border-none">$4,000</td>
-                        <td class="border-none">Current</td>
-                    </tr>
-                  
-                </tbody>
-               
-            </table>
-            <div class="col-md-6 col-xs-12 bg-yellow investtext">
-                 <p class="location-offer "><b><i class="fa fa-map-marker"></i> Location St.</b></p>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                </p>
-            </div>
-            <div class="col-md-6 col-xs-12 no-padding investimgset">
-                 <%= image_tag "building.jpg" %>
-            </div>
-            
-           
-            <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
-                <h4 class="color-yellow">Investment Details</h4>
-                <ul class="investoffer border-none">
-                      <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                            <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                            <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                    </ul>
-            </div>
-              <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
-                <h4 class="color-yellow">Investment Details</h4>
-                <ul class="investoffer border-none">
-                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                           <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                           <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                    </ul>
-            </div>
-            <div class="col-md-12 bg-gray  setpadding text-center">
-               <h3> <a href="#" class="color-yellow"><b>View For Details</b> <i class="fa fa-arrow-right"></i></a></h3>
-            </div>
-            <div class="col-md-12">
-                <h3 class="text-left">Pending Investment</h3>
-            </div>
-            <table class="text-left col-md-12 no-padding summtblst">
-                <thead>
-                <tr>
-                    <th>Name </th>
-                    <th>Investment</th>
-                    <th>Return to Date</th>
-                    <th>Status</th>
-                    
-                </tr>
-                 </thead>
-                <tbody>
-                    <tr class="bg-gray">
-                        <td class="border-none"><i class="fa fa-plus-square color-yellow"></i> Property Name or Title</td>
-                        <td class="border-none">$10,000</td>
-                        <td class="border-none">$4,000</td>
-                        <td class="border-none">Current</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            
+              </thead>
+              <tbody>
+                                <%if @quotes.any? %>
+                                <%@quotes.each do |quote|%>
+                                <tr>
+                                   <td><%= quote.created_at.strftime('%d/%m/%Y') %></td>
+                                   <td><%= quote.status %></td>
+                                   <td class="color-yellow"><%= link_to quote.investment.try(:name), investment_path(quote.investment) %>&nbsp;<i class="fa fa-arrow-circle-right"></i></td>
+                                   <td><%= number_to_currency(quote.total_amount, precision: 1)%></td>
+                               </tr>
+                               <%end%>
+                               <% else %>
+                               <tr>
+                                <td colspan="4" class="text-center"> No investments made yet.</td>
+                            </tr>
+                            <%end%>
+                        </tbody>
+
+                    </table>
+
                 </div>
-             </div>
-				</div>
+                <div class="col-md-4 col-sm-12 col-xs-12 tablist resolution-padding">
+                  <h2 class="text-left border-bold">My Documents</h2>
+                  <ul class="add-detail">
+                      <li>No Documents found</li>
+              <!-- <li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li>
+              <li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li>
+              <li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li> -->
+            </ul>
 
-			</div>
+          </div>
+        </div>
 
-		</div>
-	</div>
+
+
+        <div id="summary" class="tab-pane fade in active col-md-12 resptable">
+          <div class="col-md-4 col-sm-12 col-xs-12">
+            <h2></h2>
+            <div id="canvas-holder">
+              <canvas id="chart-area" width="500" height="500"/>
+            </div>
+            <script>
+
+            var doughnutData = [
+            {
+              value: 300,
+              color:"rgb(253, 184, 34)",
+              highlight: "rgb(236, 172, 32)",
+              label: "Active"
+            },
+            {
+              value: 100,
+              color: "rgb(255, 217, 134)",
+              highlight: "rgb(238, 201, 122)",
+              label: "Available"
+            },
+            {
+              value: 50,
+              color: "#ccc",
+              highlight: "#999",
+              label: "Pending"
+            }
+
+            ];
+
+            window.onload = function(){
+              var ctx = document.getElementById("chart-area").getContext("2d");
+              window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {responsive : true});
+            };
+
+
+
+            </script>
+            <h3 class="text-center"><b>Total</b></h3>
+            <h2 class="text-center color-yellow font-increase margin-none"><b>$60,000</b></h2>
+            <div class="col-md-12 text-center no-padding">
+              <button class="darkbtn width-full">ADD FUNDING <i class="fa fa-plus-square color-yellow"></i></button>
+            </div>
+          </div>
+
+
+          <div class="col-md-8 col-sm-12 col-xs-12 tablist summarytbl ">
+            <h2>Active Investment</h2>
+
+            <div class="panel-group" id="accordion">
+              <div class="testing">
+                <div class='col-md-4 col-sm-4'>
+                  <p><b>Name</b></p>
+                </div>
+                <div class='col-md-3 col-sm-3'>
+                  <p><b>Investment</b></p>
+                </div>
+                <div class='col-md-3 col-sm-3'>
+                  <p><b>Return to Date</b></p>
+                </div>
+                <div class='col-md-2 col-sm-2'>
+                  <p><b>Status</b></p>
+                </div>
+              </div>
+              <div class="panel panel-default col-md-12 no-padding set-para">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" 
+                    href="#collapseTwo" class="gray">
+                      <div class='col-md-4 no-padding col-sm-4'>
+                        <span class="mobile-view"><i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Name</span> <p class="icon-change"> <i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Property Name or Title</p>
+                      </div>
+                      <div class='col-md-3 mobile-view-div col-sm-3'>
+                        <span class="mobile-view">Investment</span><p>$10,000</p>
+                      </div>
+                      <div class='col-md-3 mobile-view-div col-sm-3'>
+                        <span class="mobile-view">Return to Date</span>  <p>$4,000</p>
+                      </div>
+                      <div class='col-md-2 mobile-view-div col-sm-2'>
+                        <span class="mobile-view">Status</span> <p>Current</p>
+                      </div>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <div class="col-md-6 col-xs-12 bg-yellow investtext">
+                      <p class="location-offer "><b><i class="fa fa-map-marker"></i> Location St.</b></p>
+                      <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                      </p>
+                    </div>
+                    <div class="col-md-6 col-xs-12 no-padding investimgset">
+                     <%= image_tag "building.jpg" %>
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                      <h4 class="color-yellow">Investment Details</h4>
+                      <ul class="investoffer border-none">
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                      <h4 class="color-yellow">Investment Details</h4>
+                      <ul class="investoffer border-none">
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-12 bg-gray  setpadding text-center">
+                     <h3> <a href="#" class="color-yellow"><b>View For Details</b> <i class="fa fa-arrow-right"></i></a></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default col-md-12 no-padding set-para">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" 
+                    href="#collapseOne" class="gray collapsed">
+                      <div class='col-md-4 no-padding col-sm-4'>
+                        <span class="mobile-view"><i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Name</span> <p class="icon-change"> <i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Property Name or Title</p>
+                      </div>
+                      <div class='col-md-3 mobile-view-div col-sm-3'>
+                        <span class="mobile-view">Investment</span><p>$10,000</p>
+                      </div>
+                      <div class='col-md-3 mobile-view-div col-sm-3'>
+                        <span class="mobile-view">Return to Date</span>  <p>$4,000</p>
+                      </div>
+                      <div class='col-md-2 mobile-view-div col-sm-2'>
+                        <span class="mobile-view">Status</span> <p>Current</p>
+                      </div>
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="col-md-6 col-xs-12 bg-yellow investtext">
+                      <p class="location-offer "><b><i class="fa fa-map-marker"></i> Location St.</b></p>
+                      <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                      </p>
+                    </div>
+                    <div class="col-md-6 col-xs-12 no-padding investimgset">
+                     <%= image_tag "building.jpg"%>
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                      <h4 class="color-yellow">Investment Details</h4>
+                      <ul class="investoffer border-none">
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                      <h4 class="color-yellow">Investment Details</h4>
+                      <ul class="investoffer border-none">
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-12 bg-gray  setpadding text-center">
+                     <h3> <a href="#" class="color-yellow"><b>View For Details</b> <i class="fa fa-arrow-right"></i></a></h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h3 class="text-left heading-tbl">Pending Investment</h3>
+            <div class="panel panel-default col-md-12 no-padding set-para ">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" 
+                  href="#collapseThree" class="gray collapsed">
+                    <div class='col-md-4 no-padding col-sm-4'>
+                      <span class="mobile-view"><i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i>  Name</span> <p class="icon-change"> <i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Property Name or Title</p>
+                    </div>
+                    <div class='col-md-3 mobile-view-div col-sm-3'>
+                      <span class="mobile-view">Investment</span><p>$10,000</p>
+                    </div>
+                    <div class='col-md-3 mobile-view-div col-sm-3'>
+                      <span class="mobile-view">Return to Date</span>  <p>$4,000</p>
+                    </div>
+                    <div class='col-md-2 mobile-view-div col-sm-2'>
+                      <span class="mobile-view">Status</span> <p>Current</p>
+                    </div>
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse ">
+                <div class="panel-body">
+                  <div class="col-md-6 col-xs-12 bg-yellow investtext">
+                    <p class="location-offer "><b><i class="fa fa-map-marker"></i> Location St.</b></p>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    </p>
+                  </div>
+                  <div class="col-md-6 col-xs-12 no-padding investimgset">
+                   <%= image_tag "building.jpg" %>
+                 </div>
+                <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                  <h4 class="color-yellow">Investment Details</h4>
+                  <ul class="investoffer border-none">
+                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                  </ul>
+                </div>
+                <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                  <h4 class="color-yellow">Investment Details</h4>
+                  <ul class="investoffer border-none">
+                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
+                  </ul>
+                </div>
+                <div class="col-md-12 bg-gray  setpadding text-center">
+                  <h3> <a href="#" class="color-yellow"><b>View For Details</b> <i class="fa fa-arrow-right"></i></a></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

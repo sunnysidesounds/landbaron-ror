@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     left: 10px;
 }
 .color-white{
-    color: white;
+    color: white!important;
 }
 .bg-yellow{
     background: rgb(253, 184, 34);
@@ -50,32 +50,21 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     padding: 20px 0px;
 }
 .username p{
-    line-height: 42px;
-    margin-bottom: 0px;
-}
-.username  select{
-   background: rgb(33, 38, 38);
-color: white;
-border: none;
-width: 100%;
-float: none;
-/* line-height: 40px; */
-height: 62px;
-font-size: 18px;
-background-image: image-url('arrow_down.png');
-background-position-y: 11px;
-background-position: right;
-background-repeat: no-repeat;
-background-size: 20px 20px;
 
+
+    cursor: pointer;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 10px 0px;
 }
+
 .search input{
-   background-image: image-url('search.png');
-background-position-y: 11px;
-background-position: 5px center;
-background-repeat: no-repeat;
-background-size: 20px 20px;
-float: left;
+ background-image: image-url('search.png');
+ background-position-y: 11px;
+ background-position: 5px center;
+ background-repeat: no-repeat;
+ background-size: 20px 20px;
+ float: left;
 /* margin-top: 10px; */
 padding: 6px 30px;
 width: 100%;
@@ -85,8 +74,8 @@ border: none;
 font-weight: normal;
 }
 .search  .fa{
-   font-size: 18px;
-   line-height: 27px;
+ font-size: 18px;
+ line-height: 27px;
 }
 .header{
     min-height: 62px;
@@ -365,10 +354,10 @@ footer .logoimg{
     margin: 0px;
     padding: 0px;
     border-bottom: 5px solid rgb(253, 184, 34);
-padding: 15px 0px;
+    padding: 15px 0px;
 }
 .tablist.document .add-detail{
-   padding: 15px ; 
+ padding: 15px ; 
 }
 .tablist ul li{
     padding: 10px 0px;
@@ -407,10 +396,10 @@ button{
 
 }
 .dashboeardproperty .offer-invest{
-   background: transparent;
-color: white;
-float: left;
-width: 100%;
+ background: transparent;
+ color: white;
+ float: left;
+ width: 100%;
 }
 .investement-first.property{
     background-image: image-url('black.jpg');
@@ -444,7 +433,7 @@ width: 100%;
 .buttonpropertys button{
     width: 100%;
     margin: 10px 0px;
-font-size: 20px;
+    font-size: 20px;
 }
 .font-bold{
     font-weight: bold;
@@ -456,13 +445,13 @@ font-size: 20px;
     color: black;
 }
 .add-detail li span.font-bold{
- width: 50%;
-color: black!important;
-float: left;
+   width: 50%;
+   color: black!important;
+   float: left;
 }
 .add-detail li span.font-normal{
- width: 50%; 
- color: black!important;
+   width: 50%; 
+   color: black!important;
 }
 .buttonpropertys button.bg-transparent{
     border: 2px solid rgb(253, 184, 34);
@@ -536,7 +525,12 @@ section h2{
 
 
 }
-
+.mobile-view{
+    display: none;
+}
+.icon-change .fa{
+    display: block;
+}
 
 /* responsive css starts */
 
@@ -660,6 +654,35 @@ section h2{
     .bs-example.col-md-12{
         padding: 0px;
     }
+    .mobile-view{
+     display: block;
+     font-weight: bold;
+     width: 50%;
+     float: left;
+     padding: 5px 0px;
+     color: #fff!important;
+ }
+ .collapsed .mobile-view{
+  color: #333!important;  
+}
+.panel-group .panel{
+    width: 100%;
+    float: left;
+}
+.mobile-view-div{width: 100%;
+    padding: 0px;
+    float: left;
+    margin: 5px 0px;}
+    .mobile-view-div p{
+        line-height: 27px;
+        font-weight: normal;
+    }
+    .testing{
+        display: none;
+    }
+    .panel-heading  .icon-change .fa{
+        display: none!important;
+    }
 }
 @media screen and (min-width : 320px) and (max-width:480px) and (orientation: portrait) {
 
@@ -744,33 +767,66 @@ section h2{
         line-height: 20px;
         font-size: inherit;
     }
+    .username p{
+        line-height: 20px;
+        font-size: inherit;
+    }
     .search input{
         height: auto;
         font-size: inherit;
     }
     .username select{
-         height: auto;
-         font-size: inherit;
+       height: auto;
+       font-size: inherit;
+   }
+   .search .fa{
+    line-height: 20px;
+    font-size: inherit;
+}
+#sectionA .desc{
+    text-align: justify;
+}
+#sectionB p{
+  text-align: justify;  
+}
+#sectiond p{
+  text-align: justify;  
+}
+.bs-example.col-md-12{
+    padding: 0px;
+}
+.resolution-padding{
+    padding: 0px;
+}
+.mobile-view{
+ display: block;
+ font-weight: bold;
+ width: 50%;
+ float: left;
+ padding: 5px 0px;
+ color: #fff!important;
+}
+.collapsed .mobile-view{
+  color: #333!important;  
+}
+.panel-group .panel{
+    width: 100%;
+    float: left;
+}
+.mobile-view-div{width: 100%;
+    padding: 0px;
+    float: left;
+    margin: 5px 0px;}
+    .mobile-view-div p{
+        line-height: 27px;
+        font-weight: normal;
     }
-    .search .fa{
-        line-height: 20px;
-        font-size: inherit;
+    .testing{
+        display: none;
     }
-    #sectionA .desc{
-        text-align: justify;
-    }
-    #sectionB p{
-      text-align: justify;  
-    }
-    #sectiond p{
-      text-align: justify;  
-    }
-    .bs-example.col-md-12{
-        padding: 0px;
-    }
-    .resolution-padding{
-        padding: 0px;
-    }
+    .panel-heading  .icon-change .fa{
+      display: none!important;
+  }
 }
 
 @media screen and (min-width : 414px) and (max-width:768px)and (orientation: landscape){
@@ -779,7 +835,7 @@ section h2{
         text-align: center;
         margin: 15px 0px;
     }
-   .slider{
+    .slider{
         width: 100%;
         padding-right: 0px!important;
         padding-left: 0px;
@@ -793,23 +849,56 @@ section h2{
     .img-div{
         margin: 15px 0px;
     }
-      .explore h4{
+    .explore h4{
         line-height: 20px;
         font-size: inherit;
     }
-    .search input{
-        height: auto;
-        font-size: inherit;
+    .username p{
+      line-height: 20px;
+      font-size: inherit;
+  }
+  .search input{
+    height: auto;
+    font-size: inherit;
+}
+.username select{
+   height: auto;
+   font-size: inherit;
+}
+.search .fa{
+    line-height: 20px;
+    font-size: inherit;
+}
+.mobile-view{
+ display: block;
+ font-weight: bold;
+ width: 50%;
+ float: left;
+ padding: 5px 0px;
+ color: #fff!important;
+}
+.collapsed .mobile-view{
+  color: #333!important;  
+}
+.panel-group .panel{
+    width: 100%;
+    float: left;
+}
+.mobile-view-div{width: 100%;
+    padding: 0px;
+    float: left;
+    margin: 5px 0px;}
+    .mobile-view-div p{
+        line-height: 27px;
+        font-weight: normal;
     }
-    .username select{
-         height: auto;
-         font-size: inherit;
+    .testing{
+        display: none;
     }
-    .search .fa{
-        line-height: 20px;
-        font-size: inherit;
+    .panel-heading  .icon-change .fa{
+        display: none!important;
     }
-   
+
 }
 @media screen and (min-width : 667px) and (max-width:768px) and (orientation: landscape) {
     header .logo,.search,.explore,.username{
@@ -817,37 +906,67 @@ section h2{
         float: left;
         min-height: 55px;
     }
-      .explore h4{
+    .explore h4{
+        line-height: 22px;
+        font-size: 18px;
+    }
+    .username p{
         line-height: 22px;
         font-size: 18px;
     }
     .search input{
-     height: 43px;
-font-size: 18px;
-    }
-    .username select{
-        height: 43px;
-font-size: 18px;
-    }
-    .search .fa{
+       height: 43px;
        font-size: 18px;
-line-height: 34px;
+   }
+   .username select{
+    height: 43px;
+    font-size: 18px;
+}
+.search .fa{
+ font-size: 18px;
+ line-height: 34px;
+}
+.offer-plan .col-md-6 button{
+    font-size: 17px;
+    width: 100%;
+    margin: 10px 0px;
+}
+.test-water .category-offer{
+    margin: 20px 0px;
+    float: left;
+    width: 50%;
+}
+.shap-canvas {
+    display: inline-block;
+    border-left: 144px solid transparent;
+    border-right: 144px solid transparent;
+    border-top: 90px solid white;
+}
+.mobile-view{
+ display: block;
+ font-weight: bold;
+ width: 50%;
+ float: left;
+ padding: 5px 0px;
+ color: #fff!important;
+}
+.collapsed .mobile-view{
+  color: #333!important;  
+}
+.panel-group .panel{
+    width: 100%;
+    float: left;
+}
+.mobile-view-div{width: 100%;
+    padding: 0px;
+    float: left;
+    margin: 5px 0px;}
+    .mobile-view-div p{
+        line-height: 27px;
+        font-weight: normal;
     }
-    .offer-plan .col-md-6 button{
-        font-size: 17px;
-        width: 100%;
-        margin: 10px 0px;
-    }
-    .test-water .category-offer{
-        margin: 20px 0px;
-        float: left;
-        width: 50%;
-    }
-    .shap-canvas {
-        display: inline-block;
-        border-left: 144px solid transparent;
-        border-right: 144px solid transparent;
-        border-top: 90px solid white;
+    .testing{
+        display: none;
     }
 }
 
@@ -867,27 +986,35 @@ line-height: 34px;
         margin: 10px 0px;
     }
     .shap-canvas {
-display: inline-block;
-border-left: 165px solid transparent;
-border-right: 165px solid transparent;
-border-top: 90px solid white;
-}
-.slider{
-   padding-right: 0px!important
-}
-.logo{
+        display: inline-block;
+        border-left: 165px solid transparent;
+        border-right: 165px solid transparent;
+        border-top: 90px solid white;
+    }
+    .slider{
+     padding-right: 0px!important
+ }
+ .logo{
     padding: 12px 15px;
 }
+.testing{
+    overflow: hidden;
+}
+.panel-group .panel{
+    width: 100%;
+    float: left;
+}
+
 }
 @media screen and (min-width : 768px) and (max-width:1024px) and (orientation: landscape){
-      .shap-canvas {
-display: inline-block;
-border-left: 142px solid transparent;
-border-right: 142px solid transparent;
-border-top: 90px solid white;
+  .shap-canvas {
+    display: inline-block;
+    border-left: 142px solid transparent;
+    border-right: 142px solid transparent;
+    border-top: 90px solid white;
 }
 .username select{
-   padding: 0px 5px;
+ padding: 0px 5px;
 
 }
 
@@ -942,9 +1069,9 @@ only screen and (max-width: 414px),
     
     
    /* Force table to not be like tables anymore */
-    .summarytbl table, thead, tbody, th, td, tr { 
-        display: block; 
-    }
+   .summarytbl table, thead, tbody, th, td, tr { 
+    display: block; 
+}
 
     /* Hide table headers (but not display: none;, for accessibility) */
     .summarytbl thead tr { 
@@ -1012,17 +1139,17 @@ only screen and (max-width: 414px),
 }
 .textoffer{
     float: left;
-font-weight: normal;
-width: 23%;
+    font-weight: normal;
+    width: 23%;
 }
 .propertyoffer .hr {
   float: left;
-width: 77%;
-padding: 0px 5px;
-margin-top: -5px;
+  width: 77%;
+  padding: 0px 5px;
+  margin-top: -5px;
 }
-   .propertyoffer .hr hr{
-   border: 1px solid rgb(253, 184, 34);
+.propertyoffer .hr hr{
+ border: 1px solid rgb(253, 184, 34);
 }
 .offer-price{
     font-size: 45px!important;
@@ -1034,7 +1161,7 @@ margin-top: -5px;
     border-right: 1px solid rgb(253, 184, 34);
 }
 .investbar .border-left h4{
-    
+
 }
 .nav>li>a{
     padding: 10px 20px;
@@ -1053,12 +1180,12 @@ table{
     border: 1px solid #FDB822!important;
 }
 .test-water .offer-invest .col-md-6{
- min-height: inherit;   
+   min-height: inherit;   
 }
 .test-water .offer-invest .col-md-6 h4{
     font-size: 30px;
-font-weight: bold;
-margin: 0px;
+    font-weight: bold;
+    margin: 0px;
 
 }
 .doc li a{
@@ -1082,10 +1209,10 @@ margin: 0px;
     z-index: 200;
 }
 #mainnav a li{
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-    border-bottom: 1px solid #ccc;
+ display: block;
+ width: 100%;
+ padding: 10px 15px;
+ border-bottom: 1px solid #ccc;
 }
 
 #mainnav a{
@@ -1095,4 +1222,58 @@ margin: 0px;
 }
 #mainnav a:hover{
     color: rgb(253, 184, 34);
+}
+
+
+.collapsed .minus-view{
+
+   display: none!important;
+
+}
+.minus-view{ 
+   display: inline-block!important;
+}
+.plus-view{
+    display: none!important;
+}
+.collapsed .plus-view{
+    display: inline-block!important;
+}
+a.gray.collapsed {
+ overflow: hidden;
+ float: left;
+ width: 100%;
+ background: #eee!important;
+ padding: 10px;
+ color: #333!important;
+}
+.panel-default>.panel-heading {
+
+}
+.collapse.in{
+    float: left;
+}
+.panel-default>.panel-heading{
+    overflow: hidden;
+    padding: 0px;
+    background: #eee;
+}
+.panel-default>.panel-heading a.gray{
+    padding: 10px;
+    float: left;
+    width: 100%;
+    background: #212626;
+    color: white;
+}
+.set-para p{
+    margin: 0px;
+    font-size: 15px;
+}
+.panel-body{
+    padding: 0px;
+    border: 1px solid #333;
+}
+.heading-tbl{
+    margin: 40px 0px 20px;
+    float: left;
 }

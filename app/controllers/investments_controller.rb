@@ -2,11 +2,15 @@ class InvestmentsController < ApplicationController
   # before_filter :authenticate_user
 
   def index
-    @available = Investment.get_lp_investments('available')
-    @coming_soon = Investment.get_lp_investments('coming_soon')
-    @past = Investment.get_lp_investments('past')
-    @funded = Investment.get_lp_investments('funded')
-    @testing = Investment.get_lp_investments('test_the_waters')
+    if(params.has_key? :status)
+      @investments = Investment.where(status: params[:status])
+    else
+      @investments = Investment.get_lp_investments('available')
+      @coming_soon = Investment.get_lp_investments('coming_soon')
+      @past = Investment.get_lp_investments('past')
+      @funded = Investment.get_lp_investments('funded')
+      @testing = Investment.get_lp_investments('test_the_waters')
+    end
   end
 
   def show

@@ -1,7 +1,7 @@
 <section class="offer-plan">
 	<div class="container">
 		<div class="col-md-12"><h2 class="color-white section-heading margin-none">Available Investments</h2> </div>
-			<% @available.each do |investment|%>
+			<% @investments.each do |investment|%>
 				<%= link_to investment_path(investment) do%>
 					<div class="col-md-4 col-sm-12- col-xs-12 category-offer ">
 						<%= image_tag investment.logo.url, :width => '400' %>
@@ -38,9 +38,9 @@
 				<%end%>
 			<%end%>
 
-		<div class="col-md-6 ">
-			<button class="pull-right bg-yellow color-white">
-				MORE OPPORTUNITIES <i class="fa fa-long-arrow-right"></i>
+			<div class="col-md-6 ">
+			<button class="pull-right bg-yellow color-white" onclick="location.href='/investments?status=available'">
+					MORE OPPORTUNITIES <i class="fa fa-long-arrow-right"></i>
 			</button>
 		</div>
 		 <div class="col-md-6 ">

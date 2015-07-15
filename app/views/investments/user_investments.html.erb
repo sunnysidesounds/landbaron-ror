@@ -125,166 +125,127 @@
                   <p><b>Status</b></p>
                 </div>
               </div>
-              <div class="panel panel-default col-md-12 no-padding set-para">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" 
-                    href="#collapseTwo" class="gray">
-                      <div class='col-md-4 no-padding col-sm-4'>
-                        <span class="mobile-view"><i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Name</span> <p class="icon-change"> <i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Property Name or Title</p>
-                      </div>
-                      <div class='col-md-3 mobile-view-div col-sm-3'>
-                        <span class="mobile-view">Investment</span><p>$10,000</p>
-                      </div>
-                      <div class='col-md-3 mobile-view-div col-sm-3'>
-                        <span class="mobile-view">Return to Date</span>  <p>$4,000</p>
-                      </div>
-                      <div class='col-md-2 mobile-view-div col-sm-2'>
-                        <span class="mobile-view">Status</span> <p>Current</p>
-                      </div>
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse in">
-                  <div class="panel-body">
-                    <div class="col-md-6 col-xs-12 bg-yellow investtext">
-                      <p class="location-offer "><b><i class="fa fa-map-marker"></i> Location St.</b></p>
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                      </p>
+              <% if @active_quotes.any? %>
+                <% @active_quotes.each do |quote|%>
+                  <div class="panel panel-default col-md-12 no-padding set-para">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" 
+                        href="#collapse<%=quote.id%>" class="gray collapsed">
+                          <div class='col-md-4 no-padding col-sm-4'>
+                            <span class="mobile-view"><i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Name</span> <p class="icon-change"> <i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> <%= quote.investment.name %></p>
+                          </div>
+                          <div class='col-md-3 mobile-view-div col-sm-3'>
+                            <span class="mobile-view">Investment</span><p><%= number_to_currency(quote.total_amount, precision: 1)%></p>
+                          </div>
+                          <div class='col-md-3 mobile-view-div col-sm-3'>
+                            <span class="mobile-view">Return to Date</span><p><%= quote.investment.investment_duration%></p>
+                          </div>
+                          <div class='col-md-2 mobile-view-div col-sm-2'>
+                            <span class="mobile-view">Status</span> <p><%= quote.investment.status%></p>
+                          </div>
+                        </a>
+                      </h4>
                     </div>
-                    <div class="col-md-6 col-xs-12 no-padding investimgset">
-                     <%= image_tag "building.jpg" %>
-                    </div>
-                    <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
-                      <h4 class="color-yellow">Investment Details</h4>
-                      <ul class="investoffer border-none">
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
-                      <h4 class="color-yellow">Investment Details</h4>
-                      <ul class="investoffer border-none">
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-12 bg-gray  setpadding text-center">
-                     <h3> <a href="#" class="color-yellow"><b>View For Details</b> <i class="fa fa-arrow-right"></i></a></h3>
+                    <div id="collapse<%=quote.id%>" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <div class="col-md-6 col-xs-12 bg-yellow investtext">
+                          <p class="location-offer "><b><i class="fa fa-map-marker"></i> <%= quote.investment.address%></b></p>
+                          <p>
+                            <%= h truncate_html(quote.investment.key_information, :length => 100)%>
+                          </p>
+                        </div>
+                        <div class="col-md-6 col-xs-12 no-padding investimgset">
+                         <%= image_tag quote.investment.logo.url || "https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20found&w=350&h=150" %>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                          <h4 class="color-yellow">Investment Goal</h4>
+                          <ul class="investoffer border-none">
+                            TODO: get designed from designer
+                          </ul>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                          <h4 class="color-yellow">Investment Documents</h4>
+                          <ul class="investoffer border-none">
+                            Coming Soon...
+                          </ul>
+                        </div>
+                        <div class="col-md-12 bg-gray  setpadding text-center">
+                         <h3> 
+                          <%= link_to investment_path(quote.investment), class: 'color-yellow' do%>
+                            <b>View For Details</b> <i class="fa fa-arrow-right"></i>
+                          <%end%>
+                          </h3>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="panel panel-default col-md-12 no-padding set-para">
-                <div class="panel-heading">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" data-parent="#accordion" 
-                    href="#collapseOne" class="gray collapsed">
-                      <div class='col-md-4 no-padding col-sm-4'>
-                        <span class="mobile-view"><i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Name</span> <p class="icon-change"> <i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Property Name or Title</p>
-                      </div>
-                      <div class='col-md-3 mobile-view-div col-sm-3'>
-                        <span class="mobile-view">Investment</span><p>$10,000</p>
-                      </div>
-                      <div class='col-md-3 mobile-view-div col-sm-3'>
-                        <span class="mobile-view">Return to Date</span>  <p>$4,000</p>
-                      </div>
-                      <div class='col-md-2 mobile-view-div col-sm-2'>
-                        <span class="mobile-view">Status</span> <p>Current</p>
-                      </div>
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <div class="col-md-6 col-xs-12 bg-yellow investtext">
-                      <p class="location-offer "><b><i class="fa fa-map-marker"></i> Location St.</b></p>
-                      <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                      </p>
-                    </div>
-                    <div class="col-md-6 col-xs-12 no-padding investimgset">
-                     <%= image_tag "building.jpg"%>
-                    </div>
-                    <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
-                      <h4 class="color-yellow">Investment Details</h4>
-                      <ul class="investoffer border-none">
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
-                      <h4 class="color-yellow">Investment Details</h4>
-                      <ul class="investoffer border-none">
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                        <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                      </ul>
-                    </div>
-                    <div class="col-md-12 bg-gray  setpadding text-center">
-                     <h3> <a href="#" class="color-yellow"><b>View For Details</b> <i class="fa fa-arrow-right"></i></a></h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <%end%>
+              <%else%>
+                <div class="text-center">No active investments found</div>
+              <%end%>
             </div>
             <h3 class="text-left heading-tbl">Pending Investment</h3>
-            <div class="panel panel-default col-md-12 no-padding set-para ">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" 
-                  href="#collapseThree" class="gray collapsed">
-                    <div class='col-md-4 no-padding col-sm-4'>
-                      <span class="mobile-view"><i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i>  Name</span> <p class="icon-change"> <i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Property Name or Title</p>
-                    </div>
-                    <div class='col-md-3 mobile-view-div col-sm-3'>
-                      <span class="mobile-view">Investment</span><p>$10,000</p>
-                    </div>
-                    <div class='col-md-3 mobile-view-div col-sm-3'>
-                      <span class="mobile-view">Return to Date</span>  <p>$4,000</p>
-                    </div>
-                    <div class='col-md-2 mobile-view-div col-sm-2'>
-                      <span class="mobile-view">Status</span> <p>Current</p>
-                    </div>
-                  </a>
-                </h4>
-              </div>
-              <div id="collapseThree" class="panel-collapse collapse ">
-                <div class="panel-body">
-                  <div class="col-md-6 col-xs-12 bg-yellow investtext">
-                    <p class="location-offer "><b><i class="fa fa-map-marker"></i> Location St.</b></p>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    </p>
+            <% if @pending_quotes.any? %>
+              <% @pending_quotes.each do |quote|%>
+                <div class="panel panel-default col-md-12 no-padding set-para">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" 
+                      href="#collapse<%=quote.id%>" class="gray collapsed">
+                        <div class='col-md-4 no-padding col-sm-4'>
+                          <span class="mobile-view"><i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> Name</span> <p class="icon-change"> <i class="fa fa-plus-square color-yellow plus-view"></i> <i class="fa fa-minus-square color-yellow minus-view"></i> <%= quote.investment.name %></p>
+                        </div>
+                        <div class='col-md-3 mobile-view-div col-sm-3'>
+                          <span class="mobile-view">Investment</span><p><%= number_to_currency(quote.total_amount, precision: 1)%></p>
+                        </div>
+                        <div class='col-md-3 mobile-view-div col-sm-3'>
+                          <span class="mobile-view">Return to Date</span><p><%= quote.investment.investment_duration%></p>
+                        </div>
+                        <div class='col-md-2 mobile-view-div col-sm-2'>
+                          <span class="mobile-view">Status</span> <p><%= quote.investment.status%></p>
+                        </div>
+                      </a>
+                    </h4>
                   </div>
-                  <div class="col-md-6 col-xs-12 no-padding investimgset">
-                   <%= image_tag "building.jpg" %>
-                 </div>
-                <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
-                  <h4 class="color-yellow">Investment Details</h4>
-                  <ul class="investoffer border-none">
-                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                  </ul>
+                  <div id="collapse<%=quote.id%>" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <div class="col-md-6 col-xs-12 bg-yellow investtext">
+                        <p class="location-offer "><b><i class="fa fa-map-marker"></i> <%= quote.investment.address%></b></p>
+                        <p>
+                          <%= h truncate_html(quote.investment.key_information, :length => 100)%>
+                        </p>
+                      </div>
+                      <div class="col-md-6 col-xs-12 no-padding investimgset">
+                       <%= image_tag quote.investment.logo.url || "https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20found&w=350&h=150" %>
+                      </div>
+                      <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                        <h4 class="color-yellow">Investment Goal</h4>
+                        <ul class="investoffer border-none">
+                          TODO: get designed from designer
+                        </ul>
+                      </div>
+                      <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
+                        <h4 class="color-yellow">Investment Documents</h4>
+                        <ul class="investoffer border-none">
+                          Coming Soon...
+                        </ul>
+                      </div>
+                      <div class="col-md-12 bg-gray  setpadding text-center">
+                       <h3> 
+                        <%= link_to investment_path(quote.investment), class: 'color-yellow' do%>
+                          <b>View For Details</b> <i class="fa fa-arrow-right"></i>
+                        <%end%>
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-6 col-xs-12 col-md-6 bg-gray  setpadding">
-                  <h4 class="color-yellow">Investment Details</h4>
-                  <ul class="investoffer border-none">
-                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                    <li> <span class="width-half color-dark">FUNDING AGREEMENT</span> lorem</li>
-                  </ul>
-                </div>
-                <div class="col-md-12 bg-gray  setpadding text-center">
-                  <h3> <a href="#" class="color-yellow"><b>View For Details</b> <i class="fa fa-arrow-right"></i></a></h3>
-                </div>
-              </div>
-            </div>
+              <%end%>
+            <%else%>
+              No pending investments found
+            <%end%>
+          
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
 						<%= image_tag investment.logo.url, :width => '400' %>
 						<div class="bg-white title-desc">
 							<h3 ><b><%= investment.name%></b></h3>
-							<p class="location-offer"><i class="fa fa-map-marker"></i> Location St.</p>
+							<p class="location-offer"><i class="fa fa-map-marker"></i>&nbsp;<%= investment.address || 'not applicable'%></p>
 							<p class="desc">
 								<%=h truncate_html(investment.key_information, :length => 100) %>
 							</p>

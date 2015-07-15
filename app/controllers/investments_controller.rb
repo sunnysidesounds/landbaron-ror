@@ -18,7 +18,8 @@ class InvestmentsController < ApplicationController
 
   def user_investments
     @quotes = current_user.quotes
-    
+    @active_quotes = current_user.quotes.accepted
+    @pending_quotes = current_user.quotes.pending
     # @documents = Medium.where(investment_id: current_user.investments.all.map(&:id))    
   end
 

@@ -1520,7 +1520,6 @@ div.banner h2::after {
 /* Sign-Up Form / Registration */
 
 .signup_container {
-    border: 1px solid red;
     margin: auto;
     width: 70%;
     padding:5px;
@@ -1693,6 +1692,11 @@ div.banner h2::after {
     font-weight: 300;
     margin-bottom: 5px;
 }
+
+.category_cell {
+    white-space: nowrap;
+}
+
 .signup_page_2 {
     margin-bottom:10px;
 }

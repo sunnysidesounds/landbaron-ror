@@ -141,10 +141,10 @@
                             <!-- CHANGE ME -->
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">QUESTION ONE</label>
+                                    <label for="user_email">What type(s) of property are you interested in?</label>
 
                                     <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => '(residential/commercial/both/undecided)' %>
                                     <%= show_field_error(@user, :email) %>
                                 </div>
                             </div>
@@ -162,10 +162,10 @@
                             <!-- CHANGE ME -->
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">QUESTION TWO</label>
+                                    <label for="user_email">What type(s) of deals are you interested in?</label>
 
                                     <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => '(debt/equity/both/undecided)' %>
                                     <%= show_field_error(@user, :email) %>
                                 </div>
                             </div>
@@ -184,47 +184,33 @@
                         <div class="col-md-12 form_container_cell">
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">QUESTION TWO</label>
+                                    <label for="user_email">Property Categories:</label>
                                     <div class="row signup_categories">
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        <div class="col-md-3 category_cell">
+                                            <input type="checkbox" name="category" value="apartments"> Apartments
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        <div class="col-md-3 category_cell">
+                                            <input type="checkbox" name="category" value="residential_homes"> Residential Homes
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        <div class="col-md-3 category_cell">
+                                            <input type="checkbox" name="category" value="industrial_space"> Industrial Space
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        <div class="col-md-3 category_cell">
+                                            <input type="checkbox" name="category" value="self_storage"> Self-Storage
                                         </div>
                                     </div>
                                     <div class="row signup_categories">
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        <div class="col-md-3 category_cell">
+                                            <input type="checkbox" name="category" value="commercial_office_use"> Commercial/Office Use
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        <div class="col-md-3 category_cell">
+                                            <input type="checkbox" name="category" value="new_developments"> New Developments
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        <div class="col-md-3 category_cell">
+                                            <input type="checkbox" name="category" value="rehabilitations_or_flips"> Rehabilitations or Flips
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
-                                        </div>
-                                    </div>
-                                    <div class="row signup_categories">
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="checkbox" name="category" value="category_name"> Category Name
+                                        <div class="col-md-3 category_cell">
+                                            <input type="checkbox" name="category" value="high_rises_or_skyscrapers"> High-rises or Skyscrapers
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +240,7 @@
                         <div class="col-md-6 form_container_cell">
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">QUESTION ONE</label>
+                                    <label for="user_email">Which best describes you?</label>
 
                                     <!-- TODO : Need to change email? -->
                                     <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>

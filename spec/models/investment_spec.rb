@@ -30,6 +30,7 @@
 #  logo_updated_at      :datetime
 #  spots_have           :string
 #  vote_enabled         :integer          default(0)
+#  address              :string
 #
 
 require 'spec_helper'

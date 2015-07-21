@@ -7,14 +7,25 @@
     <%= stylesheet_link_tag    "application" %>
 
     <link rel='stylesheet' id='tt-easy-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Oswald%3A700%7CSyncopate%3A700&#038;subset=latin%2Call&#038;ver=4.1.1' type='text/css' media='all' />
-    <link rel='stylesheet' id='altitude-google-fonts-css'  href='//fonts.googleapis.com/css?family=Ek+Mukta%3A200%2C800&#038;ver=1.0.0' type='text/css' media='all' />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <!-- <link rel='stylesheet' id='altitude-google-fonts-css'  href='//fonts.googleapis.com/css?family=Ek+Mukta%3A200%2C800&#038;ver=1.0.0' type='text/css' media='all' /> -->
+
+    <link href='http://fonts.googleapis.com/css?family=Ek+Mukta' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
     <%= javascript_include_tag "application" %>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!--<script src="http://seiyria.github.io/bootstrap-slider/javascripts/jquery.min.js"></script> -->
+  
   </head>
   <!--[if lt IE 9 ]><body class="lt-ie9"><![endif]-->
   <!--[if (gt IE 9)|!(IE)]><!--> <body><!--<![endif]-->
-    <%= render 'preorder/header' %>
+    <%= render 'common/header' %>
 
 
 
@@ -25,6 +36,6 @@
   </div>
   
     <%= yield %>
-    <%= render 'preorder/footer' %>
+    <%= render 'common/footer' %>
   </body>
 </html>

@@ -27,11 +27,19 @@ class Quote < ActiveRecord::Base
   before_create :generate_uuid, :unless => :reference_id?
   after_create :send_emails
 
+  PENDING = 'PENDING'
+  DENIED = 'denied'
+  ACCEPTED = 'accepted'
+  STATUSES = [PENDING, DENIED, ACCEPTED]
+
+  scope :pending, -> { where(status: PENDING) }
+  scope :denied, -> { where(status: DENIED) }
+  scope :accepted, -> { where(status: ACCEPTED) }
+
   def send_emails
     ConfirmationMailer.confirmation_email(self.user, self).deliver_now
     AdminMailer.admin_email(self.user, self).deliver_now
   end
-
 
   def generate_uuid
     self.reference_id = SecureRandom.uuid

@@ -1,4 +1,4 @@
-<div class="gray_background">
+<div id="login">
 
     <div class="signup_login_container">
         <div class="lbc_tabs">
@@ -9,20 +9,16 @@
                 <%= link_to "Login", new_user_session_path, :class => 'login_account_link' %>
             </div>
         </div>
-        <div class="form_container">
-            <%= devise_error_messages! %>
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-                <div class="form_group">
-                    <%= f.text_field :login_attr, :class => 'form-control', :autofocus => true, :placeholder => 'Username or Email' %>
-                </div>
-                <div class="form_group">
-                    <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :autofocus => true, :placeholder => 'Password' %>
-                </div>
-                <div class="form_group submission_form">
-                    <%= f.submit 'Log In', :class=> 'buttom_gold' %>
-                    <%= f.submit 'Clear Form', :type => 'reset', :class=>'buttom_gold' %>
-                </div>
-            <% end %>
-        </div>
+        <h2><span class="fontawesome-lock"></span>Welcome to Lanbaron Club </h2>
+        <%= devise_error_messages! %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <fieldset>
+                <p><label for="email">E-mail address</label></p>
+                <%= f.text_field :login_attr, :class => 'form-control', id: 'email', :autofocus => true, :placeholder => 'Username or Email', onblur: "if(this.value=='')this.value='mail@address.com'", onfocus: "if(this.value=='mail@address.com')this.value=''"%>
+                <p><label for="password">Password</label></p>
+                <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :autofocus => true, id:'password', :placeholder => 'Password', onblur: "if(this.value=='')this.value='password'", onfocus: "if(this.value=='password')this.value=''" %>
+                <%= f.submit 'Log In'%>
+            </fieldset>
+        <% end %>
     </div>
 </div>

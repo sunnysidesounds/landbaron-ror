@@ -29,6 +29,16 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  country                :string
+#  property_types         :string
+#  deal_types             :string
+#  budget_range           :string
+#  risk_tolerance         :string
+#  property_categories    :string
+#  invested_in_realestate :string
+#  hear_about_us          :string
+#  reason_to_invest       :string
+#  current_investments    :string
 #
 
 class User < ActiveRecord::Base

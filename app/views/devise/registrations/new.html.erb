@@ -47,23 +47,50 @@
 
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">YOUR EMAIL</label>
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'name@example.com' %>
+                                    <!-- FIRST NAME -->
+                                    <label for="user_email">FIRST NAME</label>
+                                    <%= f.text_field :first_name, :class => 'form-control', :autofocus => true, :placeholder => '' %>
+                                    <%= show_field_error(@user, :first_name) %>
+                                </div>
+                            </div>
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- EMAIL -->
+                                    <label for="user_email">EMAIL</label>
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => '' %>
                                     <%= show_field_error(@user, :email) %>
                                 </div>
                             </div>
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- PASSWORD -->
                                     <label for="user_email">CREATE PASSWORD</label>
-                                    <%= f.password_field :password, :class => 'form-control', :autofocus => true, :placeholder => 'Password' %>
+                                    <%= f.password_field :password, :class => 'form-control', :autofocus => true, :placeholder => '' %>
                                     <%= show_field_error(@user, :password) %>
                                 </div>
                             </div>
+
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- CITY  -->
+                                    <label for="user_email">CITY</label>
+                                    <%= f.text_field :city, :class => 'form-control', :autofocus => true, :placeholder => '' %>
+                                </div>
+                            </div>
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- POSTAL CODE  -->
+                                    <label for="user_email">POSTAL CODE</label>
+                                    <%= f.text_field :postal_code, :class => 'form-control', :autofocus => true, :placeholder => 'Postal Code' %>
+
+                                </div>
+                            </div>
+
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell form_container_inner_state ">
+                                    <!-- COUNTRY  -->
                                     <label for="user_email">COUNTRY</label>
-                                    <!-- TODO: Change to country, need to add to db. -->
-                                    <%= f.select :state, options_for_select(us_states) %>
+                                    <%= f.select :country, options_for_select(countries) %>
                                 </div>
                             </div>
                             <div class="row form_container_inner_row">
@@ -73,19 +100,44 @@
                             </div>
                         </div>
                         <div class="col-md-6 form_container_cell">
+
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- LAST NAME -->
+                                    <label for="user_email">LAST NAME</label>
+                                    <%= f.text_field :last_name, :class => 'form-control', :autofocus => true, :placeholder => '' %>
+                                    <%= show_field_error(@user, :last_name) %>
+                                </div>
+                            </div>
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- EMAIL CONFIRM -->
                                     <label for="user_email">CONFIRM EMAIL</label>
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'name@example.com' %>
+                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => '' %>
                                     <%= show_field_error(@user, :email) %>
                                 </div>
                             </div>
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- PASSWORD CONFIRM -->
                                     <label for="user_email">CONFIRM PASSWORD</label>
-                                    <%= f.password_field :password_confirmation, :class => 'form-control', :autofocus => true, :placeholder => 'Password Confirmation' %>
+                                    <%= f.password_field :password_confirmation, :class => 'form-control', :autofocus => true, :placeholder => '' %>
                                     <%= show_field_error(@user, :password_confirmation) %>
                                 </div>
+                            </div>
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- STATE  -->
+                                    <label for="user_email">STATE</label>
+                                    <%= f.select :state, options_for_select(us_states) %>
+                                </div>
+                            </div>
+                            <div class="row form_container_inner_row">
+                                <div class="col-md-12 form_container_inner_row_cell">
+                                    <!-- PHONE  -->
+                                    <label for="user_email">PHONE</label>
+                                    <%= f.text_field :phone_number, :class => 'form-control', :autofocus => true, :placeholder => 'Phone Number' %>
+                                    <%= show_field_error(@user, :phone_number) %>                                </div>
                             </div>
                             <div class="row form_container_inner_row">
                                 <div class="col-md-12 form_container_inner_row_cell">
@@ -283,6 +335,10 @@
                 <!-- INSERT FORM STUFF -->
                 <div class="signup_seperator">&nbsp;</div>
                 <div class="signup_submission">
+                    <%= f.hidden_field :principle_investor, :value => 'false' %>
+                    <%= f.hidden_field :verified, :value => 'false' %>
+                    <%= f.hidden_field :address, :value => '' %>
+                    <%= f.hidden_field :username, :value => f.object.email %>
                     <%= f.submit 'Finish Up', :id => 'create_user_button', :class=>'buttom_gold button_large_and_long_signup' %>
                 </div>
                 <div class="signup_footer">

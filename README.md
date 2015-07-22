@@ -12,11 +12,18 @@ First you'll need to fork and clone this repo
 git clone https://github.com/landbaronclub/landbaron.git
 ```
 
+Move /public/system folder so the images stay intact
+
+```bash
+cp landbaron backup
+cp -R /backup/public/system landbaron/public/
+```
 Let's get all our dependencies setup:
 
 ```bash
 bundle install --without production
 ```
+Note: this sometimes requires sudo if all the gems do not install
 
 Now let's create the database:
 
@@ -31,10 +38,10 @@ settings.yml) then need to seed some data for the options:
 rake db:seed
 ```
 
-Let's get it running:
+Let's get it running with Puma:
 
 ```bash
-rails s
+sudo nohup bundle exec puma -b 'unix:///tmp/landbaronclub-puma.sock?umask=0111' &
 ```
 
 ### Customizing

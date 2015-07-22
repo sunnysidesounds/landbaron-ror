@@ -1,326 +1,192 @@
-<div class="gray_background">
-    <div class="investment_details_container">
-
-        <div class="row back_button_container">
-            <div class="col-md-12">
-                <%= link_to "Back To Investments", investments_path, class: "back_con back_butto"%>
-            </div>
+<section class="investement-first property">
+    <div class="container">
+        <div class="col-md-12">
+            <h1 class="color-white title-invest margin-none"><%= @investment.name%></h1>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                &nbsp;
-            </div>
-        </div>
-        <div class="row investment_detail_header">
-            <div class="col-md-3 investment_header_column">
-                <div class="company_logo">
-                    <%= image_tag @investment.logo.url, :width => '400' %>
-                </div>
-            </div>
-            <div class="col-md-6 investment_header_column">
-                <div class="fund-info">
-                    <h2><%=@investment.name %></h2>
-                    <p><%=h truncate(@investment.key_information, :length => 695, :escape => false) %></p>
-                    <div class="data ">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 investment_header_column">
-                <div class="row">
-                    <% if @investment.status == 'funded' %>
-                        <div class="col-md-12 invest_now">
-                            <a class="buttom_gray button_super_large" href="javascript: void(0)">Funded</a>
-                        </div>
-                    <% elsif @investment.vote_enabled == 1 && @investment.status == 'test_the_waters' %>
-                        <div class="col-md-12 vote_for_test">
-                            <!-- voting markup -->
-                            <% @vote.each do |vote| %>
-                                <div class="voting_wrapper" id="<%=@investment.id %>-<%=current_user.id %>">
-                                    <div class="voting_btn voting_question">
-                                        Do you like this investment?
-                                    </div>
-                                    <div class="voting_btn">
-                                        <div class="up_button">&nbsp;
-                                            <i class="lbc-icon glyphicon glyphicon-thumbs-up"></i>
-                                        </div>
+        <div class="col-md-8 slider color-white">
+            <div class="slider-wrapper">
+             <ul class="bxslider">
+                <%no_image_shown = true%>
+                <% @investment.media.each do |medium| %>
 
-                                    <span class="up_votes">
-                                        <% if vote['t'].nil? %>
-                                                0
-                                        <% else %>
-                                            <%= vote['t'] %>
-                                        <% end %>
-                                    </span>
-                                    </div>
-                                    <div class="voting_btn">
-                                        <div class="down_button">&nbsp;
-                                            <i class="lbc-icon glyphicon glyphicon-thumbs-down"></i>
-                                        </div>
-                                    <span class="down_votes">
-                                       <% if vote['f'].nil? %>
-                                            0
-                                        <% else %>
-                                            <%= vote['f'] %>
-                                        <% end %>
-                                    </span>
-                                    </div>
-                                    <div class="voting_message"></div>
-                                </div>
-                            <% end %>
-                            <!-- voting markup end -->
-                        </div>
-                    <% else %>
-                        <div class="col-md-12 invest_now">
-                            <!-- <a class="buttom_gold button_super_large" href="/invest/<%=@investment.id %>">Invest</a> -->
-                            <%= link_to "Invest", new_invest_investment_path(@investment), class: "buttom_gold button_super_large"%>
-                        </div>
+                    <% if !(medium.media_item_content_type =~ /^image/).nil? %>
+                        <%no_image_shown = false%>
+                        <li><img src="<%=medium.media_item %>" /></li>
                     <% end %>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="progress_bar">
-                            <script>
-                                var percentageRemaining;
-                                var totalInvestedAmount = <%= @progress_amount.to_f %>;
-                                var minimumRaiseAmount = <%= @investment.minimum_raise_amount.to_f %>;
-                                var inventmentStatus = "<%= @investment.status %>";
-                                if(totalInvestedAmount >= minimumRaiseAmount) {
-                                    percentageRemaining = 100;
-                                } else if(inventmentStatus == "funded"){
-                                    percentageRemaining = 100;
-                                } else {
-                                    if(minimumRaiseAmount == 0 || minimumRaiseAmount == null || minimumRaiseAmount == undefined) {
-                                        percentageRemaining = 1;
-                                    } else if(totalInvestedAmount == 0 || totalInvestedAmount == null || totalInvestedAmount == undefined){
-                                        percentageRemaining = 1;
-                                    } else {
-                                        percentageRemaining = (totalInvestedAmount / minimumRaiseAmount) * 100;
-                                        if(percentageRemaining < 1){
-                                            percentageRemaining = 1;
-                                        }
-                                    }
-                                }
-                                $(function() {
-                                    $( "#progressbar" ).progressbar({
-                                        value: percentageRemaining
-                                    }).children('.ui-progressbar-value')
-                                            .html(percentageRemaining.toPrecision(3) + '%')
-                                            .css("display", "block");
-                                    });
-                            </script>
-                            <div id="progressbar"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="amount_invested">
-                            <div class="pledged">
-                                <div class="pedge_number">$<%= @progress_amount.to_i %></div>
-                                <div class="pedge_title">pledged</div>
-                                <div class="pedge_title_mini">of <strong><%=@investment.raise_amount %></strong> goal</div>
-                            </div>
-                            <div class="backers b_count">
-                                <i class="glyphicon glyphicon-user"></i>
+                <% end %>
+                <%if no_image_shown%>
+                    <li><img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20found&w=350&h=150" /></li>
+                <%end%>
+            </ul>
+            <div class="col-md-12 star-up">
+                <h5 class="text-right"><i class="fa fa-star-o"></i></h5>
+            </div>
+        </div> 
 
-                                <div class="backer_number"><%= @investment.quotes.count %></div>
-                                <div class="backer_title">investors</div>
-                            </div>
-                            <div class="backers c_count">
-                                <i class="glyphicon glyphicon-calendar"></i>
-                               <!-- <div class="backer_ends">ends</div>-->
-                                <div class="backer_title backer_title_alt"><strong><%=@investment.investment_duration %></strong></div>
-                            </div>
-                        </div>
-                    </div>
-                    <% if @investment.vote_enabled == 1 && @investment.status != 'test_the_waters' %>
-                        <!-- voting markup -->
-                        <% @vote.each do |vote| %>
-                            <div class="voting_wrapper" id="<%=@investment.id %>-<%=current_user.id %>">
-                                <div class="voting_btn voting_question">
-                                    Do you like this investment?
-                                </div>
-                                <div class="voting_btn">
-                                    <div class="up_button">&nbsp;
-                                        <i class="lbc-icon glyphicon glyphicon-thumbs-up"></i>
-                                    </div>
+        <div id="bx-pager">
+            <%- @investment.media.each_with_index do |medium, index| %>
+                <% if !(medium.media_item_content_type =~ /^image/).nil? %>
+                    <a data-slide-index="<%= index%>" class=" thumb-pager" href=""><img src="<%=medium.media_item %>"></a>
+                <% end %>
+            <% end %>
+        </div>
 
-                                    <span class="up_votes">
-                                        <% if vote['t'].nil? %>
-                                                0
-                                        <% else %>
-                                            <%= vote['t'] %>
-                                        <% end %>
-                                    </span>
-                                </div>
-                                <div class="voting_btn">
-                                    <div class="down_button">&nbsp;
-                                        <i class="lbc-icon glyphicon glyphicon-thumbs-down"></i>
-                                    </div>
-                                    <span class="down_votes">
-                                       <% if vote['f'].nil? %>
-                                            0
-                                        <% else %>
-                                            <%= vote['f'] %>
-                                        <% end %>
-                                    </span>
-                                </div>
-                                <div class="voting_message"></div>
-                            </div>
-                        <% end %>
-                        <!-- voting markup end -->
-                    <% end %>
 
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12 investnow dashboeardproperty">
+        <%= button_to new_invest_investment_path(@investment), method: "get" do %>
+            <i class="fa fa-check"></i> Invest Now
+        <% end %>
+        <ul class="propertyoffer color-white">
+            <li><span class="textoffer">Goal</span> <span class="hr"><hr></span></li>
+            <li class="color-yellow offer-price"><%= number_to_currency(@investment.minimum_raise_amount, precision: 1) %></li>
+            <li><span class="textoffer">Funded</span> <span class="hr"><hr></span></li>
+            <li class="color-yellow offer-price"><%= number_to_currency(@investment.get_progress_stats, precision: 1) %></li>
+            <li> 
+                <div class="status-bar">
+                    <p style="width: <%= @investment.investment_percent_progress %>;" class="status-report"></p> 
                 </div>
+            </li>
+        </ul>
+        <div class="offer-invest investbar">
+            <div class="col-md-4 col-sm-4 col-xs-4 no-padding text-left border-right">
+                <h4 class="color-yellow "><%= @investment.investment_percent_progress %></h4>
+                Funds
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 text-center ">
+                <h4 class="color-yellow"><%= @investment.principle_investors.count%></h4>
+                Investor
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 text-right no-padding border-left">
+                <h4 class="color-yellow">90d</h4>
+                Time Left
             </div>
         </div>
-        <div class="row investment_detail_information">
-            <div class="col-md-8 boxey-box">
-                <div class="key_information_right key_information_description">
-                    <% if @investment.media.any? %>
-                    <div class="slider_container" id="slider" style="visibility:hidden">
-                        <ul class="bxslider">
-                            <% @investment.media.each do |medium| %>
 
-                                <% if !(medium.media_item_content_type =~ /^image/).nil? %>
-                                    <li><img width="600" src="<%=medium.media_item %>" /></li>
-                                <% end %>
-                            <% end %>
-                        </ul>
-                    </div>
-                    <% end %>
-                    <h2>Key Information</h2>
-                    <div class="key_information_content">
-                    <p><%=@investment.key_information.html_safe %></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 boxey-box left-box">
-                <!--
-                <div class="key_information_left watchers">
-                    <h3>25 Watchers</h3>
-                    <div class="watch_button_container">
-                        <a class="buttom_gold button_large_and_long" href="#">Watch</a>
-                    </div>
-                </div>
-
-                <div class="key_information_left investors_list">
-                    <h3>Investor List</h3>
-                    <img class="investor_img" width="270" src="/assets/investor_list_placeholder.jpg" />
-                </div> -->
-                <div class="key_information_left principle_bios">
-                    <h3>Principal Investors</h3>
-                    <% if @investment.principle_investors.any? %>
-                        <% @investment.principle_investors.each do |principal| %>
-                            <a href="#" class="investor_principal_sublist"><img class="principle_investor_img" width="100" src="<%=principal.profile_pic %>"/> <%=principal.full_name %></a>
-                            <br />
-                            <br />
-                        <% end %>
-                    <% else %>
-                         <div class="no_data">No Data</div>
-                    <% end %>
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="row investment_detail_information funder_terms_q">
-            <div class="col-md-12 boxey-box">
-                  <div class="funder_terms">
-                      <h2>Fund Terms</h2>
-                      <div class="funder_terms_conatiner">
-                        <h4 class="mini_invest"><strong>Minimum Inventment: </strong> <%=@investment.investment_minimum %></h4>
-                            <h4><strong>Fee Structure: </strong></h4>
-                            <div class="key_information_content">
-                                <% if @investment.note.nil? %>
-                                    No Date
-                                <% else %>
-                                    <%=@investment.fee_structure.try(:html_safe)%>
-                                <% end %>
-                              </div>
-                          <h4 class="mini_invest_2"><strong>Notes: </strong></h4>
-                                <div class="key_information_content">
-                                <p>
-                                <% if @investment.note.nil? %>
-                                    No Data
-                                <% else %>
-                                    <%=@investment.note.try(:html_safe)%>
-                                <% end %>
-                                </p>
-                            </div>
-                      </div>
-                  </div>
-            </div>
-        </div>
-        <br />
-            <div id="principle_section" class="row investment_detail_information funder_terms_q">
-                <div class="col-md-12 boxey-box">
-                    <div class="funder_terms">
-                        <h2>Principal Investors</h2>
-                        <div class="funder_terms_conatiner">
-                            <% if @investment.principle_investors.any? %>
-                                <% @investment.principle_investors.each do |principal| %>
-                                    <div class="row" id="<%=principal.id %>_principle">
-                                        <div class="col-md-3">
-                                            <img class="principle_investor_img" width="220" src="<%=principal.profile_pic %>"/>
-                                        </div>
-                                        <div class="col-md-5 bio_stuff">
-                                            <div class="bio_f_name"><%=principal.full_name %></div>
-                                            <span>
-                                                - <%=principal.occupation %>
-                                            </span>
-                                            <p><%=principal.bio %></p>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <br />
-                                <% end %>
-                            <% else %>
-                                No Data
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <br />
-        <div class="row investment_detail_information funder_terms_q">
-            <div class="col-md-12 boxey-box">
-                <div class="answers_to_questions">
-                    <h2>Answers To Questions</h2>
-                    <div class="qa_conatiner">
-                        <% if @investment.qa.nil? %>
-                            No Data
-                        <% else %>
-                            <%=@investment.qa.try(:html_safe)%>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="row investment_detail_information funder_terms_q">
-            <div class="col-md-12 boxey-box">
-                <div class="answers_to_questions">
-                    <h2>Documents</h2>
-                    <div class="qa_conatiner">
-                       <ul class="documents_list">
-                           <% if @investment.media.any? %>
-                               <% @investment.media.each do |medium| %>
-                                   <% if (medium.media_item_content_type =~ /^image/).nil? %>
-                                       <li class="documents_list_items">
-                                           <a href="<%=medium.media_item %>" target="_blank">
-                                           <img width="150" src="<%=medium.media_item.url(:pdf_thumbnail) %>" />
-                                           <%=medium.media_item_file_name%></a>
-                                       </li>
-                                   <% end %>
-                               <% end %>
-                           <% else %>
-                               Upon Request
-                           <% end %>
-                       </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
     </div>
 </div>
+</section>
+<section class="tabs-wrapper">
+    <div class="container">
+        <div class="bs-example col-md-12">
+            <ul class="nav nav-tabs" id="myTab">
+                <li class="active"><a href="#sectionA">Description</a></li>
+                <li><a href="#sectionB">Principle Investors</a></li>
+                <li><a href="#sectionc">Gallery</a></li>
+                <li><a href="#sectiond">FAQs</a></li>
+
+            </ul>
+            <div class="tab-content col-md-12">
+                <div id="sectionA" class="tab-pane fade in active ">
+                    <div class="col-md-8">
+                        <h2><%= @investment.name%></h2>
+
+                        <p class="location color-yellow"><i class="fa fa-map-marker"></i> <%= @investment.address || 'not applicable'%></p>
+                        <% @investment.tags.each do |tag|%>
+                            <span><i class="fa fa-tag"></i><%= tag.name %></span>
+                        <% end %>
+                        <p class="desc">
+                            <%= @investment.key_information %>
+                        </p>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12 col-xs-12 tablist">
+                        <div class="col-md-12 buttonpropertys">
+                        <%= button_to new_invest_investment_path(@investment), method: "get" do %>
+                            <i class="fa fa-check"></i> Invest Now
+                        <% end %>
+                         <button class="bg-transparent"><i class="fa fa-star-o"></i> Add to Watchlist </button>
+                     </div>
+                     <div class="col-md-12 col-sm-12">
+                        <h2 class="text-left border-bold">Investment Detail</h2>
+                        <ul class="add-detail">
+                            <li><span class="font-bold">Min. Investment</span> <span class="font-normal"><%=number_to_currency @investment.investment_minimum%></span></li>
+                            <li><span class="font-bold">Fund Limit</span> <span class="font-normal"><%=number_to_currency @investment.raise_amount%></span></li>
+                            <li class="border-none"><span class="font-bold">Investment Rate</span> <span class="font-normal">calculating..</span></li>
+                            <li class="border-none"><span class="font-bold">Funding Period</span> <span class="font-normal"></span><%=number_to_currency @investment.investment_duration%></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 col-sm-12">
+                        <h2 class="text-left border-bold">My Documents</h2>
+                        <ul class="doc">
+                            <li><b>SEP 03</b> <span class="color-yellow"> <a href="#">FUNDING AGREEMENT</a></span></li>
+                            <li><b>SEP 03</b> <span class="color-yellow"><a href="#">FUNDING AGREEMENT</a></span></li>
+                            <li class="border-none"><b>SEP 03</b> <span class="color-yellow"><a href="#">FUNDING AGREEMENT</a></span></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div id="sectionB" class="tab-pane fade col-md-12">
+                <h3>Section B</h3>
+                <p>Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.</p>
+            </div>
+            <div id="sectionc" class="tab-pane fade  resptable">
+                <div class="col-md-8">
+                    <h2 class="margin-none text-left">My Activity</h2>
+                    <table class="text-left">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>11/11/11</td>
+                                <td>Invested</td>
+                                <td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
+                                <td>$10,000</td>
+                            </tr>
+                            <tr>
+                                <td>11/11/11</td>
+                                <td>Invested</td>
+                                <td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
+                                <td>$10,000</td>
+                            </tr>
+                            <tr>
+                                <td>11/11/11</td>
+                                <td>Invested</td>
+                                <td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
+                                <td>$10,000</td>
+                            </tr>
+                            <tr>
+                                <td>11/11/11</td>
+                                <td>Invested</td>
+                                <td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
+                                <td>$10,000</td>
+                            </tr>
+                            <tr>
+                                <td>11/11/11</td>
+                                <td>Invested</td>
+                                <td class="color-yellow">Property Name or Title <i class="fa fa-arrow-circle-right"></i></td>
+                                <td>$10,000</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 tablist document">
+                    <h2 class="text-left border-bold ">My Documents</h2>
+                    <ul class="add-detail doc">
+                       <li><b>SEP 03</b> <span class="color-yellow"> <a href="#">FUNDING AGREEMENT</a></span></li>
+                       <li><b>SEP 03</b> <span class="color-yellow"><a href="#">FUNDING AGREEMENT</a></span></li>
+                       <li class="border-none"><b>SEP 03</b> <span class="color-yellow"><a href="#">FUNDING AGREEMENT</a></span></li>
+                   </ul>
+
+               </div>
+           </div>
+           <div id="sectiond" class="tab-pane fade col-md-12">
+            <h3>Section D</h3>
+            <p>Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.</p>
+        </div>
+
+    </div>
+
+</div>
+</div>
+</section>

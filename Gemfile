@@ -23,6 +23,9 @@ gem 'bcrypt', :require=>'bcrypt'
 # Using RVM
 gem 'capistrano-rvm', :github => 'capistrano/rvm'
 
+#tagging gem
+gem 'acts-as-taggable-on', '~> 3.4'
+
 # Seed Dump
 gem 'seed_dump'
 
@@ -51,6 +54,7 @@ group :assets do
   gem 'sass-rails',   '~> 4.0.2'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.0.3'
+  gem 'font-awesome-sass'
 end
 
 group :development, :test do

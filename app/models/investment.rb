@@ -40,6 +40,7 @@ class Investment < ActiveRecord::Base
   has_many :media
   has_many :votes
 
+  acts_as_taggable
 
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/logo-placeholder.gif"
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
@@ -60,6 +61,13 @@ class Investment < ActiveRecord::Base
     self.quotes.sum(:total_amount)
   end
 
+  def investment_percent_progress
+    if self.get_progress_stats >= (self.minimum_raise_amount || 0)
+      "100%"
+    else
+      (((self.get_progress_stats/self.minimum_raise_amount)*100).floor).to_s + "%"
+    end
+  end
   # Deprecated method, use get_a_investment_detail instead
   # def get_investment_details(id)
   #   sql = "SELECT * FROM investments WHERE id='"+id+"' ORDER BY id"

@@ -39,7 +39,7 @@
         <% end %>
         <ul class="propertyoffer color-white">
             <li><span class="textoffer">Goal</span> <span class="hr"><hr></span></li>
-            <li class="color-yellow offer-price"><%= number_to_currency(@investment.minimum_raise_amount, precision: 1) %></li>
+            <li class="color-yellow offer-price"><%= number_to_currency(@investment.raise_amount, precision: 1) %></li>
             <li><span class="textoffer">Funded</span> <span class="hr"><hr></span></li>
             <li class="color-yellow offer-price"><%= number_to_currency(@investment.get_progress_stats, precision: 1) %></li>
             <li> 

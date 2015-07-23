@@ -99,9 +99,10 @@ font-weight: normal;
     padding: 5px 17px
 }
 .offer-plan .category-offer{
-
     padding: 0px 20px;
-    min-height: 511px;
+    min-height: 530px;
+    max-height: 530px;
+
 }
 .offer-plan .category-offer img{
     max-height: 190px;
@@ -577,6 +578,7 @@ section h2{
     .offer-plan .category-offer{
         padding: 0px 10px;
         min-height: 520px;
+        max-height: 520px;
         width: 50%;
         float: left;
         margin: 20px 0px;
@@ -755,10 +757,11 @@ section h2{
         padding: 20px 0px;
     }
     .propertyoffer .hr{
-        width: 73%!important;
+        float: right!important;
+        width: 72%!important;
     }
     .textoffer{
-        width: 27%!important;
+        width: 26%!important;
     }
     .img-div{
         margin: 15px 0px;
@@ -1012,11 +1015,19 @@ section h2{
     border-left: 142px solid transparent;
     border-right: 142px solid transparent;
     border-top: 90px solid white;
-}
-.username select{
- padding: 0px 5px;
+    }
+    .username select{
+     padding: 0px 5px;
 
-}
+    }
+
+    .propertyoffer .hr{
+        float: right!important;
+    width: 72%!important;
+    }
+    .textoffer{
+        width: 26%!important;
+    }
 
 }
 

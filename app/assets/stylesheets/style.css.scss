@@ -98,10 +98,14 @@ font-weight: normal;
     margin: 8px -15px;
     padding: 5px 17px
 }
+.offer-plan .col-md-6{
+    margin: 15px 0px;
+}
 .offer-plan .category-offer{
     padding: 0px 20px;
     min-height: 530px;
     max-height: 530px;
+    overflow: hidden;
 
 }
 .offer-plan .category-offer img{
@@ -1027,6 +1031,11 @@ section h2{
     }
     .textoffer{
         width: 26%!important;
+    }
+
+    .offer-plan .category-offer{
+        min-height: 565px;
+        max-height: 565px;
     }
 
 }

@@ -3,14 +3,17 @@ class InvestmentsController < ApplicationController
 
   def index
     if(params.has_key? :status)
-      @investments = Investment.where(status: params[:status])
-    else
-      @investments = Investment.get_lp_investments('available')
-      @coming_soon = Investment.get_lp_investments('coming_soon')
-      @past = Investment.get_lp_investments('past')
-      @funded = Investment.get_lp_investments('funded')
-      @testing = Investment.get_lp_investments('test_the_waters')
+      if params[:status] == 'available'
+        @investments = Investment.where(status: params[:status])
+      elsif params[:status] == 'funded'
+        @funded = Investment.where(status: params[:status])
+      end
     end
+    @investments ||= Investment.get_lp_investments('available')
+    @coming_soon ||= Investment.get_lp_investments('coming_soon')
+    @past ||= Investment.get_lp_investments('past')
+    @funded ||= Investment.get_lp_investments('funded')
+    @water_testing ||= Investment.get_lp_investments('test_the_waters')
   end
 
   def show

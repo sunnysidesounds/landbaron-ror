@@ -72,7 +72,7 @@
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a href="#sectionA">Description</a></li>
                 <li><a href="#sectionB">Principle Investors</a></li>
-                <li><a href="#sectionc">Gallery</a></li>
+                <!-- <li><a href="#sectionc">Gallery</a></li> -->
                 <li><a href="#sectiond">FAQs</a></li>
 
             </ul>
@@ -86,7 +86,7 @@
                             <span><i class="fa fa-tag"></i><%= tag.name %></span>
                         <% end %>
                         <p class="desc">
-                            <%= @investment.key_information %>
+                            <%= @investment.key_information.html_safe %>
                         </p>
                     </div>
 
@@ -103,7 +103,7 @@
                             <li><span class="font-bold">Min. Investment</span> <span class="font-normal"><%=number_to_currency @investment.investment_minimum%></span></li>
                             <li><span class="font-bold">Fund Limit</span> <span class="font-normal"><%=number_to_currency @investment.raise_amount%></span></li>
                             <li class="border-none"><span class="font-bold">Investment Rate</span> <span class="font-normal">calculating..</span></li>
-                            <li class="border-none"><span class="font-bold">Funding Period</span> <span class="font-normal"></span><%=number_to_currency @investment.investment_duration%></li>
+                            <li class="border-none"><span class="font-bold">Funding Period</span> <span class="font-normal"></span><%= @investment.investment_duration%></li>
                         </ul>
                     </div>
                     <div class="col-md-12 col-sm-12">

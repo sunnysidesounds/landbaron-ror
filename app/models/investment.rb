@@ -62,10 +62,10 @@ class Investment < ActiveRecord::Base
   end
 
   def investment_percent_progress
-    if self.get_progress_stats >= (self.minimum_raise_amount || 0)
+    if self.get_progress_stats >= (self.raise_amount.to_i || 0)
       "100%"
     else
-      (((self.get_progress_stats/self.minimum_raise_amount)*100).floor).to_s + "%"
+      (((self.get_progress_stats/self.raise_amount.to_i)*100).floor).to_s + "%"
     end
   end
   # Deprecated method, use get_a_investment_detail instead

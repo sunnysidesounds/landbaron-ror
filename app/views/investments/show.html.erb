@@ -39,7 +39,7 @@
         <% end %>
         <ul class="propertyoffer color-white">
             <li><span class="textoffer">Goal</span> <span class="hr"><hr></span></li>
-            <li class="color-yellow offer-price"><%= number_to_currency(@investment.minimum_raise_amount, precision: 1) %></li>
+            <li class="color-yellow offer-price"><%= number_to_currency((@investment.raise_amount || 0), precision: 1) %></li>
             <li><span class="textoffer">Funded</span> <span class="hr"><hr></span></li>
             <li class="color-yellow offer-price"><%= number_to_currency(@investment.get_progress_stats, precision: 1) %></li>
             <li> 
@@ -58,8 +58,8 @@
                 Investor
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 text-right no-padding border-left">
-                <h4 class="color-yellow">90d</h4>
-                Time Left
+                <h4 class="color-yellow"><%= @investment.investment_duration%></h4>
+                Investment Duration
             </div>
         </div>
 
@@ -72,7 +72,7 @@
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a href="#sectionA">Description</a></li>
                 <li><a href="#sectionB">Principle Investors</a></li>
-                <li><a href="#sectionc">Gallery</a></li>
+                <!-- <li><a href="#sectionc">Gallery</a></li> -->
                 <li><a href="#sectiond">FAQs</a></li>
 
             </ul>
@@ -86,7 +86,7 @@
                             <span><i class="fa fa-tag"></i><%= tag.name %></span>
                         <% end %>
                         <p class="desc">
-                            <%= @investment.key_information %>
+                            <%= @investment.key_information.html_safe %>
                         </p>
                     </div>
 
@@ -101,17 +101,15 @@
                         <h2 class="text-left border-bold">Investment Detail</h2>
                         <ul class="add-detail">
                             <li><span class="font-bold">Min. Investment</span> <span class="font-normal"><%=number_to_currency @investment.investment_minimum%></span></li>
-                            <li><span class="font-bold">Fund Limit</span> <span class="font-normal"><%=number_to_currency @investment.raise_amount%></span></li>
+                            <li><span class="font-bold">Fund Limit</span> <span class="font-normal"><%=number_to_currency (@investment.raise_amount || 0)%></span></li>
                             <li class="border-none"><span class="font-bold">Investment Rate</span> <span class="font-normal">calculating..</span></li>
-                            <li class="border-none"><span class="font-bold">Funding Period</span> <span class="font-normal"></span><%=number_to_currency @investment.investment_duration%></li>
+                            <li class="border-none"><span class="font-bold">Funding Period</span> <span class="font-normal"></span><%= @investment.investment_duration%></li>
                         </ul>
                     </div>
                     <div class="col-md-12 col-sm-12">
                         <h2 class="text-left border-bold">My Documents</h2>
                         <ul class="doc">
-                            <li><b>SEP 03</b> <span class="color-yellow"> <a href="#">FUNDING AGREEMENT</a></span></li>
-                            <li><b>SEP 03</b> <span class="color-yellow"><a href="#">FUNDING AGREEMENT</a></span></li>
-                            <li class="border-none"><b>SEP 03</b> <span class="color-yellow"><a href="#">FUNDING AGREEMENT</a></span></li>
+                            <li>Coming Soon!</li>
                         </ul>
                     </div>
 

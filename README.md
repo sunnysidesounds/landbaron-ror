@@ -17,7 +17,7 @@ Note: a reboot also works well for this.
 Next you'll need to fork and clone this repo
 
 ```bash
-git clone https://github.com/landbaronclub/landbaron.git --master
+git clone -b --master https://github.com/landbaronclub/landbaron.git
 ```
 
 Move /public/system folder so the images stay intact

@@ -40,6 +40,9 @@ gem 'paperclip', '~> 4.2'
 # html parser
 gem 'truncate_html'
 
+#NewRelic
+gem 'newrelic_rpm'
+
 group :development do
     gem 'capistrano', '3.4.0'
     gem 'capistrano-bundler', '1.1.4'

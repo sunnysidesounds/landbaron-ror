@@ -35,7 +35,7 @@
 
 class Investment < ActiveRecord::Base
 
-  has_many :principle_investors, :dependent => :destroy
+  has_and_belongs_to_many :principle_investors
   has_many :quotes
   has_many :media
   has_many :votes

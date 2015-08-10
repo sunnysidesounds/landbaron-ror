@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150714210127) do
+ActiveRecord::Schema.define(version: 20150807223159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,14 @@ ActiveRecord::Schema.define(version: 20150714210127) do
     t.integer  "vote_enabled",         default: 0
     t.string   "address"
   end
+
+  create_table "investments_principle_investors", id: false, force: :cascade do |t|
+    t.integer "principle_investor_id"
+    t.integer "investment_id"
+  end
+
+  add_index "investments_principle_investors", ["investment_id"], name: "index_investments_principle_investors_on_investment_id", using: :btree
+  add_index "investments_principle_investors", ["principle_investor_id"], name: "index_investments_principle_investors_on_principle_investor_id", using: :btree
 
   create_table "media", force: :cascade do |t|
     t.integer  "investment_id"
@@ -210,6 +218,16 @@ ActiveRecord::Schema.define(version: 20150714210127) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "country"
+    t.string   "property_types"
+    t.string   "deal_types"
+    t.string   "budget_range"
+    t.string   "risk_tolerance"
+    t.string   "property_categories"
+    t.string   "invested_in_realestate"
+    t.string   "hear_about_us"
+    t.string   "reason_to_invest"
+    t.string   "current_investments"
   end
 
   create_table "votes", force: :cascade do |t|

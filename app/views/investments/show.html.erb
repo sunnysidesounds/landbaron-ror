@@ -117,7 +117,9 @@
             </div>
             <div id="sectionB" class="tab-pane fade col-md-12">
                 <% @investment.principle_investors.each do |investor|%>
-                    <%= image_tag(investor.profile_pic.url || "https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20found", height: '55', width: '40', alt: investor.full_name, class: "img img-thumbnail")%>
+                    <div>
+                        <%= image_tag(investor.profile_pic.url || "https://placeholdit.imgix.net/~text?txtsize=33&txt=No%20Image%20found", size: "200x225", alt: investor.full_name, class: "img img-thumbnail")%>
+                    </div>
                     <b><%= investor.full_name%></b> - <i><%= investor.occupation%></i>
                     <p><%= investor.bio %></p>
                     <br/>

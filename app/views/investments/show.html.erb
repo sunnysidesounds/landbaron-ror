@@ -59,7 +59,7 @@
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 text-right no-padding border-left">
                 <h4 class="color-yellow"><%= @investment.investment_duration%></h4>
-                Investment Duration
+                Investment End Date
             </div>
         </div>
 
@@ -71,7 +71,7 @@
         <div class="bs-example col-md-12">
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active"><a href="#sectionA">Description</a></li>
-                <li><a href="#sectionB">Principle Investors</a></li>
+                <li><a href="#sectionB">Principal Investors</a></li>
                 <!-- <li><a href="#sectionc">Gallery</a></li> -->
                 <li><a href="#sectiond">FAQs</a></li>
 
@@ -186,10 +186,20 @@
 
                </div>
            </div>
-           <div id="sectiond" class="tab-pane fade col-md-12">
-            <h3>Section D</h3>
-            <p>Vestibulum nec erat eu nulla rhoncus fringilla ut non neque. Vivamus nibh urna, ornare id gravida ut, mollis a magna. Aliquam porttitor condimentum nisi, eu viverra ipsum porta ut. Nam hendrerit bibendum turpis, sed molestie mi fermentum id. Aenean volutpat velit sem. Sed consequat ante in rutrum convallis. Nunc facilisis leo at faucibus adipiscing.</p>
-        </div>
+            <div id="sectiond" class="tab-pane fade col-md-12">
+                <h3>Frequently asked Questions</h3>
+                <br/>
+                <%unless @investment.investment_questions.any?%>
+                    Keep revisting, No asked questions so far.
+                <%end%>
+                <% @investment.investment_questions.each_with_index do |qa, index|%>
+
+                    <b><%= "#{index+1}. #{qa.question}"%></b>
+                    <p><%= qa.answer%></p>
+                    <br/>
+                    <br/>
+                <%end%>
+            </div>
 
     </div>
 

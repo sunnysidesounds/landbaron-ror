@@ -4,7 +4,7 @@ ActiveAdmin.register Investment do
   config.sort_order = 'id_asc'
   permit_params :name, :logo_link, :investment_type, :raise_amount,
   :minimum_raise_amount, :investment_duration, :video_link, :status,
-  :risk_rating, :investment_minimum, :key_information, :note, :qa, :logo, :vote_enabled, :tag_list, :address, principle_investor_ids: []
+  :risk_rating, :investment_minimum, :key_information, :note, :qa, :logo, :vote_enabled, :tag_list, :address, principle_investor_ids: [], investment_question_ids: []
 
   # List view
   index do
@@ -45,6 +45,9 @@ ActiveAdmin.register Investment do
       row :principle_investors do
         ad.principle_investors.map(&:full_name).join(", ")
       end
+      row :faqs do
+        ad.investment_questions.map(&:question).join(", ")
+      end
       row :note
       row :qa
 
@@ -81,6 +84,7 @@ ActiveAdmin.register Investment do
               :label => 'Logo'
       f.input :investment_type, :label => 'Investment Type'
       f.input :principle_investors
+      f.input :investment_questions, as: :select, collection: InvestmentQuestion.all.map{|iq| [iq.question, iq.id]}, multiple: true
       f.input :raise_amount, :required => true
       f.input :minimum_raise_amount, :label => 'Minimum Raise Amount'
       f.input :investment_duration, :label => 'Investment Duration'

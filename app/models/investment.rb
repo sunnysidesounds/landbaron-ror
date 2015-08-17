@@ -30,15 +30,18 @@
 #  logo_updated_at      :datetime
 #  spots_have           :string
 #  vote_enabled         :integer          default(0)
+#  address              :string
 #
 
 class Investment < ActiveRecord::Base
 
-  has_many :principle_investors, :dependent => :destroy
+  has_and_belongs_to_many :principle_investors
+  has_and_belongs_to_many :investment_questions
   has_many :quotes
   has_many :media
   has_many :votes
 
+  acts_as_taggable
 
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/logo-placeholder.gif"
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
@@ -59,6 +62,13 @@ class Investment < ActiveRecord::Base
     self.quotes.sum(:total_amount)
   end
 
+  def investment_percent_progress
+    if self.get_progress_stats >= (self.raise_amount.to_i || 0)
+      "100%"
+    else
+      (((self.get_progress_stats/self.raise_amount.to_i)*100).floor).to_s + "%"
+    end
+  end
   # Deprecated method, use get_a_investment_detail instead
   # def get_investment_details(id)
   #   sql = "SELECT * FROM investments WHERE id='"+id+"' ORDER BY id"

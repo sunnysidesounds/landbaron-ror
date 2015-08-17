@@ -13,7 +13,7 @@ class QuotesController < ApplicationController
   private
 
   def quote_params
-    params[:quote][:total_amount].gsub!('$','').gsub!(',', '')
+    # params[:quote][:total_amount].gsub!('$','').gsub!(',', '')
     params.require(:quote).permit(:investment_id, :reference_id, :user_id, :total_amount, :investor_profile_type, :status, :payment_methd)
   end
 

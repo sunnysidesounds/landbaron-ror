@@ -6,17 +6,32 @@ Real Estate Investing ReImagined
 *Note: This assumes you have Ruby 2.1.x or later installed properly and have a
 basic working knowledge of how to use RubyGems*
 
-First you'll need to fork and clone this repo
+First you will need to stop the currently running Puma instance:
 
 ```bash
-git clone https://github.com/landbaronclub/landbaron.git
+ps -ef |grep nohup
+kill -9 {process id}
+```
+Note: a reboot also works well for this.
+
+Next you'll need to fork and clone this repo
+
+```bash
+git clone -b --master https://github.com/landbaronclub/landbaron.git
 ```
 
+Move /public/system folder so the images stay intact
+
+```bash
+cp landbaron backup
+cp -R /backup/public/system landbaron/public/
+```
 Let's get all our dependencies setup:
 
 ```bash
 bundle install --without production
 ```
+Note: this sometimes requires sudo if all the gems do not install
 
 Now let's create the database:
 
@@ -31,10 +46,10 @@ settings.yml) then need to seed some data for the options:
 rake db:seed
 ```
 
-Let's get it running:
+Let's get it running with Puma:
 
 ```bash
-rails s
+sudo nohup bundle exec puma -b 'unix:///tmp/landbaronclub-puma.sock?umask=0111' &
 ```
 
 ### Customizing

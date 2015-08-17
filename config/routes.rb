@@ -19,6 +19,9 @@ LandBaron::Application.routes.draw do
     member do
       get :invest, as: :new_invest
     end
+    collection do
+      get 'my', to: :user_investments
+    end
   end
 
   resources :quotes do

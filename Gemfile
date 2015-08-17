@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+#ruby '2.1.5'
 
 gem 'rails', '~> 4.2.0'
 gem 'json', '~> 1.8.2'
@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 # Configuration File
-gem 'rails_config'
+gem 'config', github: 'railsconfig/config'
 
 # Active Admin
 gem 'activeadmin', github: 'activeadmin'
@@ -22,6 +22,9 @@ gem 'bcrypt', :require=>'bcrypt'
 
 # Using RVM
 gem 'capistrano-rvm', :github => 'capistrano/rvm'
+
+#tagging gem
+gem 'acts-as-taggable-on', '~> 3.4'
 
 # Seed Dump
 gem 'seed_dump'
@@ -40,6 +43,9 @@ gem 'mrkt'
 # html parser
 gem 'truncate_html'
 
+#NewRelic
+gem 'newrelic_rpm'
+
 group :development do
     gem 'capistrano', '3.4.0'
     gem 'capistrano-bundler', '1.1.4'
@@ -54,6 +60,7 @@ group :assets do
   gem 'sass-rails',   '~> 4.0.2'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.0.3'
+  gem 'font-awesome-sass'
 end
 
 group :development, :test do

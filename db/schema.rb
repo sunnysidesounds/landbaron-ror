@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721045012) do
+ActiveRecord::Schema.define(version: 20150811205807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,19 @@ ActiveRecord::Schema.define(version: 20150721045012) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "investment_questions", force: :cascade do |t|
+    t.string   "question"
+    t.text     "answer"
+    t.integer  "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "investment_questions_investments", id: false, force: :cascade do |t|
+    t.integer "investment_question_id"
+    t.integer "investment_id"
+  end
+
   create_table "investments", force: :cascade do |t|
     t.string   "name"
     t.string   "logo_link"
@@ -79,6 +92,14 @@ ActiveRecord::Schema.define(version: 20150721045012) do
     t.integer  "vote_enabled",         default: 0
     t.string   "address"
   end
+
+  create_table "investments_principle_investors", id: false, force: :cascade do |t|
+    t.integer "principle_investor_id"
+    t.integer "investment_id"
+  end
+
+  add_index "investments_principle_investors", ["investment_id"], name: "index_investments_principle_investors_on_investment_id", using: :btree
+  add_index "investments_principle_investors", ["principle_investor_id"], name: "index_investments_principle_investors_on_principle_investor_id", using: :btree
 
   create_table "media", force: :cascade do |t|
     t.integer  "investment_id"

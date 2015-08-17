@@ -1,434 +1,338 @@
-<div class="gray_background">
+<%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {:id => 'create_user'}) do |f| %>
+    <!-- Step 1 -->
+    <fieldset id="page1" class="investement-first property invest-dashboard signup-bg">
+        <div class="container">
+            <div class="col-md-10 col-sm-12 col-xs-12  center-container  color-white singup-wrapper stepone">
+                <h1 class="color-white title-invest margin-none text-center heading">Join the Club.</h1>
+                <p class="text-center sub-headi">Siging up is free, Fast &  simple - no commitments or long-term contracts</p>
+                <div class="col-md-4 col-sm-12 col-xs-12 text-center step-category">
+                    <h3>  <i class="fa fa-check-circle color-yellow"></i> Step One</h3>
+                    <p>
 
-    <%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {:id => 'create_user'}) do |f| %>
-
-        <div class="signup_container">
-            <!-- PAGE 1 OF FORM -->
-            <fieldset>
-                <div class="signup_header">
-                    <h2>Join the Club</h2>
-                    <div class="signup_header_mini">Signing up is free, fast & simple - no commitments or long-term contracts</div>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    </p>
                 </div>
-                <div class="signup_3steps">
-                    <div class="row signup_3steps_row">
-                        <div class="col-md-4 signup_3steps_cell">
-                            <div class="signup_3steps_step">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                <span class="signup_3steps_text">STEP ONE</span>
-                            </div>
-                            <div class="signup_3steps_describe">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie congue arcu sed pulcina
-                            </div>
-                        </div>
-                        <div class="col-md-4 signup_3steps_cell">
-                            <div class="signup_3steps_step">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                <span class="signup_3steps_text">STEP TWO</span>
-                            </div>
-                            <div class="signup_3steps_describe">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie congue arcu sed pulcina
-                            </div>
-                        </div>
-                        <div class="col-md-4 signup_3steps_cell">
-                            <div class="signup_3steps_step">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                <span class="signup_3steps_text">STEP THREE</span>
-                            </div>
-                            <div class="signup_3steps_describe">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie congue arcu sed pulcina
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 text-center step-category">
+                    <h3>  <i class="fa fa-check-circle color-yellow"></i> Step One</h3>
+                    <p>
+
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    </p>
                 </div>
-                <div class="signup_seperator">&nbsp;</div>
-                <div class="form_container">
-                    <div class="row form_container_row">
-                        <div class="col-md-6 form_container_cell">
+                <div class="col-md-4 col-sm-12 col-xs-12 text-center step-category">
 
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- FIRST NAME -->
-                                    <label for="user_email">FIRST NAME</label>
-                                    <%= f.text_field :first_name, :class => 'form-control', :autofocus => true, :placeholder => '' %>
-                                    <%= show_field_error(@user, :first_name) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- EMAIL -->
-                                    <label for="user_email">EMAIL</label>
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => '' %>
-                                    <%= show_field_error(@user, :email) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- PASSWORD -->
-                                    <label for="user_email">CREATE PASSWORD</label>
-                                    <%= f.password_field :password, :class => 'form-control', :autofocus => true, :placeholder => '' %>
-                                    <%= show_field_error(@user, :password) %>
-                                </div>
-                            </div>
+                    <h3>  <i class="fa fa-check-circle color-yellow"></i> Step One</h3>
+                    <p>
 
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- CITY  -->
-                                    <label for="user_email">CITY</label>
-                                    <%= f.text_field :city, :class => 'form-control', :autofocus => true, :placeholder => '' %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- POSTAL CODE  -->
-                                    <label for="user_email">POSTAL CODE</label>
-                                    <%= f.text_field :postal_code, :class => 'form-control', :autofocus => true, :placeholder => 'Postal Code' %>
-
-                                </div>
-                            </div>
-
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell form_container_inner_state ">
-                                    <!-- COUNTRY  -->
-                                    <label for="user_email">COUNTRY</label>
-                                    <%= f.select :country, options_for_select(countries) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 form_container_cell">
-
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- LAST NAME -->
-                                    <label for="user_email">LAST NAME</label>
-                                    <%= f.text_field :last_name, :class => 'form-control', :autofocus => true, :placeholder => '' %>
-                                    <%= show_field_error(@user, :last_name) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- EMAIL CONFIRM -->
-                                    <label for="user_email">CONFIRM EMAIL</label>
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => '' %>
-                                    <%= show_field_error(@user, :email) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- PASSWORD CONFIRM -->
-                                    <label for="user_email">CONFIRM PASSWORD</label>
-                                    <%= f.password_field :password_confirmation, :class => 'form-control', :autofocus => true, :placeholder => '' %>
-                                    <%= show_field_error(@user, :password_confirmation) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- STATE  -->
-                                    <label for="user_email">STATE</label>
-                                    <%= f.select :state, options_for_select(us_states) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <!-- PHONE  -->
-                                    <label for="user_email">PHONE</label>
-                                    <%= f.text_field :phone_number, :class => 'form-control', :autofocus => true, :placeholder => 'Phone Number' %>
-                                    <%= show_field_error(@user, :phone_number) %>                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">PASSWORD STRENGTH</label>
-                                    <!-- TODO: Change to country, need to add to db. -->
-                                    <ul>
-                                        <li class="form_list"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>More than 6 characters</li>
-                                        <li class="form_list"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Contain upper (A-Z) and lower case (a-z)</li>
-                                        <li class="form_list"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>Contain a numeral (0-9)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">COUNTRY RESTRICTIONS</label>
-                                    <!-- TODO: Change to country, need to add to db. -->
-                                    <ul>
-                                        <li class="form_list">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin molestie congue arcu sed pulcinar</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                        </div>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    </p>
+                </div>
+                <div class='col-md-12 hr-wrapper center-container'>
+                    <hr>
+                </div>
+                
+                <div class="col-md-12 no-padding form-wrapper">
+                    <div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <label>Your Email</label>
+                        <%= f.text_field :first_name, :class => 'form-control', :autofocus => true, :placeholder => 'name@example.com' %>
+                        <%= show_field_error(@user, :first_name) %>
                     </div>
+                     <div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <label>Confirm Email</label>
+                        <input type="email" placeholder="name@example.com" class="form-control" />
+                    </div> 
 
                 </div>
-                <div class="signup_seperator">&nbsp;</div>
-                <div class="signup_navigation_button"></div>
-                <div class="signup_footer">
-                    <div class="signup_agreement">
-                        By continuing, I agree to LandBaronClub’s
-                        <a href="javascript:alert('TODO')">Investor Agreement</a> and
-                        <a href="javascript:alert('TODO')">E-Sign Consent</a>.
-                    </div>
-                    <div class="signup_signin">
-                        Already have a LandBaronClub account? <%= link_to "Login", new_user_session_path, :class =>'' %>
-                    </div>
-
-                </div>
-            </fieldset>
-            <!-- PAGE 2 OF FORM -->
-            <fieldset style="display:none;">
-                <div class="signup_header">
-                    <h2>What are you looking for?</h2>
-                    <div class="signup_header_mini signup_header_mini_page2">We want to make sure you know exactly how we can meet your unique investment goals.
-                        Fill out the information below so we can build a portfolio of properties especially for you.
+                <div class="col-md-12 no-padding form-wrapper">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <section ng-app="myApp" ng-controller="mainCtrl">
+                            <label>Create Password</label>
+                            <%= f.password_field :password, :class => 'form-control set-margin', :autofocus => true, :placeholder => 'Put your password' %>
+                            <%= show_field_error(@user, :password) %>
+                            <!-- <input type="checkbox" id="checkbox" ng-model="passwordCheckbox" ng-click="hideShowPassword()" class="display-none"/>
+                            <label for="checkbox" ng-if="passwordCheckbox" class="hidden-show"><i class="fa fa-eye-slash"></i></label>
+                            <label for="checkbox" ng-if="!passwordCheckbox" class="hidden-show"><i class="fa fa-eye"></i></label> -->  
+                        </section>
+                    </div> 
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <label>password Strength</label>
+                        <ul>
+                            <li><i class="fa fa-check color-yellow"></i> More then 6 character</li>
+                            <li><i class="fa fa-check color-yellow"></i> Contain upper (A-Z) and lowercase (a-z)</li>
+                            <li><i class="fa fa-check color-yellow"></i> contain a number(0-9)</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="signup_seperator">&nbsp;</div>
-                <div class="form_container signup_page_2">
-                    <div class="row form_container_row">
-                        <div class="col-md-6 form_container_cell">
-                            <!-- CHANGE ME -->
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">What type(s) of property are you interested in?</label>
-
-                                    <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => '(residential/commercial/both/undecided)' %>
-                                    <%= show_field_error(@user, :email) %>
-                                </div>
-                            </div>
-                            <!-- CHANGE ME -->
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">BUDGET RANGE</label>
-                                    <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :value => '', :id => 'budget_range_amount', :style => 'border:0; color:#f6931f; font-weight:bold;', :disabled => true, :autofocus => true %>
-                                    <div id="budget-range-slider"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 form_container_cell">
-                            <!-- CHANGE ME -->
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">What type(s) of deals are you interested in?</label>
-
-                                    <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => '(debt/equity/both/undecided)' %>
-                                    <%= show_field_error(@user, :email) %>
-                                </div>
-                            </div>
-                            <!-- CHANGE ME -->
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">RISK TOLERANCE</label>
-                                    <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :value => '', :id => 'risk_tolerance_amount', :style => 'border:0; color:#f6931f; font-weight:bold;', :disabled => true, :autofocus => true %>
-                                    <div id="risk-tolerance-slider"></div>
-                                </div>
-                            </div>
-                        </div>
+                
+                <div class="col-md-12 no-padding form-wrapper">
+                    
+                   <div class="col-md-6 col-sm-12 col-xs-12">
+                       <label>Country</label>
+                        <%= f.select :country, options_for_select(countries),{}, {class: 'form-control'} %>
+                         
+                   </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <label>Country Restriction</label>
+                        <p class="restriction-txt">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                     </div>
-                    <div class="row form_container_row">
-                        <div class="col-md-12 form_container_cell">
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">Property Categories:</label>
-                                    <div class="row signup_categories">
-                                        <div class="col-md-3 category_cell">
-                                            <input type="checkbox" name="category" value="apartments"> Apartments
-                                        </div>
-                                        <div class="col-md-3 category_cell">
-                                            <input type="checkbox" name="category" value="residential_homes"> Residential Homes
-                                        </div>
-                                        <div class="col-md-3 category_cell">
-                                            <input type="checkbox" name="category" value="industrial_space"> Industrial Space
-                                        </div>
-                                        <div class="col-md-3 category_cell">
-                                            <input type="checkbox" name="category" value="self_storage"> Self-Storage
-                                        </div>
-                                    </div>
-                                    <div class="row signup_categories">
-                                        <div class="col-md-3 category_cell">
-                                            <input type="checkbox" name="category" value="commercial_office_use"> Commercial/Office Use
-                                        </div>
-                                        <div class="col-md-3 category_cell">
-                                            <input type="checkbox" name="category" value="new_developments"> New Developments
-                                        </div>
-                                        <div class="col-md-3 category_cell">
-                                            <input type="checkbox" name="category" value="rehabilitations_or_flips"> Rehabilitations or Flips
-                                        </div>
-                                        <div class="col-md-3 category_cell">
-                                            <input type="checkbox" name="category" value="high_rises_or_skyscrapers"> High-rises or Skyscrapers
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-                <div class="signup_seperator">&nbsp;</div>
-                <div class="signup_navigation_button"></div>
-                <div class="signup_footer">
-                    <div class="sign_up_page2_footer">
-                          Almost there, one more step to go...
+                    
+                     <div class='col-md-12 hr-wrapper center-container'>
+                        <hr>
                     </div>
-                </div>
-            </fieldset>
-            <!-- PAGE 3 OF FORM -->
-            <fieldset style="display:none;">
-                <div class="signup_header">
-                    <h2>Tell us a bit about yourself.</h2>
-                    <div class="signup_header_mini signup_header_mini_page2">Ready to join the club? Getting to know you helps us tailor your LandBaronClub experience.
-                        Fill out the form and unleash your inner baron!
-                    </div>
-                </div>
-                <div class="signup_seperator">&nbsp;</div>
-                <div class="form_container">
-                    <div class="row form_container_row">
-                        <div class="col-md-6 form_container_cell">
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">Which best describes you?</label>
+                    <div class="signup_navigation_button"></div>
 
-                                    <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
-                                    <%= show_field_error(@user, :email) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">QUESTION ONE</label>
-
-                                    <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
-                                    <%= show_field_error(@user, :email) %>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 form_container_cell">
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">QUESTION ONE</label>
-
-                                    <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
-                                    <%= show_field_error(@user, :email) %>
-                                </div>
-                            </div>
-                            <div class="row form_container_inner_row">
-                                <div class="col-md-12 form_container_inner_row_cell">
-                                    <label for="user_email">QUESTION ONE</label>
-
-                                    <!-- TODO : Need to change email? -->
-                                    <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'TODO Change me, please' %>
-                                    <%= show_field_error(@user, :email) %>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- INSERT FORM STUFF -->
-                <div class="signup_seperator">&nbsp;</div>
-                <div class="signup_submission">
-                    <%= f.hidden_field :principle_investor, :value => 'false' %>
-                    <%= f.hidden_field :verified, :value => 'false' %>
-                    <%= f.hidden_field :address, :value => '' %>
-                    <%= f.hidden_field :username, :value => f.object.email %>
-                    <%= f.submit 'Finish Up', :id => 'create_user_button', :class=>'buttom_gold button_large_and_long_signup' %>
-                </div>
-                <div class="signup_footer">
-                    <div class="sign_up_page3_footer">
-                        That's it! Complete your account and see your personalized dahsboard.
-                    </div>
-                </div>
-            </fieldset>
-        </div>
-    <% end %>
-
-
-
-    <!--
-
-    <div class="signup_login_container">
-        <div class="lbc_tabs">
-            <div class="lbc_tab create_account_tab">
-                <%= link_to 'Create Account', new_user_registration_path, :class => "create_account_link" %>
-            </div>
-            <div class="lbc_tab signin_account_tab signin_account_tab_notselected">
-                <%= link_to 'Login', new_user_session_path, :class => 'login_account_link' %>
             </div>
         </div>
+    </fieldset>
 
-        <div class="form_container">
-            <%= form_for(resource, :as => resource_name, :url => user_registration_path, :html => {:id => 'create_user'}) do |f| %>
-            <div class="form_group first_name_form">
-                <%= f.text_field :first_name, :class => 'form-control', :autofocus => true, :placeholder => 'First Name' %>
-                <%= show_field_error(@user, :first_name) %>
+    <fieldset id="page2" class="investement-first property invest-dashboard">
+        <div class="container">
+
+
+            <div class="col-md-11 col-sm-12 col-xs-12 investnow dashboeardproperty center-container singup-wrapper">
+                <h1 class="color-white title-invest margin-none payment text-center">What you are looking for?</h1>
+                 <p class="text-center sub-headi color-white"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+           
+          
+            <div class='col-md-12 hr-wrapper center-container'>
+                <hr>
             </div>
-            <div class="form_group last_name_form">
-                <%= f.text_field :last_name, :class => 'form-control', :autofocus => true, :placeholder => 'Last Name' %>
-                <%= show_field_error(@user, :last_name) %>
+            <div class="col-md-12 no-padding form-wrapper">
+                <div class="col-md-6 col-sm-12 col-xs-12 ">
+                    <label  class="color-white">What type(s) of property are you interested in? (residential/commercial/both/undecided)</label>
+                    <select name="country" class="form-control">
+                        <option value="Apartments">Apartments</option>
+                        <option value="Residential Homes">Residential Homes</option>
+                        <option value="Industrial Space">Industrial Space</option> 
+                        <option value="Self-Storage">Self-Storage</option>
+                        <option value="Commercial/Office Use">Commercial/Office Use</option>
+                        <option value="New Developments">New Developments</option>
+                        <option value="Rehabilitations or Flips">Rehabilitations or Flips</option>
+                        <option value="High-rises or Skyscrapers">High-rises or Skyscrapers</option>
+                          
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 ">
+                    <label  class="color-white">What type(s) of deals are you interested in? (debt/equity/both/undecided)</label>
+                    <select name="country" class="form-control">
+                        <option value="Apartments">Apartments</option>
+                        <option value="Residential Homes">Residential Homes</option>
+                        <option value="Industrial Space">Industrial Space</option> 
+                        <option value="Self-Storage">Self-Storage</option>
+                        <option value="Commercial/Office Use">Commercial/Office Use</option>
+                        <option value="New Developments">New Developments</option>
+                        <option value="Rehabilitations or Flips">Rehabilitations or Flips</option>
+                        <option value="High-rises or Skyscrapers">High-rises or Skyscrapers</option>
+                    </select>
+                </div> 
+
+                </div>
+               <div class="col-md-12 no-padding form-wrapper ">
+                    <div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <label class="color-white">Budget Range</label>
+                        <div class="layout-slider" style="width: 100%">
+                            <span class=" rang-span" style="display: inline-block;     margin: 15px 0px; width: 100%;  padding: 0 5px;"><input id="Slider1" type="slider" name="price" value="30000.5;60000" /></span>  
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <label class="color-white">Risk Profile</label>
+                          
+
+                        <div class="layout-slider" style="display: inline-block;     margin: 15px 0px; width: 100%;  padding: 0 5px;">
+                          <input id="SliderSingle" type="slider" name="price" value="20" />
+                        </div>
+                    </div> 
+                </div>
+                
+                 <div class='col-md-12 center-container invest-profile step-three'>
+                    <div class='col-md-12 center-container no-padding'>
+                        <h3 class="color-white text-left border-none">
+                            Categories
+                        </h3>
+                        <div class='col-md-3 no-padding check-profile'>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input id="check11" type="checkbox" name="check" >
+                                    <label for="check11">Invest as Myself</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-3 no-padding check-profile'>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input id="check114" type="checkbox" name="check" >
+                                    <label for="check114">Investment as Entity</label>
+                                </div>
+                            </div>
+                        </div>
+                         <div class='col-md-3 no-padding check-profile'>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input id="check125" type="checkbox" name="check" >
+                                    <label for="check125">Investment with an IRA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-3 no-padding check-profile'>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input id="check145" type="checkbox" name="check" >
+                                    <label for="check145">Investment with an IRA</label>
+                                </div>
+                            </div>
+                        </div>
+                          <div class='col-md-3 no-padding check-profile'>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input id="check151" type="checkbox" name="check" >
+                                    <label for="check151">Invest as Myself</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-3 no-padding check-profile'>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input id="check164" type="checkbox" name="check" >
+                                    <label for="check164">Investment as Entity</label>
+                                </div>
+                            </div>
+                        </div>
+                         <div class='col-md-3 no-padding check-profile'>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input id="check157" type="checkbox" name="check" >
+                                    <label for="check157">Investment with an IRA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-3 no-padding check-profile'>
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input id="check150" type="checkbox" name="check" >
+                                    <label for="check150">Investment with an IRA</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-12 hr-wrapper center-container'>
+                            <hr>
+                        </div>
+                        <div class="signup_navigation_button"></div>
+
+                        <!-- <div class=" text-center ">
+                            <p class="text-center"><button class="btn-continue">continue <i class="fa fa-arrow-right"></i> </button> </p>
+                            <p class="text-center restriction-txt">
+                               Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            </p>
+                        </div> -->
+                    </div>
+                </div>
             </div>
-            <div class="form_group phone_number">
-                <%= f.text_field :phone_number, :class => 'form-control', :autofocus => true, :placeholder => 'Phone Number' %>
-                <%= show_field_error(@user, :phone_number) %>
+      </div>
+
+    </fieldset>
+
+
+    <!-- Step 3 -->
+    <fieldset id="page3" class="investement-first property invest-dashboard signup-bg">
+        <div class="container">
+
+
+            <div class="col-md-10 col-sm-12 col-xs-12  center-container  color-white singup-wrapper">
+                <h1 class="color-white title-invest margin-none text-center heading">Tell us about yourself</h1>
+                <p class="text-center sub-headi"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+             <div class='col-md-12 hr-wrapper center-container'>
+                    <hr>
+                </div>
+              
+                <div class="col-md-12 no-padding form-wrapper">
+                    <div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <label>Which best describes you? (> $1,000,000, Over $300,000 w/spouse the past 2 years, Over $200,000 income past 2 years, < $100,000)</label>
+                        <input type="text" placeholder="Hint Text" class="form-control" />
+                          </div>
+                         <div class="col-md-6 col-sm-12 col-xs-12 ">
+                         <label>What is your annual net income before taxes? </label>
+                        <input type="text" placeholder="Hint Text" class="form-control" />
+                    </div> 
+
+                </div>
+                <div class="col-md-12 no-padding form-wrapper">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                       <label>Have you ever invested in real estate before? (yes/no/not sure)</label>
+                        <input type="text" placeholder="Hint Text" class="form-control" />
+                             </div> 
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                          <label>How did you hear about us?</label>
+                        <input type="text" placeholder="Hint Text" class="form-control" />
+                    </div>
+                </div>
+                
+                <div class="col-md-12 no-padding form-wrapper">
+                    
+                   <div class="col-md-6 col-sm-12 col-xs-12">
+                        <label>What is your primary reason for wanting to invest? </label>
+                        <input type="text" placeholder="Hint Text" class="form-control" />
+                        
+                   </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <label>What are you current investments primarily in?  </label>
+                        <input type="text" placeholder="Hint Text" class="form-control" />
+                        
+                    </div>
+                </div>
+                    
+                <div class='col-md-12 hr-wrapper center-container'>
+                    <hr>
+                </div>
+                
+                <!-- <div class="col-md-12 signup-btn">
+                    <p class="text-center">
+                        <button class="invest-btn"> Finish Up <i class="fa fa-check-circle "></i></button>  
+                        
+                    </p>
+                    
+                     <p class="text-center restriction-txt">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div> -->
             </div>
-            <div class="form_group address_form">
-                <%= f.text_field :address, :class => 'form-control', :autofocus => true, :placeholder => 'Street Address' %>
-            </div>
-            <div class="form_group city_form">
-                <%= f.text_field :city, :class => 'form-control', :autofocus => true, :placeholder => 'City' %>
-            </div>
-            <div class="form_group state_form">
-                <%= f.select :state, options_for_select(us_states) %>
-            </div>
-            <div class="form_group postal_code_form">
-                <%= f.text_field :postal_code, :class => 'form-control', :autofocus => true, :placeholder => 'Postal Code' %>
-            </div>
-            <div class="form_group income_range_form">
-                 <h5>Your Income Range</h5>
-                <%= f.radio_button(:income_range, 'Over $200,000') %>
-                <%= label_tag(:income_range_label_1, 'Over $200,000 in net income past 2 years') %>
-                 <br />
-                <%= f.radio_button(:income_range, 'Over $300,000 w/spouse') %>
-                <%= label_tag(:income_range_label_2, 'Over $300,000 in income w/spouse the past 2 years') %>
-                <br />
-                <%= f.radio_button(:income_range, 'Net work $1,000,000') %>
-                <%= label_tag(:income_range_label_3, 'Net worth of over $1,000,000') %>
-            </div>
-            <div class="form_group">
-                <%= f.text_field :username, :class => 'form-control', :autofocus => true, :placeholder => 'Username' %>
-                <%= show_field_error(@user, :username) %>
-            </div>
-            <div class="form_group">
-                <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'Email Address' %>
-                <%= show_field_error(@user, :email) %>
-            </div>
-            <div class="form_group">
-                <%= f.password_field :password, :class => 'form-control', :autofocus => true, :placeholder => 'Password' %>
-                <%= show_field_error(@user, :password) %>
-            </div>
-            <div class="form_group">
-                <%= f.password_field :password_confirmation, :class => 'form-control', :autofocus => true, :placeholder => 'Password Confirmation' %>
-                <%= show_field_error(@user, :password_confirmation) %>
-            </div>
-            <div class="form_group submission_form">
-                <%= f.hidden_field :principle_investor, :value => 'false' %>
-                <%= f.hidden_field :verified, :value => 'false' %>
-                <%= f.submit 'Sign Up', :class=>'buttom_gold' %>
-                <%= f.submit 'Clear Form', :type => 'reset', :class=>'buttom_gold button_large_and_long_signup' %>
-            </div>
-            <% end %>
+           
         </div>
-    </div>
+    </fieldset>
 
-    -->
-</div>
+    <div class="col-md-12 signup-btn over-flow">
+                    <p class="text-center">
+                        <button id="create_user_button" class="invest-btn"> Create Account <i class="fa fa-chevron-right"></i></button>  
+                        
+                    </p>
+                    <p class="text-center restriction-txt">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                     <p class="text-center restriction-txt">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div>
+
+<%end%>
 
 
+<script type="text/javascript">
+    // $("#create_user").multipage({ submitButton: 'create_user_button' });
 
+    $("#Slider1").slider({ from: 1000, to: 100000, step: 500, smooth: true, round: 0, dimension: "&nbsp;$", skin: "plastic" });
+    $("#SliderSingle").slider({ from: 5, to: 100, step: 2.5, round: 1, format: { format: '##.0', locale: 'de' }, dimension: '&nbsp;%', skin: "round" });
+    $(".slider")
+                        
+    .slider({ 
+        min: 0, 
+        max: 1000, 
+        range: true, 
+        values: [200, 800] 
+    })
+                        
+    .slider("pips", {
+        rest: "label"
+    })
+                        
+    .slider("float");
+</script>

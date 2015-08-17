@@ -8,7 +8,7 @@ development:
   encoding: unicode
   database: landbaron_development
   pool: 5
-  username: dev
+  username: arsalan
   password:
 
 
@@ -21,7 +21,7 @@ test:
   database: landbaron_test
   pool: 5
   timeout: 5000
-  username: dev
+  username: arsalan
   password:
 
 
@@ -30,7 +30,6 @@ production:
   encoding: unicode
   database: landbaron_production
   pool: 5
-  username: dev
+  username: arsalan
   password:
-
 

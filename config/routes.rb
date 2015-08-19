@@ -3,7 +3,7 @@ LandBaron::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "devise_overrides/registrations"}
   
   devise_scope :user do
     authenticated :user do

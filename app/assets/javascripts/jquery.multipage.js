@@ -17,7 +17,7 @@
             $($(this).find(".signup_navigation_button")).append("<p class='steps_navigation' id='step" + i + "commands'></p>");
 
             if (i == 0) {
-                createButton(i, "CREATE ACCOUNT");
+                createButton(i, "Submit and advance to next step");
                 //selectStep(i);
             }
             else if (i == count - 1) {
@@ -44,14 +44,22 @@
 
         function createButton(i, text) {
             var stepName = "step" + i;
-            $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Next' class='next buttom_gold button_large_and_long_signup'>"+text+"</a>");
+            $("#" + stepName + "commands").append("<input type='submit' value='"+text+"' id='" + stepName + "Next' class='signup-next-btn'>");
 
             $("#" + stepName + "Next").bind("click", function(e) {
-                $("fieldset").show();
-                $("#" + stepName).hide();
-                $("#step" + (i + 1)).show();
-                if (i + 2 == count)
-                    $(submmitButtonName).show();
+                if($("#create_user")[0].checkValidity()){
+                    $("fieldset").show();
+                    $("#" + stepName).hide();
+                    $("#step" + (i + 1)).show();    
+                    if (i + 2 == count){
+                        e.preventDefault();
+                        $(submmitButtonName).show();                    
+                    }else{
+                        e.preventDefault();
+                    }
+                }
+                
+                
                // selectStep(i + 1);
             });
         }

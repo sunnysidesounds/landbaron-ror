@@ -96,12 +96,89 @@ $(document).ready(function(){
 
 
 
-    // Multi-Page Form Wrapper
-    $("#create_user").multipage({ submitButton: 'create_user_button' });
     
 
+    // Multi-Page Form Wrapper
+    $("#create_user").multipage({ 
+        submitButton: 'create_user_button'
+    });
+    
+    
+    $("#user_password").focus(function(){
+        verify_password()
+    })
+
+    $("#user_password").keypress(function(){
+        verify_password()
+    })
+
+    $("#user_password").focusout(function(){
+        verify_password()
+    })
+
+    function verify_password(){
+        if($('#user_password').val().length > 5){
+            $("#char_length").addClass('fa-check')
+            $("#char_length").addClass('color-yellow')
+            $("#char_length").removeClass('fa-close')
+            $("#char_length").removeClass('color-red')
+        }else{
+            $("#char_length").addClass('fa-close')
+            $("#char_length").addClass('color-red')
+            $("#char_length").removeClass('fa-check')
+            $("#char_length").removeClass('color-yellow')
+        }
+        if(/^(?=.*[a-z])(?=.*[A-Z])/.test($("#user_password").val())){
+            $("#char_uper").addClass('fa-check')
+            $("#char_uper").addClass('color-yellow')
+            $("#char_uper").removeClass('fa-close')
+            $("#char_uper").removeClass('color-red')
+        }else{
+            $("#char_uper").removeClass('fa-check')
+            $("#char_uper").removeClass('color-yellow')
+            $("#char_uper").addClass('fa-close')
+            $("#char_uper").addClass('color-red')
+        }
+        if(/^(?=.*\d).+$/.test($("#user_password").val())){
+            $("#contain_numb").addClass('fa-check')
+            $("#contain_numb").addClass('color-yellow')
+            $("#contain_numb").removeClass('fa-close')
+            $("#contain_numb").removeClass('color-red')
+
+        }else{
+            $("#contain_numb").removeClass('fa-check')
+            $("#contain_numb").removeClass('color-yellow')
+            $("#contain_numb").addClass('fa-close')
+            $("#contain_numb").addClass('color-red')
+
+        }       
+    }
+
+    // $('#user_email').change(function(){
+    //     validate_email_and_confirm()
+    // })
+
+    // function validate_email_and_confirm(){
+    //     if($("#user_email").val() != $("#user_email_confirm").val()){
+    //         $("#user_email").addClass("error")
+    //         $("#user_email_confirm").addClass("error")
+    //         $("#user_email_error").show();
+    //         $("user_email_confirm_error").show()
+    //         $('.signup-next-btn').hide();
+    //     }else{
+    //         $("#user_email_error").hide();
+    //         $("user_email_confirm_error").hide();
+    //         $("#user_email").removeClass("error");
+    //         $("#user_email_confirm").removeClass("error");
+    //     }
+    // }
+
+
+    
 
 });
+
+
 
 
 

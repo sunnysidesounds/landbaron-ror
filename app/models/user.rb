@@ -41,7 +41,10 @@
 #  current_investments    :string
 #
 
+require "marketo_api_helper"
+
 class User < ActiveRecord::Base
+  include MarketoApiHelper
   #has_many :orders
   # attr_accessible :email, :username, :password, :password_confirmation
   # attr_accessor :password
@@ -64,6 +67,13 @@ class User < ActiveRecord::Base
   validates_presence_of :phone_number, :on => :create
   validates_uniqueness_of :email
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
+
+  def sync_user_to_marketo_leads(is_dev_env=true)
+    client = get_mrkt_client
+    temp_email = "apitest@landbaronclub.com" if is_dev_env
+    # email_address, first_name, last_name, company, phone
+    set_mrkt_lead(self.email, self.first_name, self.last_name || "COOL", '', self.phone_number)
+  end
 
 
   def initialize(attributes = {})

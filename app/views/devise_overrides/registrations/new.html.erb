@@ -3,8 +3,8 @@
     <fieldset id="page1" class="investement-first property invest-dashboard signup-bg">
         <div class="container">
             <div class="col-md-10 col-sm-12 col-xs-12  center-container  color-white singup-wrapper stepone">
-                <h1 class="color-white title-invest margin-none text-center heading">Join the Club.</h1>
-                <p class="text-center sub-headi">Siging up is free, Fast &  simple - no commitments or long-term contracts</p>
+                <h1 class="color-white title-invest margin-none text-center heading">Join the Club</h1>
+                <p class="text-center sub-headi">Singing up is free, Fast &  simple - no commitments or long-term contracts</p>
                 <div class="col-md-4 col-sm-12 col-xs-12 text-center step-category">
                     <h3>  <i class="fa fa-check-circle color-yellow"></i> Step One</h3>
                     <p>
@@ -34,12 +34,14 @@
                 <div class="col-md-12 no-padding form-wrapper">
                     <div class="col-md-6 col-sm-12 col-xs-12 ">
                         <label>Your Email</label>
-                        <%= f.text_field :first_name, :class => 'form-control', :autofocus => true, :placeholder => 'name@example.com' %>
-                        <%= show_field_error(@user, :first_name) %>
+                        <%= f.text_field :email, :class => 'form-control', :autofocus => true, :placeholder => 'name@example.com', :required => true, type: :email, :'data-msg-required' => "Please your email address"  %>
+                        <%= show_field_error(@user, :email) %>
+
                     </div>
                      <div class="col-md-6 col-sm-12 col-xs-12 ">
                         <label>Confirm Email</label>
-                        <input type="email" placeholder="name@example.com" class="form-control" />
+                        <input type="email" placeholder="name@example.com" id="user_email_confirm" class="form-control" />
+
                     </div> 
 
                 </div>
@@ -47,7 +49,7 @@
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <section ng-app="myApp" ng-controller="mainCtrl">
                             <label>Create Password</label>
-                            <%= f.password_field :password, :class => 'form-control set-margin', :autofocus => true, :placeholder => 'Put your password' %>
+                            <%= f.password_field :password, :class => 'form-control set-margin', :autofocus => true, :autocomplete => "off", :placeholder => 'Put your password', :required => true %>
                             <%= show_field_error(@user, :password) %>
                             <!-- <input type="checkbox" id="checkbox" ng-model="passwordCheckbox" ng-click="hideShowPassword()" class="display-none"/>
                             <label for="checkbox" ng-if="passwordCheckbox" class="hidden-show"><i class="fa fa-eye-slash"></i></label>
@@ -57,9 +59,9 @@
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <label>password Strength</label>
                         <ul>
-                            <li><i class="fa fa-check color-yellow"></i> More then 6 character</li>
-                            <li><i class="fa fa-check color-yellow"></i> Contain upper (A-Z) and lowercase (a-z)</li>
-                            <li><i class="fa fa-check color-yellow"></i> contain a number(0-9)</li>
+                            <li><i id="char_length" class="fa fa-close color-red"></i> More than 6 character</li>
+                            <li><i id="char_uper" class="fa fa-check color-yellow"></i> Contain upper (A-Z) and lowercase (a-z)</li>
+                            <li><i id="contain_numb" class="fa fa-check color-yellow"></i> contains a number(0-9)</li>
                         </ul>
                     </div>
                 </div>
@@ -68,7 +70,7 @@
                     
                    <div class="col-md-6 col-sm-12 col-xs-12">
                        <label>Country</label>
-                        <%= f.select :country, options_for_select(countries),{}, {class: 'form-control'} %>
+                        <%= f.select :country, options_for_select(countries),{}, {class: 'form-control', required: true} %>
                          
                    </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 ">
@@ -100,30 +102,21 @@
             </div>
             <div class="col-md-12 no-padding form-wrapper">
                 <div class="col-md-6 col-sm-12 col-xs-12 ">
-                    <label  class="color-white">What type(s) of property are you interested in? (residential/commercial/both/undecided)</label>
-                    <select name="country" class="form-control">
-                        <option value="Apartments">Apartments</option>
-                        <option value="Residential Homes">Residential Homes</option>
-                        <option value="Industrial Space">Industrial Space</option> 
-                        <option value="Self-Storage">Self-Storage</option>
-                        <option value="Commercial/Office Use">Commercial/Office Use</option>
-                        <option value="New Developments">New Developments</option>
-                        <option value="Rehabilitations or Flips">Rehabilitations or Flips</option>
-                        <option value="High-rises or Skyscrapers">High-rises or Skyscrapers</option>
-                          
+                    <label  class="color-white">What type(s) of property are you interested in?</label>
+                    <select name="property_types" class="form-control">
+                        <option value="Residential">Residential</option>
+                        <option value="Commercial">Commercial</option> 
+                        <option value="Both">Both</option>
+                        <option value="Undecided">Undecided</option>
                     </select>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 ">
-                    <label  class="color-white">What type(s) of deals are you interested in? (debt/equity/both/undecided)</label>
-                    <select name="country" class="form-control">
-                        <option value="Apartments">Apartments</option>
-                        <option value="Residential Homes">Residential Homes</option>
-                        <option value="Industrial Space">Industrial Space</option> 
-                        <option value="Self-Storage">Self-Storage</option>
-                        <option value="Commercial/Office Use">Commercial/Office Use</option>
-                        <option value="New Developments">New Developments</option>
-                        <option value="Rehabilitations or Flips">Rehabilitations or Flips</option>
-                        <option value="High-rises or Skyscrapers">High-rises or Skyscrapers</option>
+                    <label  class="color-white">What type(s) of deals are you interested in?</label>
+                    <select name="deals_type" class="form-control">
+                        <option value="Debt">Debt</option>
+                        <option value="Equity">Equity</option>
+                        <option value="Both">Both</option> 
+                        <option value="Undecided">Undecided</option>
                     </select>
                 </div> 
 
@@ -132,7 +125,9 @@
                     <div class="col-md-6 col-sm-12 col-xs-12 ">
                         <label class="color-white">Budget Range</label>
                         <div class="layout-slider" style="width: 100%">
-                            <span class=" rang-span" style="display: inline-block;     margin: 15px 0px; width: 100%;  padding: 0 5px;"><input id="Slider1" type="slider" name="price" value="30000.5;60000" /></span>  
+                            <span class=" rang-span" style="display: inline-block;     margin: 15px 0px; width: 100%;  padding: 0 5px;">
+                                <input id="Slider1" type="slider" name="price" value="30000.5;60000" />
+                            </span>  
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12 col-xs-12 ">
@@ -153,64 +148,64 @@
                         <div class='col-md-3 no-padding check-profile'>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <input id="check11" type="checkbox" name="check" >
-                                    <label for="check11">Invest as Myself</label>
+                                    <input id="appartments_check" value="Apartments" type="checkbox" name="categories[]" >
+                                    <label for="appartments_check">Apartments</label>
                                 </div>
                             </div>
                         </div>
                         <div class='col-md-3 no-padding check-profile'>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <input id="check114" type="checkbox" name="check" >
-                                    <label for="check114">Investment as Entity</label>
+                                    <input id="residential_check" value="Residential Homes" type="checkbox" name="categories[]" >
+                                    <label for="residential_check">Residential Homes</label>
                                 </div>
                             </div>
                         </div>
                          <div class='col-md-3 no-padding check-profile'>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <input id="check125" type="checkbox" name="check" >
-                                    <label for="check125">Investment with an IRA</label>
+                                    <input id="industrial_check" value="Industrial Space" type="checkbox" name="categories[]" >
+                                    <label for="industrial_check">Industrial Space</label>
                                 </div>
                             </div>
                         </div>
                         <div class='col-md-3 no-padding check-profile'>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <input id="check145" type="checkbox" name="check" >
-                                    <label for="check145">Investment with an IRA</label>
+                                    <input id="self_storage_check" value="Self-Storage" type="checkbox" name="categories[]" >
+                                    <label for="self_storage_check">Self-Storage</label>
                                 </div>
                             </div>
                         </div>
                           <div class='col-md-3 no-padding check-profile'>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <input id="check151" type="checkbox" name="check" >
-                                    <label for="check151">Invest as Myself</label>
+                                    <input id="commercial_check" value="Commercial/Office Use" type="checkbox" name="categories[]" >
+                                    <label for="commercial_check">Commercial/Office Use</label>
                                 </div>
                             </div>
                         </div>
                         <div class='col-md-3 no-padding check-profile'>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <input id="check164" type="checkbox" name="check" >
-                                    <label for="check164">Investment as Entity</label>
+                                    <input id="new_developmen_check" value="New Developments" type="checkbox" name="categories[]" >
+                                    <label for="new_developmen_check">New Developments</label>
                                 </div>
                             </div>
                         </div>
                          <div class='col-md-3 no-padding check-profile'>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <input id="check157" type="checkbox" name="check" >
-                                    <label for="check157">Investment with an IRA</label>
+                                    <input id="high_rises_check" value="High-rises or Skyscrapers" type="checkbox" name="categories[]" >
+                                    <label for="high_rises_check">High-rises or Skyscrapers</label>
                                 </div>
                             </div>
                         </div>
                         <div class='col-md-3 no-padding check-profile'>
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <input id="check150" type="checkbox" name="check" >
-                                    <label for="check150">Investment with an IRA</label>
+                                    <input id="rehabilitations_check" value="Rehabilitations or Flips" type="checkbox" name="categories[]" >
+                                    <label for="rehabilitations_check">Rehabilitations or Flips</label>
                                 </div>
                             </div>
                         </div>
@@ -247,37 +242,46 @@
               
                 <div class="col-md-12 no-padding form-wrapper">
                     <div class="col-md-6 col-sm-12 col-xs-12 ">
-                        <label>Which best describes you? (> $1,000,000, Over $300,000 w/spouse the past 2 years, Over $200,000 income past 2 years, < $100,000)</label>
-                        <input type="text" placeholder="Hint Text" class="form-control" />
-                          </div>
-                         <div class="col-md-6 col-sm-12 col-xs-12 ">
-                         <label>What is your annual net income before taxes? </label>
-                        <input type="text" placeholder="Hint Text" class="form-control" />
-                    </div> 
+                         <label>What is your annual income before taxes?</label>
+                        <input type="text" name="anual_income_before_tax" placeholder="$amount - $amount" class="form-control" />
+                    </div>
+                     <div class="col-md-6 col-sm-12 col-xs-12">
+                        <label>What is your primary reason for wanting to invest? </label>
+                        <input type="text" name="primary_reason_to_invest" placeholder="" class="form-control" />
+                        
+                   </div> 
 
                 </div>
                 <div class="col-md-12 no-padding form-wrapper">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                       <label>Have you ever invested in real estate before? (yes/no/not sure)</label>
-                        <input type="text" placeholder="Hint Text" class="form-control" />
-                             </div> 
                     <div class="col-md-6 col-sm-12 col-xs-12">
-                          <label>How did you hear about us?</label>
-                        <input type="text" placeholder="Hint Text" class="form-control" />
-                    </div>
+                        <label>Have you ever invested in real estate before?</label>
+                        <select name="ever_invested_before" class="form-control">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option> 
+                            <option value="Not sure">Not sure</option>
+                        </select>
+                    </div> 
+                    <div class="col-md-6 col-sm-12 col-xs-12 ">
+                        <label>Which best describes you?</label>
+                        <select name="what_describes_you" class="form-control">
+                            <option value="> $1,000,000">> $1,000,000</option>
+                            <option value="Over $300,000 w/spouse the past 2 years">Over $300,000 w/spouse the past 2 years</option>
+                            <option value="Over $200,000 income past 2 years">Over $200,000 income past 2 years</option> 
+                            <option value="< $100,000">< $100,000</option>
+                        </select>
+                    </div>   
                 </div>
                 
                 <div class="col-md-12 no-padding form-wrapper">
-                    
-                   <div class="col-md-6 col-sm-12 col-xs-12">
-                        <label>What is your primary reason for wanting to invest? </label>
-                        <input type="text" placeholder="Hint Text" class="form-control" />
-                        
-                   </div>
                     <div class="col-md-6 col-sm-12 col-xs-12 ">
-                        <label>What are you current investments primarily in?  </label>
-                        <input type="text" placeholder="Hint Text" class="form-control" />
+                        <label>What are your current investments primarily in?</label>
+                        <input type="text" name="current_primarily_in" placeholder="" class="form-control" />
                         
+                    </div>
+                     
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                          <label>How did you hear about us?</label>
+                        <input type="text" placeholder="" class="form-control" />
                     </div>
                 </div>
                     
@@ -301,17 +305,10 @@
     </fieldset>
 
     <div class="col-md-12 signup-btn over-flow">
-                    <p class="text-center">
-                        <button id="create_user_button" class="invest-btn"> Create Account <i class="fa fa-chevron-right"></i></button>  
-                        
-                    </p>
-                    <p class="text-center restriction-txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                     <p class="text-center restriction-txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                </div>
+        <p class="text-center">
+            <button id="create_user_button" class="invest-btn"> Create Account <i class="fa fa-chevron-right"></i></button>  
+        </p>
+    </div>
 
 <%end%>
 
@@ -319,7 +316,7 @@
 <script type="text/javascript">
     // $("#create_user").multipage({ submitButton: 'create_user_button' });
 
-    $("#Slider1").slider({ from: 1000, to: 100000, step: 500, smooth: true, round: 0, dimension: "&nbsp;$", skin: "plastic" });
+    $("#Slider1").slider({ from: 1000, to: 100000, step: 500, smooth: true, round: 0, format: {format: '$#,####'}, skin: "plastic" });
     $("#SliderSingle").slider({ from: 5, to: 100, step: 2.5, round: 1, format: { format: '##.0', locale: 'de' }, dimension: '&nbsp;%', skin: "round" });
     $(".slider")
                         

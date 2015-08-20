@@ -87,7 +87,6 @@ module ApplicationHelper
 
   def countries
     [
-        ["", ""],
         ["Afghanistan", "Afghanistan"],
         ["Aland Islands", "Aland Islands"],
         ["Albania", "Albania"],

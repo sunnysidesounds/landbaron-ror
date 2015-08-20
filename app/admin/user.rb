@@ -33,6 +33,19 @@ ActiveAdmin.register User do
       row :state
       row :postal_code
       row :created_at
+      row :country                    
+      row :property_types             
+      row :deal_types                 
+      row :budget_range               
+      row :risk_tolerance             
+      row :property_categories        
+      row :invested_in_realestate     
+      row :hear_about_us              
+      row :reason_to_invest           
+      row :current_investments        
+      row :annual_income_without_taxes
+      row :describes_you              
+      row :marketo_lead_id            
 
     end
   end

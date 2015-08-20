@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811205807) do
+ActiveRecord::Schema.define(version: 20150820205933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -221,12 +221,12 @@ ActiveRecord::Schema.define(version: 20150811205807) do
     t.boolean  "verified"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "encrypted_password",     default: "",   null: false
-    t.boolean  "password_migrated",      default: true
+    t.string   "encrypted_password",          default: "",   null: false
+    t.boolean  "password_migrated",           default: true
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,    null: false
+    t.integer  "sign_in_count",               default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -241,6 +241,9 @@ ActiveRecord::Schema.define(version: 20150811205807) do
     t.string   "hear_about_us"
     t.string   "reason_to_invest"
     t.string   "current_investments"
+    t.string   "annual_income_without_taxes"
+    t.string   "describes_you"
+    t.string   "marketo_lead_id"
   end
 
   create_table "votes", force: :cascade do |t|

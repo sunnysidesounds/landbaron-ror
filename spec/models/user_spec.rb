@@ -2,43 +2,46 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
-#  username               :string
-#  email                  :string
-#  first_name             :string
-#  last_name              :string
-#  password_hash          :string
-#  password_salt          :string
-#  phone_number           :string
-#  address                :string
-#  city                   :string
-#  state                  :string
-#  postal_code            :string
-#  income_range           :string
-#  principle_investor     :boolean
-#  verified               :boolean
-#  created_at             :datetime
-#  updated_at             :datetime
-#  encrypted_password     :string           default(""), not null
-#  password_migrated      :boolean          default(TRUE)
-#  reset_password_token   :string
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0), not null
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :inet
-#  last_sign_in_ip        :inet
-#  country                :string
-#  property_types         :string
-#  deal_types             :string
-#  budget_range           :string
-#  risk_tolerance         :string
-#  property_categories    :string
-#  invested_in_realestate :string
-#  hear_about_us          :string
-#  reason_to_invest       :string
-#  current_investments    :string
+#  id                          :integer          not null, primary key
+#  username                    :string
+#  email                       :string
+#  first_name                  :string
+#  last_name                   :string
+#  password_hash               :string
+#  password_salt               :string
+#  phone_number                :string
+#  address                     :string
+#  city                        :string
+#  state                       :string
+#  postal_code                 :string
+#  income_range                :string
+#  principle_investor          :boolean
+#  verified                    :boolean
+#  created_at                  :datetime
+#  updated_at                  :datetime
+#  encrypted_password          :string           default(""), not null
+#  password_migrated           :boolean          default(TRUE)
+#  reset_password_token        :string
+#  reset_password_sent_at      :datetime
+#  remember_created_at         :datetime
+#  sign_in_count               :integer          default(0), not null
+#  current_sign_in_at          :datetime
+#  last_sign_in_at             :datetime
+#  current_sign_in_ip          :inet
+#  last_sign_in_ip             :inet
+#  country                     :string
+#  property_types              :string
+#  deal_types                  :string
+#  budget_range                :string
+#  risk_tolerance              :string
+#  property_categories         :string
+#  invested_in_realestate      :string
+#  hear_about_us               :string
+#  reason_to_invest            :string
+#  current_investments         :string
+#  annual_income_without_taxes :string
+#  describes_you               :string
+#  marketo_lead_id             :string
 #
 
 describe User do

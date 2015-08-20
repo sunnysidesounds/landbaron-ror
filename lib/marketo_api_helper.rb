@@ -35,7 +35,7 @@ module MarketoApiHelper
         :lookup_field => :email)
     response[:result].each do |result|
       p "id: #{result[:id]}, email: #{result[:email]}"
-      logger.info p
+      puts p
     end
   end
 

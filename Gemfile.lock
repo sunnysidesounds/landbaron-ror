@@ -87,6 +87,8 @@ GEM
       sass (~> 3.2)
       thor
     builder (3.2.2)
+    byebug (5.0.0)
+      columnize (= 0.9.0)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -112,6 +114,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
+    columnize (0.9.0)
     deep_merge (1.0.1)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -294,6 +297,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   annotate (~> 2.6.6)
   bcrypt
+  byebug
   capistrano (= 3.4.0)
   capistrano-bundler (= 1.1.4)
   capistrano-rails (= 1.1.2)

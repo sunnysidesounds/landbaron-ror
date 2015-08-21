@@ -28,6 +28,9 @@
 //= require jquery.dependClass-0.1
 //= require draggable-0.1
 //= require jquery.slider
+//= require Chart
+//= require bootstrap.min
+//= require bxslider
 
 
 

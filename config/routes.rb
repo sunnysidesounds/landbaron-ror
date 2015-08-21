@@ -4,6 +4,8 @@ LandBaron::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => {:registrations => "devise_overrides/registrations"}
+
+  root :to => "investments#index"
   
   devise_scope :user do
     authenticated :user do

@@ -129,7 +129,7 @@
                           
 
                         <div class="layout-slider" style="display: inline-block;     margin: 15px 0px; width: 100%;  padding: 0 5px;">
-                          <input id="SliderSingle" type="slider" name="user[risk_tolerance]" value="20" />
+                          <input id="SliderSingle" type="slider" name="user[risk_tolerance]" value="2" />
                         </div>
                     </div> 
                 </div>
@@ -317,7 +317,27 @@
         smooth: true, 
         round: 0, format: {format: '$#####'}, skin: "plastic"
     });
-    $("#SliderSingle").slider({ from: 5, to: 100, step: 2.5, round: 1, format: { format: '##.0', locale: 'de' }, dimension: '&nbsp;%', skin: "round" });
+    $("#SliderSingle").slider({ 
+        from: 1, 
+        to: 3,
+        scale: ['Conservative', 'Moderate', 'Aggressive'], 
+        step: 1, 
+        round: 1, 
+        format: { 
+            format: '##.0', 
+            locale: 'de' 
+        }, 
+        calculate: function( value ){
+            if(value == 1){
+                return "Conservative";
+            }else if(value == 2){
+                return "Moderate";
+            }else{
+                return "Aggressive";
+            }
+        }, 
+        skin: "round" 
+    });
     $(".slider")
                         
     .slider({ 

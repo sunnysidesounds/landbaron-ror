@@ -5,7 +5,7 @@ class QuotesController < ApplicationController
     if @quote.save
       redirect_to :controller => 'investments', :action => 'investment_confirmation', :id => @quote.investment_id
     else
-      flash[:error] = @quote.errors.full_messages.join("<br>").html_safe
+      flash.now[:error] = @quote.errors.full_messages.join("<br>").html_safe
       @investment = @quote.investment
     end
   end

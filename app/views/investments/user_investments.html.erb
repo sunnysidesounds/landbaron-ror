@@ -28,34 +28,31 @@
                 </tr>
               </thead>
               <tbody>
-                                <%if @quotes.any? %>
-                                <%@quotes.each do |quote|%>
-                                <tr>
-                                   <td><%= quote.created_at.strftime('%d/%m/%Y') %></td>
-                                   <td><%= quote.status %></td>
-                                   <td class="color-yellow"><%= link_to quote.investment.try(:name), investment_path(quote.investment) %>&nbsp;<i class="fa fa-arrow-circle-right"></i></td>
-                                   <td><%= number_to_currency(quote.total_amount, precision: 1)%></td>
-                               </tr>
-                               <%end%>
-                               <% else %>
-                               <tr>
-                                <td colspan="4" class="text-center"> No investments made yet.</td>
-                            </tr>
-                            <%end%>
-                        </tbody>
-
-                    </table>
-
-                </div>
-                <div class="col-md-4 col-sm-12 col-xs-12 tablist resolution-padding">
-                  <h2 class="text-left border-bold">My Documents</h2>
-                  <ul class="add-detail">
-                      <li>No Documents found</li>
+                <%if @quotes.any? %>
+                  <%@quotes.each do |quote|%>
+                    <tr>
+                      <td><%= quote.created_at.strftime('%d/%m/%Y') %></td>
+                      <td><%= quote.status.try(:capitalize) %></td>
+                      <td class="color-yellow"><%= link_to quote.investment.try(:name), investment_path(quote.investment) %>&nbsp;<i class="fa fa-arrow-circle-right"></i></td>
+                      <td><%= number_to_currency(quote.total_amount, precision: 1)%></td>
+                    </tr>
+                  <%end%>
+                <% else %>
+                  <tr>
+                    <td colspan="4" class="text-center"> No investments made yet.</td>
+                  </tr>
+                <%end%>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-4 col-sm-12 col-xs-12 tablist resolution-padding">
+            <h2 class="text-left border-bold">My Documents</h2>
+            <ul class="add-detail">
+              <li>No Documents found</li>
               <!-- <li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li>
               <li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li>
               <li>SEP 03 <span class="color-yellow">FUNDING AGREEMENT</span></li> -->
             </ul>
-
           </div>
         </div>
 
@@ -102,7 +99,7 @@
             <h3 class="text-center"><b>Total</b></h3>
             <h2 class="text-center color-yellow font-increase margin-none"><b>$60,000</b></h2>
             <div class="col-md-12 text-center no-padding">
-              <button class="darkbtn width-full">ADD FUNDING <i class="fa fa-plus-square color-yellow"></i></button>
+              <button class="darkbtn width-full disabled" disabled="true">ADD FUNDING <i class="fa fa-plus-square color-yellow"></i></button>
             </div>
           </div>
 
@@ -142,7 +139,7 @@
                             <span class="mobile-view">Return to Date</span><p><%= quote.investment.investment_duration%></p>
                           </div>
                           <div class='col-md-2 mobile-view-div col-sm-2'>
-                            <span class="mobile-view">Status</span> <p><%= quote.investment.status%></p>
+                            <span class="mobile-view">Status</span> <p><%= quote.investment.status.try(:capitalize) %></p>
                           </div>
                         </a>
                       </h4>
@@ -203,7 +200,7 @@
                           <span class="mobile-view">Return to Date</span><p><%= quote.investment.investment_duration%></p>
                         </div>
                         <div class='col-md-2 mobile-view-div col-sm-2'>
-                          <span class="mobile-view">Status</span> <p><%= quote.investment.status%></p>
+                          <span class="mobile-view">Status</span> <p><%= quote.investment.status.try(:capitalize)%></p>
                         </div>
                       </a>
                     </h4>

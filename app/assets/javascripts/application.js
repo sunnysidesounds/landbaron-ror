@@ -71,6 +71,11 @@ jQuery.browser = browser;
 
 
 $(document).ready(function(){
+    $('a.disabled').click(function(e){
+        e.preventDefault();
+    });
+
+
     $('[data-toggle="tooltip"]').tooltip({
                     placement: 'right'
                 });   
@@ -84,11 +89,7 @@ $(document).ready(function(){
       pagerCustom: '#bx-pager'
     });
 
-
-
     // $(".slider-bar").slider().slider("pips").slider("float");
-    
-    
     
     $( ".nav-button" ).click(function() {
         $( "#mainnav" ).toggle( "slow", function() {
@@ -96,10 +97,6 @@ $(document).ready(function(){
         });
     });
 
-
-
-
-    
 
     // Multi-Page Form Wrapper
     $("#create_user").multipage({ 

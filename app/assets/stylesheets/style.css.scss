@@ -1765,3 +1765,13 @@ font-size: 21px;
 }
 
 .top-buffer { margin-top:20px; }
+
+button[disabled]{
+  cursor: not-allowed;
+  background: grey;
+}
+
+a[disabled]{
+  cursor: not-allowed;
+  text-decoration: none;
+}

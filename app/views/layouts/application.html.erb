@@ -27,14 +27,7 @@
   <!--[if (gt IE 9)|!(IE)]><!--> <body><!--<![endif]-->
     <%= render 'common/header' %>
 
-
-
-  <div class="">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-  </div>
-  
+    <%= flash_messages%>
     <%= yield %>
     <%= render 'common/footer' %>
   </body>

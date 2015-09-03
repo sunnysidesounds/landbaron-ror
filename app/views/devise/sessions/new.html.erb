@@ -9,8 +9,8 @@
             </div>
         </div>
         <h2><span class="fontawesome-lock"></span>Welcome to Lanbaron Club </h2>
-        <%= devise_error_messages! %>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            
             <fieldset>
                 <p><label for="email">E-mail address</label></p>
                 <%= f.text_field :login_attr, :class => 'form-control', id: 'email', :autofocus => true, :placeholder => 'Username or Email', onblur: "if(this.value=='')this.value='mail@address.com'", onfocus: "if(this.value=='mail@address.com')this.value=''"%>

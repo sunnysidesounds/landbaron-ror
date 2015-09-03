@@ -28,7 +28,8 @@ gem 'acts-as-taggable-on', '~> 3.4'
 
 # Seed Dump
 gem 'seed_dump'
-
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
 gem 'devise'
 
 #annotate Models with database attributes

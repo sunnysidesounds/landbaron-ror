@@ -16,6 +16,7 @@ gem 'config', github: 'railsconfig/config'
 # Active Admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_admin_editor'
+gem 'country_select'
 
 # Password encryption
 gem 'bcrypt', :require=>'bcrypt'
@@ -25,6 +26,10 @@ gem 'capistrano-rvm', :github => 'capistrano/rvm'
 
 #tagging gem
 gem 'acts-as-taggable-on', '~> 3.4'
+#for fund america
+gem 'fund_america'
+#for managing enviorment variables
+gem 'figaro'
 
 # Seed Dump
 gem 'seed_dump'

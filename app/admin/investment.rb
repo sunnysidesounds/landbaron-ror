@@ -1,10 +1,13 @@
 ActiveAdmin.register Investment do
 
 
-  config.sort_order = 'id_asc'
-  permit_params :name, :logo_link, :investment_type, :raise_amount,
+  # config.sort_order = 'id_asc'
+  permit_params :name, :logo_link, :regulation, :investment_type, :raise_amount,
   :minimum_raise_amount, :investment_duration, :video_link, :status,
   :risk_rating, :investment_minimum, :key_information, :note, :qa, :logo, :vote_enabled, :tag_list, :address, principle_investor_ids: [], investment_question_ids: []
+  scope :reg_c_investments, -> { where(regulation: Investment::REG_C_REGULATION) }
+  scope :reg_b_investments, -> { where(regulation: Investment::REG_B_REGULATION) }
+  scope :reg_free_investments, -> { where(regulation: nil) }
 
   # List view
   index do
@@ -36,6 +39,7 @@ ActiveAdmin.register Investment do
         image_tag(ad.logo.url(:thumb))
       end
       row :investment_type
+      row :regulation
       row :raise_amount
       row :minimum_raise_amount
       row :investment_duration
@@ -83,6 +87,7 @@ ActiveAdmin.register Investment do
               :hint => image_tag(f.object.logo.url),
               :label => 'Logo'
       f.input :investment_type, :label => 'Investment Type'
+      f.input :regulation, as: :select, collection: Investment::REGULATIONS
       f.input :principle_investors
       f.input :investment_questions, as: :select, collection: InvestmentQuestion.all.map{|iq| [iq.question, iq.id]}, multiple: true
       f.input :raise_amount, :required => true

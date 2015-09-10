@@ -31,6 +31,7 @@
 #  spots_have           :string
 #  vote_enabled         :integer          default(0)
 #  address              :string
+#  regulation           :string
 #
 
 require 'spec_helper'

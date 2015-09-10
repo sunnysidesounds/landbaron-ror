@@ -31,6 +31,7 @@
 #  spots_have           :string
 #  vote_enabled         :integer          default(0)
 #  address              :string
+#  regulation           :string
 #
 
 class Investment < ActiveRecord::Base
@@ -45,6 +46,15 @@ class Investment < ActiveRecord::Base
 
   has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/logo-placeholder.gif"
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+
+  REG_C_REGULATION = "Reg C."
+  REG_B_REGULATION = "Reg B."
+  REGULATIONS = [REG_B_REGULATION, REG_C_REGULATION]
+
+  scope :reg_c_investments, -> { where(regulation: REG_C_REGULATION) }
+  scope :reg_b_investments, -> { where(regulation: REG_B_REGULATION) }
+  scope :reg_free_investments, -> { where(regulation: nil) }
+  
 
   # Deprecated method, use get_lp_investments instead
   # def get_landing_page_investments(status)

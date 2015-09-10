@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820205933) do
+ActiveRecord::Schema.define(version: 20150910192815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20150820205933) do
     t.string   "spots_have"
     t.integer  "vote_enabled",         default: 0
     t.string   "address"
+    t.string   "regulation"
   end
 
   create_table "investments_principle_investors", id: false, force: :cascade do |t|
@@ -100,6 +101,14 @@ ActiveRecord::Schema.define(version: 20150820205933) do
 
   add_index "investments_principle_investors", ["investment_id"], name: "index_investments_principle_investors_on_investment_id", using: :btree
   add_index "investments_principle_investors", ["principle_investor_id"], name: "index_investments_principle_investors_on_principle_investor_id", using: :btree
+
+  create_table "investor_accreditations", force: :cascade do |t|
+    t.string   "fund_america_form_url"
+    t.string   "status"
+    t.integer  "user_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "media", force: :cascade do |t|
     t.integer  "investment_id"
@@ -244,6 +253,10 @@ ActiveRecord::Schema.define(version: 20150820205933) do
     t.string   "annual_income_without_taxes"
     t.string   "describes_you"
     t.string   "marketo_lead_id"
+    t.datetime "date_of_birth"
+    t.string   "legal_name"
+    t.string   "tax_id_number"
+    t.string   "fund_america_id"
   end
 
   create_table "votes", force: :cascade do |t|

@@ -42,6 +42,10 @@
 #  annual_income_without_taxes :string
 #  describes_you               :string
 #  marketo_lead_id             :string
+#  date_of_birth               :datetime
+#  legal_name                  :string
+#  tax_id_number               :string
+#  fund_america_id             :string
 #
 
 describe User do

@@ -42,6 +42,10 @@
 #  annual_income_without_taxes :string
 #  describes_you               :string
 #  marketo_lead_id             :string
+#  date_of_birth               :datetime
+#  legal_name                  :string
+#  tax_id_number               :string
+#  fund_america_id             :string
 #
 
 require "marketo_api_helper"
@@ -61,11 +65,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, 
     :recoverable, :registerable, :rememberable, :trackable, :validatable, :authentication_keys => [:login_attr]
 
-  # validates_confirmation_of :password
   validates_presence_of :password, :on => :create
   validates_presence_of :first_name, :on => :create
   validates_presence_of :last_name, :on => :create
-  # validates_presence_of :phone_number, :on => :create
+  has_one :investor_accreditation
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
 
   def sync_user_to_marketo_leads(is_dev_env=true)
@@ -78,6 +81,10 @@ class User < ActiveRecord::Base
     puts resp
 
     self.marketo_lead_id = resp.first[:id] if resp.is_a? Array
+  end
+
+  def full_name
+    [self.first_name, self.last_name].join(" ")
   end
 
 
@@ -111,12 +118,70 @@ class User < ActiveRecord::Base
     end
   end
 
-  # def encrypt_password
-  #   if password.present?
-  #     self.password_salt = BCrypt::Engine.generate_salt
-  #     self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-  #   end
-  # end
+  def to_fund_america_hash
+    result = {
+      type: "person",
+      city: self.city,
+      country: self.country,
+      email: self.email,
+      name: self.full_name,
+      postal_code: self.postal_code,
+      region: self.state,
+      street_address_1: self.address,
+      tax_id_number: "000000000"
+    }
+    result.merge!(date_of_birth: self.date_of_birth.strftime("%Y-%m-%d")) unless self.date_of_birth.nil?
+    result.merge!(phone: self.phone_number.gsub(/[-(),. ]/, '')) unless self.phone_number.nil?
+  end
+
+  def create_user_on_fa!
+    unless self.registered_to_fund_america?
+      begin  
+        resp = FundAmerica::Entity.create(self.to_fund_america_hash)
+        self.update_attributes(fund_america_id: resp["id"])
+        return true, "Successfully registered user on FA!"
+      rescue FundAmerica::Error => e
+        # Exception handling
+        # e.parsed_response gives a response hash of the error response sent by FundAmerica
+        puts "::::::::::::::::::::::::::::::::::::::Error IN FA::::::::::::::::::::::::::::::::::::"
+        puts e.parsed_response
+        puts "/n"
+        puts e.message
+        return false, e.parsed_response
+      end
+    else
+      return true, "User already registered on FA!"
+    end
+  end
+
+  def investor_accreditation_form_url
+    self.investor_accreditation.try(:fund_america_form_url)
+  end
+
+  def registered_to_fund_america?
+    !self.fund_america_id.blank?
+  end
+
+  def generate_investor_accreditation_link
+    if self.registered_to_fund_america? and self.investor_accreditation.nil?
+      begin
+        resp = FundAmerica::API::request(:post, FundAmerica.base_uri + 'investor_accreditation_tokens', {entity_id: self.fund_america_id})
+        self.create_investor_accreditation(fund_america_form_url: resp["url"])
+        return true, "Successfully generated investor accreditation form url"
+      rescue FundAmerica::Error => e
+        # Exception handling
+        # e.parsed_response gives a response hash of the error response sent by FundAmerica
+        puts "::::::::::::::::::::::::::::::::::::::Error IN FA::::::::::::::::::::::::::::::::::::"
+        puts e.parsed_response
+        puts "/n"
+        puts e.message
+        return false, e.parsed_response
+      end
+    else
+      return true, "Already initialized a form url for user" if self.registered_to_fund_america? and !(self.investor_accreditation.nil?)
+      return false, "Something went wrong"
+    end
+  end
 
   def get_user(uid)
     @inv = User.find_by_id(uid)

@@ -71,6 +71,13 @@ class User < ActiveRecord::Base
   has_one :investor_accreditation
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
 
+  CONFIRMED = 'confirmed'
+  PENDING = 'pending'
+  DENIED = 'denied'
+  EXPIRED = 'expired'
+
+  STATUSES = [CONFIRMED, PENDING, DENIED, EXPIRED]
+
   def sync_user_to_marketo_leads(is_dev_env=true)
     client = get_mrkt_client
     temp_email = "azlantaher@gmail.com" if is_dev_env
@@ -128,7 +135,7 @@ class User < ActiveRecord::Base
       postal_code: self.postal_code,
       region: self.state,
       street_address_1: self.address,
-      tax_id_number: "000000000"
+      tax_id_number: self.tax_id_number
     }
     result.merge!(date_of_birth: self.date_of_birth.strftime("%Y-%m-%d")) unless self.date_of_birth.nil?
     result.merge!(phone: self.phone_number.gsub(/[-(),. ]/, '')) unless self.phone_number.nil?
@@ -141,13 +148,7 @@ class User < ActiveRecord::Base
         self.update_attributes(fund_america_id: resp["id"])
         return true, "Successfully registered user on FA!"
       rescue FundAmerica::Error => e
-        # Exception handling
-        # e.parsed_response gives a response hash of the error response sent by FundAmerica
-        puts "::::::::::::::::::::::::::::::::::::::Error IN FA::::::::::::::::::::::::::::::::::::"
-        puts e.parsed_response
-        puts "/n"
-        puts e.message
-        return false, e.parsed_response
+        return handle_fa_error(e, true)
       end
     else
       return true, "User already registered on FA!"
@@ -162,6 +163,43 @@ class User < ActiveRecord::Base
     !self.fund_america_id.blank?
   end
 
+  def accredition_status
+    self.investor_accreditation.try(:status) || "n/a"
+  end
+
+  def accredition_accepted? 
+    self.investor_accreditation.try(:status) == CONFIRMED
+  end
+
+  def accredition_pending? 
+    self.investor_accreditation.try(:status) == PENDING
+  end
+
+  def accredition_denied? 
+    self.investor_accreditation.try(:status) == DENIED
+  end
+
+  def accredition_expired? 
+    self.investor_accreditation.try(:status) == EXPIRED
+  end
+
+  def change_status_of_accreditation_if_test_mode(status='confirmed')
+    if(self.fund_america_id and self.investor_accreditation)    
+      if FundAmerica.mode and FundAmerica.mode == "sandbox"
+        begin
+          FundAmerica::API::request(:patch, FundAmerica.base_uri + "test_mode/entities/#{self.fund_america_id}/investor_accreditation", {status: status})
+          return true, "Successfully marked user accreditation as #{status}"
+        rescue FundAmerica::Error => e
+          return handle_fa_error(e, true)
+        end
+      else
+        return false, "Status can only be changed in sandbox mode"
+      end
+    else
+      return false, "User is not registered to FA or no accreditation process started"
+    end
+  end
+
   def generate_investor_accreditation_link
     if self.registered_to_fund_america? and self.investor_accreditation.nil?
       begin
@@ -169,18 +207,22 @@ class User < ActiveRecord::Base
         self.create_investor_accreditation(fund_america_form_url: resp["url"])
         return true, "Successfully generated investor accreditation form url"
       rescue FundAmerica::Error => e
-        # Exception handling
-        # e.parsed_response gives a response hash of the error response sent by FundAmerica
-        puts "::::::::::::::::::::::::::::::::::::::Error IN FA::::::::::::::::::::::::::::::::::::"
-        puts e.parsed_response
-        puts "/n"
-        puts e.message
-        return false, e.parsed_response
+        return handle_fa_error(e, true)
       end
     else
       return true, "Already initialized a form url for user" if self.registered_to_fund_america? and !(self.investor_accreditation.nil?)
       return false, "Something went wrong"
     end
+  end
+
+  def handle_fa_error(e, do_ret=false)
+    # Exception handling
+    # e.parsed_response gives a response hash of the error response sent by FundAmerica
+    puts "::::::::::::::::::::::::::::::::::::::Error IN FA::::::::::::::::::::::::::::::::::::"
+    puts e.parsed_response
+    puts "/n"
+    puts e.message
+    return false, e.parsed_response if do_ret
   end
 
   def get_user(uid)

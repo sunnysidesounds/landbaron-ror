@@ -35,10 +35,14 @@ ActiveAdmin.register User do
         row :state
         row :postal_code
         row :created_at
-        row :country     
+        row :country
+        row :accredition_status do 
+          status_tag (user.accredition_status), ((user.accredition_accepted? ? :ok : (user.accredition_pending? ? :warn : :error)))
+        end
         row :date_of_birth
         row :tax_id_number         
         row :marketo_lead_id            
+        row :fund_america_id
         row :investor_accreditation_form_url
       end
     end
@@ -88,6 +92,19 @@ ActiveAdmin.register User do
       link_to "Submit to FA", register_user_to_fund_america_admin_user_path(user) 
     elsif user.registered_to_fund_america? and user.investor_accreditation.nil?
       link_to "Request URL for accreditation", request_url_for_accreditation_admin_user_path(user), target: '_blank'
+    elsif user.registered_to_fund_america? and !(user.investor_accreditation.nil?)
+      link_to "Mark user status as Confirmed", mark_user_as_confirmed_on_fa_admin_user_path(user)
+    end
+  end
+
+  member_action :mark_user_as_confirmed_on_fa, method: :get do
+    status, message = resource.change_status_of_accreditation_if_test_mode('confirmed')
+    if status
+      flash[:notice] = message
+      redirect_to :back
+    else
+      flash[:error] = message
+      redirect_to :back
     end
   end
 

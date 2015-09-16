@@ -17,6 +17,14 @@ LandBaron::Application.routes.draw do
     end
   end
 
+  namespace :api do
+    resources :fund_america_webhooks, only: [] do
+      collection do
+        post :process_hook
+      end
+    end
+  end
+
   resources :investments do
     member do
       get :invest, as: :new_invest
@@ -39,16 +47,6 @@ LandBaron::Application.routes.draw do
   match '/preorder/ipn'           => 'preorder#ipn', :via => :post
   match '/preorder/prefill'       => 'preorder#prefill', :via => [:get,:post]
   match '/preorder/postfill'      => 'preorder#postfill', :via => [:get,:post]
-
-  # Authentication
-  # get 'sign_in' => 'authentication#sign_in'
-  # post 'sign_in' => 'authentication#login'
-  # get 'signed_out' => 'authentication#signed_out'
-  # get 'change_password' => 'authentication#change_password'
-  # get 'forgot_password' => 'authentication#forgot_password'
-  # get 'new_user' => 'authentication#new_user'
-  # post 'new_user' => 'authentication#register'
-  # get 'password_sent' => 'authentication#password_sent'
 
   # My Account
   get 'account' => 'my_account#account'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910192815) do
+ActiveRecord::Schema.define(version: 20150911210028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,20 @@ ActiveRecord::Schema.define(version: 20150910192815) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "fund_america_webhooks", force: :cascade do |t|
+    t.string   "object_type"
+    t.string   "action_id"
+    t.string   "url"
+    t.string   "webhook_id"
+    t.string   "signature"
+    t.string   "action"
+    t.string   "entity_id"
+    t.string   "changes_fields"
+    t.boolean  "processed",      default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "investment_questions", force: :cascade do |t|
     t.string   "question"

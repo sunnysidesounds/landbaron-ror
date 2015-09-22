@@ -24,11 +24,20 @@
   
   </head>
   <!--[if lt IE 9 ]><body class="lt-ie9"><![endif]-->
-  <!--[if (gt IE 9)|!(IE)]><!--> <body><!--<![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> 
+  <body><!--<![endif]-->
     <%= render 'common/header' %>
 
     <%= flash_messages%>
     <%= yield %>
     <%= render 'common/footer' %>
+    <script type="text/javascript">
+        window.doorbellOptions = {
+            appKey: 'cKQ5TPXblL9DPCFAzLD1CCr17TugpDui5e2WjDeNZ6WwDlWkwm9DBGGfgTIznRTi'
+        };
+        (function(d, t) {
+            var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = 'https://embed.doorbell.io/button/2203?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g);
+        }(document, 'script'));
+    </script>
   </body>
 </html>

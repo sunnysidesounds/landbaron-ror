@@ -1,6 +1,14 @@
 ActiveAdmin.register User do
 
   config.sort_order = 'id_asc'
+
+  scope :accepted, -> { includes(:investor_accreditation).where(investor_accreditations: {status: CONFIRMED}) }
+  scope :denied, -> { includes(:investor_accreditation).where(investor_accreditations: {status: DENIED}) }
+  scope :pending, -> { includes(:investor_accreditation).where(investor_accreditations: {status: PENDING}) }
+  scope :not_initiated, -> { includes(:investor_accreditation).where(investor_accreditations: {id: nil}) }
+
+
+
   permit_params :username, :email, :first_name, :last_name, :phone_number,
       :address, :city, :state, :country, :postal_code, :password, :legal_name, :date_of_birth, :tax_id_number
 
@@ -93,7 +101,7 @@ ActiveAdmin.register User do
     elsif user.registered_to_fund_america? and user.investor_accreditation.nil?
       link_to "Request URL for accreditation", request_url_for_accreditation_admin_user_path(user), target: '_blank'
     elsif user.registered_to_fund_america? and !(user.investor_accreditation.nil?)
-      link_to "Mark user status as Confirmed", mark_user_as_confirmed_on_fa_admin_user_path(user)
+      link_to "Mark user status as Confirmed", mark_user_as_confirmed_on_fa_admin_user_path(user) if Rails.env.development?
     end
   end
 

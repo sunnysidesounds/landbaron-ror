@@ -60,6 +60,7 @@ class User < ActiveRecord::Base
   attr_accessor :login_attr
 
   has_many :quotes
+  has_one :investor_accreditation
 
 
   devise :database_authenticatable, 
@@ -68,7 +69,6 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   validates_presence_of :first_name, :on => :create
   validates_presence_of :last_name, :on => :create
-  has_one :investor_accreditation
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
 
   CONFIRMED = 'confirmed'
@@ -77,6 +77,12 @@ class User < ActiveRecord::Base
   EXPIRED = 'expired'
 
   STATUSES = [CONFIRMED, PENDING, DENIED, EXPIRED]
+
+  scope :accepted, -> { includes(:investor_accreditation).where(investor_accreditations: {status: CONFIRMED}) }
+  scope :denied, -> { includes(:investor_accreditation).where(investor_accreditations: {status: DENIED}) }
+  scope :pending, -> { includes(:investor_accreditation).where(investor_accreditations: {status: PENDING})}
+  scope :not_initiated, -> { includes(:investor_accreditation).where(investor_accreditations: {id: nil}) }
+
 
   def sync_user_to_marketo_leads(is_dev_env=true)
     client = get_mrkt_client
@@ -164,7 +170,7 @@ class User < ActiveRecord::Base
   end
 
   def accredition_status
-    self.investor_accreditation.try(:status) || "n/a"
+    self.investor_accreditation.nil? ? "N/A" : self.investor_accreditation.status.blank? ? PENDING : self.investor_accreditation.status
   end
 
   def accredition_accepted? 

@@ -2,10 +2,12 @@ ActiveAdmin.register User do
 
   config.sort_order = 'id_asc'
 
-  scope :accepted, -> { includes(:investor_accreditation).where(investor_accreditations: {status: CONFIRMED}) }
-  scope :denied, -> { includes(:investor_accreditation).where(investor_accreditations: {status: DENIED}) }
-  scope :pending, -> { includes(:investor_accreditation).where(investor_accreditations: {status: PENDING}) }
-  scope :not_initiated, -> { includes(:investor_accreditation).where(investor_accreditations: {id: nil}) }
+  scope :registered_on_fa, -> { where("fund_america_id is not null") }
+  scope :not_registered_on_fa, -> { where(fund_america_id: nil) }
+
+  scope :accepted_as_accreditated, -> { includes(:investor_accreditation).where(investor_accreditations: {status: CONFIRMED}) }
+  scope :denied_as_accreditated, -> { includes(:investor_accreditation).where(investor_accreditations: {status: DENIED}) }
+  scope :not_initiated_as_accreditated, -> { includes(:investor_accreditation).where(investor_accreditations: {id: nil}) }
 
 
 

@@ -7,7 +7,7 @@
             <div class="slider-wrapper">
              <ul class="bxslider">
                 <%no_image_shown = true%>
-                <% @investment.media.each do |medium| %>
+                <% @investment.investment_images.each do |medium| %>
 
                     <% if !(medium.media_item_content_type =~ /^image/).nil? %>
                         <%no_image_shown = false%>
@@ -24,7 +24,7 @@
         </div> 
 
         <div id="bx-pager">
-            <%- @investment.media.each_with_index do |medium, index| %>
+            <%- @investment.investment_images.each_with_index do |medium, index| %>
                 <% if !(medium.media_item_content_type =~ /^image/).nil? %>
                     <a data-slide-index="<%= index%>" class=" thumb-pager" href=""><img src="<%=medium.media_item %>"></a>
                 <% end %>
@@ -109,7 +109,15 @@
                     <div class="col-md-12 col-sm-12">
                         <h2 class="text-left border-bold">My Documents</h2>
                         <ul class="doc">
-                            <li>Coming Soon!</li>
+                            <%- unless @investment.investment_documents.any? %>
+                                <li>Coming Soon!</li>
+                            <% else %>
+                                <% @investment.investment_documents.each do |document| %>
+                                    <li>
+                                        <%= link_to image_tag(document.media_item.url(:pdf_thumbnail), :border => 1, :alt => 'Download this document', height: '140', width: '70'), document.media_item.url %>
+                                    </li>
+                                <% end %>
+                            <% end %>
                         </ul>
                     </div>
 

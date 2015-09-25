@@ -16,6 +16,6 @@
 
 require 'spec_helper'
 
-describe Medium do
+describe InvestmentDocument do
   pending "add some examples to (or delete) #{__FILE__}"
 end

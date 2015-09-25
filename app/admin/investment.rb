@@ -4,7 +4,10 @@ ActiveAdmin.register Investment do
   # config.sort_order = 'id_asc'
   permit_params :name, :logo_link, :regulation, :investment_type, :raise_amount,
   :minimum_raise_amount, :investment_duration, :video_link, :status,
-  :risk_rating, :investment_minimum, :key_information, :note, :qa, :logo, :vote_enabled, :tag_list, :address, principle_investor_ids: [], investment_question_ids: []
+  :risk_rating, :investment_minimum, :key_information, :note, :qa, :logo, :vote_enabled, :tag_list, 
+  :address, principle_investor_ids: [], investment_question_ids: [], 
+  investment_documents_attributes: [:media_item, :_destroy, :id], 
+  investment_images_attributes: [:media_item, :_destroy, :id]
   scope :reg_c_investments, -> { where(regulation: Investment::REG_C_REGULATION) }
   scope :reg_b_investments, -> { where(regulation: Investment::REG_B_REGULATION) }
   scope :reg_free_investments, -> { where(regulation: nil) }
@@ -86,6 +89,18 @@ ActiveAdmin.register Investment do
               :required => false,
               :hint => image_tag(f.object.logo.url),
               :label => 'Logo'
+      f.has_many :investment_documents, :heading => "Documents", new_record: 'New Document', allow_destroy: :true do |a|
+        a.input :media_item, as: :file, label: "Pick document", :hint => a.object.media_item.present? \
+          ? image_tag(a.object.media_item.url(:pdf_thumbnail), height: '140', width: '70')
+          : content_tag(:span, "no document added")
+        # a.input :media_item_cache, :as => :hidden 
+      end
+      f.has_many :investment_images, :heading => "Slider Images", new_record: 'Add a new slider Image', allow_destroy: :true do |a|
+        a.input :media_item, as: :file, label: "Pick Image", :hint => a.object.media_item.present? \
+          ? image_tag(a.object.media_item.url(:pdf_thumbnail), height: '140', width: '70')
+          : content_tag(:span, "no document added")
+        # a.input :media_item_cache, :as => :hidden 
+      end
       f.input :investment_type, :label => 'Investment Type'
       f.input :regulation, as: :select, collection: Investment::REGULATIONS
       f.input :principle_investors

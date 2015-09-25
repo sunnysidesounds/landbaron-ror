@@ -1775,3 +1775,59 @@ a[disabled]{
   cursor: not-allowed;
   text-decoration: none;
 }
+
+.flash_notif{
+    width: 100%;
+    float: left;
+    border-top: 1px solid #797675;
+    padding: 10px 0px;
+    text-align: center;
+    font-size: 18px;
+    &.error {
+        background-color: #C70505;
+        color: #FFFFFF;    
+    }
+    &.notice{
+        background-color: #0F9815;
+        color: #FCFCFC;
+    }
+    &.alert{
+        background-color: #C70505;
+        color: #FFFFFF;
+    }
+}
+
+.signup_login_container{
+        margin: 120px 0px 60px;
+}
+.lbc_tabs{
+        overflow: hidden;
+    
+    width: 100%;
+}
+.lbc_tab.create_account_tab.create_account_tab_notselected{
+        width: 48%;
+    float: left;
+    background-color: #F3AF1E;
+    padding: 15px 0px;
+    text-align: center;
+    /* color: red; */
+    border-radius: 4px;
+}
+.create_account_link{
+        color: #212626;
+    font-weight: bold;
+}
+.lbc_tab.signin_account_tab{
+        width: 48%;
+    float: right;
+    background-color: #212626;
+    padding: 15px 0px;
+    text-align: center;
+    /* border-left: 2px solid #FFF; */
+    border-radius: 4px;
+}
+.login_account_link{
+    color: #F3AF1E;
+    font-weight: bold;
+}                                                                                                                                   

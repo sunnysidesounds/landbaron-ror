@@ -11,13 +11,14 @@
 #  media_item_content_type :string
 #  media_item_file_size    :integer
 #  media_item_updated_at   :datetime
+#  type                    :string
 #
 
 class Medium < ActiveRecord::Base
 
   belongs_to :investment
 
-  has_attached_file :media_item, :styles => { :pdf_thumbnail => ["", :jpg] }
+  has_attached_file :media_item, :styles => { :pdf_thumbnail => ["", :jpg], :thumb => "100x100#" }
   do_not_validate_attachment_file_type :media_item
 
 

@@ -39,7 +39,8 @@ class Investment < ActiveRecord::Base
   has_and_belongs_to_many :principle_investors
   has_and_belongs_to_many :investment_questions
   has_many :quotes
-  has_many :media
+  has_many :investment_images
+  has_many :investment_documents
   has_many :votes
 
   acts_as_taggable
@@ -55,6 +56,10 @@ class Investment < ActiveRecord::Base
   scope :reg_b_investments, -> { where(regulation: REG_B_REGULATION) }
   scope :reg_free_investments, -> { where(regulation: nil) }
   
+
+  accepts_nested_attributes_for :investment_images, allow_destroy: :true
+  accepts_nested_attributes_for :investment_documents, allow_destroy: :true
+
 
   # Deprecated method, use get_lp_investments instead
   # def get_landing_page_investments(status)

@@ -20,7 +20,7 @@ ActiveAdmin.register Investment do
     end
 
     column "Logo" do |investment|
-      image_tag investment.logo, :class => 'logo_link_img'
+      image_tag investment.logo, :class => 'logo_link_img', width: '150', height: '200'
     end
 
     column :investment_type

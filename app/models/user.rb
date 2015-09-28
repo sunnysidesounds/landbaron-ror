@@ -71,17 +71,17 @@ class User < ActiveRecord::Base
   validates_presence_of :last_name, :on => :create
   validates :username, :presence => true, :uniqueness => { :case_sensitive => false }
 
-  CONFIRMED = 'confirmed'
-  PENDING = 'pending'
-  DENIED = 'denied'
-  EXPIRED = 'expired'
 
-  STATUSES = [CONFIRMED, PENDING, DENIED, EXPIRED]
 
-  scope :accepted_as_accreditated, -> { includes(:investor_accreditation).where(investor_accreditations: {status: CONFIRMED}) }
-  scope :denied_as_accreditated, -> { includes(:investor_accreditation).where(investor_accreditations: {status: DENIED}) }
-  scope :pending_as_accreditated, -> { includes(:investor_accreditation).where(investor_accreditations: {status: PENDING}) }
-  scope :not_initiated_as_accreditated, -> { includes(:investor_accreditation).where(investor_accreditations: {id: nil}) }
+  STATUSES = [InvestorAccreditation::CONFIRMED, InvestorAccreditation::PENDING, InvestorAccreditation::DENIED, InvestorAccreditation::EXPIRED]
+
+  scope :list_all, -> { all }
+
+  scope :accepted, -> { includes(:investor_accreditation).where(investor_accreditations: {status: InvestorAccreditation::CONFIRMED}) }
+  scope :denied, -> { includes(:investor_accreditation).where(investor_accreditations: {status: InvestorAccreditation::DENIED}) }
+  scope :pending, -> { includes(:investor_accreditation).where(investor_accreditations: {status: InvestorAccreditation::PENDING}) }
+  scope :not_initiated, -> { includes(:investor_accreditation).where(investor_accreditations: {status: nil}) }
+
 
   scope :registered_on_fa, -> { where("fund_america_id is not null") }
   scope :not_registered_on_fa, -> { where(fund_america_id: nil) }
@@ -174,23 +174,23 @@ class User < ActiveRecord::Base
   end
 
   def accredition_status
-    self.investor_accreditation.nil? ? "N/A" : self.investor_accreditation.status.blank? ? PENDING : self.investor_accreditation.status
+    self.investor_accreditation.nil? ? "N/A" : self.investor_accreditation.status.blank? ? InvestorAccreditation::PENDING : self.investor_accreditation.status
   end
 
   def accredition_accepted? 
-    self.investor_accreditation.try(:status) == CONFIRMED
+    self.investor_accreditation.try(:status) == InvestorAccreditation::CONFIRMED
   end
 
   def accredition_pending? 
-    self.investor_accreditation.try(:status) == PENDING
+    self.investor_accreditation.try(:status) == InvestorAccreditation::PENDING
   end
 
   def accredition_denied? 
-    self.investor_accreditation.try(:status) == DENIED
+    self.investor_accreditation.try(:status) == InvestorAccreditation::DENIED
   end
 
   def accredition_expired? 
-    self.investor_accreditation.try(:status) == EXPIRED
+    self.investor_accreditation.try(:status) == InvestorAccreditation::EXPIRED
   end
 
   def change_status_of_accreditation_if_test_mode(status='confirmed')

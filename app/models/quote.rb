@@ -46,5 +46,9 @@ class Quote < ActiveRecord::Base
     self.reference_id = SecureRandom.uuid
   end
 
+  def to_s
+    reference_id
+  end
+
 
 end

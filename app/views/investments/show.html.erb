@@ -114,7 +114,7 @@
                             <% else %>
                                 <% @investment.investment_documents.each do |document| %>
                                     <li>
-                                        <%= link_to image_tag(document.media_item.url(:pdf_thumbnail), :border => 1, :alt => 'Download this document', height: '140', width: '70'), document.media_item.url %>
+                                        <%= link_to "#{image_tag(document.media_item.url(:pdf_thumbnail), :border => 1, :alt => 'Download this document', height: '140', width: '70')} #{truncate(document.media_item_file_name, length: 35)}".html_safe, document.media_item.url %>
                                     </li>
                                 <% end %>
                             <% end %>

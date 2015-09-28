@@ -11,7 +11,22 @@
 #
 
 class InvestorAccreditation < ActiveRecord::Base
+  CONFIRMED = 'confirmed'
+  PENDING = 'pending'
+  DENIED = 'denied'
+  EXPIRED = 'expired'
+
   belongs_to :user
+
+  before_create :mark_as_pending_if_no_state
+
+  def mark_as_pending_if_no_state
+    self.status = PENDING if self.status.blank?
+  end
+
+  def to_s
+    id
+  end
 
   def fetch_form_and_update_fields(url, field_to_update)
     begin

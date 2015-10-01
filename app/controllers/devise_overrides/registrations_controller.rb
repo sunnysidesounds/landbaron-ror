@@ -5,7 +5,7 @@ class DeviseOverrides::RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource(user_params)
-    is_dev_env = request.base_url.include?("localhost") || request.base_url.include?("dev.landbaronclub.com")
+    is_dev_env = Rails.env.development?
     resource.username = resource.email
     resource.save
     yield resource if block_given?

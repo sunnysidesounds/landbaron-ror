@@ -26,6 +26,7 @@ spec/.DS_Store
 
 # Media file uploads
 public/system/
+public/assets/
 
 
 *.sublime-workspace

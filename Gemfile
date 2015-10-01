@@ -46,6 +46,8 @@ gem 'paperclip', '~> 4.2'
 # Marketo API
 gem 'mrkt'
 
+gem 'puma'
+
 # html parser
 gem 'truncate_html'
 
@@ -62,12 +64,10 @@ end
 
 # Gems used only for assets and not required
 # in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 4.0.2'
-  gem 'coffee-rails', '~> 4.0.0'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'font-awesome-sass'
-end
+gem 'sass-rails',   '~> 4.0.2'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.0.3'
+gem 'font-awesome-sass', '~> 4.4.0'
 
 group :development, :test do
   gem 'test-unit'

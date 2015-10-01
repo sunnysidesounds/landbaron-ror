@@ -45,7 +45,7 @@ class Investment < ActiveRecord::Base
 
   acts_as_taggable
 
-  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/logo-placeholder.gif"
+  has_attached_file :logo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => ':placeholder'
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
   REG_C_REGULATION = "Reg C."

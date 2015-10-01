@@ -7,7 +7,8 @@
             <div class="header_links">
                 <div id="top-bar">
                     <a href="#" id="more">
-                        <img class="user_avatar" width="52" height="52" src="/assets/dummy-investor.png">
+                        <!-- <img class="user_avatar" width="52" height="52" src="/assets/dummy-investor.png"> -->
+                        <%= image_tag "dummy-investor.png", class: 'user_avatar', width: 52, height: 52%>
                         <div class="users_information">
                             <div class="users_name"><%= current_user.first_name + " " + current_user.last_name %></div>
                             <div class="username">@<%= current_user.username %></div>

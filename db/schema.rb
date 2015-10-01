@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911210028) do
+ActiveRecord::Schema.define(version: 20150925141432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 20150911210028) do
     t.string   "media_item_content_type"
     t.integer  "media_item_file_size"
     t.datetime "media_item_updated_at"
+    t.string   "type"
   end
 
   create_table "orders", id: false, force: :cascade do |t|

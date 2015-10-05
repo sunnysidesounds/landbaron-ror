@@ -32,8 +32,9 @@
     <%= yield %>
     <%= render 'common/footer' %>
     <script type="text/javascript">
+        var key = '<%= ENV['DOORBELL_KEY'] %>'
         window.doorbellOptions = {
-            appKey: 'cKQ5TPXblL9DPCFAzLD1CCr17TugpDui5e2WjDeNZ6WwDlWkwm9DBGGfgTIznRTi'
+            appKey: key
         };
         (function(d, t) {
             var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = 'https://embed.doorbell.io/button/2203?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g);

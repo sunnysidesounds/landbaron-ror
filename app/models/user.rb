@@ -93,9 +93,16 @@ class User < ActiveRecord::Base
     temp_email = "azlantaher@gmail.com" if is_dev_env
     temp_email = self.email unless temp_email
     # email_address, first_name, last_name, company, phone
-    resp = set_mrkt_lead(temp_email, self.first_name, self.last_name || "COOL", '', self.phone_number)
-    puts "**" * 100
-    puts resp
+    resp = set_mrkt_lead({ :email => temp_email,
+          :firstName => self.first_name,
+          :lastname => self.last_name,
+          # :company => company,
+          :phone => self.phone_number,
+          :'Property_of_Interest__c' => self.property_types,
+          :'Deal_of_Interest__c' => self.deal_types, 
+          :'Invested_in_Real_Estate_Before__c' => self.invested_in_realestate,
+          :'Annual_Net_Income_Before_Taxes__c' => self.annual_income_without_taxes
+           })
 
     self.marketo_lead_id = resp.first[:id] if resp.is_a? Array
   end

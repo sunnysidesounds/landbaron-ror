@@ -1,24 +1,35 @@
 <div id="login">
     <div class="signup_login_container">
-        <div class="lbc_tabs">
-            <div class="lbc_tab create_account_tab create_account_tab_notselected">
-                <%= link_to "Create Account", new_user_registration_path, :class => 'create_account_link' %>
+        <%if 1==2%>
+            <div class="lbc_tabs">
+                <div class="lbc_tab create_account_tab create_account_tab_notselected">
+                    <%= link_to "Create Account", new_user_registration_path, :class => 'create_account_link' %>
+                </div>
+                <div class="lbc_tab signin_account_tab">
+                    <%= link_to "Login", new_user_session_path, :class => 'login_account_link' %>
+                </div>
             </div>
-            <div class="lbc_tab signin_account_tab">
-                <%= link_to "Login", new_user_session_path, :class => 'login_account_link' %>
-            </div>
-        </div>
+        <%end%>
         <h2><span class="fontawesome-lock"></span>Welcome to Land Baron Club </h2>
         <%= devise_error_messages! %>
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             
             <fieldset>
-                <p><label for="email">E-mail address</label></p>
-                <%= f.text_field :login_attr, :class => 'form-control', id: 'email', :autofocus => true, :placeholder => 'Username or Email', onblur: "if(this.value=='')this.value='mail@address.com'", onfocus: "if(this.value=='mail@address.com')this.value=''"%>
-                <p><label for="password">Password</label></p>
-                <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :autofocus => true, id:'password', :placeholder => 'Password', onblur: "if(this.value=='')this.value='password'", onfocus: "if(this.value=='password')this.value=''" %>
+                <p>
+                    <label for="email">Log in with your e-mail address</label>
+                    <%= f.text_field :login_attr, :class => 'form-control', id: 'email', :autofocus => true, :placeholder => 'Username or Email', onblur: "if(this.value=='')this.value='mail@address.com'", onfocus: "if(this.value=='mail@address.com')this.value=''"%>
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <%= f.password_field :password, autocomplete: "off", :class => 'form-control', :autofocus => true, id:'password', :placeholder => 'Password', onblur: "if(this.value=='')this.value='password'", onfocus: "if(this.value=='password')this.value=''" %>
+                </p>
                 <%= f.submit 'Log In'%>
             </fieldset>
+            <div class="row text-center">
+                <h3>
+                    Not a member? Register <%=link_to 'here', new_user_registration_path%>
+                </h3>
+            </div>
         <% end %>
     </div>
 </div>

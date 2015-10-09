@@ -17,6 +17,9 @@
 //= require jquery.formatCurrency
 //= require jquery.multipage
 //= require jquery.textchange
+//= require microplugin.min
+//= require sifter.min
+//= require selectize.min
 //= require preorder
 //= require jquery.bxslider
 //= require jquery.validate

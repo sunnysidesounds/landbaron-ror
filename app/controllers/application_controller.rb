@@ -27,4 +27,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me, :login_attr) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password, :login_attr) }
   end
+
+  private
+
+  def after_sign_out_path_for(resource_or_scope)
+    if Rails.env.development?
+      new_user_session_path
+    else
+      "http://www.landbaronclub.com"
+    end
+  end
 end

@@ -11,6 +11,7 @@
  *
  *= require jquery-ui
  *= require jquery.bxslider-new
+ *= require selectize.default
  */
 
 
@@ -19,4 +20,4 @@
 @import "jslider";
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "style"
+@import "style";

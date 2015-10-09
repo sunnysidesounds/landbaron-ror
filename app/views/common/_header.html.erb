@@ -6,12 +6,14 @@
          end%>
     </div>
     
-    <div class="col-md-2 col-sm-2 explore  col-xs-12 border-left border-right text-center">
+    <%if 1==2%>
+      <div class="col-md-2 col-sm-2 explore  col-xs-12 border-left border-right text-center">
         <h4>Explore</h4>
-    </div>
-    <div class="col-md-3 col-sm-3   search col-xs-12 border-right  color-white">
-      <input type="Search" class="form-control bg-transparent border-none color-white" placeholder="Coming Soon..."/>
-  	</div>
+      </div>
+      <div class="col-md-3 col-sm-3   search col-xs-12 border-right  color-white">
+        <input type="Search" class="form-control bg-transparent border-none color-white" placeholder="Coming Soon..."/>
+    	</div>
+    <%end%>
   	<% if user_signed_in? %>
 	    <div class="col-md-3 col-sm-3 col-xs-12 color-white username ">
 	      <p class="nav-button "> <%= current_user.first_name+ ' ' +current_user.last_name %> <span class="pull-right"><i class="fa fa-chevron-circle-down"></i></span></p>

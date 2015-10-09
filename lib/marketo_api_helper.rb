@@ -25,17 +25,13 @@ module MarketoApiHelper
   # string : last_name
   # string : company
   # string : phone
-  def set_mrkt_lead(email_address, first_name, last_name, company, phone)
+  def set_mrkt_lead(fields={})
     response = get_mrkt_client.createupdate_leads(
-        [{ :email => email_address,
-           :firstName => first_name,
-           :lastname => last_name,
-           :company => company,
-           :phone => phone}],
+        [fields],
         :lookup_field => :email)
     response[:result].each do |result|
       p "id: #{result[:id]}, email: #{result[:email]}"
-      puts p
+      puts result
     end
   end
 

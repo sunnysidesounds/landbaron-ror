@@ -100,8 +100,8 @@ class User < ActiveRecord::Base
           :phone => self.phone_number,
           :'Property_of_Interest__c' => self.property_types,
           :'Deal_of_Interest__c' => self.deal_types, 
-          :'Invested_in_Real_Estate_Before__c' => self.invested_in_realestate,
-          :'Annual_Net_Income_Before_Taxes__c' => self.annual_income_without_taxes
+          :'Invested_in_Real_Estate_Before__c' => self.invested_in_realestate
+          # :'Annual_Net_Income_Before_Taxes__c' => self.annual_income_without_taxes
            })
 
     self.marketo_lead_id = resp.first[:id] if resp.is_a? Array

@@ -30,7 +30,6 @@ module MarketoApiHelper
         [fields],
         :lookup_field => :email)
     response[:result].each do |result|
-      p "id: #{result[:id]}, email: #{result[:email]}"
       puts result
     end
   end

@@ -10,6 +10,7 @@ class InvestmentsController < ApplicationController
       end
     end
     @investments ||= Investment.get_lp_investments('available')
+    @total_investments = Investment.where(status: 'available').count
     @coming_soon ||= Investment.get_lp_investments('coming_soon')
     @past ||= Investment.get_lp_investments('past')
     @funded ||= Investment.get_lp_investments('funded')

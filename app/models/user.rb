@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
 
   def email_admins
     AdminMailer.account_creation_email(self).deliver_now if self.persisted?
-    AccountCreationMailer.account_creation_email(self).deliver_now if self.persisted?
+    # AccountCreationMailer.account_creation_email(self).deliver_now if self.persisted?
   end
 
 

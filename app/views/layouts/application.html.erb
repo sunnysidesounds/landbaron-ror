@@ -33,11 +33,13 @@
     <%= render 'common/footer' %>
     <script type="text/javascript">
         var key = '<%= ENV['DOORBELL_KEY'] %>'
+        var doorbell_app_id = '<%= ENV['DOORBELL_APP_ID']%>'
+        var doorbell_url = "https://embed.doorbell.io/button/"+doorbell_app_id+"?t="+(new Date().getTime())
         window.doorbellOptions = {
             appKey: key
         };
         (function(d, t) {
-            var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = 'https://embed.doorbell.io/button/2203?t='+(new Date().getTime());(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g);
+            var g = d.createElement(t);g.id = 'doorbellScript';g.type = 'text/javascript';g.async = true;g.src = doorbell_url;(d.getElementsByTagName('head')[0]||d.getElementsByTagName('body')[0]).appendChild(g);
         }(document, 'script'));
     </script>
   </body>

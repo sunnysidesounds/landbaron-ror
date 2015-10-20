@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <div id="email_container_outer" style="height:63px;background-color:#000;">
+      <div id="email_container_inner" style="">
+          <!-- TODO Change this to be more dynamic -->
+          <img src="http://ww2.landbaronclub.com/assets/logo-beta.png" alt="Land Baron Club" style="padding:5px; width:245px; height:55px;" />
+      </div>
+    </div>
+      
+    <p>
+      This is a notification to let you know that
+      <strong><%= @user.first_name %></strong> <strong><%= @user.last_name %></strong> has
+      created a account today at <strong><%= Time.now.strftime("%I:%M %P - %m/%d/%Y") %></strong>
+    </p>
+    <h5>USER DETAILS</h5>
+    <table border="0">
+        <tr><td>User's Name:</td><td> <strong><%= @user.first_name %></strong> <strong><%= @user.last_name %></strong></td></tr>
+        <tr><td>User's Phone: </td><td><strong><%= @user.phone_number %> </strong></td></tr>
+        <tr><td>User's Email: </td><td><strong><%= @user.email %> </strong></td></tr>
+    </table>
+    <br/>
+  </body>
+</html>

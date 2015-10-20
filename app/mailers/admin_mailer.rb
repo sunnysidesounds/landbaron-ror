@@ -1,14 +1,19 @@
 class AdminMailer < ApplicationMailer
   default :from => Settings.from_email
 
-  def admin_email(current_user, quote_user = nil)
+  def admin_email(current_user, quote = nil)
     @user = current_user
-    if quote_user != nil
-      @quote = quote_user
+    if quote != nil
+      @quote = quote
       investments = Investment.new
       @investment = investments.get_a_investment_detail(@quote.investment_id)
     end
-    mail(:to => Settings.admin_group_email , :subject => Settings.admin_email_subject)
+    mail(:to => ENV["ADMINS_EMAILS"] , :subject => Settings.admin_email_subject)
+  end
+
+  def account_creation_email(user)
+    @user = user
+    mail(to: ENV["ADMINS_EMAILS"], subject: Settings.admin_email_subject)
   end
 
 end

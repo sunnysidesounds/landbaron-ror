@@ -87,6 +87,14 @@ class User < ActiveRecord::Base
   scope :not_registered_on_fa, -> { where(fund_america_id: nil) }
 
 
+  after_create :email_admins
+
+
+  def email_admins
+    AdminMailer.account_creation_email(self).deliver_now if self.persisted?
+    AccountCreationMailer.account_creation_email(self).deliver_now if self.persisted?
+  end
+
 
   def sync_user_to_marketo_leads(is_dev_env=true)
     client = get_mrkt_client

@@ -160,16 +160,6 @@ ActiveRecord::Schema.define(version: 20150925141432) do
     t.integer  "payment_option_id"
   end
 
-  create_table "pages", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "order_id"
-    t.string   "category"
-    t.integer  "media_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "payment_options", force: :cascade do |t|
     t.decimal  "amount"
     t.string   "amount_display"

@@ -110,7 +110,7 @@
                         <h2 class="text-left border-bold">My Documents</h2>
                         <ul class="doc">
                             <%- unless @investment.investment_documents.any? %>
-                                <li>Coming Soon!</li>
+                                <li>No documents attached.</li>
                             <% else %>
                                 <% @investment.investment_documents.each do |document| %>
                                     <li>

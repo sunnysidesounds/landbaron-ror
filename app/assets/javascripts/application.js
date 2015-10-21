@@ -107,20 +107,22 @@ $(document).ready(function(){
     });
     
     
-    $("#user_password").focus(function(){
+    // $("#user_password").focus(function(){
+    //     verify_password()
+    // })
+
+    $("#user_password").keyup(function(e){
+        console.log($(this).val())
         verify_password()
     })
 
-    $("#user_password").keypress(function(){
-        verify_password()
-    })
-
-    $("#user_password").focusout(function(){
-        verify_password()
-    })
+    // $("#user_password").focusout(function(){
+    //     verify_password()
+    // })
 
     function verify_password(){
-        if($('#user_password').val().length > 5){
+        var value = $("#user_password").val();
+        if(value.length > 5){
             $("#char_length").addClass('fa-check')
             $("#char_length").addClass('color-yellow')
             $("#char_length").removeClass('fa-close')
@@ -131,7 +133,7 @@ $(document).ready(function(){
             $("#char_length").removeClass('fa-check')
             $("#char_length").removeClass('color-yellow')
         }
-        if(/^(?=.*[a-z])(?=.*[A-Z])/.test($("#user_password").val())){
+        if(/^(?=.*[a-z])(?=.*[A-Z])/.test(value)){
             $("#char_uper").addClass('fa-check')
             $("#char_uper").addClass('color-yellow')
             $("#char_uper").removeClass('fa-close')
@@ -142,7 +144,7 @@ $(document).ready(function(){
             $("#char_uper").addClass('fa-close')
             $("#char_uper").addClass('color-red')
         }
-        if(/^(?=.*\d).+$/.test($("#user_password").val())){
+        if(/^(?=.*\d).+$/.test(value)){
             $("#contain_numb").addClass('fa-check')
             $("#contain_numb").addClass('color-yellow')
             $("#contain_numb").removeClass('fa-close')

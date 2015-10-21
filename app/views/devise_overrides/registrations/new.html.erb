@@ -44,7 +44,7 @@
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <section ng-app="myApp" ng-controller="mainCtrl">
                             <label>Create Password</label>
-                            <%= f.password_field :password, :class => 'form-control set-margin', :autofocus => true, :autocomplete => "off", :placeholder => 'New Password', :required => true %>
+                            <%= f.password_field :password, :class => 'form-control set-margin', :autofocus => true, :autocomplete => "off", :placeholder => 'New Password', :required => true, pattern: "(?=^.{6,}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$" %>
                             <%= show_field_error(@user, :password) %>
                             <!-- <input type="checkbox" id="checkbox" ng-model="passwordCheckbox" ng-click="hideShowPassword()" class="display-none"/>
                             <label for="checkbox" ng-if="passwordCheckbox" class="hidden-show"><i class="fa fa-eye-slash"></i></label>
@@ -65,7 +65,11 @@
                     
                    <div class="col-md-6 col-sm-12 col-xs-12">
                        <label>Country</label>
-                        <%= f.select :country, options_for_select(countries), {:include_blank => 'Please select a country'}, {class: 'form-control', required: true} %>
+                       <%if 1==2%>
+                            <%= f.select :country, options_for_select(countries), {:include_blank => 'Please select a country'}, {class: 'form-control', required: true} %>
+                        <%end%>
+                        <%= country_select("user", "country", { priority_countries: ["US"], selected: "US" }, { class: 'form-control', required: true }) %>
+
                          
                    </div>
                         <div class="col-md-6 col-sm-12 col-xs-12 ">

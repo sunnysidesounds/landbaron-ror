@@ -1,4 +1,14 @@
 LandBaron::Application.configure do
+
+  #Middleware for exceptions and notifications
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[LandbaronClub Error] ",
+      :exception_recipients => ENV['EXCEPTION_RECIPIENTS']
+    }
+
+
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests

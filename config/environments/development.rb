@@ -17,10 +17,10 @@ LandBaron::Application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
-  # SMTP settings for gmail
 
-
-
+  #SMTP to mailcacther if it is development
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
   #:user_name => 'your_sendgrid_username',
   #    :password => 'your_sendgrid_password',

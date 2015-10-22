@@ -13,7 +13,7 @@
 
         steps.each(function(i) {
 
-            $(this).wrap("<div id='step" + i + "'></div>");
+            $(this).wrap("<div id='step" + i + "' class='row'></div>");
             $($(this).find(".signup_navigation_button")).append("<p class='steps_navigation' id='step" + i + "commands'></p>");
 
             if (i == 0) {

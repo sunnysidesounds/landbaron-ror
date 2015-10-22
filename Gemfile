@@ -37,6 +37,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'devise'
 
+#exception notifications
+gem 'exception_notification'
+
 #annotate Models with database attributes
 gem 'annotate', '~> 2.6.6'
 

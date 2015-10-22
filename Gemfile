@@ -67,7 +67,7 @@ end
 gem 'sass-rails',   '~> 4.0.2'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.0.3'
-gem 'font-awesome-sass', '~> 4.4.0'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'test-unit'

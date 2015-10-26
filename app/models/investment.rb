@@ -52,6 +52,12 @@ class Investment < ActiveRecord::Base
   REG_B_REGULATION = "Reg B."
   REGULATIONS = [REG_B_REGULATION, REG_C_REGULATION]
 
+  COMING_SOON = "coming_soon"
+  PAST = "past"
+  RECENTLY_FUNDED = "funded"
+  TEST_THE_WATERS = "test_the_waters"
+  ALL_TYPES = [COMING_SOON, PAST, RECENTLY_FUNDED, TEST_THE_WATERS]
+
   scope :reg_c_investments, -> { where(regulation: REG_C_REGULATION) }
   scope :reg_b_investments, -> { where(regulation: REG_B_REGULATION) }
   scope :reg_free_investments, -> { where(regulation: nil) }
@@ -98,5 +104,9 @@ class Investment < ActiveRecord::Base
     @inv = Investment.select('name, id')
   end
 
+
+  def can_be_invested_in?
+    self.status != COMING_SOON
+  end
 
 end

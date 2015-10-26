@@ -46,6 +46,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
     padding: 10px 20px;
     font-size: 20px;
 }
+.offer-plan .col-md-12 button{
+    color: rgb(255, 255, 255);
+    background: rgb(253, 184, 34);
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    font-size: 20px;
+}
 .offer-plan  .section-heading{
     padding: 20px 0px;
 }
@@ -624,6 +631,10 @@ section h2{
         width: 100%;
         margin: 10px 0px;
     }
+    .offer-plan .col-md-12 button{
+        width: 100%;
+        margin: 10px 0px;
+    }
     .shap-canvas{
         display: inline-block;
         border-left: 120px solid transparent;
@@ -668,6 +679,11 @@ section h2{
         width: 91%!important;
     }
     .offer-plan .col-md-6 button{
+        font-size: 17px;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .offer-plan .col-md-12 button{
         font-size: 17px;
         width: 100%;
         margin: 10px 0px;
@@ -751,6 +767,11 @@ section h2{
         width: 100%!important;
     }
     .offer-plan .col-md-6 button{
+        font-size: 17px;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .offer-plan .col-md-12 button{
         font-size: 17px;
         width: 100%;
         margin: 10px 0px;
@@ -969,6 +990,11 @@ section h2{
     width: 100%;
     margin: 10px 0px;
 }
+.offer-plan .col-md-12 button{
+    font-size: 17px;
+    width: 100%;
+    margin: 10px 0px;
+}
 .test-water .category-offer{
     margin: 20px 0px;
     float: left;
@@ -1019,6 +1045,11 @@ section h2{
         width: 50%;
     }
     .offer-plan .col-md-6 button{
+        font-size: 17px;
+        width: 100%;
+        margin: 10px 0px;
+    }
+    .offer-plan .col-md-12 button{
         font-size: 17px;
         width: 100%;
         margin: 10px 0px;

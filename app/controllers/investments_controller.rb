@@ -5,13 +5,18 @@ class InvestmentsController < ApplicationController
     if(params.has_key? :status)
       if params[:status] == 'available'
         @investments = Investment.where(status: params[:status])
+        @total_investments = 0
       elsif params[:status] == 'funded'
         @funded = Investment.where(status: params[:status])
+      elsif params[:status] == 'coming_soon'          
+        @coming_soon = Investment.where(status: params[:status])
+        @total_coming = 0
       end
     end
     @investments ||= Investment.get_lp_investments('available')
-    @total_investments = Investment.where(status: 'available').count
+    @total_investments ||= Investment.where(status: 'available').count
     @coming_soon ||= Investment.get_lp_investments('coming_soon')
+    @total_coming ||= Investment.where(status: 'coming_soon').count
     @past ||= Investment.get_lp_investments('past')
     @funded ||= Investment.get_lp_investments('funded')
     @water_testing ||= Investment.get_lp_investments('test_the_waters')

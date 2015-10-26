@@ -34,8 +34,10 @@
 
     </div>
     <div class="col-md-4 col-sm-12 col-xs-12 investnow dashboeardproperty">
-        <%= button_to new_invest_investment_path(@investment), method: "get" do %>
-            <i class="fa fa-check"></i> Invest Now
+        <% if @investment.can_be_invested_in? %>
+            <%= button_to new_invest_investment_path(@investment), method: "get" do %>
+                <i class="fa fa-check"></i> Invest Now
+            <% end %>
         <% end %>
         <ul class="propertyoffer color-white">
             <li><span class="textoffer">Goal</span> <span class="hr"><hr></span></li>
@@ -92,11 +94,13 @@
 
                     <div class="col-md-4 col-sm-12 col-xs-12 tablist">
                         <div class="col-md-12 buttonpropertys">
-                        <%= button_to new_invest_investment_path(@investment), method: "get" do %>
-                            <i class="fa fa-check"></i> Invest Now
-                        <% end %>
-                         <button class="bg-transparent"><i class="fa fa-star-o"></i> Add to Watchlist </button>
-                     </div>
+                            <%if @investment.can_be_invested_in? %>
+                                <%= button_to new_invest_investment_path(@investment), method: "get" do %>
+                                    <i class="fa fa-check"></i> Invest Now
+                                <% end %>
+                            <%end%>
+                            <button class="bg-transparent"><i class="fa fa-star-o"></i> Add to Watchlist </button>
+                        </div>
                      <div class="col-md-12 col-sm-12">
                         <h2 class="text-left border-bold">Investment Detail</h2>
                         <ul class="add-detail">

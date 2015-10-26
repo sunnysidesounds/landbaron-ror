@@ -11,7 +11,7 @@
 
                     <% if !(medium.media_item_content_type =~ /^image/).nil? %>
                         <%no_image_shown = false%>
-                        <li><img src="<%=medium.media_item %>" /></li>
+                        <li><%= image_tag medium.media_item.url(:high), size: '200x300' %></li>
                     <% end %>
                 <% end %>
                 <%if no_image_shown%>
@@ -26,7 +26,7 @@
         <div id="bx-pager">
             <%- @investment.investment_images.each_with_index do |medium, index| %>
                 <% if !(medium.media_item_content_type =~ /^image/).nil? %>
-                    <a data-slide-index="<%= index%>" class=" thumb-pager" href=""><img src="<%=medium.media_item %>"></a>
+                    <a data-slide-index="<%= index%>" class=" thumb-pager" href=""><%= image_tag medium.media_item.url(:thumb)%></a>
                 <% end %>
             <% end %>
         </div>

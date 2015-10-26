@@ -1,5 +1,6 @@
 <section class="offer-plan">
 	<div class="container">
+		<%if 1==2 %>
 		<div class="row">
 			<div class="col-md-12"><h2 class="color-white section-heading margin-none">Available Investments</h2> </div>
 				<%- if @investments.count > 0%>
@@ -57,8 +58,9 @@
 					</div>
 				<%end%>
 		</div>
+		<%end%>
 		<div class="row">
-			<div class="col-md-12"><h2 class="color-white section-heading margin-none">Investments coming soon</h2> </div>
+			<div class="col-md-12"><h2 class="color-white section-heading margin-none">Coming Soon</h2> </div>
 				<%- if @coming_soon.count > 0%>
 					<% @coming_soon.each do |investment|%>
 						<%= link_to investment_path(investment) do%>

@@ -18,7 +18,7 @@ class Medium < ActiveRecord::Base
 
   belongs_to :investment
 
-  has_attached_file :media_item, :styles => { :pdf_thumbnail => ["", :jpg], :thumb => "100x100#" }
+  has_attached_file :media_item, :styles => { :pdf_thumbnail => ["", :jpg], :thumb => "100x50#", :medium => "300x300>", :high => "700x300#" }
   do_not_validate_attachment_file_type :media_item
 
 

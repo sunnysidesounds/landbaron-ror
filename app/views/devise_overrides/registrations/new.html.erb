@@ -42,14 +42,9 @@
                 </div>
                 <div class="col-md-12 no-padding form-wrapper">
                     <div class="col-md-6 col-sm-12 col-xs-12">
-                        <section ng-app="myApp" ng-controller="mainCtrl">
-                            <label>Create Password</label>
-                            <%= f.password_field :password, :class => 'form-control set-margin', :autofocus => true, :autocomplete => "off", :placeholder => 'New Password', :required => true, pattern: "(?=^.{6,}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$" %>
-                            <%= show_field_error(@user, :password) %>
-                            <!-- <input type="checkbox" id="checkbox" ng-model="passwordCheckbox" ng-click="hideShowPassword()" class="display-none"/>
-                            <label for="checkbox" ng-if="passwordCheckbox" class="hidden-show"><i class="fa fa-eye-slash"></i></label>
-                            <label for="checkbox" ng-if="!passwordCheckbox" class="hidden-show"><i class="fa fa-eye"></i></label> -->  
-                        </section>
+                        <label>Create Password</label>
+                        <%= f.password_field :password, :class => 'form-control set-margin', :autofocus => true, :autocomplete => "off", :placeholder => 'New Password', :required => true, pattern: "(?=^.{6,}$)(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\\s).*$" %>
+                        <%= show_field_error(@user, :password) %>
                     </div> 
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <label>password Strength</label>
@@ -62,26 +57,27 @@
                 </div>
                 
                 <div class="col-md-12 no-padding form-wrapper">
-                    
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                         <label>Phone Number</label>
+                         <%= f.text_field :phone_number, :class => 'form-control set-margin phone_us', :autocomplete => "off", :placeholder => '(999) 999-9999', :required => true%>
+                    </div>
+                </div>
+
+                <div class="col-md-12 no-padding form-wrapper">
                    <div class="col-md-6 col-sm-12 col-xs-12">
                        <label>Country</label>
-                       <%if 1==2%>
-                            <%= f.select :country, options_for_select(countries), {:include_blank => 'Please select a country'}, {class: 'form-control', required: true} %>
-                        <%end%>
                         <%= country_select("user", "country", { priority_countries: ["US"], selected: "US" }, { class: 'form-control', required: true }) %>
-
-                         
                    </div>
-                        <div class="col-md-6 col-sm-12 col-xs-12 ">
+                    <div class="col-md-6 col-sm-12 col-xs-12 ">
                         <label>Country Restriction</label>
                         <p class="restriction-txt">Some countries may have restrictions about real estate crowdfunding. <a href="http://www.landbaronclub.com/contact/">Contact us</a> for details.</p>
                     </div>
-                    </div>
+                </div>
                     
-                     <div class='col-md-12 hr-wrapper center-container'>
-                        <hr>
-                    </div>
-                    <div class="signup_navigation_button"></div>
+                <div class='col-md-12 hr-wrapper center-container'>
+                    <hr>
+                </div>
+                <div class="signup_navigation_button"></div>
 
             </div>
         </div>
@@ -230,38 +226,13 @@
     <!-- Step 3 -->
     <fieldset id="page3" class="investement-first property invest-dashboard signup-bg">
         <div class="container">
-
-
             <div class="col-md-10 col-sm-12 col-xs-12  center-container  color-white singup-wrapper">
                 <h1 class="color-white title-invest margin-none text-center heading">Tell us about yourself</h1>
                 <p class="text-center sub-headi">Almost done! Share some additional information to complete your investor profile and help us customize your Land Baron Club experience.</p>
-             <div class='col-md-12 hr-wrapper center-container'>
+                <div class='col-md-12 hr-wrapper center-container'>
                     <hr>
                 </div>
               
-                <div class="col-md-12 no-padding form-wrapper">
-                    <div class="col-md-6 col-sm-12 col-xs-12 ">
-                         <label>What is your annual income before taxes?</label>
-                        <!-- <input type="text" name="" placeholder="" class="form-control" /> -->
-                        <select name="user[annual_income_without_taxes]" class="form-control">
-                            <option value="0-99k">0-99K</option>
-                            <option value="100k-199k">100k-199k</option> 
-                            <option value="200k +">200k +</option>
-                        </select>
-                    </div>
-                     <div class="col-md-6 col-sm-12 col-xs-12">
-                        <label>What is your primary reason for wanting to invest? </label>
-                        <!-- <input type="text"  placeholder="" class="form-control" /> -->
-                        <select name="user[reason_to_invest]" class="form-control">
-                            <option value="Growth">Growth</option>
-                            <option value="Retirement">Retirement</option> 
-                            <option value="Diversification">Diversification</option>
-                            <option value="Other">Other</option>
-                        </select>
-                        
-                   </div> 
-
-                </div>
                 <div class="col-md-12 no-padding form-wrapper">
                     <div class="col-md-6 col-sm-12 col-xs-12">
                         <label>Have you ever invested in real estate before?</label>
@@ -271,22 +242,23 @@
                             <option value="Not sure">Not sure</option>
                         </select>
                     </div> 
-                    <div class="col-md-6 col-sm-12 col-xs-12 ">
-                        <label>Which best describes you?</label>
-                        <select name="user[describes_you]" class="form-control">
-                            <option value="> $1,000,000">> $1,000,000</option>
-                            <option value="Over $300,000 w/spouse the past 2 years">Over $300,000 w/spouse the past 2 years</option>
-                            <option value="Over $200,000 income past 2 years">Over $200,000 income past 2 years</option> 
-                            <option value="< $100,000">< $100,000</option>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <label>What is your primary reason for wanting to invest? </label>
+                        <!-- <input type="text"  placeholder="" class="form-control" /> -->
+                        <select name="user[reason_to_invest]" class="form-control">
+                            <option value="Growth">Growth</option>
+                            <option value="Retirement">Retirement</option> 
+                            <option value="Diversification">Diversification</option>
+                            <option value="Other">Other</option>
                         </select>
-                    </div>   
+                   </div> 
                 </div>
                 <div class="col-md-12 no-padding">
                     <div class="col-md-6 col-sm-12 col-xs-12 ">
                         <label>What are your current investments primarily in?</label>
                         <!-- <input type="text"  placeholder="" class="form-control" /> -->
                         <!-- <input type="text" id="user_current_investments" name="user[current_investments]" class="form-control"> -->
-                        <select multiple="multiple" id="user_current_investments" name="user[current_investments][]" class="form-control">
+                        <select multiple="multiple" id="user_current_investments" name="user[current_investments][]" class="">
                             <option value="Stocks">Stocks</option>
                             <option value="Bonds">Bonds</option>
                             <option value="Real Estate">Real Estate</option> 
@@ -310,6 +282,71 @@
                             <option value="Printed Ad">Printed Ad</option>
                             <option value="Other">Other</option>
                         </select>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="signup-notice">
+                        Due to existing securities regulations, only <a target="_blank" href="http://www.investor.gov/news-alerts/investor-bulletins/investor-bulletin-accredited-investors">accredited investors</a> can view and invest in private real estate opportunities. Please tell us a little about yourself and how you are accredited. (*Check or answer all that apply)
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1 signup-notice invest-profile">
+                    <div class="col-md-12">
+                        <div class="checkbox">
+                            <input type="radio" id="annual_income_check" name="user[self_accredition]" value="anual_income">
+                            <label for="annual_income_check" class="non-transformed-text"><b>Annual Income</b><br/>
+                                <p>I made more than $200k annually (or $300k combined with my spouse) for the past 2 years and expect the same this year.<p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="checkbox">
+                            <input type="radio" id="net_worth_check" name="user[self_accredition]" value="net_worth">
+                            <label for="net_worth_check" class="non-transformed-text"><b>Net Worth</b><br/>
+                               <p>I currently have an individual (or joint net worth with my spouse) over $1 million excluding my primary residence.</p>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <div class="checkbox">
+                            <input type="radio" id="buisness_check" name="user[self_accredition]" value="business">
+                            <label for="buisness_check" class="non-transformed-text"><b>Business</b><br/>
+                               <p>I am a representative of a bank, insurance company, registered investment company, business development company, or small business investment company interested in investment opportunities on LandBaronClub.com</p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="checkbox">
+                            <input type="radio" id="none_of_above_check" name="user[self_accredition]" value="none">
+                            <label for="none_of_above_check" class="non-transformed-text"><b><p>None of the above</p></b></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1 signup-notice invest-profile">
+                    <h2>I Agree</h2>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <input type="checkbox" id="terms_acceptance_first" name="user[terms_accepted][]" value="true">
+                                    <label for="terms_acceptance_first" class="non-transformed-text">By checking this box, you represent that you have such knowledge and experience in financial and business matters that you are capable of evaluating the merits and risks of real estate investments, and you are able to bear the economic risk of real estate investments including the risk of complete loss.
+                                    </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <input type="checkbox" id="terms_acceptance_second" name="user[terms_accepted][]" value="true">
+                                    <label for="terms_acceptance_second" class="non-transformed-text">* By checking this box you:
+                                        (a) understand that Land Baron Club will rely on the foregoing representations to, among other things, maintain compliance with securities laws,
+                                        (b) certify that your answers to the foregoing questions are correctly stated to the best of your knowledge, information and belief, and,
+                                        (c) you further agree that Land Baron Club may require (in order for you to remain a member of Land Baron Club or participate in any investment) that you (or your accountant or attorney) furnish any additional information to Land Baron Club that it deems reasonably necessary in order to verify your answers to the foregoing questions.
+                                    </label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                     

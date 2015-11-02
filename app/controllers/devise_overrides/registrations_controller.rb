@@ -32,9 +32,19 @@ class DeviseOverrides::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  protected
+
+  def after_sign_up_path_for(resource)
+    sign_out resource
+    return "http://www.landbaronclub.com/thanks-for-joining-the-list/" if resource.is_a?(User) && resource.is_pending? # Or :prefix_to_your_route
+    return "http://www.landbaronclub.com/sorry/" if resource.is_a?(User) && resource.is_denied?
+    return unauthenticated_root_path
+  end
+
   private
-    def user_params
-      params.require(:user).permit!#(:first_name, :last_name, :phone_number, :address, :city, :state, :postal_code, :income_range, :username, :email, :password, :password_confirmation, :principle_investor, :verified, :remember_me, :login_attr, :country)      
-    end
+
+  def user_params
+    params.require(:user).permit!#(:first_name, :last_name, :phone_number, :address, :city, :state, :postal_code, :income_range, :username, :email, :password, :password_confirmation, :principle_investor, :verified, :remember_me, :login_attr, :country)      
+  end
 
 end 

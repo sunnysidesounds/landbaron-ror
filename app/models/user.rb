@@ -46,6 +46,9 @@
 #  legal_name                  :string
 #  tax_id_number               :string
 #  fund_america_id             :string
+#  user_status                 :string
+#  terms_accepted              :boolean
+#  self_accredition            :string
 #
 
 require "marketo_api_helper"
@@ -73,6 +76,11 @@ class User < ActiveRecord::Base
 
 
 
+  ACCEPTED = 'accepted'
+  DENIED = 'denied'
+  PENDING = 'pending'
+  USER_STATUSES = [ACCEPTED, DENIED, PENDING]
+
   STATUSES = [InvestorAccreditation::CONFIRMED, InvestorAccreditation::PENDING, InvestorAccreditation::DENIED, InvestorAccreditation::EXPIRED]
 
   scope :list_all, -> { all }
@@ -88,6 +96,7 @@ class User < ActiveRecord::Base
 
 
   after_create :email_admins
+  before_create :set_appropriate_status
 
 
   def email_admins
@@ -95,6 +104,33 @@ class User < ActiveRecord::Base
     # AccountCreationMailer.account_creation_email(self).deliver_now if self.persisted?
   end
 
+  def set_appropriate_status
+    case self.self_accredition 
+    when 'none'
+      self.user_status = DENIED
+    when 'net_worth' || 'anual_income' || 'buisness_check'
+      self.user_status = PENDING
+    end
+  end
+
+  def mark_user_as!(status)
+    if USER_STATUSES.include?(status)
+      return self.update_attributes(user_status: status)
+    end
+    false
+  end
+
+  def is_pending?
+    self.user_status == PENDING || self.user_status == ""
+  end
+
+  def is_denied?
+    self.user_status == DENIED
+  end
+
+  def is_accepted?
+    self.user_status == ACCEPTED
+  end
 
   def sync_user_to_marketo_leads(is_dev_env=true)
     client = get_mrkt_client

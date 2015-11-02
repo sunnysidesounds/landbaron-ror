@@ -27,6 +27,7 @@
 //= require jquery.maskedinput
 //= require jshashtable-2.1_src
 //= require jquery.numberformatter-1.2.3
+//= require jquery.mask
 //= require tmpl
 //= require jquery.dependClass-0.1
 //= require draggable-0.1
@@ -74,6 +75,9 @@ jQuery.browser = browser;
 
 
 $(document).ready(function(){
+    $('.phone_us').mask('(000) 000-0000');
+
+    
     $('a.disabled').click(function(e){
         e.preventDefault();
     });

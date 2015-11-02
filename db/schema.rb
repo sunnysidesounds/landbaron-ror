@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925141432) do
+ActiveRecord::Schema.define(version: 20151030221938) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,16 @@ ActiveRecord::Schema.define(version: 20150925141432) do
     t.integer  "payment_option_id"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "order_id"
+    t.string   "category"
+    t.integer  "media_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "payment_options", force: :cascade do |t|
     t.decimal  "amount"
     t.string   "amount_display"
@@ -262,6 +272,9 @@ ActiveRecord::Schema.define(version: 20150925141432) do
     t.string   "legal_name"
     t.string   "tax_id_number"
     t.string   "fund_america_id"
+    t.string   "user_status"
+    t.boolean  "terms_accepted"
+    t.string   "self_accredition"
   end
 
   create_table "votes", force: :cascade do |t|

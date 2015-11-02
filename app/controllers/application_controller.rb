@@ -37,4 +37,26 @@ class ApplicationController < ActionController::Base
       "http://www.landbaronclub.com"
     end
   end
+
+  def authenticate_user!
+    super
+    if user_signed_in? && current_user.is_a?(User) && !current_user.is_accepted?
+      flash[:alert] = "Your account awaits admin approval, We will contact you soon." if current_user.is_pending?
+      flash[:alert] = "Since you are not an accredited investor, we appologize for giving you access to listings." if current_user.is_denied?
+      sign_out current_user
+      redirect_to user_session_path
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    return admin_root_path if resource.is_a? AdminUser
+    unless resource.is_accepted?
+      flash.delete(:notice)
+      flash[:alert] = "Your account awaits admin approval, We will contact you soon." if resource.is_pending?
+      flash[:alert] = "Since you are not an accredited investor, we appologize for giving you access to listings." if resource.is_denied?
+      sign_out resource
+      return user_session_path
+    end
+    return "/investments"
+  end
 end

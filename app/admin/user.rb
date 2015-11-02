@@ -49,8 +49,11 @@ ActiveAdmin.register User do
         row :postal_code
         row :created_at
         row :country
-        row :accredition_status do 
-          status_tag (user.accredition_status), ((user.accredition_accepted? ? :ok : (user.accredition_pending? ? :warn : :error)))
+        # row :accredition_status do 
+        #   status_tag (user.accredition_status), ((user.accredition_accepted? ? :ok : (user.accredition_pending? ? :warn : :error)))
+        # end
+        row :status do 
+          status_tag (user.user_status), ((user.is_accepted? ? :ok : user.is_denied? ? :error : :warn)) 
         end
         row :date_of_birth
         row :tax_id_number         
@@ -100,13 +103,64 @@ ActiveAdmin.register User do
     end
   end
 
-  action_item :submit_to_fund_america, only: :show do
-    if !user.registered_to_fund_america?
-      link_to "Submit to FA", register_user_to_fund_america_admin_user_path(user) 
-    elsif user.registered_to_fund_america? and user.investor_accreditation.nil?
-      link_to "Request URL for accreditation", request_url_for_accreditation_admin_user_path(user), target: '_blank'
-    elsif user.registered_to_fund_america? and !(user.investor_accreditation.nil?)
-      link_to "Mark user status as Confirmed", mark_user_as_confirmed_on_fa_admin_user_path(user) if Rails.env.development?
+  # action_item :submit_to_fund_america, only: :show do
+  #   if !user.registered_to_fund_america?
+  #     link_to "Submit to FA", register_user_to_fund_america_admin_user_path(user) 
+  #   elsif user.registered_to_fund_america? and user.investor_accreditation.nil?
+  #     link_to "Request URL for accreditation", request_url_for_accreditation_admin_user_path(user), target: '_blank'
+  #   elsif user.registered_to_fund_america? and !(user.investor_accreditation.nil?)
+  #     link_to "Mark user status as Confirmed", mark_user_as_confirmed_on_fa_admin_user_path(user) if Rails.env.development?
+  #   end
+  # end
+
+   action_item :toggle_user_status, only: :show do
+    if user.is_pending?
+      link_to "Accept User", accept_user_admin_user_path(user) 
+    elsif user.is_accepted?
+      link_to "Review User", review_user_admin_user_path(user) 
+    elsif user.is_denied?
+      link_to "Accept User", accept_user_admin_user_path(user) 
+    end
+  end
+
+  action_item :toggle_user_status, only: :show do
+    if user.is_pending?
+      link_to "Reject User", deny_user_admin_user_path(user) 
+    elsif user.is_accepted?
+      link_to "Reject User", deny_user_admin_user_path(user) 
+    elsif user.is_denied?
+      link_to "Review User", review_user_admin_user_path(user) 
+    end
+  end
+
+
+  member_action :accept_user, method: :get do
+    if resource.mark_user_as!(User::ACCEPTED)
+      flash[:notice] = "User has successfully been marked as #{User::ACCEPTED}"
+      redirect_to :back
+    else
+      flash[:error] = "Could not mark user as #{User::ACCEPTED}"
+      redirect_to :back
+    end
+  end
+
+  member_action :deny_user, method: :get do
+    if resource.mark_user_as!(User::DENIED)
+      flash[:notice] = "User has successfully been marked as #{User::DENIED}"
+      redirect_to :back
+    else
+      flash[:error] = "Could not mark user as #{User::DENIED}"
+      redirect_to :back
+    end
+  end
+
+  member_action :review_user, method: :get do
+    if resource.mark_user_as!(User::PENDING)
+      flash[:notice] = "User has successfully been marked as #{User::PENDING}"
+      redirect_to :back
+    else
+      flash[:error] = "Could not mark user as #{User::PENDING}"
+      redirect_to :back
     end
   end
 

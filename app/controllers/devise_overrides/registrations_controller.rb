@@ -35,9 +35,12 @@ class DeviseOverrides::RegistrationsController < Devise::RegistrationsController
   protected
 
   def after_sign_up_path_for(resource)
-    sign_out resource
-    return "http://www.landbaronclub.com/thanks-for-joining-the-list/" if resource.is_a?(User) && resource.is_pending? # Or :prefix_to_your_route
-    return "http://www.landbaronclub.com/sorry/" if resource.is_a?(User) && resource.is_denied?
+    if resource.is_a?(User)
+      flash.delete(:notice)
+      sign_out resource
+      return "http://www.landbaronclub.com/thanks-for-joining-the-list/" if resource.is_pending? # Or :prefix_to_your_route
+      return "http://www.landbaronclub.com/sorry/" if resource.is_denied?
+    end
     return unauthenticated_root_path
   end
 

@@ -121,7 +121,7 @@ class User < ActiveRecord::Base
   end
 
   def is_pending?
-    self.user_status == PENDING || self.user_status == ""
+    self.user_status == PENDING || self.user_status.nil?
   end
 
   def is_denied?

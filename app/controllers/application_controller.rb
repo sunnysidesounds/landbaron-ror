@@ -34,6 +34,7 @@ class ApplicationController < ActionController::Base
     if Rails.env.development?
       new_user_session_path
     else
+      flash.delete(:notice)
       "http://www.landbaronclub.com"
     end
   end
@@ -52,12 +53,14 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     return admin_root_path if resource.is_a? AdminUser
+    if resource.is_a?(User) && !resource.is_accepted?
       sign_out resource
       flash.delete(:notice)
       # flash[:alert] = "Your account awaits admin approval, We will contact you soon." if resource.is_pending?
       # flash[:alert] = "Since you are not an accredited investor, we appologize for giving you access to listings." if resource.is_denied?
-      return "http://www.landbaronclub.com/thanks-for-joining-the-list/" if resource.is_a?(User) && resource.is_pending? # Or :prefix_to_your_route
-      return "http://www.landbaronclub.com/sorry/" if resource.is_a?(User) && resource.is_denied?
+      return "http://www.landbaronclub.com/thanks-for-joining-the-list/" if resource.is_pending? # Or :prefix_to_your_route
+      return "http://www.landbaronclub.com/sorry/" if resource.is_denied?
+    end
     return "/investments"
   end
 end

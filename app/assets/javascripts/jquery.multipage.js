@@ -14,15 +14,15 @@
         steps.each(function(i) {
 
             $(this).wrap("<div id='step" + i + "' class='row'></div>");
-            $($(this).find(".signup_navigation_button")).append("<p class='steps_navigation' id='step" + i + "commands'></p>");
+            $($(this).find(".signup_navigation_button")).append("<p class='steps_navigation text-center' id='step" + i + "commands'></p>");
 
             if (i == 0) {
                 createButton(i, "Submit and advance to next step");
-                //selectStep(i);
+                selectStep(i);
             }
             else if (i == count - 1) {
                 $("#step" + i).hide();
-                //createPrevButton(i);
+                // createPrevButton(i);
             }
             else {
                 $("#step" + i).hide();
@@ -38,7 +38,7 @@
                 $("#" + stepName).hide();
                 $("#step" + (i - 1)).show();
                 $(submmitButtonName).hide();
-               // selectStep(i - 1);
+               selectStep(i - 1);
             });
         }
 
@@ -58,7 +58,6 @@
                         e.preventDefault();
                     }
                 }
-                
                 
                // selectStep(i + 1);
             });

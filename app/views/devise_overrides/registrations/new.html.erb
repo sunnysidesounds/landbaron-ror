@@ -287,7 +287,7 @@
 
                 <div class="col-md-8 col-md-offset-2">
                     <div class="signup-notice">
-                        Due to existing securities regulations, only <a target="_blank" href="http://www.investor.gov/news-alerts/investor-bulletins/investor-bulletin-accredited-investors">accredited investors</a> can view and invest in private real estate opportunities. Please tell us a little about yourself and how you are accredited. (*Check or answer all that apply)
+                        Due to existing securities regulations, only <a target="_blank" href="http://www.investor.gov/news-alerts/investor-bulletins/investor-bulletin-accredited-investors">accredited investors</a> can view and invest in private real estate opportunities. Please tell us a little about yourself and how you are accredited.
                     </div>
                 </div>
 
@@ -330,8 +330,8 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="checkbox">
-                                <input type="checkbox" id="terms_acceptance_first" name="user[terms_accepted][]" value="true">
-                                    <label for="terms_acceptance_first" class="non-transformed-text">By checking this box, you represent that you have such knowledge and experience in financial and business matters that you are capable of evaluating the merits and risks of real estate investments, and you are able to bear the economic risk of real estate investments including the risk of complete loss.
+                                <input type="checkbox" id="terms_acceptance_1" name="user[terms_accepted][]">
+                                    <label id="label_terms_acceptance_1" for="terms_acceptance_1" class="non-transformed-text">By checking this box, you represent that you have such knowledge and experience in financial and business matters that you are capable of evaluating the merits and risks of real estate investments, and you are able to bear the economic risk of real estate investments including the risk of complete loss.
                                     </label>
                             </div>
                         </div>
@@ -339,8 +339,8 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <div class="checkbox">
-                                <input type="checkbox" id="terms_acceptance_second" name="user[terms_accepted][]" value="true">
-                                    <label for="terms_acceptance_second" class="non-transformed-text">* By checking this box you:
+                                <input type="checkbox" id="terms_acceptance_2" name="user[terms_accepted][]">
+                                    <label id="label_terms_acceptance_2" for="terms_acceptance_2" class="non-transformed-text">* By checking this box you:
                                         (a) understand that Land Baron Club will rely on the foregoing representations to, among other things, maintain compliance with securities laws,
                                         (b) certify that your answers to the foregoing questions are correctly stated to the best of your knowledge, information and belief, and,
                                         (c) you further agree that Land Baron Club may require (in order for you to remain a member of Land Baron Club or participate in any investment) that you (or your accountant or attorney) furnish any additional information to Land Baron Club that it deems reasonably necessary in order to verify your answers to the foregoing questions.
@@ -354,16 +354,6 @@
                     <hr>
                 </div>
                 
-                <!-- <div class="col-md-12 signup-btn">
-                    <p class="text-center">
-                        <button class="invest-btn"> Finish Up <i class="fa fa-check-circle "></i></button>  
-                        
-                    </p>
-                    
-                     <p class="text-center restriction-txt">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    </p>
-                </div> -->
                 <div class="col-md-12 signup-btn over-flow">
                     <p class="text-center">
                         <button id="create_user_button" class="invest-btn"> Create Account <i class="fa fa-chevron-right"></i></button>  
@@ -373,6 +363,24 @@
            
         </div>
     </fieldset>
+    <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="signupModalLabel"><img src="/assets/images/favicon.ico"></img>  Terms and conditions</h4>
+          </div>
+          <div class="modal-body">
+            You cannot create an account without agreeing to our terms and conditions.<br/><br/>
+            Thanks,<br/>
+            Team Landbaron.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Ok, Got it!</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 <%end%>
 
@@ -381,6 +389,13 @@
     // $("#create_user").multipage({ submitButton: 'create_user_button' });
 
     $('#user_current_investments').selectize({delimiter: ','})
+    $('#create_user_button').bind("click", function(e){
+        if (!($("#terms_acceptance_2").is(":checked")) || !($("#terms_acceptance_1").is(":checked"))){
+            $('#myModal').modal({keyboard: false, backdrop: 'static'})
+            e.preventDefault()
+            return;
+        }
+    })
 
     jQuery("#Slider1").slider({ 
         from: 1000, 

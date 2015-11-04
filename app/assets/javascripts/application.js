@@ -116,7 +116,6 @@ $(document).ready(function(){
     // })
 
     $("#user_password").keyup(function(e){
-        console.log($(this).val())
         verify_password()
     })
 

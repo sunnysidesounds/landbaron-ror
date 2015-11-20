@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
 
   ACCEPTED = 'accepted'
   DENIED = 'denied'
-  PENDING = 'pending'
+  PENDING = 'default'
   USER_STATUSES = [ACCEPTED, DENIED, PENDING]
 
   STATUSES = [InvestorAccreditation::CONFIRMED, InvestorAccreditation::PENDING, InvestorAccreditation::DENIED, InvestorAccreditation::EXPIRED]
@@ -97,7 +97,7 @@ class User < ActiveRecord::Base
 
   after_create :email_admins
   before_create :set_appropriate_status
-
+  after_save :sync_user_to_marketo_leads
 
   def email_admins
     AdminMailer.account_creation_email(self).deliver_now if self.persisted?
@@ -132,23 +132,30 @@ class User < ActiveRecord::Base
     self.user_status == ACCEPTED
   end
 
-  def sync_user_to_marketo_leads(is_dev_env=true)
+  def sync_user_to_marketo_leads(is_dev_env=false)
     client = get_mrkt_client
     temp_email = "azlantaher@gmail.com" if is_dev_env
     temp_email = self.email unless temp_email
     # email_address, first_name, last_name, company, phone
-    resp = set_mrkt_lead({ :email => temp_email,
-          :firstName => self.first_name,
-          :lastname => self.last_name,
-          # :company => company,
-          :phone => self.phone_number,
-          :'Property_of_Interest__c' => self.property_types,
-          :'Deal_of_Interest__c' => self.deal_types, 
-          :'Invested_in_Real_Estate_Before__c' => self.invested_in_realestate
-          # :'Annual_Net_Income_Before_Taxes__c' => self.annual_income_without_taxes
-           })
+    resp = set_mrkt_lead(user_marketo_hash(temp_email))
 
-    self.marketo_lead_id = resp.first[:id] if resp.is_a? Array
+    self.marketo_lead_id = resp.first[:id] if resp.is_a?(Array) && self.new_record?
+    self.update_columns(marketo_lead_id: resp.first[:id]) if resp.is_a?(Array) && !(self.new_record?)
+  end
+
+  def user_marketo_hash(temp_email)
+    { :email => temp_email,
+      :firstName => self.first_name,
+      :lastname => self.last_name,
+      # :company => company,
+      :phone => self.phone_number,
+      :'Property_of_Interest__c' => self.property_types,
+      :'Deal_of_Interest__c' => self.deal_types, 
+      :'Invested_in_Real_Estate_Before__c' => self.invested_in_realestate,
+      :'User_Status__c' => self.user_status,
+      :'Self_Accreditation__c' => self.self_accredition
+      # :'Annual_Net_Income_Before_Taxes__c' => self.annual_income_without_taxes
+    }
   end
 
   def full_name
